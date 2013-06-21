@@ -85,8 +85,8 @@ $(function() {
               </ul>
             </div>
           </li>
-          <a href="about.html"><li class="about">about</li></a>
-          <a href="faq.html"><li class="faqs">faqs</li></a>
+          <a href="about"><li class="about">about</li></a>
+          <a href="faq"><li class="faqs">faqs</li></a>
           <a href="call">
             <li class="call">call</li>
           </a>

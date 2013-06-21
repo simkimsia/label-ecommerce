@@ -30,8 +30,12 @@
 
 	Router::connect('/call', array('controller' => 'pages', 'action' => 'display', 'call'));
 
+	Router::connect('/about', array('controller' => 'pages', 'action' => 'display', 'about'));
+
+	Router::connect('/faq', array('controller' => 'pages', 'action' => 'display', 'faq'));
+
 	// customized routes for faq and about
-	
+
 /**
  * ...and connect the rest of 'Pages' controller's urls.
  */
