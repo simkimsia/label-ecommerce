@@ -5,3 +5,56 @@ app/tmp/*
 app/[Cc]onfig/core.php
 app/[Cc]onfig/database.php
 !empty
+
+*.kpf
+.idea
+pmip
+*.tmproj
+.DS_Store
+*.DS_Store
+*.sublime-project
+*.sublime-workspace
+tags
+.dropbox
+
+src/plugins
+src/vendors
+
+## Code coverage reports and other CI related output files from build
+build/logs/*
+build/coverage/*
+build/code-browser/*
+build/api/*
+build/phploc-reports/*
+build/doc.html
+
+## Config files
+src/labelecommapp/Config/database.php
+src/labelecommapp/Config/core.php
+src/labelecommapp/Config/email.php
+
+## images files in uploads
+src/labelecommapp/webroot/uploads/story_images/*
+src/labelecommapp/webroot/uploads/story_files/*
+src/labelecommapp/webroot/uploads/Story/*
+
+## Temporary files
+src/labelecommapp/tmp/cache/models/myapp_cake_*
+src/labelecommapp/tmp/cache/persistent/myapp_cake_*
+src/labelecommapp/tmp/cache/views/myapp_cake_*
+src/labelecommapp/tmp/logs/*.log
+src/labelecommapp/tmp/sessions/myapp_cake_*
+src/labelecommapp/tmp/tests/myapp_cake_*
+
+src/lib/Cake/Console/Templates/skel/tmp/cache/models/myapp_cake_*
+src/lib/Cake/Console/Templates/skel/tmp/cache/persistent/myapp_cake_*
+src/lib/Cake/Console/Templates/skel/tmp/cache/views/myapp_cake_*
+src/lib/Cake/Console/Templates/skel/tmp/logs/*.log
+src/lib/Cake/Console/Templates/skel/tmp/sessions/myapp_cake_*
+src/lib/Cake/Console/Templates/skel/tmp/tests/myapp_cake_*
+
+## ignore libraries related files
+src/labelecommapp/Vendor/autoload.php
+src/labelecommapp/Vendor/composer/*
+src/labelecommapp/Vendor/titon/*
+src/labelecommapp/Vendor/mjohnson/*
