@@ -27,6 +27,11 @@
  * to use (in this case, /app/View/Pages/home.ctp)...
  */
 	Router::connect('/', array('controller' => 'pages', 'action' => 'display', 'index'));
+
+	Router::connect('/call', array('controller' => 'pages', 'action' => 'display', 'call'));
+
+	// customized routes for faq and about
+	
 /**
  * ...and connect the rest of 'Pages' controller's urls.
  */
