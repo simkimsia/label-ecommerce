@@ -41,7 +41,7 @@
             	  
                 <div style="border:1px dashed #44c8f5; width: 460px; margin-top:45px; padding:5px;">
                      <?php echo $this->Html->image('welovetohear.png', array('margin-top' => '-10px')); ?>
-                    <span style="padding:8px; line-height:20px; ">If you have a special question, or require any assistance, drop us an email at sales@childlabel.com or fill up the <a href="call.html">contact form</a> and we’ll be sure to reply as soon as we can. </span>
+                    <span style="padding:8px; line-height:20px; ">If you have a special question, or require any assistance, drop us an email at sales@childlabel.com or fill up the <a href="call">contact form</a> and we’ll be sure to reply as soon as we can. </span>
                 </div>
                 <br />
             </div>

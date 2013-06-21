@@ -8,7 +8,7 @@
                     <strong>We’d love to hear from you!</strong><br /><br />If you have a special order, or require any assistance, drop us an email at sales@childlabel.com or fill up the contact form on the right and we’ll be sure to reply as soon as we can.
                   </div>
                   <div class="rightContent clearfix">
-                    <img src="img/contactForm.png">
+                    <?php echo $this->Html->image('contactForm.png'); ?>
                     <form>
                       <input type="text" name="name" placeholder="Name">
                       <input type="text" name="name" placeholder="Email">
