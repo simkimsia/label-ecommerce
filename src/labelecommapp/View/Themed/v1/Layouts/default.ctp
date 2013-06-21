@@ -14,14 +14,14 @@
 <link rel="shortcut icon" href="<?php echo $this->Html->assetUrl('img/favicon.ico'); ?>"/>
 <?php echo $this->Html->css('childlabel'); ?>
 <!-- Stylesheets Start End //-->
-<script type="text/javascript" src="js/jquery-1.9.0.min.js"></script>
 <?php echo $this->Html->script('jquery-1.9.0.min'); ?>
-<script type="text/javascript" src="js/jquery.nivo.slider.js"></script>
-<link rel="stylesheet" href="css/themes/default/default.css" type="text/css" media="screen" />
-<link rel="stylesheet" href="css/themes/light/light.css" type="text/css" media="screen" />
-<link rel="stylesheet" href="css/themes/dark/dark.css" type="text/css" media="screen" />
-<link rel="stylesheet" href="css/themes/bar/bar.css" type="text/css" media="screen" />
-<link rel="stylesheet" href="css/nivo-slider.css" type="text/css" media="screen" />
+<?php echo $this->Html->script('jquery.nivo.slider'); ?>
+<?php echo $this->Html->css('themes/default/default'); ?>
+<?php echo $this->Html->css('themes/light/light'); ?>
+<?php echo $this->Html->css('themes/dark/dark'); ?>
+<?php echo $this->Html->css('themes/bar/bar'); ?>
+<?php echo $this->Html->css('nivo-slider'); ?>
+
 <script type="text/javascript">
 $(window).load(function() {
     $('#slider').nivoSlider();
@@ -50,7 +50,9 @@ $(function() {
           <li>
             <a href="shop.html"><div class="shop">shop</div></a>
             <div id="dropDownMenu" class="menu_items">
-              <div class="arrowHolder"><img src="img/arrow.png" /></div>
+              <div class="arrowHolder">
+                <?php echo $this->Html->image('arrow.png'); ?>
+                </div>
               <ul class="internalLinks">
                 <li>
                     <strong>Child Label Packs (Stickers)</strong>
@@ -105,8 +107,16 @@ $(function() {
 
         <div class="bannerHolder theme-default">
           <div id="slider" class="nivoSlider">
-              <a href="#"><img src="img/banner3.jpg" data-thumb="img/banner1.jpg" alt="" /></a>
-              <a href="#"><img src="img/banner2.jpg" data-thumb="img/banner2.jpg" alt="" /></a>
+              <a href="#">
+              <?php echo $this->Html->image('banner3.jpg', array('data-thumb' => 'banner1.jpg')); ?>
+
+                <!-- <img src="img/banner3.jpg" data-thumb="img/banner1.jpg" alt="" /> -->
+              </a>
+
+              <a href="#">
+                  <?php echo $this->Html->image('banner2.jpg', array('data-thumb' => 'banner2.jpg')); ?>
+              <!-- <img src="img/banner2.jpg" data-thumb="img/banner2.jpg" alt="" /> -->
+              </a>
           </div>
         </div>
 
@@ -116,21 +126,19 @@ $(function() {
             <li class="clearfix">
               <a href="#"><div class="learnmoreHolder">Learn More</div></a>
               <div class="productHolder">Rocket Science</div>
-              <img src="img/productimg1.png" width="260">
+              <?php echo $this->Html->image('productimg1.png', array('width' => '260')); ?>
             </li>
 
             <li class="clearfix">
               <a href="#"><div class="learnmoreHolder">Learn More</div></a>
               <div class="productHolder">Under the Sea</div>
-              <img src="img/productimg2.png" width="260">
-              
+              <?php echo $this->Html->image('productimg2.png', array('width' => '260')); ?>
             </li>
 
             <li class="noright clearfix">
               <a href="#"><div class="learnmoreHolder">Learn More</div></a>
               <div class="productHolder">VROOM!</div>
-              <img src="img/productimg3.png" width="260">
-              
+              <?php echo $this->Html->image('productimg3.png', array('width' => '260')); ?>
             </li>
           </ul>
         </div>
