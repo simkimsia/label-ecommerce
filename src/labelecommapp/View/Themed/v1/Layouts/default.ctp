@@ -143,9 +143,9 @@ $(function() {
 
             <div class="col1">
               <strong>Navigation</strong><br/>
-                <a href="#">About</a><br/>
-                <a href="#">FAQs</a><br/>
-                <a href="#">Contact</a><br/>
+                <a href="about">About</a><br/>
+                <a href="faq">FAQs</a><br/>
+                <a href="call">Contact</a><br/>
                 <a href="#">Facebook</a><br/>
                 <a href="#">Twitter</a><br/>
             </div>
