@@ -93,7 +93,7 @@
 
     </target>
 
-	<target name="deploy-stage" depends="predeploy-stage,setup-environments,gitclone,update-symlink-current,symlink-server-configs,reboot-services,chmod-tmp,gitclone-plugins,run-composer,remove-buildtime-folders,run-migrations,run-acosync">
+	<target name="deploy-stage" depends="predeploy-stage,setup-environments,gitclone,update-symlink-current,symlink-server-configs,reboot-services,chmod-tmp,gitclone-plugins,run-composer,remove-buildtime-folders,run-migrations,run-clearcache,run-acosync">
 		<echo msg="Finished deploying on rackspace server for stage environment!" />
 	</target>
 
@@ -143,7 +143,7 @@
         <!-- remove the symlink if it is already there -->
         <exec command="ssh -A ${host-used} 'chmod 777 ${environment.sitedir}${build.time}/${appdirname}/tmp -R'" outputProperty="result" />
 
-        <exec command="ssh -A ${host-used} 'chmod 777 ${environment.sitedir}${build.time}/lib/ -R'" outputProperty="result" />
+        <exec command="ssh -A ${host-used} 'chmod 777 ${environment.sitedir}${build.time}/src/lib/ -R'" outputProperty="result" />
 
         <echo msg="${result}" />
 
@@ -187,6 +187,13 @@
         <echo msg="Running Migrations in ${appdirname}" />
 
         <exec command="ssh -A ${host-used} '${cd.current.src.app} &amp;&amp; Console/cake Migrations.migration run all'" outputProperty="result" escape="false" />
+        <echo msg="${result}" />
+    </target>
+
+    <target name="run-clearcache">
+        <echo msg="Running ClearCache in ${appdirname}" />
+
+        <exec command="ssh -A ${host-used} '${cd.current.src.app} &amp;&amp; Console/cake ClearCache.clear_cache'" outputProperty="result" escape="false" />
         <echo msg="${result}" />
     </target>
 
