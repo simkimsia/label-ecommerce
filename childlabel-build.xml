@@ -1,0 +1,221 @@
+<?xml version="1.0" encoding="utf-8"?>
+<project name="LTE" default="deploy-stage">
+	<!--
+	Build.xml file for CakePHP
+
+	Uses phing to create releases, and pear packages.
+	Based off of build.xml in doctrine.
+
+	Requires the d51PearPkg2 to be installed:
+
+	pear channel-discover pear.domain51.com
+	pear install domain51/Phing_d51PearPkg2Task
+
+	Use the `release` task to update VERSION.txt, and create a new tag.
+	Use the `build` task to create a pear package based on the current working copy.
+	Use the `clean` task to clean up packaging artifacts.
+	-->
+
+	<property name="package"  value="${phing.project.name}" override="true" />
+    <property name="builddir" value="${project.basedir}/build" override="true" />
+    <property name="srcdir"   value="${project.basedir}/src" override="true" />
+    <property name="testsdir"   value="${project.basedir}/tests" override="true" />
+    <property name="appdirname"   value="labelecommapp" override="true" />
+    <property name="appdir"   value="${srcdir}/${appdirname}" override="true" />
+
+    <property name="tmpdir"   value="${appdir}/tmp" override="true" />
+    <property name="logdir"   value="${tmpdir}/logs" override="true" />
+
+    <property name="cake"    value="${appdir}/Console/cake" override="true" />
+    <property name="runinapp" value="--app ${appdir}" override="true" />
+
+    <property name="domain" value="childlabel.oppoin.com" override="true" />
+
+    <property name="repository-uri" value="git@github.com:simkimsia/label-ecommerce.git" override="true" />
+
+    <property name="currentdir" value="current" override="true" />
+    <property name="server-configdir" value="config" override="true" />
+
+    <property name="configs" value="${appdirname}/Config/database.php,${appdirname}/Config/core.php,${appdirname}/Config/email.php" override="true" />
+
+    <property name="ugc.uploads" value="src/labelecommapp/webroot/uploads" override="true" />
+
+    <property name="removals" value="src/labelecommapp/webroot/uploads,src/labelecommapp/webroot/test.php" override="true" />
+
+    <property name="server-user" value="www-data" override="true" />
+    <property name="server-ip" value="166.78.124.182" override="true" />
+    <property name="host-used" value="${server-user}@${server-ip}" override="true" />
+
+    <property name="production.branch" value="master" override="true" />
+    <property name="production.sitedir" value="/var/virtual/${domain}/" override="true" />
+
+    <property name="stage.branch" value="develop" override="true" />
+    <property name="stage.sitedir" value="/var/virtual/stage.${domain}/" override="true" />
+
+    <property name="runincurrentapp" value="${runinapp}" override="true" />
+    <property name="runinworkspaceapp" value="${runinapp}" override="true" />
+
+    <property name="production.sitedir.current" value="${production.sitedir}current" override="true" />
+    <property name="stage.sitedir.current" value="${stage.sitedir}current/" override="true" />
+
+    <property name="production.sitedir.current.app" value="${production.sitedir.current}${appdirname}" override="true" />
+    <property name="stage.sitedir.current.app" value="${stage.sitedir.current}${appdirname}" override="true" />
+
+
+    <tstamp>
+        <format property="build.time" pattern="%Y_%m_%d_%H_%M_%S" />
+    </tstamp>
+
+	<!-- ============================================  -->
+	<!-- Target: predeploy                             -->
+	<!-- ============================================  -->
+    <target name="predeploy-stage" >
+        <echo msg="Preparing deploy on rackspace server for stage environment" />
+        <property name="environment" value="stage" override="true"/>
+        <property name="environment.branch" value="${stage.branch}" override="true"/>
+        <property name="environment.sitedir" value="${stage.sitedir}" override="true"/>
+
+
+        <property name="runincurrentapp" value="--app ${environment.sitedir}${appdirname}" override="true" />
+        <property name="runinworkspaceapp" value="${runinapp}" override="true" />
+        <echo msg="Deploying on rackspace server for stage environment ... " />
+
+    </target>
+
+    <target name="setup-environments" description="define some commonly used properties">
+        <property name="environment.sitedir.current" value="${environment.sitedir}current/" override="true"/>
+        <property name="environment.sitedir.current.app" value="${environment.sitedir.current}${appdirname}/" override="true"/>
+
+        <property name="cd.current" value="cd ${environment.sitedir.current}" override="true"/>
+        <property name="cd.current.app" value="cd ${environment.sitedir.current.app}" override="true"/>
+
+    </target>
+
+	<target name="deploy-stage" depends="predeploy-stage,setup-environments,gitclone,update-symlink-current,symlink-server-configs,reboot-services,chmod-tmp,gitclone-plugins,run-composer,remove-buildtime-folders,run-migrations,run-acosync">
+		<echo msg="Finished deploying on rackspace server for stage environment!" />
+	</target>
+
+
+	<target name="gitclone">
+        <echo msg="gitclone ${environment.branch} branch code to ${environment} environment" />
+
+        <exec command="ssh -A ${host-used} 'git clone -b ${environment.branch} ${repository-uri} ${environment.sitedir}${build.time}'"
+         outputProperty="result" escape="false"/>
+        <echo msg="${result}" />
+
+    </target>
+
+<target name="symlink-server-configs">
+        <echo msg="symlink config files into ${environment} deployment" />
+        
+        <foreach list="${configs}" param="dir" target="symlink-file" />
+        
+    </target>
+
+    <target name="symlink-file">
+        <echo msg="symlink ${dir} inside ${environment.sitedir}${build.time} recursively" />
+        
+        <exec command="ssh -A ${host-used} 'ln -s ${environment.sitedir}config/${dir} ${environment.sitedir}${build.time}/${dir}'" outputProperty="result" />
+        <echo msg="${result}" />
+
+    </target>
+
+    <target name="reboot-services">
+        <echo msg="Clearing APC cache" />
+
+        <!-- clear the APC cache if it is already there -->
+        <exec command="ssh -A ${host-used} 'cd ${environment.sitedir}${build.time} &amp;&amp; ./RunApcClearCache.sh'" outputProperty="result" escape="false">
+    	</exec>
+        <echo msg="${result}" />
+
+	    <exec command="sudo service php5-fpm restart" outputProperty="result" />
+        <echo msg="${result}" />
+    </target>
+
+    <!-- ============================================  -->
+    <!-- Target: chmod tmp folder                      -->
+    <!-- ============================================  -->
+    <target name="chmod-tmp">
+        <echo msg="opening 777 access to tmp folders" />
+
+        <!-- remove the symlink if it is already there -->
+        <exec command="ssh -A ${host-used} 'chmod 777 ${environment.sitedir}${build.time}/${appdirname}/tmp -R'" outputProperty="result" />
+
+        <exec command="ssh -A ${host-used} 'chmod 777 ${environment.sitedir}${build.time}/lib/ -R'" outputProperty="result" />
+
+        <echo msg="${result}" />
+
+    </target>
+
+    <target name="update-symlink-current">
+        <echo msg="Updating symlink at current to latest cloned files for ${environment} deployment" />
+
+        <!-- remove the symlink if it is already there -->
+        <exec command="ssh -A ${host-used} 'rm ${environment.sitedir}current'" outputProperty="result" />
+
+        <!-- <delete dir="${environment.sitedir}current" quiet='true' /> -->
+        <exec command="ssh -A ${host-used} 'ln -s ${environment.sitedir}${build.time} ${environment.sitedir}current'" outputProperty="result" />
+        <echo msg="${result}" />
+    </target>
+
+    <target name="gitclone-plugins">
+        <echo msg="Git cloning plugins in ${appdirname}" />
+
+        <property name="plugindir" value="${environment.sitedir}current/${appdirname}/Plugin/" override="true" />
+        <!-- run git clone on plugin -->
+        <property name="plugin.name" value="Backbone" override="true" />
+        <property name="plugin.repo" value="git@github.com:simkimsia/CakePhp-Backbone-Plugin.git" override="true" />
+
+        <exec command="ssh -A ${host-used} 'git clone ${plugin.repo} ${plugindir}${plugin.name}'"
+         outputProperty="result" escape="false"/>
+        <echo msg="${result}" />
+        <!-- end run git clone on plugin -->
+
+        <!-- run git clone on plugin -->
+        <property name="plugin.name" value="Composer" override="true" />
+        <property name="plugin.repo" value="git@github.com:uzyn/cakephp-composer.git" override="true" />
+
+        <exec command="ssh -A ${host-used} 'git clone ${plugin.repo} ${plugindir}${plugin.name}'"
+         outputProperty="result" escape="false"/>
+        <echo msg="${result}" />
+        <!-- end run git clone on plugin -->
+
+    </target>
+
+    <target name="run-composer">
+        <echo msg="Running Composer in ${appdirname}" />
+
+        <exec command="ssh -A ${host-used} '${cd.current.app} &amp;&amp; Console/cake composer.c update -y'" outputProperty="result" escape="false" />
+        <echo msg="${result}" />
+    </target>
+
+    <target name="run-migrations">
+        <echo msg="Running Migrations in ${appdirname}" />
+
+        <exec command="ssh -A ${host-used} '${cd.current.app} &amp;&amp; Console/cake Migrations.migration run all'" outputProperty="result" escape="false" />
+        <echo msg="${result}" />
+    </target>
+
+    <target name="run-acosync">
+        <echo msg="Running AclExtras.AclExtras aco_sync in ${appdirname}" />
+
+        <exec command="ssh -A ${host-used} '${cd.current.app} &amp;&amp; Console/cake AclExtras.AclExtras aco_sync'" outputProperty="result" escape="false" />
+        <echo msg="${result}" />
+    </target>
+
+    <target name="remove-buildtime-folders">
+        <echo msg="Removing any extra build time folders in ${appdirname}" />
+
+        <exec command="ssh -A ${host-used} '${cd.current} &amp;&amp; ./RemoveBuildTimeFolders.sh'" outputProperty="result" escape="false" />
+        <echo msg="${result}" />
+    </target>
+
+    <target name="run-tests">
+        <echo msg="Running tests in ${appdirname}" />
+
+        <exec command="ssh -A ${host-used} '${cd.current.app} &amp;&amp; Console/cake run the test commands'" outputProperty="result" escape="false" />
+        <echo msg="${result}" />
+    </target>
+
+
+</project>

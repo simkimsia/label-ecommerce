@@ -1,0 +1,55 @@
+<?xml version="1.0" ?>
+<project name="PurpleMonkey" basedir="." default="migrate">
+
+<taskdef classname="phing.tasks.ext.d51PearPkg2Task" name="d51pearpkg2" />
+    <!-- Sets the DSTAMP, TSTAMP and TODAY properties -->
+    <tstamp/>
+
+    <property name="environment.branch" value="develop" override="true"/>
+    <property name="environment.sitedir" value="./" override="true"/>
+    <property name="environment.sitedir.current" value="${environment.sitedir}" override="true" />
+
+    <!-- Load our configuration -->
+    <property name="app"  value="src/labelecommapp/" override="true" />
+    <property name="app.db"  value="${app}db/" override="true" />
+
+    <property name="domain" value="childlabel.oppoin.com" override="true" />
+
+    <property name="stage.branch" value="develop" override="true" />
+    <property name="stage.sitedir" value="/var/virtual/stage.${domain}/" override="true" />
+    <property name="stage.sitedir.current" value="${stage.sitedir}current/" override="true" />
+
+    <!-- create our migration task -->
+    <target name="migrate" description="Database Migrations" depends="prepare-paths">  
+
+        <!-- restore the latest sql -->
+        <exec command="php ${current.app.db}restore.php" outputProperty="result" escape="false">
+        </exec>
+        <echo msg="${result}" />
+
+    </target>
+
+    <!-- create our migration task -->
+    <target name="ping-db" description="Database Migrations" depends="prepare-paths">  
+
+        <!-- restore the latest sql -->
+        <exec command="php ${current.app.db}ping.php" outputProperty="result" escape="false">
+        </exec>
+        <echo msg="${result}" />
+
+    </target>
+
+    <target name="predeploy-stage" >
+        <echo msg="Preparing deploy on rackspace server for stage environment" />
+        <property name="environment" value="stage" override="true"/>
+        <property name="environment.branch" value="${stage.branch}" override="true"/>
+        <property name="environment.sitedir" value="${stage.sitedir}" override="true"/>
+        <property name="environment.sitedir.current" value="${stage.sitedir}current/" override="true" />
+    </target>
+
+    <target name="prepare-paths" >
+        <echo msg="Preparing paths on ${environment.branch} environment" />
+        <property name="current.app.db" value="${environment.sitedir.current}${app.db}" override="true" />
+    </target>
+
+</project>
