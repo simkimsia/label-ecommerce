@@ -115,7 +115,7 @@
     <target name="symlink-file">
         <echo msg="symlink ${dir} inside ${environment.sitedir}${build.time} recursively" />
         
-        <exec command="ssh -A ${host-used} 'ln -s ${environment.sitedir}config/${dir} ${environment.sitedir}${build.time}/${dir}'" outputProperty="result" />
+        <exec command="ssh -A ${host-used} 'ln -s ${environment.sitedir}config/${dir} ${environment.sitedir}${build.time}/src/${dir}'" outputProperty="result" />
         <echo msg="${result}" />
 
     </target>
