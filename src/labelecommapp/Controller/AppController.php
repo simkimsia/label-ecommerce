@@ -51,7 +51,7 @@ class AppController extends Controller {
 
 	public function beforeFilter() {
 		// choose the right theme
-		$this->theme = 'v1';
+		$this->theme = 'V1';
 	}
 
 	protected function _prepareLogin() {
