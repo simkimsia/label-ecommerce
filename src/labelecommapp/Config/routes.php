@@ -34,6 +34,8 @@
 
 	Router::connect('/faq', array('controller' => 'pages', 'action' => 'display', 'faq'));
 
+	Router::connect('/enquiry_email/add', array('controller' => 'users', 'action' => 'send_enquiry_email'));
+
 	// customized routes for faq and about
 
 /**

@@ -32,8 +32,32 @@ App::uses('Controller', 'Controller');
  * @link		http://book.cakephp.org/2.0/en/controllers.html#the-app-controller
  */
 class AppController extends Controller {
+
+	public $components = array(
+		'RequestHandler',
+		'Session',
+		'Acl',
+		'Auth' => array(
+			'authorize' => array(
+				'Actions' => array('actionPath' => 'controllers')
+			),
+			'authenticate' => array(
+				'Form' => array(
+					'fields' => array('username' => 'email')
+				)
+			)
+		),
+	);
+
 	public function beforeFilter() {
 		// choose the right theme
 		$this->theme = 'v1';
+	}
+
+	protected function _prepareLogin() {
+		//Configure AuthComponent
+		$this->Auth->loginAction = array('controller' => 'users', 'action' => 'login');
+		$this->Auth->logoutRedirect = array('controller' => 'users', 'action' => 'login');
+		$this->Auth->loginRedirect = array('controller' => 'posts', 'action' => 'add');
 	}
 }

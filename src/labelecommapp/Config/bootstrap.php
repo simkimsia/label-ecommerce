@@ -107,3 +107,11 @@ CakeLog::config('error', array(
 	'types' => array('warning', 'error', 'critical', 'alert', 'emergency'),
 	'file' => 'error',
 ));
+
+/**
+*
+* constants.php file to define constants that remain same regardless of environments
+**/
+if (file_exists(APP . DS . 'Config' . DS . 'constants.php')) {
+	require_once (APP . DS . 'Config' . DS . 'constants.php');
+}
