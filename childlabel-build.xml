@@ -164,14 +164,6 @@
         <echo msg="Git cloning plugins in ${appdirname}" />
 
         <property name="plugindir" value="${environment.sitedir}current/${appdirname}/Plugin/" override="true" />
-        <!-- run git clone on plugin -->
-        <property name="plugin.name" value="Backbone" override="true" />
-        <property name="plugin.repo" value="git@github.com:simkimsia/CakePhp-Backbone-Plugin.git" override="true" />
-
-        <exec command="ssh -A ${host-used} 'git clone ${plugin.repo} ${plugindir}${plugin.name}'"
-         outputProperty="result" escape="false"/>
-        <echo msg="${result}" />
-        <!-- end run git clone on plugin -->
 
         <!-- run git clone on plugin -->
         <property name="plugin.name" value="Composer" override="true" />
