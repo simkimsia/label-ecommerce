@@ -1,0 +1,12 @@
+{
+	"config": {
+		"vendor-dir": "Vendor"
+	},
+	"require": {
+		"cakedc/migrations": "dev-develop",
+		"ceeram/clear_cache": "dev-master",
+		"simkimsia/acl_extras": "dev-master",
+		"simkimsia/asset_compress": "dev-master",
+		"simkimsia/utility_lib": "dev-master"
+	}
+}

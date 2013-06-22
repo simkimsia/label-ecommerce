@@ -58,3 +58,9 @@ src/labelecommapp/Vendor/autoload.php
 src/labelecommapp/Vendor/composer/*
 src/labelecommapp/Vendor/titon/*
 src/labelecommapp/Vendor/mjohnson/*
+
+## ignore Plugin
+src/labelecommapp/Plugin/*
+
+## ignore composer.lock as well
+src/labelecommapp/composer.lock

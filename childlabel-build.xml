@@ -84,10 +84,12 @@
 
     <target name="setup-environments" description="define some commonly used properties">
         <property name="environment.sitedir.current" value="${environment.sitedir}current/" override="true"/>
-        <property name="environment.sitedir.current.app" value="${environment.sitedir.current}${appdirname}/" override="true"/>
+        <property name="environment.sitedir.current.src" value="${environment.sitedir.current}src/" override="true"/>
+        <property name="environment.sitedir.current.src.app" value="${environment.sitedir.current.src}${appdirname}/" override="true"/>
 
         <property name="cd.current" value="cd ${environment.sitedir.current}" override="true"/>
-        <property name="cd.current.app" value="cd ${environment.sitedir.current.app}" override="true"/>
+        <property name="cd.current.src" value="cd ${environment.sitedir.current.src}" override="true"/>
+        <property name="cd.current.src.app" value="cd ${environment.sitedir.current.src.app}" override="true"/>
 
     </target>
 
@@ -185,21 +187,21 @@
     <target name="run-composer">
         <echo msg="Running Composer in ${appdirname}" />
 
-        <exec command="ssh -A ${host-used} '${cd.current.app} &amp;&amp; Console/cake composer.c update -y'" outputProperty="result" escape="false" />
+        <exec command="ssh -A ${host-used} '${cd.current.src.app} &amp;&amp; php composer.phar update'" outputProperty="result" escape="false" />
         <echo msg="${result}" />
     </target>
 
     <target name="run-migrations">
         <echo msg="Running Migrations in ${appdirname}" />
 
-        <exec command="ssh -A ${host-used} '${cd.current.app} &amp;&amp; Console/cake Migrations.migration run all'" outputProperty="result" escape="false" />
+        <exec command="ssh -A ${host-used} '${cd.current.src.app} &amp;&amp; Console/cake Migrations.migration run all'" outputProperty="result" escape="false" />
         <echo msg="${result}" />
     </target>
 
     <target name="run-acosync">
         <echo msg="Running AclExtras.AclExtras aco_sync in ${appdirname}" />
 
-        <exec command="ssh -A ${host-used} '${cd.current.app} &amp;&amp; Console/cake AclExtras.AclExtras aco_sync'" outputProperty="result" escape="false" />
+        <exec command="ssh -A ${host-used} '${cd.current.src.app} &amp;&amp; Console/cake AclExtras.AclExtras aco_sync'" outputProperty="result" escape="false" />
         <echo msg="${result}" />
     </target>
 
@@ -213,7 +215,7 @@
     <target name="run-tests">
         <echo msg="Running tests in ${appdirname}" />
 
-        <exec command="ssh -A ${host-used} '${cd.current.app} &amp;&amp; Console/cake run the test commands'" outputProperty="result" escape="false" />
+        <exec command="ssh -A ${host-used} '${cd.current.src.app} &amp;&amp; Console/cake run the test commands'" outputProperty="result" escape="false" />
         <echo msg="${result}" />
     </target>
 
