@@ -57,29 +57,29 @@ $(function() {
                 <li>
                     <strong>Child Label Packs (Stickers)</strong>
                     <ul>
-                      <li><a href="#">Round Labels</a></li>
-                      <li><a href="#">Small Rectangle</a></li>
-                      <li><a href="#">Chinese Name Labels</a></li>
-                      <li><a href="#">Birthday Labels</a></li>
-                      <li><a href="#">Book Labels</a></li>
-                      <li><a href="#">Split Dual Name Pack</a></li>
-                      <li><a href="#">Split English/Chinese Name Pack</a></li>
+                      <li><a href="/products/view/1">Round Labels</a></li>
+                      <li><a href="/products/view/2">Small Rectangle</a></li>
+                      <li><a href="/products/view/3">Chinese Name Labels</a></li>
+                      <li><a href="/products/view/4">Birthday Labels</a></li>
+                      <li><a href="/products/view/5">Book Labels</a></li>
+                      <li><a href="/products/view/8">Split Dual Name Pack</a></li>
+                      <li><a href="/products/view/6">Split English/Chinese Name Pack</a></li>
                     </ul>
                 </li>
                 <li><strong>Child Label Packs (Iron Ons)</strong>
                   <ul>
-                      <li><a href="#">Round Labels</a></li>
-                      <li><a href="#">Small Rectangle</a></li>
-                      <li><a href="#">Chinese Name Labels</a></li>
-                      <li><a href="#">Split Dual Name Pack</a></li>
-                      <li><a href="#">Split English/Chinese Name Pack</a></li>
+                      <li><a href="/products/view/1">Round Labels</a></li>
+                      <li><a href="/products/view/2">Small Rectangle</a></li>
+                      <li><a href="/products/view/3">Chinese Name Labels</a></li>
+                      <li><a href="/products/view/8">Split Dual Name Pack</a></li>
+                      <li><a href="/products/view/6">Split English/Chinese Name Pack</a></li>
                     </ul>
                 </li>
                 <li><strong>Value Packs</strong>
                   <ul>
-                      <li><a href="#">Get Me Started Pack</a></li>
-                      <li><a href="#">Variety Pack</a></li>
-                      <li><a href="#">Give Me Everything Pack</a></li>
+                      <li><a href="/products/view/10">Get Me Started Pack</a></li>
+                      <li><a href="/products/view/11">Variety Pack</a></li>
+                      <li><a href="/products/view/14">Give Me Everything Pack</a></li>
                     </ul>
                 </li>
               </ul>
@@ -150,9 +150,9 @@ $(function() {
 
             <div class="col1">
               <strong>Navigation</strong><br/>
-                <a href="about">About</a><br/>
-                <a href="faq">FAQs</a><br/>
-                <a href="call">Contact</a><br/>
+                <a href="/about">About</a><br/>
+                <a href="/faq">FAQs</a><br/>
+                <a href="/call">Contact</a><br/>
                 <a href="#">Facebook</a><br/>
                 <a href="#">Twitter</a><br/>
             </div>
