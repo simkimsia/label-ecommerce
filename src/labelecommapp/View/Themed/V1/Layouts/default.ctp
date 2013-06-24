@@ -116,7 +116,10 @@ $(function() {
         <div id="footerNav">
             <div class="col1">
               <strong>Stickers</strong><br/>
-                <a href="#">Round Labels</a></br>
+              <?php // foreach ($productsForSale as $product): ?>
+                <?php //echo $this->Html->link(__($product['Product']['name']), array('controller' => 'products', 'action' => 'view', $product['Product']['id'])); ?></br>
+              <?php //endforeach; ?>
+                <a href="/products/view/1">Round Labels</a></br>
                 <a href="#">Small Rectangle</a></br>
                 <a href="#">Chinese Name Labels</a></br>
                 <a href="#">Birthday Labels</a></br>

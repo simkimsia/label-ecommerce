@@ -50,14 +50,28 @@ class AppController extends Controller {
 	);
 
 	public function beforeFilter() {
-		// choose the right theme
-		$this->theme = 'V1';
+		$this->_determineTheme();
+		// $productModel = ClassRegistry::init('Product');
+		// $productsForSale = $productModel->find('all');
+		// // set a View Variable
+		// $this->set('productsForSale', $productsForSale);
 	}
+
 
 	protected function _prepareLogin() {
 		//Configure AuthComponent
 		$this->Auth->loginAction = array('controller' => 'users', 'action' => 'login');
 		$this->Auth->logoutRedirect = array('controller' => 'users', 'action' => 'login');
 		$this->Auth->loginRedirect = array('controller' => 'posts', 'action' => 'add');
+	}
+
+	protected function _determineTheme() {
+		if (isset($this->request->params['admin'])) {
+            // choose the right theme
+			$this->theme = false;
+        } else {
+        	// choose the right theme
+			$this->theme = 'V1';
+        }
 	}
 }
