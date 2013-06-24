@@ -117,35 +117,35 @@ $(function() {
             <div class="col1">
               <strong>Stickers</strong><br/>
               <?php // foreach ($productsForSale as $product): ?>
-                <?php //echo $this->Html->link(__($product['Product']['name']), array('controller' => 'products', 'action' => 'view', $product['Product']['id'])); ?></br>
+                <?php //echo $this->Html->link(__($product['Product']['name']), array('controller' => 'products', 'action' => 'view', $product['Product']['id'])); ?>
               <?php //endforeach; ?>
                 <a href="/products/view/1">Round Labels</a></br>
-                <a href="#">Small Rectangle</a></br>
-                <a href="#">Chinese Name Labels</a></br>
-                <a href="#">Birthday Labels</a></br>
-                <a href="#">Book Labels</a></br>
-                <a href="#">Split Dual Name Pack</a></br>
-                <a href="#">Split English/Chinese Name Pack</a></br>
+                <a href="/products/view/2">Small Rectangle</a></br>
+                <a href="/products/view/3">Chinese Name Labels</a></br>
+                <a href="/products/view/4">Birthday Labels</a></br>
+                <a href="/products/view/5">Book Labels</a></br>
+                <a href="/products/view/8">Split Dual Name Pack</a></br>
+                <a href="/products/view/6">Split English/Chinese Name Pack</a></br>
             </div>
 
             <div class="col1">
               <strong>Iron-Ons</strong><br/>
-                <a href="#">Round Labels</a></br>
-                <a href="#">Small Rectangle</a></br>
-                <a href="#">Chinese Name Labels</a></br>
-                <a href="#">Split Dual Name Pack</a></br>
-                <a href="#">BSplit English/Chinese Name Pack</a></br>
+                <a href="/products/view/1">Round Labels</a></br>
+                <a href="/products/view/2">Small Rectangle</a></br>
+                <a href="/products/view/3">Chinese Name Labels</a></br>
+                <a href="/products/view/8">Split Dual Name Pack</a></br>
+                <a href="/products/view/9">BSplit English/Chinese Name Pack</a></br>
             </div>
 
             <div class="col1">
               <strong>Value Packs</strong><br/>
-                <a href="#">Get Me Started Pack</a></br>
-                <a href="#">Variety Pack</a></br>
-                <a href="#">Chinese Name Labels</a></br>
-                <a href="#">Birthday Labels</a></br>
-                <a href="#">Book Labels</a></br>
-                <a href="#">Split Dual Name Pack</a></br>
-                <a href="#">Split English/Chinese Name Pack</a></br>
+                <a href="/products/view/10">Get Me Started Pack</a></br>
+                <a href="/products/view/11">Variety Pack</a></br>
+                <a href="/products/view/3">Chinese Name Labels</a></br>
+                <a href="/products/view/4">Birthday Labels</a></br>
+                <a href="/products/view/5">Book Labels</a></br>
+                <a href="/products/view/8">Split Dual Name Pack</a></br>
+                <a href="/products/view/6">Split English/Chinese Name Pack</a></br>
             </div>
 
             <div class="col1">
