@@ -1,5 +1,6 @@
 ﻿body {
     margin: 0px;
+    text-align: center;
 }
 
 div {
@@ -15,6 +16,12 @@ div {
     display: none;
 }
 #main_container {
+    position: relative;
+    left: -84px;
+    width: 696px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: left;
 }
 
 .form_sketch {
@@ -45,9 +52,9 @@ div {
 .u1 {
     position:absolute;
     left:2px;
-    top:24px;
+    top:25px;
     width:35px;
-    height:32px;
+    height:30px;
     ;
     ;
     ;
@@ -79,9 +86,9 @@ div {
 .u3 {
     position:absolute;
     left:2px;
-    top:14px;
+    top:15px;
     width:96px;
-    height:32px;
+    height:30px;
     ;
     ;
     ;
@@ -113,9 +120,9 @@ div {
 .u5 {
     position:absolute;
     left:2px;
-    top:-2px;
+    top:0px;
     width:96px;
-    height:64px;
+    height:60px;
     ;
     ;
     ;
@@ -149,7 +156,7 @@ div {
     left:2px;
     top:22px;
     width:96px;
-    height:16px;
+    height:15px;
     ;
     ;
     ;
@@ -183,7 +190,7 @@ div {
     left:2px;
     top:22px;
     width:96px;
-    height:16px;
+    height:15px;
     ;
     ;
     ;
@@ -393,7 +400,7 @@ div {
     left:2px;
     top:32px;
     width:46px;
-    height:16px;
+    height:15px;
     ;
     ;
     ;
@@ -427,7 +434,7 @@ div {
     left:2px;
     top:22px;
     width:96px;
-    height:16px;
+    height:15px;
     ;
     ;
     ;
@@ -461,7 +468,7 @@ div {
     left:2px;
     top:22px;
     width:96px;
-    height:16px;
+    height:15px;
     ;
     ;
     ;
@@ -495,7 +502,7 @@ div {
     left:2px;
     top:22px;
     width:96px;
-    height:16px;
+    height:15px;
     ;
     ;
     ;

@@ -1,5 +1,6 @@
 ﻿body {
     margin: 0px;
+    text-align: center;
 }
 
 div {
@@ -15,6 +16,12 @@ div {
     display: none;
 }
 #main_container {
+    position: relative;
+    left: -50px;
+    width: 658px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: left;
 }
 
 .form_sketch {
@@ -81,7 +88,7 @@ div {
     left:2px;
     top:22px;
     width:96px;
-    height:16px;
+    height:15px;
     ;
     ;
     ;
@@ -115,7 +122,7 @@ div {
     left:2px;
     top:22px;
     width:96px;
-    height:16px;
+    height:15px;
     ;
     ;
     ;
@@ -201,7 +208,7 @@ div {
     left:2px;
     top:22px;
     width:96px;
-    height:16px;
+    height:15px;
     ;
     ;
     ;
@@ -225,9 +232,9 @@ div {
 .u13 {
     position:absolute;
     left:28px;
-    top:-16px;
+    top:-15px;
     width:100px;
-    height:32px;
+    height:30px;
     ;
     ;
     ;
