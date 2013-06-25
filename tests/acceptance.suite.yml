@@ -13,7 +13,6 @@ modules:
     enabled:
         - PhpBrowser
         - WebHelper
-        - Mink
     config:
         PhpBrowser:
            url: 'http://childlabel.labelecommapp.localhost'
