@@ -66,3 +66,4 @@ src/labelecommapp/Plugin/*
 src/labelecommapp/composer.lock
 
 ## ignore log files for codeception tests
+tests/_log/*
