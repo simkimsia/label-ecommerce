@@ -149,7 +149,24 @@ class UsersController extends AppController {
 		}
 	}
 
+	public function admin_login() {
+		if ($this->request->is('post')) {
+			$allowThisUser = $this->User->allowEntry($this->data, array(SUPER_ADMIN, CHILDLABEL_ADMIN));
+			if ($allowThisUser) {
+				if ($this->Auth->login()) {
+					$this->redirect($this->Auth->redirectUrl());
+				}
+			}
+			$this->Session->setFlash('Your username or password was incorrect.');
+		}
+		$this->render('login');
+	}
+
 	public function logout() {
 		//Leave empty for now.
+	}
+
+	public function admin_forget_password() {
+		$this->render('forget_password');
 	}
 }

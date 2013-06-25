@@ -32,7 +32,10 @@ App::uses('Model', 'Model');
  * @package       app.Model
  */
 class AppModel extends Model {
-	public $actsAs = array('Containable', 'FindXORCreatable');
+	public $actsAs = array(
+		'Containable', 
+		'FindXORCreatable',
+		'ModelDataExtractable');
 
 	public $authUser = null;
 

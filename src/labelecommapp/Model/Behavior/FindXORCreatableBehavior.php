@@ -1,17 +1,11 @@
 <?php
 /**
- * Processable Behavior class file.
+ * FindXORCreatableBehavior Behavior class file.
  *
- * Adds ability to copy a model record, including all hasMany and hasAndBelongsToMany
- * associations. Relies on Containable behavior, which this behavior will attach
- * on the fly as needed.
- *
- * HABTM relationships are just duplicated in the join table, while hasMany and hasOne
- * records are recursively copied as well.
+ * Within a single method, we can run a find if exists, else create function.
  *
  * Usage is straightforward:
- * From model: $this->copy($id); // id = the id of the record to be copied
- * From container: $this->MyModel->copy($id);
+ * From model: $this->findXORCreate($data, $findFields = array())
  *
  * 
  */
@@ -53,7 +47,7 @@ class FindXORCreatableBehavior extends ModelBehavior {
  * @param array $data. Should not contain data within the subarray of the mode.
  * @return array Either the found or newly created Model data 
  */
-	public function findXORCreate(Model &$model, $data, $findFields = array()){
+	public function findXORCreate(Model &$model, $data, $findFields = array()) {
 		$suppliedData = array();
 		if (isset($data[$model->alias])) {
 			$suppliedData = $data[$model->alias];

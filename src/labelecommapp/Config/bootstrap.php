@@ -116,3 +116,5 @@ CakeLog::config('error', array(
 if (file_exists(APP . DS . 'Config' . DS . 'constants.php')) {
 	require_once (APP . DS . 'Config' . DS . 'constants.php');
 }
+
+Configure::write('Routing.prefixes', array('admin'));

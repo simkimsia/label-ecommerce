@@ -72,4 +72,39 @@ class User extends AppModel {
 		}
 		return true;
 	}
+
+/**
+ *
+ * retrieve user data by email
+ */
+	public function getByEmail($data = array()) {
+		$loginData = $this->extractModelData($data);
+		if (isset($loginData['email'])) {
+			$user = $this->findByEmail($loginData['email']);
+			return $user;
+		}
+		return false;
+	}
+
+/**
+ *
+ * check $data and see if we can allow user to gain access based on a whitelist
+ * array $data Any data array where we expect email, password
+ * 
+ */
+	public function allowEntry($data, $allowedGroups = array()) {
+		if (empty($deniedGroups)) {
+			return true;
+		}
+		$user = $this->getByLogin($data);
+		if ($user) {
+			$groupId = $user['User']['group_id'];
+
+			if (in_array($groupId, $allowedGroups)) {
+				return true;
+			}
+		}
+
+		return false;
+	}
 }

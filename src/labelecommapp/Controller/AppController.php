@@ -69,6 +69,7 @@ class AppController extends Controller {
 		if (isset($this->request->params['admin'])) {
             // choose the right theme
 			$this->theme = false;
+			$this->layout = 'admin';
         } else {
         	// choose the right theme
 			$this->theme = 'V1';
