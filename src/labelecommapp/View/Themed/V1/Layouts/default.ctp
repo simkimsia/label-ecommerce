@@ -48,7 +48,7 @@ $(function() {
         
         <ul id="menuBar">
           <li>
-            <a href="shop.html"><div class="shop">shop</div></a>
+            <a href="/products/view/1"><div class="shop">shop</div></a>
             <div id="dropDownMenu" class="menu_items">
               <div class="arrowHolder">
                 <?php echo $this->Html->image('arrow.png'); ?>
