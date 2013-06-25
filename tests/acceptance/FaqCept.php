@@ -1,3 +1,5 @@
 <?php
 $I = new WebGuy($scenario);
-$I->wantTo('perform actions and see result');
+$I->wantTo('test contact form link is properly linked');
+$I->amOnPage('/faq');
+$I->seeLink('contact form','/call');
