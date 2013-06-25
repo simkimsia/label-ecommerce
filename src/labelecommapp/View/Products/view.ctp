@@ -42,18 +42,18 @@
             </a>&nbsp;&nbsp;&nbsp;&nbsp;<strong>Choose a Label Colour</strong>
                     </div>
                 </div>
-                <h2 class="price">$19.95</h2>
-                <div class="desc">Child Label Packs (Stickers)</div>
+                <h2 class="price">$<?php echo h($product['Product']['price']); ?></h2>
+                <div class="desc"><?php echo h($product['Product']['name']); ?></div>
                 <ul class="productlabels">
-                    <li><a href="#" class="active">Round Labels</a></li>
-                    <li><a href="#">Small Rectangle</a></li>
-                    <li><a href="#">Small Rectangle (Chinese)</a></li>
-                    <li><a href="#">Birthday Large</a></li>
-                    <li><a href="#">Book Labels</a></li>
-                    <li><a href="#">Split Dual Name Pack</a></li>
-                    <li><a href="#">Split English/Chinese name pack</a></li>
+                    <li><a href="/products/view/1" class="active">Round Labels</a></li>
+                    <li><a href="/products/view/2">Small Rectangle</a></li>
+                    <li><a href="/products/view/3">Small Rectangle (Chinese)</a></li>
+                    <li><a href="/products/view/4">Birthday Large</a></li>
+                    <li><a href="/products/view/5">Book Labels</a></li>
+                    <li><a href="/products/view/8">Split Dual Name Pack</a></li>
+                    <li><a href="/products/view/6">Split English/Chinese name pack</a></li>
                 </ul>
-                <div class="productdetails"><span class="detail">Detail:</span><span class="thewords">28 Round Vinyl Name Labels (37.5mm diameter)<br />4 Large Round Vinyl Name Labels (60mm diameter)</span></div>
+                <div class="productdetails"><span class="detail">Detail:</span><span class="thewords"><?php echo h($product['Product']['description']);?><br /></span></div>
                 <div class="clearBoth"></div>
                 <div class="searchBox">
                     <form method="post" action="#" class="labelsearch">
@@ -158,3 +158,37 @@
           </div>
         </div>
 
+
+
+
+
+
+<!-- <div class="products view">
+<h2><?php  echo __('Product'); ?></h2>
+    <dl>
+        <dt><?php echo __('Id'); ?></dt>
+        <dd>
+            <?php echo h($product['Product']['id']); ?>
+            &nbsp;
+        </dd>
+        <dt><?php echo __('Name'); ?></dt>
+        <dd>
+            <?php echo h($product['Product']['name']); ?>
+            &nbsp;
+        </dd>
+        <dt><?php echo __('Description'); ?></dt>
+        <dd>
+            <?php echo h($product['Product']['description']); ?>
+            &nbsp;
+        </dd>
+    </dl>
+</div>
+<div class="actions">
+    <h3><?php echo __('Actions'); ?></h3>
+    <ul>
+        <li><?php echo $this->Html->link(__('Edit Product'), array('action' => 'edit', $product['Product']['id'])); ?> </li>
+        <li><?php echo $this->Form->postLink(__('Delete Product'), array('action' => 'delete', $product['Product']['id']), null, __('Are you sure you want to delete # %s?', $product['Product']['id'])); ?> </li>
+        <li><?php echo $this->Html->link(__('List Products'), array('action' => 'index')); ?> </li>
+        <li><?php echo $this->Html->link(__('New Product'), array('action' => 'add')); ?> </li>
+    </ul>
+</div> -->
