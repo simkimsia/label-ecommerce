@@ -1,0 +1,245 @@
+﻿body {
+    margin: 0px;
+    text-align: center;
+}
+
+div {
+    background-repeat: no-repeat;
+}
+
+.raw_image {
+    width: 100%;
+    height: 100%;
+}
+
+.preload {
+    display: none;
+}
+#main_container {
+    position: relative;
+    left: -70px;
+    width: 720px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: left;
+}
+
+.form_sketch {
+    border-color: transparent;
+    background-color: transparent;
+}
+
+.u0_normal {
+    background-image: url('../Customer_Login_files/u0_normal.png');
+}
+
+.u0_container {
+    position:absolute;
+    left:70px;
+    top:100px;
+    width:50px;
+    height:80px;
+}
+
+#u0_img {
+    position:absolute;
+    left:-3px;
+    top:-3px;
+    width:56px;
+    height:86px;
+}
+
+.u1 {
+    position:absolute;
+    left:2px;
+    top:25px;
+    width:46px;
+    height:30px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+.u2c0 {
+    background-image: url('../Customer_Login_files/u2c0.png');
+}
+
+.u2c0 {
+    position:absolute;
+    left:116px;
+    top:130px;
+    width:94px;
+    height:20px;
+}
+
+.u3 {
+    position:absolute;
+    left:-10px;
+    top:-8px;
+    width:100px;
+    height:16px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+.u4c0 {
+    background-image: url('../Customer_Login_files/u4c0.png');
+}
+
+.u4c0 {
+    position:absolute;
+    left:496px;
+    top:130px;
+    width:204px;
+    height:20px;
+}
+
+.u5 {
+    position:absolute;
+    left:45px;
+    top:-15px;
+    width:100px;
+    height:30px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+.u6_normal {
+    background-image: url('../Customer_Login_files/u6_normal.png');
+}
+
+.u6_container {
+    position:absolute;
+    left:200px;
+    top:110px;
+    width:100px;
+    height:60px;
+}
+
+#u6_img {
+    position:absolute;
+    left:-3px;
+    top:-3px;
+    width:106px;
+    height:66px;
+}
+
+.u7 {
+    position:absolute;
+    left:2px;
+    top:22px;
+    width:96px;
+    height:15px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+.u8_normal {
+    background-image: url('../Customer_Login_files/u6_normal.png');
+}
+
+.u8_container {
+    position:absolute;
+    left:400px;
+    top:110px;
+    width:100px;
+    height:60px;
+}
+
+#u8_img {
+    position:absolute;
+    left:-3px;
+    top:-3px;
+    width:106px;
+    height:66px;
+}
+
+.u9 {
+    position:absolute;
+    left:2px;
+    top:22px;
+    width:96px;
+    height:15px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+.u10_normal {
+    background-image: url('../Customer_Login_files/u6_normal.png');
+}
+
+.u10_container {
+    position:absolute;
+    left:690px;
+    top:110px;
+    width:100px;
+    height:60px;
+}
+
+#u10_img {
+    position:absolute;
+    left:-3px;
+    top:-3px;
+    width:106px;
+    height:66px;
+}
+
+.u11 {
+    position:absolute;
+    left:2px;
+    top:22px;
+    width:96px;
+    height:15px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+.u12c0 {
+    background-image: url('../Customer_Login_files/u12c0.png');
+}
+
+.u12c0 {
+    position:absolute;
+    left:296px;
+    top:130px;
+    width:114px;
+    height:20px;
+}
+
+.u13 {
+    position:absolute;
+    left:0px;
+    top:-8px;
+    width:100px;
+    height:16px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
