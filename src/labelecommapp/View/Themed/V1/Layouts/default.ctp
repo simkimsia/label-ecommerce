@@ -78,7 +78,6 @@ $(function() {
                 <li><strong>Value Packs</strong>
                   <ul>
                       <li><a href="/products/view/10">Get Me Started Pack</a></li>
-                      <li><a href="/products/view/11">Variety Pack</a></li>
                       <li><a href="/products/view/14">Give Me Everything Pack</a></li>
                     </ul>
                 </li>
@@ -140,12 +139,8 @@ $(function() {
             <div class="col1">
               <strong>Value Packs</strong><br/>
                 <a href="/products/view/10">Get Me Started Pack</a></br>
-                <a href="/products/view/11">Variety Pack</a></br>
-                <a href="/products/view/3">Chinese Name Labels</a></br>
-                <a href="/products/view/4">Birthday Labels</a></br>
-                <a href="/products/view/5">Book Labels</a></br>
-                <a href="/products/view/8">Split Dual Name Pack</a></br>
-                <a href="/products/view/6">Split English/Chinese Name Pack</a></br>
+                <a href="/products/view/14">Give Me Everything Pack</a></br>
+             
             </div>
 
             <div class="col1">
