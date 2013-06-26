@@ -45,13 +45,13 @@
                 <h2 class="price">$<?php echo h($product['Product']['price']); ?></h2>
                 <div class="desc"><?php echo h($product['Product']['name']); ?></div>
                 <ul class="productlabels">
-                    <li><a href="/products/view/1" class="active">Round Labels</a></li>
-                    <li><a href="/products/view/2">Small Rectangle</a></li>
+                    <li><a href="/products/view/2" class="active">Round Labels</a></li>
+                    <li><a href="/products/view/1">Small Rectangle</a></li>
                     <li><a href="/products/view/3">Small Rectangle (Chinese)</a></li>
                     <li><a href="/products/view/4">Birthday Large</a></li>
                     <li><a href="/products/view/5">Book Labels</a></li>
-                    <li><a href="/products/view/8">Split Dual Name Pack</a></li>
-                    <li><a href="/products/view/6">Split English/Chinese name pack</a></li>
+                    <li><a href="/products/view/6">Split Dual Name Pack</a></li>
+                    <li><a href="/products/view/7">Split English/Chinese name pack</a></li>
                 </ul>
                 <div class="productdetails"><span class="detail">Detail:</span><span class="thewords"><?php echo h($product['Product']['description']);?><br /></span></div>
                 <div class="clearBoth"></div>
