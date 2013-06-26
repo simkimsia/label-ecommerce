@@ -102,8 +102,8 @@ $(function() {
               <div class="circleBtn"><a href="#">My<br />Cart <span>Item 0</span></a></div>
             </div>
             <div class="btmBtn">
-              <a href="#"><div class="FBtn">Love</div></a>
-              <a href="#"><div class="TWBtn">Twitter</div></a>
+              <a href="https://www.facebook.com/childlabel"><div class="FBtn">Love</div></a>
+              <a href="https://www.twitter.com/childlabel"><div class="TWBtn">Twitter</div></a>
             </div>
         </div>
 
