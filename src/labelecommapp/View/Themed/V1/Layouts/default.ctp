@@ -58,21 +58,21 @@ $(function() {
                     <strong>Child Label Packs (Stickers)</strong>
                     <ul>
                       <li><a href="/products/view/2">Round Labels</a></li>
-                      <li><a href="/products/view/1">Small Rectangle</a></li>
-                      <li><a href="/products/view/3">Chinese Name Labels</a></li>
+                      <li><a href="/products/view/1">Rectangle Labels</a></li>
+                      <li><a href="/products/view/3">Chinese Labels</a></li>
                       <li><a href="/products/view/4">Birthday Labels</a></li>
                       <li><a href="/products/view/5">Book Labels</a></li>
                       <li><a href="/products/view/6">Split Dual Name Pack</a></li>
-                      <li><a href="/products/view/7">Split English/Chinese Name Pack</a></li>
+                      <li><a href="/products/view/7">Split English/Chinese Pack</a></li>
                     </ul>
                 </li>
                 <li><strong>Child Label Packs (Iron Ons)</strong>
                   <ul>
                       <li><a href="/products/view/9">Round Labels</a></li>
-                      <li><a href="/products/view/8">Small Rectangle</a></li>
-                      <li><a href="/products/view/15">Chinese Name Labels</a></li>
+                      <li><a href="/products/view/8">Rectangle Labels</a></li>
+                      <li><a href="/products/view/15">Chinese Labels</a></li>
                       <li><a href="/products/view/10">Split Dual Name Pack</a></li>
-                      <li><a href="/products/view/11">Split English/Chinese Name Pack</a></li>
+                      <li><a href="/products/view/11">Split English/Chinese Pack</a></li>
                     </ul>
                 </li>
                 <li><strong>Value Packs</strong>
@@ -119,21 +119,21 @@ $(function() {
                 <?php //echo $this->Html->link(__($product['Product']['name']), array('controller' => 'products', 'action' => 'view', $product['Product']['id'])); ?>
               <?php //endforeach; ?>
                 <a href="/products/view/2">Round Labels</a></br>
-                <a href="/products/view/1">Small Rectangle</a></br>
-                <a href="/products/view/3">Chinese Name Labels</a></br>
+                <a href="/products/view/1">Rectangle Labels</a></br>
+                <a href="/products/view/3">Chinese Labels</a></br>
                 <a href="/products/view/4">Birthday Labels</a></br>
                 <a href="/products/view/5">Book Labels</a></br>
                 <a href="/products/view/6">Split Dual Name Pack</a></br>
-                <a href="/products/view/7">Split English/Chinese Name Pack</a></br>
+                <a href="/products/view/7">Split English/Chinese Pack</a></br>
             </div>
 
             <div class="col1">
               <strong>Iron-Ons</strong><br/>
                 <a href="/products/view/9">Round Labels</a></br>
-                <a href="/products/view/8">Small Rectangle</a></br>
-                <a href="/products/view/10">Chinese Name Labels</a></br>
+                <a href="/products/view/8">Rectangle Labels</a></br>
+                <a href="/products/view/10">Chinese Labels</a></br>
                 <a href="/products/view/15">Split Dual Name Pack</a></br>
-                <a href="/products/view/11">BSplit English/Chinese Name Pack</a></br>
+                <a href="/products/view/11">Split English/Chinese Pack</a></br>
             </div>
 
             <div class="col1">
