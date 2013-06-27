@@ -77,9 +77,9 @@ ul.internalLinks li { font-size: 12px!important; display: block; margin-left: 10
 #childContainer .childHolder .contentArea .shorttext { background: url(../img/shortext.png) no-repeat; text-align: center; padding-top: 35px; color: #fff; font-size: 16px; width: 700px; height: 119px; margin:0 auto; margin-top: 20px; font-family: "century gothic",verdana,arial,helvetica,sans-serif; }
 #childContainer .childHolder .contentArea .contents { margin-left: 50px; display: block;}
 #childContainer .childHolder .contentArea .contents .leftcontent, #childContainer .childHolder .contentArea .contents .centercontent, #childContainer .childHolder .contentArea .contents .rightcontent { width: 300px; margin-right: 25px; float: left; padding: 5px; }
-
-#childContainer .childHolder .contentArea .contents p { margin: 0; padding:0; font-size:16px;}
-#childContainer .childHolder .contentArea .contents h3 { color: #7A0202; font-size: 18px;}
+#childContainer .childHolder .contentArea .contents p.top{height: 147px;}
+#childContainer .childHolder .contentArea .contents p { margin: 0; padding:0; font-size:15px;}
+#childContainer .childHolder .contentArea .contents h3 { color: #7A0202; font-size: 17px;}
 
 #childContainer .childHolder .contentArea .topContent { background:url(../img/topContent.png) no-repeat; width:969px; height:40px; display:block; margin:70px 0 0 60px;}
 
