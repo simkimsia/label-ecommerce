@@ -128,7 +128,7 @@ $(function() {
             </div>
 
             <div class="col1">
-              <strong>Iron-Ons</strong><br/>
+              <strong>Iron Ons</strong><br/>
                 <a href="/products/view/9">Round Labels</a></br>
                 <a href="/products/view/8">Rectangle Labels</a></br>
                 <a href="/products/view/10">Chinese Labels</a></br>
