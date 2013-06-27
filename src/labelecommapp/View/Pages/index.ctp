@@ -36,7 +36,7 @@
         </div>
 
         <div class="contentArea">
-          <div class="shorttext">Here at Child Label, we believe that every child<br />needs labels. Here's why</div>
+          <div class="shorttext">Here at Child Label, we believe that every child<br />needs labels. Here's why.</div>
           <div class="contents">
             <div class="leftcontent">
               <h3 class="notop">Labeling is FUN!</h3>
