@@ -49,8 +49,22 @@ class AppController extends Controller {
 		),
 	);
 
+	public $helpers = array(
+		'Html', 'Form', 'Session'
+	);
+
+	public $authUser = null;
+
+	protected function _setAuthUser() {
+	$this->authUser = $this->Auth->user();
+	// we want to access the logged in user in the View
+	$this->set(array('authUser' => $this->authUser));
+	}
+
 	public function beforeFilter() {
 		$this->_determineTheme();
+		$this->_prepareLogin();
+		$this->_setAuthUser();
 		// $productModel = ClassRegistry::init('Product');
 		// $productsForSale = $productModel->find('all');
 		// // set a View Variable
