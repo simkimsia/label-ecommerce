@@ -40,7 +40,19 @@ $cakeDescription = __d('cake_dev', 'ChildLabel: admin panel');
 <body>
 	<div id="container">
 		<div id="header">
-			<h1><?php echo $this->Html->link($cakeDescription, '/admin/products'); ?></h1>
+			<h1><?php echo $this->Html->link($cakeDescription, '/admin/products'); 
+
+
+					if (!empty($authUser)){
+						echo "<div style='float:right'>";
+						echo "Logged in as ";
+						echo $this->Html->link($authUser['short_name'], array('controller' => 'users', 'action' => 'view_my_own_profile'));
+						echo " | ";
+						echo $this->Html->link(('Logout'), array('controller' => 'users', 'action' => 'logout'));
+						echo "</div>";
+					}
+
+			?></h1>
 		</div>
 		<div id="content">
 

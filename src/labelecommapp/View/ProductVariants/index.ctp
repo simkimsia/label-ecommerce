@@ -6,6 +6,8 @@
 			<th><?php echo $this->Paginator->sort('product_id'); ?></th>
 			<th><?php echo $this->Paginator->sort('created'); ?></th>
 			<th><?php echo $this->Paginator->sort('modified'); ?></th>
+			<th><?php echo $this->Paginator->sort('name'); ?></th>
+
 			<th class="actions"><?php echo __('Actions'); ?></th>
 	</tr>
 	<?php foreach ($productVariants as $productVariant): ?>
@@ -14,6 +16,7 @@
 		<td><?php echo h($productVariant['ProductVariant']['product_id']); ?>&nbsp;</td>
 		<td><?php echo h($productVariant['ProductVariant']['created']); ?>&nbsp;</td>
 		<td><?php echo h($productVariant['ProductVariant']['modified']); ?>&nbsp;</td>
+		<td><?php echo h($productVariant['ProductVariant']['name']); ?>&nbsp;</td>
 		<td class="actions">
 			<?php echo $this->Html->link(__('View'), array('action' => 'view', $productVariant['ProductVariant']['id'])); ?>
 			

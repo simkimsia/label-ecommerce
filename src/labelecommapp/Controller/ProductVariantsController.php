@@ -22,6 +22,39 @@ class ProductVariantsController extends AppController {
 	}
 
 /**
+ * display all the variants that belong to a particular product indicated by $productId
+ *
+ * @throws NotFoundException
+ * @param string $id
+ * @return void
+ */
+	public function admin_index_by_product($product_id = null) {
+		$this->set('product_id', $product_id);
+		$_GET['product'] = $product_id;
+		// check against get params for on-the-fly new search conditions
+		$findOptions			= $this->ProductVariant->prepareFindOptions($_GET);
+
+		/* start of possible Component method 
+		* $findOptions is a param and $products is the return
+		*/
+		// back up a copy of the original pagination settings to restore later
+		$originalPaginateSettings	= $this->paginate;
+		// merge the latest new conditions with the original
+		$this->paginate			= array_merge($this->paginate, $findOptions);
+
+		// run the paginate find
+		$productVariants			= $this->paginate();
+		// pagination counting is auto created inside $this->request['paging']
+
+		// restore the paginate back to the original settings
+		$this->paginate			= $originalPaginateSettings;
+		/* end of possible Component method */
+
+		$this->set(compact('productVariants'));
+		$this->render('admin_index');
+	}
+
+/**
  * view method
  *
  * @throws NotFoundException
@@ -41,16 +74,23 @@ class ProductVariantsController extends AppController {
  *
  * @return void
  */
-	public function add() {
+	public function admin_add_by_product($productId = null) {
+		// we are setting the ViewVariable
+		$this->set('productId', $productId);
 		if ($this->request->is('post')) {
+			// posted data is in the form of $this->request->data
+			// $this->request->data is in the form of data['Modelname']['fieldname']
+			$this->request->data['ProductVariant']['product_id'] = $productId;
+
 			$this->ProductVariant->create();
 			if ($this->ProductVariant->save($this->request->data)) {
 				$this->Session->setFlash(__('The product variant has been saved'));
-				$this->redirect(array('action' => 'index'));
+				$this->redirect(array('action' => 'index_by_product', 'id' => $product_id));
 			} else {
 				$this->Session->setFlash(__('The product variant could not be saved. Please, try again.'));
 			}
 		}
+		$this->render('admin_add');
 	}
 
 /**
@@ -60,14 +100,18 @@ class ProductVariantsController extends AppController {
  * @param string $id
  * @return void
  */
-	public function edit($id = null) {
+	public function admin_edit_by_product($product_id = null, $id = null) {
 		if (!$this->ProductVariant->exists($id)) {
 			throw new NotFoundException(__('Invalid product variant'));
 		}
+		$this->set('product_id', $product_id);
+		$this->set('id', $id);
 		if ($this->request->is('post') || $this->request->is('put')) {
+			$this->request->data['ProductVariant']['product_id'] = $product_id;
+			$this->request->data['ProductVariant']['id'] = $id;
 			if ($this->ProductVariant->save($this->request->data)) {
 				$this->Session->setFlash(__('The product variant has been saved'));
-				$this->redirect(array('action' => 'index'));
+				$this->redirect(array('action' => 'index_by_product', 'id' => $product_id));
 			} else {
 				$this->Session->setFlash(__('The product variant could not be saved. Please, try again.'));
 			}
@@ -75,6 +119,7 @@ class ProductVariantsController extends AppController {
 			$options = array('conditions' => array('ProductVariant.' . $this->ProductVariant->primaryKey => $id));
 			$this->request->data = $this->ProductVariant->find('first', $options);
 		}
+		$this->render('admin_edit');
 	}
 
 /**
@@ -84,7 +129,7 @@ class ProductVariantsController extends AppController {
  * @param string $id
  * @return void
  */
-	public function delete($id = null) {
+	public function admin_delete_by_product($product_id = null, $id = null) {
 		$this->ProductVariant->id = $id;
 		if (!$this->ProductVariant->exists()) {
 			throw new NotFoundException(__('Invalid product variant'));
@@ -92,104 +137,12 @@ class ProductVariantsController extends AppController {
 		$this->request->onlyAllow('post', 'delete');
 		if ($this->ProductVariant->delete()) {
 			$this->Session->setFlash(__('ProductVariant variant deleted'));
-			$this->redirect(array('action' => 'index'));
+			$this->redirect(array('action' => 'index_by_product', 'id' => $product_id));
 		}
 		$this->Session->setFlash(__('ProductVariant variant was not deleted'));
-		$this->redirect(array('action' => 'index'));
+		$this->redirect(array('action' => 'index_by_product', 'id' =>$product_id));
 	}
 
-
-
-
-
-/**
- * Admin Methods
- *
- * Admin index method
- *
- * @return void
- */
-	public function admin_index() {
-		$this->ProductVariant->recursive = 0;
-		$this->set('productVariants', $this->paginate());
-	}
-
-/**
- * Admin view method
- *
- * @throws NotFoundException
- * @param string $id
- * @return void
- */
-	public function admin_view($id = null) {
-		if (!$this->ProductVariant->exists($id)) {
-			throw new NotFoundException(__('Invalid product variant'));
-		}
-		$options = array('conditions' => array('ProductVariant.' . $this->ProductVariant->primaryKey => $id));
-		$this->set('productVariant', $this->ProductVariant->find('first', $options));
-	}
-
-/**
- * Admin add method
- *
- * @return void
- */
-	public function admin_add() {
-		if ($this->request->is('post')) {
-			$this->ProductVariant->create();
-			if ($this->ProductVariant->save($this->request->data)) {
-				$this->Session->setFlash(__('The product variant has been saved'));
-				$this->redirect(array('action' => 'index'));
-			} else {
-				$this->Session->setFlash(__('The product variant could not be saved. Please, try again.'));
-			}
-		}
-	}
-
-/**
- * Admin edit method
- *
- * @throws NotFoundException
- * @param string $id
- * @return void
- */
-	public function admin_edit($id = null) {
-		if (!$this->ProductVariant->exists($id)) {
-			throw new NotFoundException(__('Invalid product variant'));
-		}
-		if ($this->request->is('post') || $this->request->is('put')) {
-			if ($this->ProductVariant->save($this->request->data)) {
-				$this->Session->setFlash(__('The product variant has been saved'));
-				$this->redirect(array('action' => 'index'));
-			} else {
-				$this->Session->setFlash(__('The product variant could not be saved. Please, try again.'));
-			}
-		} else {
-			$options = array('conditions' => array('ProductVariant.' . $this->ProductVariant->primaryKey => $id));
-			$this->request->data = $this->ProductVariant->find('first', $options);
-		}
-	}
-
-/**
- * Admin delete method
- *
- * @throws NotFoundException
- * @param string $id
- * @return void
- */
-	public function admin_delete($id = null) {
-		$this->ProductVariant->id = $id;
-		if (!$this->ProductVariant->exists()) {
-			throw new NotFoundException(__('Invalid product variant'));
-		}
-		$this->request->onlyAllow('post', 'delete');
-		if ($this->ProductVariant->delete()) {
-			$this->Session->setFlash(__('ProductVariant variant deleted'));
-			$this->redirect(array('action' => 'index'));
-		}
-		$this->Session->setFlash(__('ProductVariant variant was not deleted'));
-		$this->redirect(array('action' => 'index'));
-	}
 
 
 	

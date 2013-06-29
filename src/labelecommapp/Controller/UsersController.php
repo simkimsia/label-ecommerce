@@ -159,14 +159,35 @@ class UsersController extends AppController {
 			}
 			$this->Session->setFlash('Your username or password was incorrect.');
 		}
-		$this->render('login');
+		$this->render('login'); // i am rendering the view called login.ctp
 	}
 
-	public function logout() {
-		//Leave empty for now.
+
+	public function admin_logout($message = 'Good-Bye') {
+		$this->Session->setFlash($message);
+		$this->redirect($this->Auth->logout());
+	}
+
+	public function logout($message = 'Good-Bye') {
+		$this->Session->setFlash($message);
+		$this->redirect($this->Auth->logout());
 	}
 
 	public function admin_forget_password() {
 		$this->render('forget_password');
+	}
+
+/**
+ * view_my_own_profile method
+ *
+ * @throws NotFoundException
+ * @param string $id
+ * @return void
+ */
+	public function admin_view_my_own_profile() {
+		$this->User->recursive = 0;
+		$options = array('conditions' => array('User.' . $this->User->primaryKey => $this->Auth->user('id')));
+		$this->set('user', $this->User->find('first', $options));
+		$this->render('view');
 	}
 }

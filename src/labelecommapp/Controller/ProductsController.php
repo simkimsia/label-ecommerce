@@ -9,7 +9,7 @@ class ProductsController extends AppController {
 
 	public function beforeFilter() {
 		parent::beforeFilter();
-		$this->Auth->allow();
+		$this->Auth->allow('index', 'view'); // allow for anonymous 
 	}
 
 /**
@@ -124,4 +124,6 @@ class ProductsController extends AppController {
 		$this->Session->setFlash(__('Product was not deleted'));
 		$this->redirect(array('action' => 'index'));
 	}
+
+
 }

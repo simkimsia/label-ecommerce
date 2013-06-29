@@ -43,6 +43,62 @@
  */
 	Router::connect('/pages/*', array('controller' => 'pages', 'action' => 'display'));
 
+	Router::connect('/admin/products/:id/variants/add', 
+		array(
+			'controller' => 'product_variants', 
+			'action' => 'add_by_product',
+			'admin' => true,
+			'prefix' => 'admin'
+			),
+		array(
+			'pass' => array('id'),
+			'id' => '[0-9]+'
+		)
+	);
+
+	Router::connect('/admin/products/:id/variants', 
+		array(
+			'controller' => 'product_variants', 
+			'action' => 'index_by_product', "[method]" => "GET",
+			'admin' => true,
+			'prefix' => 'admin'
+			),
+		array(
+			'pass' => array('id'),
+			'id' => '[0-9]+'
+		)
+	);
+
+	Router::connect('/admin/products/:product_id/variants/:id', 
+		array(
+			'controller' => 'product_variants', 
+			'action' => 'edit_by_product',
+			'admin' => true,
+			'prefix' => 'admin'
+			),
+		array(
+			'pass' => array('product_id', 'id'),
+			'product_id' => '[0-9]+',
+			'id' => '[0-9]+'
+		)
+	);
+
+	Router::connect('/admin/products/:product_id/variants/:id/delete', 
+	array(
+		'controller' => 'product_variants', 
+		'action' => 'delete_by_product',
+		'admin' => true,
+		'prefix' => 'admin'
+		),
+	array(
+		'pass' => array('product_id', 'id'),
+		'product_id' => '[0-9]+',
+		'id' => '[0-9]+'
+		)
+	);
+
+	
+
 /**
  * Load all plugin routes. See the CakePlugin documentation on
  * how to customize the loading of plugin routes.

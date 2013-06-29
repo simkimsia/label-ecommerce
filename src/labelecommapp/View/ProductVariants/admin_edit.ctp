@@ -3,8 +3,9 @@
 	<fieldset>
 		<legend><?php echo __('Edit Product Variant'); ?></legend>
 	<?php
-		echo $this->Form->input('id');
-		echo $this->Form->input('product_id');
+		echo $this->Form->input('id', array('type' => 'hidden', 'value' => $id));
+		echo $this->Form->input('product_id', array('type' => 'hidden', 'value' => $product_id ));
+		echo $this->Form->input('name');
 	?>
 	</fieldset>
 <?php echo $this->Form->end(__('Submit')); ?>

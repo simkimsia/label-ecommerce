@@ -6,6 +6,7 @@
 			<th><?php echo $this->Paginator->sort('product_id'); ?></th>
 			<th><?php echo $this->Paginator->sort('created'); ?></th>
 			<th><?php echo $this->Paginator->sort('modified'); ?></th>
+			<th><?php echo $this->Paginator->sort('name'); ?></th>
 			<th class="actions"><?php echo __('Actions'); ?></th>
 	</tr>
 	<?php foreach ($productVariants as $productVariant): ?>
@@ -14,10 +15,25 @@
 		<td><?php echo h($productVariant['ProductVariant']['product_id']); ?>&nbsp;</td>
 		<td><?php echo h($productVariant['ProductVariant']['created']); ?>&nbsp;</td>
 		<td><?php echo h($productVariant['ProductVariant']['modified']); ?>&nbsp;</td>
+		<td><?php echo h($productVariant['ProductVariant']['name']); ?>&nbsp;</td>
 		<td class="actions">
-			<?php echo $this->Html->link(__('View'), array('action' => 'view', $productVariant['ProductVariant']['id'])); ?>
-			<?php echo $this->Html->link(__('Edit'), array('action' => 'edit', $productVariant['ProductVariant']['id'])); ?>
-			<?php echo $this->Form->postLink(__('Delete'), array('action' => 'delete', $productVariant['ProductVariant']['id']), null, __('Are you sure you want to delete # %s?', $productVariant['ProductVariant']['id'])); ?>
+			
+			<?php echo $this->Html->link(__('Edit'), 
+			array(
+				'action' => 'edit_by_product',
+				'product_id'=>$product_id,
+				'id'=>$productVariant['ProductVariant']['id'])
+			); ?>
+			<?php echo $this->Form->postLink(__('Delete'),
+			 array(
+			 	'action' => 'delete_by_product', 
+			 	'product_id' => $product_id,
+				 'id' =>$productVariant['ProductVariant']['id']
+				 ),
+			  null,
+			   __('Are you sure you want to delete # %s?',
+			    $productVariant['ProductVariant']['name'])); 
+		   ?>
 		</td>
 	</tr>
 <?php endforeach; ?>
@@ -39,6 +55,6 @@
 <div class="actions">
 	<h3><?php echo __('Actions'); ?></h3>
 	<ul>
-		<li><?php echo $this->Html->link(__('New Product Variant'), array('action' => 'add')); ?></li>
+		<li><?php echo $this->Html->link(__('New Product Variant'), array('action' => 'add_by_product', 'id'=>$product_id)); ?></li>
 	</ul>
 </div>
