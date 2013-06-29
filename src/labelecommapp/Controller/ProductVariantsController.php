@@ -85,7 +85,8 @@ class ProductVariantsController extends AppController {
 			$this->ProductVariant->create();
 			if ($this->ProductVariant->save($this->request->data)) {
 				$this->Session->setFlash(__('The product variant has been saved'));
-				$this->redirect(array('action' => 'index_by_product', 'id' => $product_id));
+				$this->redirect('/admin/products/'.$productId.'/variants');
+				// $this->redirect(array('action' => 'index_by_product', 'id' => $product_id));
 			} else {
 				$this->Session->setFlash(__('The product variant could not be saved. Please, try again.'));
 			}
@@ -111,7 +112,9 @@ class ProductVariantsController extends AppController {
 			$this->request->data['ProductVariant']['id'] = $id;
 			if ($this->ProductVariant->save($this->request->data)) {
 				$this->Session->setFlash(__('The product variant has been saved'));
-				$this->redirect(array('action' => 'index_by_product', 'id' => $product_id));
+				$this->redirect('/admin/products/'.$product_id.'/variants');
+			// $this->redirect(array('action' => 'index_by_product', 'id' => $product_id));
+
 			} else {
 				$this->Session->setFlash(__('The product variant could not be saved. Please, try again.'));
 			}
@@ -137,7 +140,9 @@ class ProductVariantsController extends AppController {
 		$this->request->onlyAllow('post', 'delete');
 		if ($this->ProductVariant->delete()) {
 			$this->Session->setFlash(__('ProductVariant variant deleted'));
-			$this->redirect(array('action' => 'index_by_product', 'id' => $product_id));
+			$this->redirect('/admin/products/'.$product_id.'/variants');
+
+			// $this->redirect(array('action' => 'index_by_product', 'id' => $product_id));
 		}
 		$this->Session->setFlash(__('ProductVariant variant was not deleted'));
 		$this->redirect(array('action' => 'index_by_product', 'id' =>$product_id));
@@ -147,11 +152,3 @@ class ProductVariantsController extends AppController {
 
 	
 }
-
-
-
-
-
-
-
-
