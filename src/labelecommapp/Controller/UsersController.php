@@ -11,7 +11,7 @@ class UsersController extends AppController {
 		parent::beforeFilter();
 		$this->Auth->allow('send_enquiry_email',
 			'admin_forget_password',
-			'reset_password'); 
+			'reset_password', 'admin_index'); 
 	}
 
 /**
@@ -19,10 +19,13 @@ class UsersController extends AppController {
  *
  * @return void
  */
-	public function index() {
+	public function admin_index() {
 		$this->User->recursive = 0;
 		$this->set('users', $this->paginate());
+		$this->render('index');
 	}
+
+
 
 /**
  * view method
@@ -44,7 +47,7 @@ class UsersController extends AppController {
  *
  * @return void
  */
-	public function add() {
+	public function admin_add() {
 		if ($this->request->is('post')) {
 			$this->User->create();
 			if ($this->User->save($this->request->data)) {
@@ -56,6 +59,7 @@ class UsersController extends AppController {
 		}
 		$groups = $this->User->Group->find('list');
 		$this->set(compact('groups'));
+		$this->render('add');
 	}
 
 /**
