@@ -53,7 +53,16 @@
                     <li><a href="/products/view/6">Split Dual Name Pack</a></li>
                     <li><a href="/products/view/7">Split English/Chinese name pack</a></li>
                 </ul>
-                <div class="productdetails"><span class="detail">Detail:</span><span class="thewords"><?php echo h($product['Product']['description']);?><br /></span></div>
+                <div class="productdetails"><span class="detail"><br/>Details:</span><span class="thewords"><br/><br/><br/>
+                    <?php 
+                        $desc_line = preg_split('/(?<=[.?!;:])\s+/', h($product['Product']['description']), -1, PREG_SPLIT_NO_EMPTY);
+
+                        foreach ($desc_line as $line){
+                             echo $line;
+                             echo '<br/><br/>';
+                        }
+                    ?>
+                   <br /></span></div>
                 <div class="clearBoth"></div>
                 <div class="searchBox">
                     <form method="post" action="#" class="labelsearch">
