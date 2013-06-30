@@ -153,6 +153,94 @@ class User extends AppModel {
 	}
 
 // password related functions
+
+/** 
+ * this is for registration
+ */
+	public function createAndSave($data) {
+		$this->create();
+		$newPassword = StringLib::generateRandom();
+		$data['User']['original_password'] = $newPassword;
+		$data['User']['password'] = $newPassword;
+		return $this->save($data);
+	}
+
+/** 
+ * 
+ * this is needed for User to change her own password
+ */
+	public function changePassword($data) {
+		//hash input password
+		$hashedPWD = AuthComponent::password($data['User']['old_password']);
+
+		//check if in the DB for the UserID
+		//1 means yes, 0 means no
+		$checkIfPWDInDB = $this->find('count', array(
+			'conditions' => array(
+				'User.password =' => $hashedPWD,
+				'User.id =' => $data['User']['id']
+				)
+			)
+		);
+
+		if ($checkIfPWDInDB == 1) {
+			$old = true;
+		} else {
+			$message = 'Your old password does not match.';
+			$old = false;
+		}
+
+		//check if new pwd matches confirm pwd
+		if ($data['User']['new_password'] == $data['User']['confirm_new_password']) {
+			$confirm = true;
+		} else {
+			$message = 'Your new passwords do not match.';
+			$confirm = false;
+		}
+
+		if ($old && $confirm) {
+			//save the pwd if successful
+			$data['User']['password'] = $data['User']['new_password'];
+			$this->save($data);
+			return 'Password successfully changed!';
+		} else {
+			return $message;
+		}
+	}
+
+/**
+ *
+ * Checks the database to see if the email provided exists. If there is, return true.
+ *
+ * @param String $email Email Provided
+ * @return Boolean True if email exists, else return false
+ */
+	public function checkEmailExists($email) {
+		$emailExists = $this->find('count', array(
+			'conditions' => array(
+				'email' => $email)
+			)
+		);
+
+		return ($emailExists === 1);
+	}
+
+/**
+ *
+ * Makes a token using the email given and the current dateTime
+ *
+ * @param String $email Email Provided
+ * @return String $token The token
+ */
+	public function createToken($email) {
+		$dateTime = date('Y-m-d H:i:s');
+
+		$plaintext = $email . $dateTime;
+
+		$token = Security::hash($plaintext, 'sha1', true);
+
+		return $token;
+	}
 /**
  *
  * searches the users table for a token, given the email. If token is empty, create a new one and return it.
