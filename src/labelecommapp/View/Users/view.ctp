@@ -20,16 +20,17 @@
 				<?php echo h($user['User']['email']); ?>
 				&nbsp;
 			</dd>
-			<dt><?php echo __('Title'); ?></dt>
+			<!--<dt><?php echo __('Title'); ?></dt>
 			<dd>
 				<?php echo h($user['User']['title']); ?>
 				&nbsp;
-			</dd>
+			</dd>-->
 			<dt><?php echo __('Group'); ?></dt>
 			<dd>
 				<?php echo $this->Html->link($user['Group']['name'], array('controller' => 'groups', 'action' => 'view', $user['Group']['id'])); ?>
 				&nbsp;
 			</dd>
+			
 		</dl>
 	</div>
 </div>

@@ -12,7 +12,7 @@
 		if ($this->params['action'] == 'change_my_own_password') {
 			echo "<strong>" . $message . "</strong>";
 		} else {
-			echo $this->Html->link($message, '/users/change_my_own_password');
+			echo $this->Html->link($message, array('action' => 'change_my_own_password'));
 		}
 
 		if ($authUser['group_id'] == SUPER_ADMIN) {
@@ -42,7 +42,7 @@
 			}
 		}
 
-	} else {
+	 else {
 		echo $this->Html->link('Login', array(
 			'controller' => 'users',
 			'action' => 'login'
