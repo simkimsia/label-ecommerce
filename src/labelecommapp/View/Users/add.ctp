@@ -7,7 +7,7 @@
 		echo $this->Form->input('email');
 		echo $this->Form->input('password');
 		echo $this->Form->input('short_name');
-		echo $this->Form->input('token');
+		echo $this->Form->input('token', array('type'=>'hidden', 'value' => 'NULL'));
 		echo $this->Form->input('group_id');
 	?>
 	</fieldset>

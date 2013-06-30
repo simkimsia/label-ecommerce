@@ -11,7 +11,7 @@ class UsersController extends AppController {
 		parent::beforeFilter();
 		$this->Auth->allow('send_enquiry_email',
 			'admin_forget_password',
-			'reset_password', 'admin_index'); 
+			'reset_password', 'admin_index', 'admin_edit'); 
 	}
 
 /**
@@ -69,7 +69,7 @@ class UsersController extends AppController {
  * @param string $id
  * @return void
  */
-	public function edit($id = null) {
+	public function admin_edit($id = null) {
 		if (!$this->User->exists($id)) {
 			throw new NotFoundException(__('Invalid user'));
 		}
@@ -86,6 +86,7 @@ class UsersController extends AppController {
 		}
 		$groups = $this->User->Group->find('list');
 		$this->set(compact('groups'));
+		$this->render('edit');
 	}
 
 /**
