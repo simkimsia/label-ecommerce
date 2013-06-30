@@ -13,6 +13,6 @@
 	<h3><?php echo __('Actions'); ?></h3>
 	<ul>
 
-		<li><?php echo $this->Html->link(__('List Product Variants'), array('action' => 'index_by_product', 'id' => $productId)); ?></li>
+		<li><?php echo $this->Html->link(__('List Product Variants'), '/admin/products/'.$productId.'/variants'); ?></li>
 	</ul>
 </div>
