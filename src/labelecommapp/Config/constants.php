@@ -2,8 +2,8 @@
 
 
 define('SUPER_ADMIN', 1);
-define('CHILDLABEL_ADMIN', 4);
-define('CHILDLABEL_CUSTOMERS', 5);
+define('SHOP_ADMIN', 3);
+define('CUSTOMER', 4);
 
 define('EMAIL_ON', true);
 

@@ -107,4 +107,69 @@ class User extends AppModel {
 
 		return false;
 	}
+
+// password related functions
+/**
+ *
+ * searches the users table for a token, given the email. If token is empty, create a new one and return it.
+ *
+ * @param String $email Email Provided
+ * @return Array $userData containing full_name, email and token
+ */
+	public function findXORCreateToken($email){
+		$userData = $this->find('first', array(
+			'conditions' => array('User.email' => $email),
+			'fields' => array('User.id', 'User.full_name', 'User.token', 'User.email')
+		));
+
+		if ($userData['User']['token'] === null || empty($userData['User']['token'])) {
+			$token = $this->createToken($email);
+			$this->id = $userData['User']['id'];
+			$this->saveField('token', $token, array(
+				'callbacks' => false, 
+				'validate' => false
+			));
+			$userData['User']['token'] = $token;
+		}
+		$userData = Hash::extract($userData, 'User');
+		return $userData;
+	}
+
+/**
+ *
+ * Sends the user a token to reset password
+ *
+ * @param Array $userData Array containing full_name, email and token
+ * @return void 
+ */
+	public function sendToken($userData){
+		$recipient = array(
+			'full_name' => $userData['full_name'],
+			'email' => $userData['email'],
+		);
+		$email = new PasswordEmail($recipient);
+		$email->sendToken($userData['token']);
+	}
+
+/**
+ *
+ * Resets the password
+ *
+ * @param Array $data Array containing id, new_password, confirm_new_password
+ * @return mixed return user data array or true if successful. false otherwise
+ * @throws CakeException when passwords don't match
+ */
+	public function resetPassword($data){
+		//check if new pwd matches confirm pwd
+		if ($data['User']['new_password'] == $data['User']['confirm_new_password']) {
+			//save the pwd if successful
+			$data['User']['password'] = $data['User']['new_password'];
+			$data['User']['token'] = null;
+			$result = $this->save($data);
+			return $result;
+		} else {
+			throw new CakeException ('Your new passwords do not match.');
+		}
+	}
+// end of password related function
 }

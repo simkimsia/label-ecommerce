@@ -9,7 +9,9 @@ class UsersController extends AppController {
 
 	public function beforeFilter() {
 		parent::beforeFilter();
-		$this->Auth->allow();
+		$this->Auth->allow('send_enquiry_email',
+			'forget_password',
+			'reset_password');
 	}
 
 /**
@@ -189,5 +191,114 @@ class UsersController extends AppController {
 		$options = array('conditions' => array('User.' . $this->User->primaryKey => $this->Auth->user('id')));
 		$this->set('user', $this->User->find('first', $options));
 		$this->render('view');
+	}
+
+/**
+ * edit_my_own_profile method
+ *
+ * @throws NotFoundException
+ * @param string $id
+ * @return void
+ */
+	public function admin_edit_my_own_profile() {
+		if ($this->request->is('post') || $this->request->is('put')) {
+			if ($this->User->save($this->request->data)) {
+				$this->Session->setFlash(__('The user has been saved'));
+				$this->redirect(array('action' => 'index'));
+			} else {
+				$this->Session->setFlash(__('The user could not be saved. Please, try again.'));
+			}
+		} else {
+			$options = array('conditions' => array('User.' . $this->User->primaryKey => $this->Auth->user('id')));
+			$this->request->data = $this->User->find('first', $options);
+		}
+		$groups = $this->User->Group->find('list');
+		$this->set(compact('groups'));
+		$this->render('edit');
+	}
+
+/**
+ * change_my_own_password method
+ *
+ * @throws NotFoundException
+ * @param string $id
+ * @return void
+ */
+	public function admin_change_my_own_password() {
+		if ($this->request->is('post') || $this->request->is('put')) {
+			$message = $this->User->changePassword($this->request->data);
+			$this->Session->setFlash($message);
+			$this->redirect(array('action' => 'index'));
+		} else {
+			$options = array('conditions' => array('User.' . $this->User->primaryKey => $this->Auth->user('id')));
+			$this->request->data = $this->User->find('first', $options);
+		}
+		$this->render('change_my_own_password');
+	}
+
+
+/**
+ * forget_password method
+ *
+ * @return void
+ */
+	public function forget_password() {
+		if ($this->request->is('post')) {
+			$email = $this->request->data['User']['email'];
+			$emailExist = $this->User->checkEmailExists($email);
+
+			if ($emailExist === true) {
+				//concat datetime and email, and hash them to create token
+				$userData = $this->User->findXORCreateToken($email);
+
+				//send email with token
+				$this->User->sendToken($userData);
+				$this->Session->setFlash('The reset link has been sent to your email. Please check your email and click the link.');
+				$this->redirect(array('action' => 'login'));
+			} else {
+				$this->Session->setFlash('Did you enter a valid email address?');
+			}
+		}
+	}
+
+/**
+ * reset_password method
+ *
+ * @return void
+ */
+	public function reset_password() {
+		if(isset($_GET['token'])){
+			$userData = $this->User->findByToken($_GET['token']);
+			$validToken = $userData;
+			$this->set('token', $_GET['token']);
+		} else {
+			$validToken = false;
+		}
+
+		if (!$validToken) {
+			$this->Session->setFlash('Invalid link. Please Login.');
+			$this->redirect(array('action' => 'login'));
+		}
+
+		if ($this->request->is('get')) {
+			if ($validToken) {
+				$this->request->data = $userData;
+			}
+		} else if ($this->request->is('post') || $this->request->is('put')) {
+			try {
+				$result = $this->User->resetPassword($this->request->data);
+				$errorMessage = "Not successful";
+			} catch(CakeException $error) {
+				$result = false;
+				$errorMessage = $error->getMessage();
+			}
+
+			if ($result) {
+				$this->Session->setFlash('Password successfully changed');
+				$this->redirect(array('action' => 'login'));
+			} else {
+				$this->Session->setFlash($errorMessage);
+			}
+		}
 	}
 }
