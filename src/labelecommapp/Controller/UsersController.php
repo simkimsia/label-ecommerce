@@ -11,7 +11,7 @@ class UsersController extends AppController {
 		parent::beforeFilter();
 		$this->Auth->allow('send_enquiry_email',
 			'admin_forget_password',
-			'reset_password', 'admin_index', 'admin_edit'); 
+			'reset_password'); 
 	}
 
 /**
