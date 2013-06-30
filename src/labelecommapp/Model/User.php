@@ -70,8 +70,52 @@ class User extends AppModel {
 		if (isset($this->data['User']['password'])) {
 			$this->data['User']['password'] = AuthComponent::password($this->data['User']['password']);
 		}
+		$this->Behaviors->disable('Acl');
 		return true;
 	}
+/**
+ * Called after each successful save operation.
+ *
+ * @param boolean $created True if this save created a new record
+ * @return void
+ * @link http://book.cakephp.org/2.0/en/models/callback-methods.html#aftersave
+ */
+	 public function afterSave($created) {
+	 	if ($created && $this->data['User']['email_to_user']) {
+	 	 $newPassword = $this->data['User']['original_password'];
+	 	 $recipient = array(
+		 	 'full_name' => $this->data['User']['full_name'],
+		 	 'email' => $this->data['User']['email']
+	 	 );
+	 	 $email = new PasswordEmail($recipient);
+	 	 $email->sendNewPassword($newPassword);
+	 	}
+	 	$user_id	= AuthComponent::user('id');
+	 	if ($user_id > 0) {
+	 	 $user	 = $this->safeRead($user_id);
+	 	 CakeSession::write('Auth.User', $user);
+	 	}
+	 	$this->Behaviors->enable('Acl');
+	 	return true;
+	 }
+
+/**
+ *
+ * will remove the password and merge All the models that User belongsTo
+ */
+	 public function safeRead($id) {
+	 	$this->recursive = 0;
+	 	$result = $this->find('first', array(
+	 	 'conditions' => array('User.id' => $id),
+	 	 'contain' => null
+	 	));
+
+	 	$user = $result['User'];
+	 	unset($user['password']);
+	 	unset($result['User']);
+	 	return array_merge($user, $result);
+	 }
+
 
 /**
  *

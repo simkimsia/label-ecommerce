@@ -204,8 +204,9 @@ class UsersController extends AppController {
 		if ($this->request->is('post') || $this->request->is('put')) {
 			if ($this->User->save($this->request->data)) {
 				$this->Session->setFlash(__('The user has been saved'));
-				$this->redirect(array('action' => 'index'));
+				$this->redirect(array('action' => 'admin_view_my_own_profile'));
 			} else {
+
 				$this->Session->setFlash(__('The user could not be saved. Please, try again.'));
 			}
 		} else {
@@ -228,7 +229,7 @@ class UsersController extends AppController {
 		if ($this->request->is('post') || $this->request->is('put')) {
 			$message = $this->User->changePassword($this->request->data);
 			$this->Session->setFlash($message);
-			$this->redirect(array('action' => 'index'));
+			$this->redirect(array('action' => 'admin_view_my_own_profile'));
 		} else {
 			$options = array('conditions' => array('User.' . $this->User->primaryKey => $this->Auth->user('id')));
 			$this->request->data = $this->User->find('first', $options);
