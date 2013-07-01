@@ -1,3 +1,4 @@
+<br/><br/><br/>
 <?php
 echo $this->Form->create('User', array('action' => 'login'));
 echo $this->Form->inputs(array(
@@ -8,3 +9,4 @@ echo $this->Form->inputs(array(
 echo $this->Html->link('Forgot Password?', array('controller' => 'users', 'action' => 'forget_password'));
 echo $this->Form->end('Login');
 ?>
+<br/>
