@@ -1,6 +1,10 @@
 <?php
 App::uses('AppModel', 'Model');
 App::uses('AuthComponent', 'Controller/Component');
+App::uses('CakeSession', 'Model/Datasource');
+App::uses('StringLib', 'UtilityLib.Lib');
+App::uses('PasswordEmail', 'Lib/Email');
+
 /**
  * User Model
  *

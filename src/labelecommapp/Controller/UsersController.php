@@ -10,8 +10,8 @@ class UsersController extends AppController {
 	public function beforeFilter() {
 		parent::beforeFilter();
 		$this->Auth->allow('send_enquiry_email',
-			'forget_password',
-			'reset_password');
+			'admin_forget_password',
+			'reset_password'); 
 	}
 
 /**
@@ -19,10 +19,13 @@ class UsersController extends AppController {
  *
  * @return void
  */
-	public function index() {
+	public function admin_index() {
 		$this->User->recursive = 0;
 		$this->set('users', $this->paginate());
+		$this->render('index');
 	}
+
+
 
 /**
  * view method
@@ -44,7 +47,7 @@ class UsersController extends AppController {
  *
  * @return void
  */
-	public function add() {
+	public function admin_add() {
 		if ($this->request->is('post')) {
 			$this->User->create();
 			if ($this->User->save($this->request->data)) {
@@ -56,6 +59,7 @@ class UsersController extends AppController {
 		}
 		$groups = $this->User->Group->find('list');
 		$this->set(compact('groups'));
+		$this->render('add');
 	}
 
 /**
@@ -65,7 +69,7 @@ class UsersController extends AppController {
  * @param string $id
  * @return void
  */
-	public function edit($id = null) {
+	public function admin_edit($id = null) {
 		if (!$this->User->exists($id)) {
 			throw new NotFoundException(__('Invalid user'));
 		}
@@ -82,6 +86,7 @@ class UsersController extends AppController {
 		}
 		$groups = $this->User->Group->find('list');
 		$this->set(compact('groups'));
+		$this->render('edit');
 	}
 
 /**
@@ -175,10 +180,6 @@ class UsersController extends AppController {
 		$this->redirect($this->Auth->logout());
 	}
 
-	public function admin_forget_password() {
-		$this->render('forget_password');
-	}
-
 /**
  * view_my_own_profile method
  *
@@ -243,7 +244,7 @@ class UsersController extends AppController {
  *
  * @return void
  */
-	public function forget_password() {
+	public function admin_forget_password() {
 		if ($this->request->is('post')) {
 			$email = $this->request->data['User']['email'];
 			$emailExist = $this->User->checkEmailExists($email);
@@ -260,6 +261,7 @@ class UsersController extends AppController {
 				$this->Session->setFlash('Did you enter a valid email address?');
 			}
 		}
+		$this->render('forget_password');
 	}
 
 /**
@@ -301,5 +303,6 @@ class UsersController extends AppController {
 				$this->Session->setFlash($errorMessage);
 			}
 		}
+		$this->render('reset_password');
 	}
 }

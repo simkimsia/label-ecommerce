@@ -45,7 +45,7 @@
                 <h2 class="price">$<?php echo h($product['Product']['price']); ?></h2>
                 <div class="desc"><?php echo h($product['Product']['name']); ?></div>
                 <ul class="productlabels">
-                    <li><a href="/products/view/2" >Round Labels</a></li>
+                    <li><a href="/products/view/2">Circle Labels</a></li>
                     <li><a href="/products/view/1">Small Rectangle</a></li>
                     <li><a href="/products/view/3">Small Rectangle (Chinese)</a></li>
                     <li><a href="/products/view/4">Birthday Large</a></li>

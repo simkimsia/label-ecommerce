@@ -57,7 +57,7 @@ $(function() {
                 <li>
                     <strong>Child Label Packs (Stickers)</strong>
                     <ul>
-                      <li><a href="/products/view/2">Round Labels</a></li>
+                      <li><a href="/products/view/2">Circle Labels</a></li>
                       <li><a href="/products/view/1">Rectangle Labels</a></li>
                       <li><a href="/products/view/3">Chinese Labels</a></li>
                       <li><a href="/products/view/4">Birthday Labels</a></li>
@@ -68,7 +68,7 @@ $(function() {
                 </li>
                 <li><strong>Child Label Packs (Iron Ons)</strong>
                   <ul>
-                      <li><a href="/products/view/9">Round Labels</a></li>
+                      <li><a href="/products/view/9">Circle Labels</a></li>
                       <li><a href="/products/view/8">Rectangle Labels</a></li>
                       <li><a href="/products/view/15">Chinese Labels</a></li>
                       <li><a href="/products/view/10">Split Dual Name Pack</a></li>
@@ -118,7 +118,7 @@ $(function() {
               <?php // foreach ($productsForSale as $product): ?>
                 <?php //echo $this->Html->link(__($product['Product']['name']), array('controller' => 'products', 'action' => 'view', $product['Product']['id'])); ?>
               <?php //endforeach; ?>
-                <a href="/products/view/2">Round Labels</a></br>
+                <a href="/products/view/2">Circle Labels</a></br>
                 <a href="/products/view/1">Rectangle Labels</a></br>
                 <a href="/products/view/3">Chinese Labels</a></br>
                 <a href="/products/view/4">Birthday Labels</a></br>
@@ -129,7 +129,7 @@ $(function() {
 
             <div class="col1">
               <strong>Iron Ons</strong><br/>
-                <a href="/products/view/9">Round Labels</a></br>
+                <a href="/products/view/9">Circle Labels</a></br>
                 <a href="/products/view/8">Rectangle Labels</a></br>
                 <a href="/products/view/10">Chinese Labels</a></br>
                 <a href="/products/view/15">Split Dual Name Pack</a></br>

@@ -17,7 +17,7 @@
 				<td><?php echo $this->Html->link($user['User']['short_name'], array('action' => 'view', $user['User']['id'])); ?></td>
 				<td><?php echo h($user['User']['full_name']); ?>&nbsp;</td>
 				<td><?php echo $this->Html->link($user['Group']['name'], array('controller' => 'groups', 'action' => 'view', $user['Group']['id'])); ?></td>
-				<td><?php echo h($user['User']['title']); ?>&nbsp;</td>
+				
 				<td class="actions">
 					<?php echo $this->Html->link(__('Edit'), array('action' => 'edit', $user['User']['id'])); ?>
 					<?php echo $this->Form->postLink(__('Suspend'), array('action' => 'suspend', $user['User']['id']), null, __('Are you sure you want to suspend %s?', $user['User']['short_name'])); ?>
