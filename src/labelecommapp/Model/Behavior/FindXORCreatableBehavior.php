@@ -59,7 +59,11 @@ class FindXORCreatableBehavior extends ModelBehavior {
 			$conditions = $suppliedData;
 		} else {
 			foreach($findFields as $field) {
-				$conditions[$field] = $suppliedData[$field];
+				if (array_key_exists($field, $suppliedData)) {
+					$conditions[$field] = $suppliedData[$field];
+				} else {
+					$conditions[$field] = null;
+				}
 			}
 		}
 		$found = $model->find('first', array(
