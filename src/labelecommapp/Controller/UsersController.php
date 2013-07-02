@@ -158,7 +158,7 @@ class UsersController extends AppController {
 
 	public function admin_login() {
 		if ($this->request->is('post')) {
-			$allowThisUser = $this->User->allowEntry($this->data, array(SUPER_ADMIN, CHILDLABEL_ADMIN));
+			$allowThisUser = $this->User->allowEntry($this->data, array(SUPER_ADMIN, SHOP_ADMIN));
 			if ($allowThisUser) {
 				if ($this->Auth->login()) {
 					$this->redirect($this->Auth->redirectUrl());
