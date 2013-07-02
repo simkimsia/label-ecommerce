@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 30, 2013 at 05:22 PM
+-- Generation Time: Jul 02, 2013 at 03:15 AM
 -- Server version: 5.5.27
 -- PHP Version: 5.4.7
 
@@ -23,6 +23,7 @@
 -- Table structure for table `acos`
 --
 
+DROP TABLE IF EXISTS `acos`;
 CREATE TABLE IF NOT EXISTS `acos` (
   `id` int(10) NOT NULL AUTO_INCREMENT,
   `parent_id` int(10) DEFAULT NULL,
@@ -123,6 +124,7 @@ INSERT INTO `acos` (`id`, `parent_id`, `model`, `foreign_key`, `alias`, `lft`, `
 -- Table structure for table `aros`
 --
 
+DROP TABLE IF EXISTS `aros`;
 CREATE TABLE IF NOT EXISTS `aros` (
   `id` int(10) NOT NULL AUTO_INCREMENT,
   `parent_id` int(10) DEFAULT NULL,
@@ -149,6 +151,7 @@ INSERT INTO `aros` (`id`, `parent_id`, `model`, `foreign_key`, `alias`, `lft`, `
 -- Table structure for table `aros_acos`
 --
 
+DROP TABLE IF EXISTS `aros_acos`;
 CREATE TABLE IF NOT EXISTS `aros_acos` (
   `id` int(10) NOT NULL AUTO_INCREMENT,
   `aro_id` int(10) NOT NULL,
@@ -178,6 +181,7 @@ INSERT INTO `aros_acos` (`id`, `aro_id`, `aco_id`, `_create`, `_read`, `_update`
 -- Table structure for table `groups`
 --
 
+DROP TABLE IF EXISTS `groups`;
 CREATE TABLE IF NOT EXISTS `groups` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `name` varchar(30) DEFAULT NULL,
@@ -204,6 +208,7 @@ INSERT INTO `groups` (`id`, `name`, `display_name`, `created`, `modified`, `pare
 -- Table structure for table `products`
 --
 
+DROP TABLE IF EXISTS `products`;
 CREATE TABLE IF NOT EXISTS `products` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(255) NOT NULL,
@@ -239,6 +244,7 @@ INSERT INTO `products` (`id`, `name`, `description`, `price`, `created`) VALUES
 -- Table structure for table `products_in_groups`
 --
 
+DROP TABLE IF EXISTS `products_in_groups`;
 CREATE TABLE IF NOT EXISTS `products_in_groups` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `product_id` int(11) NOT NULL,
@@ -252,6 +258,7 @@ CREATE TABLE IF NOT EXISTS `products_in_groups` (
 -- Table structure for table `product_groups`
 --
 
+DROP TABLE IF EXISTS `product_groups`;
 CREATE TABLE IF NOT EXISTS `product_groups` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(255) NOT NULL,
@@ -274,6 +281,7 @@ INSERT INTO `product_groups` (`id`, `name`, `type`, `created`, `modified`) VALUE
 -- Table structure for table `product_images`
 --
 
+DROP TABLE IF EXISTS `product_images`;
 CREATE TABLE IF NOT EXISTS `product_images` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `order` tinyint(2) unsigned NOT NULL DEFAULT '0',
@@ -294,6 +302,7 @@ CREATE TABLE IF NOT EXISTS `product_images` (
 -- Table structure for table `product_variants`
 --
 
+DROP TABLE IF EXISTS `product_variants`;
 CREATE TABLE IF NOT EXISTS `product_variants` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `product_id` int(11) NOT NULL,
@@ -337,6 +346,7 @@ INSERT INTO `product_variants` (`id`, `product_id`, `created`, `modified`, `name
 -- Table structure for table `users`
 --
 
+DROP TABLE IF EXISTS `users`;
 CREATE TABLE IF NOT EXISTS `users` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `full_name` varchar(255) DEFAULT NULL,
