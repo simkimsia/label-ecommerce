@@ -1,0 +1,74 @@
+/*
+	 CSS-Tricks Example - MagicLine Demo
+	 by Chris Coyier
+	 http://css-tricks.com
+*/
+
+* { margin: 0; padding: 0; }
+/*body { font: 14px Georgia, serif; background: #2F2626; color: #eee; }
+
+header { padding: 100px 0 0 0; display: block; }
+header h1 { width: 960px; margin: 0 auto; }
+a { color: #eee; }
+a:hover { color: white; } */
+
+.nav-wrap { 
+	background-color: rgba(0,0,0,0.6); 
+	/*border-top:    2px solid white; 
+	border-bottom: 2px solid white; */
+}
+
+.nav-wrap a{ 
+	color: #eee;
+}
+
+.nav-wrap a:hover{ 
+	color: white;
+}
+
+/* Clearfix */
+.group:after { visibility: hidden; display: block; content: ""; clear: both; height: 0; }
+*:first-child+html .group { zoom: 1; } /* IE7 */
+
+/* Example Two */
+#nav-bar { 
+	margin: 0 auto; 
+	list-style: none; 
+	position: relative; 
+	width: 1000px; 
+}
+#nav-bar li { 
+	margin: 0;
+	display: inline-block; 
+}
+#nav-bar li a { 
+	position: relative; 
+	z-index: 200; 
+	color: #bbb; 
+	font-size: 14px; 
+	display: block; 
+	float: left; 
+	padding: 6px 20px 4px 20px;
+	text-decoration: none;
+	text-transform: uppercase; 
+}
+#nav-bar li a:hover { 
+	color: white; 
+}
+#nav-bar #magic-line-two { 
+	position: absolute; 
+	top: 0; 
+	left: 0; 
+	width: 100px; 
+	background: #900; 
+	z-index: 100; 
+	-moz-border-radius: 5px; 
+	-webkit-border-radius: 5px;
+	border-radius: 5px;
+}
+.current_page_item_two a { 
+	color: white !important; 
+}
+.ie6 #nav-bar li, .ie7 #nav-bar li {
+	display: inline;
+}

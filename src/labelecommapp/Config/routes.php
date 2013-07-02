@@ -36,6 +36,8 @@
 
 	Router::connect('/enquiry_email/add', array('controller' => 'users', 'action' => 'send_enquiry_email'));
 
+	Router::connect('/admin/home', array('controller' => 'pages', 'action' => 'display', 'admin_home', 'admin' => true, 'prefix' => 'admin'));
+
 	// customized routes for faq and about
 
 /**

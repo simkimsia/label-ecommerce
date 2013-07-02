@@ -28,6 +28,9 @@ build/api/*
 build/phploc-reports/*
 build/doc.html
 
+## Ignore all AssetCompress cache_js
+src/labelecommapp/webroot/cache_js/*.js
+
 ## Config files
 src/labelecommapp/Config/database.php
 src/labelecommapp/Config/core.php
@@ -45,6 +48,7 @@ src/labelecommapp/tmp/cache/views/myapp_cake_*
 src/labelecommapp/tmp/logs/*.log
 src/labelecommapp/tmp/sessions/myapp_cake_*
 src/labelecommapp/tmp/tests/myapp_cake_*
+src/labelecommapp/tmp/asset_compress_*
 
 src/lib/Cake/Console/Templates/skel/tmp/cache/models/myapp_cake_*
 src/lib/Cake/Console/Templates/skel/tmp/cache/persistent/myapp_cake_*

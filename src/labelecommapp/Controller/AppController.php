@@ -46,11 +46,12 @@ class AppController extends Controller {
 					'fields' => array('username' => 'email')
 				)
 			)
-		),
+		)
 	);
 
 	public $helpers = array(
-		'Html', 'Form', 'Session'
+		'Html', 'Form', 'Session',
+		'AssetCompress.AssetCompress'
 	);
 
 	public $authUser = null;

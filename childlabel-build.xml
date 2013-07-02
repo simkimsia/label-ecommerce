@@ -93,7 +93,7 @@
 
     </target>
 
-	<target name="deploy-stage" depends="predeploy-stage,setup-environments,gitclone,update-symlink-current,symlink-server-configs,reboot-services,chmod-tmp,gitclone-plugins,run-composer,remove-buildtime-folders,run-migrations,run-clearcache,run-acosync">
+	<target name="deploy-stage" depends="predeploy-stage,setup-environments,gitclone,update-symlink-current,symlink-server-configs,reboot-services,chmod-tmp,gitclone-plugins,run-composer,remove-buildtime-folders,run-migrations,run-assetcompress,run-clearcache,run-acosync">
 		<echo msg="Finished deploying on rackspace server for stage environment!" />
 	</target>
 
@@ -180,6 +180,13 @@
         <echo msg="Running Composer in ${appdirname}" />
 
         <exec command="ssh -A ${host-used} '${cd.current.src.app} &amp;&amp; php composer.phar update'" outputProperty="result" escape="false" />
+        <echo msg="${result}" />
+    </target>
+
+    <target name="run-assetcompress">
+        <echo msg="Running AssetCompress in ${appdirname}" />
+
+        <exec command="ssh -A ${host-used} '${cd.current.src.app} &amp;&amp; Console/cake AssetCompress.AssetCompress build_ini'" outputProperty="result" escape="false" />
         <echo msg="${result}" />
     </target>
 

@@ -72,6 +72,7 @@ Cache::config('default', array('engine' => 'File'));
  *
  */
 CakePlugin::loadAll();
+CakePlugin::unload('AssetCompress');
 
 /**
  * You can attach event listeners to the request lifecycle as Dispatcher Filter . By Default CakePHP bundles two filters:
@@ -93,6 +94,8 @@ Configure::write('Dispatcher.filters', array(
 	'AssetDispatcher',
 	'CacheDispatcher'
 ));
+
+CakePlugin::load('AssetCompress', array('bootstrap' => true));
 
 /**
  * Configures default file logging options
