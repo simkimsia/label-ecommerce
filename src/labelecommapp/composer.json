@@ -9,6 +9,7 @@
 		"simkimsia/asset_compress": "dev-master",
 		"simkimsia/utility_lib": "dev-master",
 		"simkimsia/permissions-extras": "dev-master",
-		"simkimsia/utility_behaviors": "dev-master"
+		"simkimsia/utility_behaviors": "dev-master",
+		"josegonzalez/upload": "dev-master"
 	}
 }
