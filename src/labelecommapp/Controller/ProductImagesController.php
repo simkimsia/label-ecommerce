@@ -36,6 +36,33 @@ class ProductImagesController extends AppController {
 		$options = array('conditions' => array('ProductImage.' . $this->ProductImage->primaryKey => $id));
 		$this->set('productImage', $this->ProductImage->find('first', $options));
 	}
+/**
+ * add method
+ *
+ * @return void
+ */
+	public function admin_add_by_product($productId = null) {
+		$this->log($productId);
+		// we are setting the ViewVariable
+		$this->set('productId', $productId);
+		if ($this->request->is('post')) {
+
+			$this->log('see the request data');
+			$this->log($this->request->data);
+			// posted data is in the form of $this->request->data
+			// $this->request->data is in the form of data['Modelname'][n]['fieldname']
+			$data = $this->ProductImage->prepareSaveManyWithAttachment($this->request->data, $productId);
+
+			if ($this->ProductImage->saveManyWithAttachment($data)) {
+				$this->Session->setFlash(__('The product image has been saved'));
+				$this->redirect('/admin/products/'.$productId.'/images');
+			} else {
+				$this->Session->setFlash(__('The product image could not be saved. Please, try again.'));
+			}
+		}
+		$this->render('admin_add');
+	}
+
 
 /**
  * add method

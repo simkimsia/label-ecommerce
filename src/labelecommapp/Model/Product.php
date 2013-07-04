@@ -6,6 +6,12 @@ App::uses('AppModel', 'Model');
  */
 class Product extends AppModel {
 
+
+	public $hasMany = array(
+        'ProductImage' => array(
+            'className'  => 'ProductImage'
+        )
+    );
 /**
  * Display field
  *

@@ -99,6 +99,19 @@
 		)
 	);
 
+	Router::connect('/admin/products/:product_id/images/add',
+		array(
+			'controller' => 'product_images', 
+			'action' => 'add_by_product',
+			'admin' => true,
+			'prefix' => 'admin'
+			),
+		array(
+			'pass' => array('product_id'),
+			'product_id' => '[0-9]+'
+		)
+	);
+
 
 	
 

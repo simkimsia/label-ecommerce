@@ -71,6 +71,9 @@ class ProductsController extends AppController {
 	public function admin_add() {
 		if ($this->request->is('post')) {
 			$this->Product->create();
+			$this->log('this is what the form throws to us' );
+			$this->log($this->request->data);
+			// this is the point we will save the data to database
 			if ($this->Product->save($this->request->data)) {
 				$this->Session->setFlash(__('The product has been saved'));
 				$this->redirect(array('action' => 'index'));

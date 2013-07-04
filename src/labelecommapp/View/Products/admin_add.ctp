@@ -3,9 +3,10 @@
 	<fieldset>
 		<legend><?php echo __('Add Product'); ?></legend>
 	<?php
-		echo $this->Form->input('name');
-		echo $this->Form->input('description');
-		echo $this->Form->input('price');
+		echo $this->Form->input('Product.name');
+		echo $this->Form->input('Product.description');
+		echo $this->Form->input('Product.price');
+
 	?>
 	</fieldset>
 <?php echo $this->Form->end(__('Submit')); ?>
