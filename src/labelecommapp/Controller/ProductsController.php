@@ -70,8 +70,7 @@ class ProductsController extends AppController {
  */
 	public function admin_add() {
 		if ($this->request->is('post')) {
-			$this->Product->create();
-			if ($this->Product->save($this->request->data)) {
+			if ($this->Product->createWithAttachments($this->request->data)) {
 				$this->Session->setFlash(__('The product has been saved'));
 				$this->redirect(array('action' => 'index'));
 			} else {
