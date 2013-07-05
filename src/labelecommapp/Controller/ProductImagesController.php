@@ -13,6 +13,30 @@ class ProductImagesController extends AppController {
 	}
 
 /**
+ * display all the variants that belong to a particular product indicated by $productId
+ *
+ * @throws NotFoundException
+ * @param string $id
+ * @return void
+ */
+	public function admin_index_by_product($product_id = null) {
+		$this->set('product_id', $product_id);
+		$_GET['product'] = $product_id;
+		// check against get params for on-the-fly new search conditions
+		$findOptions			= $this->ProductImage->prepareFindOptions($_GET);
+
+		$productImages			= $this->paginate();
+
+		$this->set(compact('productImages'));
+		$this->render('admin_index');
+	}
+
+
+
+
+
+
+/**
  * index method
  *
  * @return void
