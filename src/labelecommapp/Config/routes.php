@@ -125,6 +125,20 @@
 		)
 	);
 
+	Router::connect('/admin/products/:product_id/images/:id/delete', 
+	array(
+		'controller' => 'product_images', 
+		'action' => 'delete_by_product',
+		'admin' => true,
+		'prefix' => 'admin'
+		),
+	array(
+		'pass' => array('product_id', 'id'),
+		'product_id' => '[0-9]+',
+		'id' => '[0-9]+'
+		)
+	);
+
 
 	
 

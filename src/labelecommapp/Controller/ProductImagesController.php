@@ -136,6 +136,29 @@ class ProductImagesController extends AppController {
  * @param string $id
  * @return void
  */
+	public function admin_delete_by_product($product_id = null, $id = null) {
+		$this->ProductImage->id = $id;
+		if (!$this->ProductImage->exists()) {
+			throw new NotFoundException(__('Invalid product image'));
+		}
+		$this->request->onlyAllow('post', 'delete');
+		if ($this->ProductImage->delete()) {
+			$this->Session->setFlash(__('Product image deleted'));
+			$this->redirect('/admin/products/'.$product_id.'/images');
+
+			// $this->redirect(array('action' => 'index_by_product', 'id' => $product_id));
+		}
+		$this->Session->setFlash(__('Product Image was not deleted'));
+		$this->redirect(array('action' => 'index_by_product', 'id' =>$product_id));
+	}
+
+/**
+ * delete method
+ *
+ * @throws NotFoundException
+ * @param string $id
+ * @return void
+ */
 	public function delete($id = null) {
 		$this->ProductImage->id = $id;
 		if (!$this->ProductImage->exists()) {
