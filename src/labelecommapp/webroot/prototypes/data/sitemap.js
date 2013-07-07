@@ -2,7 +2,7 @@
 
 (function() {
     var _ = function() { var r={},a=arguments; for(var i=0; i<a.length; i+=2) r[a[i]]=a[i+1]; return r; }
-    var _creator = function() { return _(b,[_(c,d,e,f,g,h),_(c,i,e,f,g,j),_(c,k,e,f,g,l),_(c,m,e,f,g,n),_(c,o,e,f,g,p),_(c,q,e,f,g,r),_(c,s,e,f,g,t)]);}; 
-var b="rootNodes",c="pageName",d="Use Cases",e="type",f="Flow",g="url",h="Use_Cases.html",i="Send email flow",j="Send_email_flow.html",k="Edit Product flow",l="Edit_Product_flow.html",m="Add Product flow",n="Add_Product_flow.html",o="Delete Product flow",p="Delete_Product_flow.html",q="Customer Login",r="Customer_Login.html",s="Admin Login",t="Admin_Login.html";
+    var _creator = function() { return _(b,[_(c,d,e,f,g,h),_(c,i,e,f,g,j),_(c,k,e,l,g,m)]);}; 
+var b="rootNodes",c="pageName",d="Use Cases",e="type",f="Flow",g="url",h="Use_Cases.html",i="Send email flow",j="Send_email_flow.html",k="Edit Product flow",l="Wireframe",m="Edit_Product_flow.html";
 return _creator();
 })();
