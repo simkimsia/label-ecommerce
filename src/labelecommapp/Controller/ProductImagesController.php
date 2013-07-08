@@ -65,24 +65,6 @@ class ProductImagesController extends AppController {
  *
  * @return void
  */
-	public function admin_add_by_product($productId = null) {
-		// we are setting the ViewVariable
-		$this->set('productId', $productId);
-		if ($this->request->is('post')) {
-
-			// posted data is in the form of $this->request->data
-			// $this->request->data is in the form of data['Modelname'][n]['fieldname']
-			$data = $this->ProductImage->prepareSaveManyWithAttachment($this->request->data, $productId);
-
-			if ($this->ProductImage->saveManyWithAttachment($data)) {
-				$this->Session->setFlash(__('The product image has been saved'));
-				$this->redirect('/admin/products/'.$productId.'/images');
-			} else {
-				$this->Session->setFlash(__('The product image could not be saved. Please, try again.'));
-			}
-		}
-		$this->render('admin_add');
-	}
 
 
 /**
@@ -102,6 +84,25 @@ class ProductImagesController extends AppController {
 		}
 	}
 
+	public function admin_add_by_product($productId = null) {
+		// we are setting the ViewVariable
+		$this->set('productId', $productId);
+		if ($this->request->is('post')) {
+
+			// posted data is in the form of $this->request->data
+			// $this->request->data is in the form of data['Modelname'][n]['fieldname']
+			$data = $this->ProductImage->prepareSaveManyWithAttachment($this->request->data, $productId);
+
+			if ($this->ProductImage->saveManyWithAttachment($data)) {
+				$this->Session->setFlash(__('The product image has been saved'));
+				$this->redirect('/admin/products/'.$productId.'/images');
+			} else {
+				$this->Session->setFlash(__('The product image could not be saved. Please, try again.'));
+			}
+		}
+		$this->render('admin_add');
+	}
+
 /**
  * edit method
  *
@@ -109,14 +110,15 @@ class ProductImagesController extends AppController {
  * @param string $id
  * @return void
  */
-	public function edit($id = null) {
+	public function admin_edit_by_product($product_id = null, $id = null) {
 		if (!$this->ProductImage->exists($id)) {
 			throw new NotFoundException(__('Invalid product image'));
 		}
 		if ($this->request->is('post') || $this->request->is('put')) {
-			if ($this->ProductImage->save($this->request->data)) {
+			$data = $this->ProductImage->prepareSaveManyWithAttachment($this->request->data, $product_id);
+
+			if ($this->ProductImage->saveManyWithAttachment($data)) {
 				$this->Session->setFlash(__('The product image has been saved'));
-				$this->redirect(array('action' => 'index'));
 			} else {
 				$this->Session->setFlash(__('The product image could not be saved. Please, try again.'));
 			}
@@ -124,6 +126,8 @@ class ProductImagesController extends AppController {
 			$options = array('conditions' => array('ProductImage.' . $this->ProductImage->primaryKey => $id));
 			$this->request->data = $this->ProductImage->find('first', $options);
 		}
+		$this->redirect('/admin/products/'.$product_id.'/images');
+		
 	}
 
 /**

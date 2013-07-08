@@ -27,15 +27,15 @@
  * to use (in this case, /app/View/Pages/home.ctp)...
  */
 	Router::connect('/', array('controller' => 'pages', 'action' => 'display', 'index'));
-
+	
 	Router::connect('/call', array('controller' => 'pages', 'action' => 'display', 'call'));
-
+	
 	Router::connect('/about', array('controller' => 'pages', 'action' => 'display', 'about'));
-
+	
 	Router::connect('/faq', array('controller' => 'pages', 'action' => 'display', 'faq'));
-
+	
 	Router::connect('/enquiry_email/add', array('controller' => 'users', 'action' => 'send_enquiry_email'));
-
+	
 	Router::connect('/admin/home', array('controller' => 'pages', 'action' => 'display', 'admin_home', 'admin' => true, 'prefix' => 'admin'));
 
 	// customized routes for faq and about
@@ -48,66 +48,66 @@
 	Router::connect('/admin/products/:id/variants/add', 
 		array(
 			'controller' => 'product_variants', 
-			'action' => 'add_by_product',
-			'admin' => true,
-			'prefix' => 'admin'
+			'action'     => 'add_by_product',
+			'admin'      => true,
+			'prefix'     => 'admin'
 			),
 		array(
 			'pass' => array('id'),
-			'id' => '[0-9]+'
+			'id'   => '[0-9]+'
 		)
 	);
 
 	Router::connect('/admin/products/:id/variants', 
 		array(
 			'controller' => 'product_variants', 
-			'action' => 'index_by_product', "[method]" => "GET",
-			'admin' => true,
-			'prefix' => 'admin'
+			'action'     => 'index_by_product', "[method]" => "GET",
+			'admin'      => true,
+			'prefix'     => 'admin'
 			),
 		array(
 			'pass' => array('id'),
-			'id' => '[0-9]+'
+			'id'   => '[0-9]+'
 		)
 	);
 
 	Router::connect('/admin/products/:product_id/variants/:id', 
 		array(
 			'controller' => 'product_variants', 
-			'action' => 'edit_by_product',
-			'admin' => true,
-			'prefix' => 'admin'
+			'action'     => 'edit_by_product',
+			'admin'      => true,
+			'prefix'     => 'admin'
 			),
 		array(
-			'pass' => array('product_id', 'id'),
+			'pass'       => array('product_id', 'id'),
 			'product_id' => '[0-9]+',
-			'id' => '[0-9]+'
+			'id'         => '[0-9]+'
 		)
 	);
 
 	Router::connect('/admin/products/:product_id/variants/:id/delete', 
 	array(
 		'controller' => 'product_variants', 
-		'action' => 'delete_by_product',
-		'admin' => true,
-		'prefix' => 'admin'
+		'action'     => 'delete_by_product',
+		'admin'      => true,
+		'prefix'     => 'admin'
 		),
 	array(
-		'pass' => array('product_id', 'id'),
+		'pass'       => array('product_id', 'id'),
 		'product_id' => '[0-9]+',
-		'id' => '[0-9]+'
+		'id'         => '[0-9]+'
 		)
 	);
 
 	Router::connect('/admin/products/:product_id/images/add',
 		array(
 			'controller' => 'product_images', 
-			'action' => 'add_by_product',
-			'admin' => true,
-			'prefix' => 'admin'
+			'action'     => 'add_by_product',
+			'admin'      => true,
+			'prefix'     => 'admin'
 			),
 		array(
-			'pass' => array('product_id'),
+			'pass'       => array('product_id'),
 			'product_id' => '[0-9]+'
 		)
 	);
@@ -115,27 +115,41 @@
 	Router::connect('/admin/products/:product_id/images', 
 		array(
 			'controller' => 'product_images', 
-			'action' => 'index_by_product', "[method]" => "GET",
-			'admin' => true,
-			'prefix' => 'admin'
+			'action'     => 'index_by_product', "[method]" => "GET",
+			'admin'      => true,
+			'prefix'     => 'admin'
 			),
 		array(
-			'pass' => array('product_id'),
+			'pass'       => array('product_id'),
 			'product_id' => '[0-9]+'
+		)
+	);
+
+	Router::connect('/admin/products/:product_id/images/:id', 
+		array(
+			'controller' => 'product_images', 
+			'action'     => 'edit_by_product',
+			'admin'      => true,
+			'prefix'     => 'admin'
+			),
+		array(
+			'pass'       => array('product_id', 'id'),
+			'product_id' => '[0-9]+',
+			'id'         => '[0-9]+'
 		)
 	);
 
 	Router::connect('/admin/products/:product_id/images/:id/delete', 
 	array(
 		'controller' => 'product_images', 
-		'action' => 'delete_by_product',
-		'admin' => true,
-		'prefix' => 'admin'
+		'action'     => 'delete_by_product',
+		'admin'      => true,
+		'prefix'     => 'admin'
 		),
 	array(
-		'pass' => array('product_id', 'id'),
+		'pass'       => array('product_id', 'id'),
 		'product_id' => '[0-9]+',
-		'id' => '[0-9]+'
+		'id'         => '[0-9]+'
 		)
 	);
 
