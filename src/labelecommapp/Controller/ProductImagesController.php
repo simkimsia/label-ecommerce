@@ -13,6 +13,30 @@ class ProductImagesController extends AppController {
 	}
 
 /**
+ * display all the variants that belong to a particular product indicated by $productId
+ *
+ * @throws NotFoundException
+ * @param string $id
+ * @return void
+ */
+	public function admin_index_by_product($product_id = null) {
+		$this->set('product_id', $product_id);
+		$_GET['product'] = $product_id;
+		// check against get params for on-the-fly new search conditions
+		$findOptions			= $this->ProductImage->prepareFindOptions($_GET);
+
+		$productImages			= $this->paginate();
+
+		$this->set(compact('productImages'));
+		$this->render('admin_index');
+	}
+
+
+
+
+
+
+/**
  * index method
  *
  * @return void
@@ -103,6 +127,29 @@ class ProductImagesController extends AppController {
 			$options = array('conditions' => array('ProductImage.' . $this->ProductImage->primaryKey => $id));
 			$this->request->data = $this->ProductImage->find('first', $options);
 		}
+	}
+
+/**
+ * delete method
+ *
+ * @throws NotFoundException
+ * @param string $id
+ * @return void
+ */
+	public function admin_delete_by_product($product_id = null, $id = null) {
+		$this->ProductImage->id = $id;
+		if (!$this->ProductImage->exists()) {
+			throw new NotFoundException(__('Invalid product image'));
+		}
+		$this->request->onlyAllow('post', 'delete');
+		if ($this->ProductImage->delete()) {
+			$this->Session->setFlash(__('Product image deleted'));
+			$this->redirect('/admin/products/'.$product_id.'/images');
+
+			// $this->redirect(array('action' => 'index_by_product', 'id' => $product_id));
+		}
+		$this->Session->setFlash(__('Product Image was not deleted'));
+		$this->redirect(array('action' => 'index_by_product', 'id' =>$product_id));
 	}
 
 /**
