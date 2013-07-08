@@ -4,10 +4,10 @@
 		<legend><?php echo __('Add Product Image'); ?></legend>
 	<?php
 		
-   echo $this->Form->input('ProductImage.0.filename', array('type' => 'file', 'label' => 'Image'));
-  echo $this->Form->input('ProductImage.1.filename', array('type' => 'file', 'label' => 'Image'));
-    echo $this->Form->input('ProductImage.2.filename', array('type' => 'file', 'label' => 'Image'));
-      echo $this->Form->input('ProductImage.3.filename', array('type' => 'file', 'label' => 'Image'));
+		echo $this->Form->input('ProductImage.0.filename', array('type' => 'file', 'label' => 'Image'));
+		echo $this->Form->input('ProductImage.1.filename', array('type' => 'file', 'label' => 'Image'));
+		echo $this->Form->input('ProductImage.2.filename', array('type' => 'file', 'label' => 'Image'));
+		echo $this->Form->input('ProductImage.3.filename', array('type' => 'file', 'label' => 'Image'));
 
 ?>
 	</fieldset>

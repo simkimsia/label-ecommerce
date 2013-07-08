@@ -66,13 +66,10 @@ class ProductImagesController extends AppController {
  * @return void
  */
 	public function admin_add_by_product($productId = null) {
-		$this->log($productId);
 		// we are setting the ViewVariable
 		$this->set('productId', $productId);
 		if ($this->request->is('post')) {
 
-			$this->log('see the request data');
-			$this->log($this->request->data);
 			// posted data is in the form of $this->request->data
 			// $this->request->data is in the form of data['Modelname'][n]['fieldname']
 			$data = $this->ProductImage->prepareSaveManyWithAttachment($this->request->data, $productId);

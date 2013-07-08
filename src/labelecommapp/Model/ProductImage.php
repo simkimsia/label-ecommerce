@@ -1,5 +1,6 @@
 <?php
 App::uses('AppModel', 'Model');
+App::uses('UploadException', 'Lib/Exception');
 /**
  * 'ProductImage' Model
  *
@@ -32,10 +33,17 @@ class ProductImage extends AppModel {
 
     public function prepareSaveManyWithAttachment($data, $product_id ){
         foreach($data['ProductImage'] as $key=>$record){
-            $data['ProductImage'][$key]['product_id'] = $product_id;
-            //$data['ProductImage'][$key]['product_id'] = $product_id;
+            $code = $record['filename']['error'];
+            if($code == UPLOAD_ERR_OK){
+                $data['ProductImage'][$key]['product_id'] = $product_id;
+            }else {
+                if($code != UPLOAD_ERR_NO_FILE){
+                    $exception = new UploadException($code);
+                    $this->log($exception->getMessage());
+                }
+                unset($data['ProductImage'][$key]);
+            }
         }
-        $this->log($data);
         return $data;
     }
 
@@ -47,8 +55,8 @@ class ProductImage extends AppModel {
     public function saveManyWithAttachment($data){ 
         foreach($data['ProductImage'] as $record) {
             if(empty($record['id'])) {
-                // this means we need to create new ProductImage record
-                $this->create();
+                // this means we need to create new ProductImage record     
+                    $this->create();
             } else {
                 // this means that we need to UPDATE existing ProductImage record
                 // BUT FIRST we check if the id exists in the database
