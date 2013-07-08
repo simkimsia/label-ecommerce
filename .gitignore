@@ -37,9 +37,8 @@ src/labelecommapp/Config/core.php
 src/labelecommapp/Config/email.php
 
 ## images files in uploads
-src/labelecommapp/webroot/uploads/story_images/*
-src/labelecommapp/webroot/uploads/story_files/*
-src/labelecommapp/webroot/uploads/Story/*
+!src/labelecommapp/webroot/files/product_image/empty
+src/labelecommapp/webroot/files/product_image/*
 
 ## Temporary files
 src/labelecommapp/tmp/cache/models/myapp_cake_*
