@@ -140,10 +140,10 @@ class ProductVariantsController extends AppController {
 		}
 		// check if there are at least 2 variants 
 		if (!$this->ProductVariant->Product->allowDeleteVariant($product_id)) {
-			// unable to delete if there is only 1 variant.
-			throw new ForbiddenException(__('Product must have at least 1 variant'));
+			$this->Session->setFlash('Product MUST have at least 1 variant');
+			$this->redirect($this->referer());
 		}
-		
+
 		$this->request->onlyAllow('post', 'delete');
 		if ($this->ProductVariant->delete()) {
 			$this->Session->setFlash(__('ProductVariant variant deleted'));
