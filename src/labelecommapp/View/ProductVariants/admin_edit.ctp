@@ -15,6 +15,7 @@
 	<ul>
 
 		<li><?php echo $this->Form->postLink(__('Delete'), array('action' => 'delete', $this->Form->value('ProductVariant.id')), null, __('Are you sure you want to delete # %s?', $this->Form->value('ProductVariant.id'))); ?></li>
-		<li><?php echo $this->Html->link(__('List Product Variants'), array('action' => 'index')); ?></li>
+		<li><?php echo $this->Html->link(__('List Product Variants'), '/admin/products/'.$product_id.'/variants'); ?></li>
+		<li><?php echo $this->Html->link(__('Images of this variant'), '/admin/products/'.$product_id.'/variants/'.$id.'/images');?></li>
 	</ul>
 </div>
