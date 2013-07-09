@@ -8,6 +8,13 @@ class ProductVariant extends AppModel {
 	public $displayField = 'id';
 
 
+	public $hasMany = array(
+        'ProductImage' => array(
+            'className'  => 'ProductImage'
+        )
+    );
+
+
 /**
  *
  * Gives us a list of possible options for find('first') or find('all')
@@ -30,4 +37,8 @@ class ProductVariant extends AppModel {
 		}
 		return $options;
 	}
+
+
+
+
 }

@@ -13,16 +13,19 @@
 		
 		<td>
 			<?php
-				$id = $productImage['ProductImage']['id'];
+				$id                 = $productImage['ProductImage']['id'];
+
 				echo $this->Form->create('ProductImage', array('type' => 'file', 
 					'url' => Router::url(array(
-						'action' => 'edit_by_product',
-						'controller' => 'product_images',
-						'product_id' => $product_id,
-						 'id' => $id
+							'action'             => 'edit_by_product',
+							'controller'         => 'product_images',
+							'product_id'         => $product_id,
+							'product_variant_id' => $product_variant_id,
+							'id'                 => $id
 						))
 					));
 				echo $this->Form->input('ProductImage.'.$id.'.id', array('type' => 'hidden', 'value' => $id));
+
 				echo $this->Form->input('ProductImage.'.$id.'.filename', array('type' => 'file', 'label' => false));
 				echo $this->Form->end(__('Submit'));
 			?>
@@ -33,6 +36,7 @@
 			 array(
 			 	'action' => 'delete_by_product', 
 			 	'product_id' => $product_id,
+			 	'product_variant_id' => $product_variant_id,
 				 'id' => $id
 				 ),
 			  null,
@@ -48,8 +52,15 @@
 
 <div class="productImages form">
 <?php   echo $this->Form->create('ProductImage', array('type' => 'file', 'url' => Router::url(array('action' => 'add_by_product',
-		'controller' => 'product_images',
-		'product_id' => $product_id))));?>
+		'controller'         => 'product_images',
+		'product_id'         => $product_id,
+		'product_variant_id' => $product_variant_id)
+				)
+			)
+
+		)
+
+		;?>
 	<fieldset>
 		<legend><?php echo __('Add Product Image'); ?></legend>
 	<?php

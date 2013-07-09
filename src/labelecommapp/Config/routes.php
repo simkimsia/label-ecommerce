@@ -99,7 +99,7 @@
 		)
 	);
 
-	Router::connect('/admin/products/:product_id/images/add',
+	Router::connect('/admin/products/:product_id/variants/:product_variant_id/images/add',
 		array(
 			'controller' => 'product_images', 
 			'action'     => 'add_by_product',
@@ -107,12 +107,13 @@
 			'prefix'     => 'admin'
 			),
 		array(
-			'pass'       => array('product_id'),
-			'product_id' => '[0-9]+'
+			'pass'               => array('product_id', 'product_variant_id'),
+			'product_id'         => '[0-9]+',
+			'product_variant_id' => '[0-9]+'
 		)
 	);
 
-	Router::connect('/admin/products/:product_id/images', 
+	Router::connect('/admin/products/:product_id/variants/:product_variant_id/images', 
 		array(
 			'controller' => 'product_images', 
 			'action'     => 'index_by_product', "[method]" => "GET",
@@ -120,12 +121,13 @@
 			'prefix'     => 'admin'
 			),
 		array(
-			'pass'       => array('product_id'),
-			'product_id' => '[0-9]+'
+			'pass'               => array('product_id','product_variant_id'),
+			'product_id'         => '[0-9]+',
+			'product_variant_id' => '[0-9]+'
 		)
 	);
 
-	Router::connect('/admin/products/:product_id/images/:id', 
+	Router::connect('/admin/products/:product_id/variants/:product_variant_id/images/:id', 
 		array(
 			'controller' => 'product_images', 
 			'action'     => 'edit_by_product',
@@ -133,13 +135,14 @@
 			'prefix'     => 'admin'
 			),
 		array(
-			'pass'       => array('product_id', 'id'),
-			'product_id' => '[0-9]+',
-			'id'         => '[0-9]+'
+			'pass'               => array('product_id','product_variant_id', 'id'),
+			'product_id'         => '[0-9]+',
+			'product_variant_id' => '[0-9]+',
+			'id'                 => '[0-9]+'
 		)
 	);
 
-	Router::connect('/admin/products/:product_id/images/:id/delete', 
+	Router::connect('/admin/products/:product_id/variants/:product_variant_id/images/:id/delete', 
 	array(
 		'controller' => 'product_images', 
 		'action'     => 'delete_by_product',
@@ -147,8 +150,9 @@
 		'prefix'     => 'admin'
 		),
 	array(
-		'pass'       => array('product_id', 'id'),
+		'pass'       => array('product_id','product_variant_id', 'id'),
 		'product_id' => '[0-9]+',
+		'product_variant_id' => '[0-9]+',
 		'id'         => '[0-9]+'
 		)
 	);

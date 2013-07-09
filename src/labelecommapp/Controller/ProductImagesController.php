@@ -19,8 +19,9 @@ class ProductImagesController extends AppController {
  * @param string $id
  * @return void
  */
-	public function admin_index_by_product($product_id = null) {
+	public function admin_index_by_product($product_id = null, $product_variant_id = null) {
 		$this->set('product_id', $product_id);
+		$this->set('product_variant_id', $product_variant_id);
 		$_GET['product'] = $product_id;
 		// check against get params for on-the-fly new search conditions
 		$findOptions			= $this->ProductImage->prepareFindOptions($_GET);
@@ -30,10 +31,6 @@ class ProductImagesController extends AppController {
 		$this->set(compact('productImages'));
 		$this->render('admin_index');
 	}
-
-
-
-
 
 
 /**
@@ -84,18 +81,21 @@ class ProductImagesController extends AppController {
 		}
 	}
 
-	public function admin_add_by_product($productId = null) {
+	public function admin_add_by_product($product_id = null, $product_variant_id = null) {
 		// we are setting the ViewVariable
-		$this->set('productId', $productId);
+		$this->set('product_id', $product_id);
+		$this->set('product_variant_id', $product_variant_id);
 		if ($this->request->is('post')) {
 
 			// posted data is in the form of $this->request->data
 			// $this->request->data is in the form of data['Modelname'][n]['fieldname']
-			$data = $this->ProductImage->prepareSaveManyWithAttachment($this->request->data, $productId);
+			$options = compact('product_id', 'product_variant_id');
+
+			$data = $this->ProductImage->prepareSaveManyWithAttachment($this->request->data, $options);
 
 			if ($this->ProductImage->saveManyWithAttachment($data)) {
 				$this->Session->setFlash(__('The product image has been saved'));
-				$this->redirect('/admin/products/'.$productId.'/images');
+				$this->redirect('/admin/products/'.$product_id.'/variants/'.$product_variant_id.'/images');
 			} else {
 				$this->Session->setFlash(__('The product image could not be saved. Please, try again.'));
 			}
@@ -110,12 +110,13 @@ class ProductImagesController extends AppController {
  * @param string $id
  * @return void
  */
-	public function admin_edit_by_product($product_id = null, $id = null) {
+	public function admin_edit_by_product($product_id = null, $product_variant_id = null, $id = null) {
 		if (!$this->ProductImage->exists($id)) {
 			throw new NotFoundException(__('Invalid product image'));
 		}
 		if ($this->request->is('post') || $this->request->is('put')) {
-			$data = $this->ProductImage->prepareSaveManyWithAttachment($this->request->data, $product_id);
+			$options = compact('product_id', 'product_variant_id');
+			$data    = $this->ProductImage->prepareSaveManyWithAttachment($this->request->data, $options);
 
 			if ($this->ProductImage->saveManyWithAttachment($data)) {
 				$this->Session->setFlash(__('The product image has been saved'));
@@ -126,7 +127,7 @@ class ProductImagesController extends AppController {
 			$options = array('conditions' => array('ProductImage.' . $this->ProductImage->primaryKey => $id));
 			$this->request->data = $this->ProductImage->find('first', $options);
 		}
-		$this->redirect('/admin/products/'.$product_id.'/images');
+		$this->redirect('/admin/products/'.$product_id.'/variants/'.$product_variant_id.'/images');
 		
 	}
 
@@ -137,7 +138,7 @@ class ProductImagesController extends AppController {
  * @param string $id
  * @return void
  */
-	public function admin_delete_by_product($product_id = null, $id = null) {
+	public function admin_delete_by_product($product_id = null, $product_variant_id = null, $id = null) {
 		$this->ProductImage->id = $id;
 		if (!$this->ProductImage->exists()) {
 			throw new NotFoundException(__('Invalid product image'));
@@ -145,12 +146,11 @@ class ProductImagesController extends AppController {
 		$this->request->onlyAllow('post', 'delete');
 		if ($this->ProductImage->delete()) {
 			$this->Session->setFlash(__('Product image deleted'));
-			$this->redirect('/admin/products/'.$product_id.'/images');
 
-			// $this->redirect(array('action' => 'index_by_product', 'id' => $product_id));
+		}else{
+			$this->Session->setFlash(__('Product Image was not deleted'));
 		}
-		$this->Session->setFlash(__('Product Image was not deleted'));
-		$this->redirect(array('action' => 'index_by_product', 'id' =>$product_id));
+		$this->redirect('/admin/products/'.$product_id.'/variants/'.$product_variant_id.'/images');
 	}
 
 /**

@@ -17,6 +17,6 @@
 	<h3><?php echo __('Actions'); ?></h3>
 	<ul>
 
-		<li><?php echo $this->Html->link(__('List Product Variants'), '/admin/products/'.$productId.'/images'); ?></li>
+		<li><?php echo $this->Html->link(__('List Product Variants'), '/admin/products/'.$product_id.'/variants/'.$product_variant_id.'/images'); ?></li>
 	</ul>
 </div>

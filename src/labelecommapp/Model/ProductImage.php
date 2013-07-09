@@ -22,20 +22,35 @@ class ProductImage extends AppModel {
         'thumb_url' => 'CONCAT("/files/product_image/filename/",ProductImage.id,"/thumb_",ProductImage.filename)'
     );
 
-
-
     public $belongsTo = array(
         'Product' => array(
             'className'    => 'Product',
             'foreignKey'   => 'product_id'
+        ),
+        'ProductVariant' => array(
+            'className'    => 'ProductVariant',
+            'foreignKey'   => 'product_variant_id'
         )
     );
 
-    public function prepareSaveManyWithAttachment($data, $product_id ){
+/**
+ *@param $data Array is expected in the form of ProductImage.{n}.field
+ *@param $options Array is expected product_id and product_variant_id
+ *
+ */    
+
+    public function prepareSaveManyWithAttachment($data, $options = array()){
+        $defaultOptions     = array('product_id' => null, 'product_variant_id' => null);
+        $options            = array_merge($defaultOptions, $options);
+        $product_id         = $options['product_id'];
+        $product_variant_id = $options['product_variant_id'];
+
         foreach($data['ProductImage'] as $key=>$record){
             $code = $record['filename']['error'];
             if($code == UPLOAD_ERR_OK){
-                $data['ProductImage'][$key]['product_id'] = $product_id;
+                $data['ProductImage'][$key]['product_id']         = $product_id;
+                $data['ProductImage'][$key]['product_variant_id'] = $product_variant_id;
+
             }else {
                 if($code != UPLOAD_ERR_NO_FILE){
                     $exception = new UploadException($code);
