@@ -116,7 +116,7 @@
 	Router::connect('/admin/products/:product_id/variants/:product_variant_id/images', 
 		array(
 			'controller' => 'product_images', 
-			'action'     => 'index_by_product', "[method]" => "GET",
+			'action'     => 'view_by_product',
 			'admin'      => true,
 			'prefix'     => 'admin'
 			),

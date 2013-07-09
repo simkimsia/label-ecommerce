@@ -50,12 +50,14 @@ class ProductImagesController extends AppController {
  * @param string $id
  * @return void
  */
-	public function view($id = null) {
-		if (!$this->ProductImage->exists($id)) {
-			throw new NotFoundException(__('Invalid product image'));
-		}
-		$options = array('conditions' => array('ProductImage.' . $this->ProductImage->primaryKey => $id));
-		$this->set('productImage', $this->ProductImage->find('first', $options));
+	public function admin_view_by_product($product_id = null, $product_variant_id = null) {
+		$this->set('product_id', $product_id);
+		$this->set('product_variant_id', $product_variant_id);
+		
+		$this->set('productImages', $this->ProductImage->find('all', array('conditions' => array('ProductImage.product_id' => $product_id,
+																					'ProductImage.product_variant_id' => $product_variant_id))));
+		
+		$this->render('admin_view');
 	}
 /**
  * add method
@@ -64,22 +66,6 @@ class ProductImagesController extends AppController {
  */
 
 
-/**
- * add method
- *
- * @return void
- */
-	public function add() {
-		if ($this->request->is('post')) {
-			$this->ProductImage->create();
-			if ($this->ProductImage->save($this->request->data)) {
-				$this->Session->setFlash(__('The product image has been saved'));
-				$this->redirect(array('action' => 'index'));
-			} else {
-				$this->Session->setFlash(__('The product image could not be saved. Please, try again.'));
-			}
-		}
-	}
 
 	public function admin_add_by_product($product_id = null, $product_variant_id = null) {
 		// we are setting the ViewVariable
@@ -153,24 +139,4 @@ class ProductImagesController extends AppController {
 		$this->redirect('/admin/products/'.$product_id.'/variants/'.$product_variant_id.'/images');
 	}
 
-/**
- * delete method
- *
- * @throws NotFoundException
- * @param string $id
- * @return void
- */
-	public function delete($id = null) {
-		$this->ProductImage->id = $id;
-		if (!$this->ProductImage->exists()) {
-			throw new NotFoundException(__('Invalid product image'));
-		}
-		$this->request->onlyAllow('post', 'delete');
-		if ($this->ProductImage->delete()) {
-			$this->Session->setFlash(__('Product image deleted'));
-			$this->redirect(array('action' => 'index'));
-		}
-		$this->Session->setFlash(__('Product image was not deleted'));
-		$this->redirect(array('action' => 'index'));
-	}
 }

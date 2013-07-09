@@ -24,6 +24,11 @@
 				'product_id'=>$product_id,
 				'id'=>$productVariant['ProductVariant']['id'])
 			); ?>
+
+			<?php echo $this->Html->link(__('Images'), '/admin/products/'.$product_id.'/variants/'.$productVariant['ProductVariant']['id'].'/images'
+			); ?>
+
+
 			<?php echo $this->Form->postLink(__('Delete'),
 			 array(
 			 	'action' => 'delete_by_product', 
