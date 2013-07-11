@@ -65,7 +65,7 @@ ul.internalLinks li { font-size: 12px!important; display: block; margin-left: 10
 #childContainer .childHolder .featuredProducts li .productHolder { z-index: 1000; position: absolute; margin-top: 160px; background: url(../img/coursel_tag.png) no-repeat; width: 215px; height: 54px; margin-left: -11px; padding: 10px; font-size: 18px; color: #fff; }
 #childContainer .childHolder .featuredProducts li .learnmoreHolder { background: url(../img/learnmore.png) no-repeat; width: 120px; height: 35px; display: block; font-size: 0; position: absolute; margin-top: 222px; margin-left: 86px; }
 
-#childContainer .childHolder ul.productlabels { list-style:none; display:block; font-size:12px; width:300px; font-family:Arial, Helvetica, sans-serif; margin:10px 0 0 0; padding:0; }
+#childContainer .childHolder ul.productlabels { list-style:none; display:block; font-size:12px; width:300px; height: 180px;font-family:Arial, Helvetica, sans-serif; margin:10px 0 0 0; padding:0; }
 #childContainer .childHolder ul.productlabels a:link { text-decoration:none; color:#999; }
 #childContainer .childHolder ul.productlabels a:visited { text-decoration:none; }
 #childContainer .childHolder ul.productlabels a:hover { text-decoration:underline; }

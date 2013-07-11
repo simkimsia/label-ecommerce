@@ -11,7 +11,11 @@
                     <div class="productCircle">
                         <ul>
                             <li><a href="#">
-                                <?php echo $this->Html->image('circleLightblue.png', array('width'=>'200'));?>
+                                <?php
+
+                                echo $this->Html->image($product['Product']['variants'][0]['images'][0]['thumb_url'], array('width'=>'200'));?>
+
+                                 <?php echo $this->Html->image('circleLightblue.png', array('width'=>'200'));?>
                             </a></li>
                             <li>
                                 <?php echo $this->Html->image('divider.png', array('class'=>'pddivider'));?>
@@ -45,13 +49,21 @@
                 <h2 class="price">$<?php echo h($product['Product']['price']); ?></h2>
                 <div class="desc"><?php echo h($product['Product']['name']); ?></div>
                 <ul class="productlabels">
-                    <li><a href="/products/view/2">Circle Labels</a></li>
+
+                    <?php 
+                        if(count($product['Product']['variants']) != 1){
+                            foreach($product['Product']['variants'] as $variant){
+                                ?><li><a href="/products/view/2"><?php echo $variant['name']?></a></li>
+                            
+                       
+                    <?php } }?>
+                    <!-- <li><a href="/products/view/2">Circle Labels</a></li>
                     <li><a href="/products/view/1">Small Rectangle</a></li>
                     <li><a href="/products/view/3">Small Rectangle (Chinese)</a></li>
                     <li><a href="/products/view/4">Birthday Large</a></li>
                     <li><a href="/products/view/5">Book Labels</a></li>
                     <li><a href="/products/view/6">Split Dual Name Pack</a></li>
-                    <li><a href="/products/view/7">Split English/Chinese name pack</a></li>
+                     <li><a href="/products/view/7">Split English/Chinese name pack</a></li> -->
                 </ul>
                 <div class="productdetails"><span class="detail"><br/>Details:</span><span class="thewords"><br/><br/><br/>
                     <?php 
