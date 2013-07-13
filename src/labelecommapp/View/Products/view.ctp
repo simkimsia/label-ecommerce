@@ -12,22 +12,24 @@
                         <ul>
                             <li><a href="#">
                                 <?php
-
-                                echo $this->Html->image($product['Product']['variants'][0]['images'][0]['thumb_url'], array('width'=>'200'));?>
-
-                                 <?php echo $this->Html->image('circleLightblue.png', array('width'=>'200'));?>
+                                echo $this->Html->image($product['Product']['variants'][0]['images'][0]['view_url'], array('width'=>'200'));?>
                             </a></li>
                             <li>
                                 <?php echo $this->Html->image('divider.png', array('class'=>'pddivider'));?>
                             </li>
                             <li><a href="#">
-                                <?php echo $this->Html->image('circleBlue.png', array('width'=>'200'));?>
+                                <?php echo $this->Html->image($product['Product']['variants'][0]['images'][1]['view_url'], array('width'=>'200'));?>
+
+                                <!-- <?php echo $this->Html->image('circleBlue.png', array('width'=>'200'));?> -->
                             </a></li>
                             <li>
                                 <?php echo $this->Html->image('divider.png', array('class'=>'pddivider'));?>
 
                             <li><a href="#">
-                                <?php echo $this->Html->image('circleLightblue.png', array('width'=>'200'));?>
+                                <?php 
+                                    echo $this->Html->image($product['Product']['variants'][0]['images'][2]['view_url'], array('width' => '200'));
+                                // echo $this->Html->image('circleLightblue.png', array('width'=>'200'));
+                                ?>
                             </a></li>
                         </ul>
                     </div>

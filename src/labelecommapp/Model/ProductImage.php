@@ -19,7 +19,8 @@ class ProductImage extends AppModel {
     );
 
     public $virtualFields = array(
-        'thumb_url' => 'CONCAT("/files/product_image/filename/",ProductImage.id,"/thumb_",ProductImage.filename)'
+        'thumb_url' => 'CONCAT("/files/product_image/filename/",ProductImage.id,"/thumb_",ProductImage.filename)',
+        'view_url' =>  'CONCAT("/files/product_image/filename/",ProductImage.id,"/",ProductImage.filename)'
     );
 
     public $belongsTo = array(
