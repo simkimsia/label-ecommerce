@@ -60,6 +60,22 @@
 <div class="actions">
 	<h3><?php echo __('Actions'); ?></h3>
 	<ul>
-		<li><?php echo $this->Html->link(__('New Product Variant'), array('action' => 'add_by_product', 'id'=>$product_id)); ?></li>
+		<li><?php echo $this->Html->link(__('New Product Variant'), array('action' => 'add_by_product', 'product_id'=> $product_id)); ?></li>
 	</ul>
 </div>
+
+<div class="productVariants form">
+<?php echo $this->Form->create('ProductVariant', array('type' => 'text', 'url' => Router::url(array('action' => 'add_by_product',
+							 'controller' => 'product_variants',
+							 'product_id' => $product_id)))); ?>
+	<fieldset>
+		<legend><?php echo __('Add Product Variant'); ?></legend>
+	<?php
+		echo $this->Form->input('product_id', array('type' => 'hidden', 'value' => $product_id));
+		echo $this->Form->input('name');
+	?>
+	</fieldset>
+<?php echo $this->Form->end(__('Submit')); ?>
+</div>
+
+

@@ -3,7 +3,7 @@
 	<fieldset>
 		<legend><?php echo __('Add Product Variant'); ?></legend>
 	<?php
-		echo $this->Form->input('product_id', array('type' => 'hidden', 'value' => $productId));
+		echo $this->Form->input('product_id', array('type' => 'hidden', 'value' => $product_id));
 		echo $this->Form->input('name');
 	?>
 	</fieldset>
@@ -13,6 +13,6 @@
 	<h3><?php echo __('Actions'); ?></h3>
 	<ul>
 
-		<li><?php echo $this->Html->link(__('List Product Variants'), '/admin/products/'.$productId.'/variants'); ?></li>
+		<li><?php echo $this->Html->link(__('List Product Variants'), '/admin/products/'.$product_id.'/variants'); ?></li>
 	</ul>
 </div>

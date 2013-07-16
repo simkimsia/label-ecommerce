@@ -45,7 +45,7 @@
  */
 	Router::connect('/pages/*', array('controller' => 'pages', 'action' => 'display'));
 
-	Router::connect('/admin/products/:id/variants/add', 
+	Router::connect('/admin/products/:product_id/variants/add', 
 		array(
 			'controller' => 'product_variants', 
 			'action'     => 'add_by_product',
@@ -53,12 +53,12 @@
 			'prefix'     => 'admin'
 			),
 		array(
-			'pass' => array('id'),
-			'id'   => '[0-9]+'
+			'pass' => array('product_id'),
+			'product_id'   => '[0-9]+'
 		)
 	);
 
-	Router::connect('/admin/products/:id/variants', 
+	Router::connect('/admin/products/:product_id/variants', 
 		array(
 			'controller' => 'product_variants', 
 			'action'     => 'index_by_product', "[method]" => "GET",
@@ -66,8 +66,8 @@
 			'prefix'     => 'admin'
 			),
 		array(
-			'pass' => array('id'),
-			'id'   => '[0-9]+'
+			'pass' => array('product_id'),
+			'product_id'   => '[0-9]+'
 		)
 	);
 
@@ -79,9 +79,9 @@
 			'prefix'     => 'admin'
 			),
 		array(
-			'pass'       => array('product_id', 'id'),
-			'product_id' => '[0-9]+',
-			'id'         => '[0-9]+'
+			'pass'               => array('product_id', 'id'),
+			'product_id'         => '[0-9]+',
+			'id' => '[0-9]+'
 		)
 	);
 

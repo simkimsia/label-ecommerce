@@ -31,9 +31,9 @@ class ProductVariantsController extends AppController {
  */
 	public function admin_index_by_product($product_id = null) {
 		$this->set('product_id', $product_id);
-		$_GET['product'] = $product_id;
+		// $_GET['product'] = $product_id;
 		// check against get params for on-the-fly new search conditions
-		$findOptions			= $this->ProductVariant->prepareFindOptions($_GET);
+		$findOptions			= $this->ProductVariant->prepareFindOptions(array('product' => $product_id));
 
 		/* start of possible Component method 
 		* $findOptions is a param and $products is the return
@@ -53,6 +53,7 @@ class ProductVariantsController extends AppController {
 
 		$this->set(compact('productVariants'));
 		$this->render('admin_index');
+
 	}
 
 /**
@@ -75,22 +76,21 @@ class ProductVariantsController extends AppController {
  *
  * @return void
  */
-	public function admin_add_by_product($productId = null) {
+	public function admin_add_by_product($product_id = null) {
 		// we are setting the ViewVariable
-		$this->set('productId', $productId);
+		$this->set('product_id', $product_id);
 		if ($this->request->is('post')) {
 			// posted data is in the form of $this->request->data
 			// $this->request->data is in the form of data['Modelname']['fieldname']
-			$this->request->data['ProductVariant']['product_id'] = $productId;
+			$this->request->data['ProductVariant']['product_id'] = $product_id;
 
 			$this->ProductVariant->create();
 			if ($this->ProductVariant->save($this->request->data)) {
 				$this->Session->setFlash(__('The product variant has been saved'));
-				$this->redirect('/admin/products/'.$productId.'/variants');
-				// $this->redirect(array('action' => 'index_by_product', 'id' => $product_id));
 			} else {
 				$this->Session->setFlash(__('The product variant could not be saved. Please, try again.'));
 			}
+			$this->redirect('/admin/products/'.$product_id.'/variants');
 		}
 		$this->render('admin_add');
 	}
@@ -114,7 +114,6 @@ class ProductVariantsController extends AppController {
 			if ($this->ProductVariant->save($this->request->data)) {
 				$this->Session->setFlash(__('The product variant has been saved'));
 				$this->redirect('/admin/products/'.$product_id.'/variants');
-			// $this->redirect(array('action' => 'index_by_product', 'id' => $product_id));
 
 			} else {
 				$this->Session->setFlash(__('The product variant could not be saved. Please, try again.'));

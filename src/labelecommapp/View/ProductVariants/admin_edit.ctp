@@ -19,3 +19,5 @@
 		<li><?php echo $this->Html->link(__('Images of this variant'), '/admin/products/'.$product_id.'/variants/'.$id.'/images');?></li>
 	</ul>
 </div>
+
+
