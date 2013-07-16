@@ -157,7 +157,21 @@
 		)
 	);
 
-
+	Router::connect('/admin/products/:product_id/variants/:product_variant_id/images/swap/:left/:right',
+		array(
+			'controller' => 'product_images', 
+			'action'     => 'swap_order',
+			'admin'      => true,
+			'prefix'     => 'admin'
+			),
+		array(
+			'pass'               => array('product_id','product_variant_id', 'left', 'right'),
+			'product_id'         => '[0-9]+',
+			'product_variant_id' => '[0-9]+',
+			'left'               => '[0-9]+',
+			'right'              => '[0-9]+'
+			)
+		);
 	
 
 /**

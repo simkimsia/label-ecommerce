@@ -113,5 +113,79 @@ class ProductImage extends AppModel {
         return $options;
     }
 
+/**
+ *
+ * @param $id expects image id
+ *
+ */
+
+    public function getOrderStats($id){
+        $fields = array('id', 'left', 'right', 'order');
+        $result = $this->read($fields, $id);
+
+        return $result;
+    }
+
+    public function swap($currentLeft, $currentRight){
+        // currentLeft is 4, currentRight is 5 
+        $idOfCurrentLeft     = $currentLeft['ProductImage']['id']; // 4
+        $leftOfCurrentLeft   = $currentLeft['ProductImage']['left']; // 3
+        $rightOfCurrentLeft  = $currentLeft['ProductImage']['right']; // 5
+        $orderOfCurrentLeft  = $currentLeft['ProductImage']['order']; // 1
+        
+        $idOfCurrentRight    = $currentRight['ProductImage']['id']; // 5
+        $leftOfCurrentRight  = $currentRight['ProductImage']['left']; // 4
+        $rightOfCurrentRight = $currentRight['ProductImage']['right']; // 6
+        $orderOfCurrentRight = $currentRight['ProductImage']['order']; // 2
+
+        // get left of currentLeft
+        $extremeLeft = null;
+        if($leftOfCurrentLeft != 0){
+            $extremeLeft = $this->getOrderStats($leftOfCurrentLeft);
+
+        }
+
+        // get Right of currentRight
+        $extremeRight = null;
+        if($rightOfCurrentRight != 999){
+            $extremeRight = $this->getOrderStats($rightOfCurrentRight);
+
+        }
+
+
+        $newLeft = array(
+            'id'    => $idOfCurrentRight, // 5
+            'left'  => $leftOfCurrentLeft, // 3
+            'right' => $idOfCurrentLeft, // 4
+            'order' => $orderOfCurrentLeft, // 1
+            );
+
+        $newRight = array(
+            'id'    => $idOfCurrentLeft, // 4
+            'left'  => $idOfCurrentRight, // 5
+            'right' => $rightOfCurrentRight, // 6
+            'order' => $orderOfCurrentRight, // 2
+            );
+        $this->log($newLeft);
+        $this->log($newRight);
+        $saveManyWithData = array($newLeft, $newRight);
+        if($extremeLeft != null){
+            $extremeLeft          = Hash::extract($extremeLeft, 'ProductImage');
+            $extremeLeft['right'] = $newLeft['id']; // 5
+            $saveManyWithData[]   = $extremeLeft;
+        }
+
+        if($extremeRight != null){
+            $extremeRight          = Hash::extract($extremeRight, 'ProductImage');
+            $extremeRight['left'] = $newRight['id']; // 4
+            $saveManyWithData[]   = $extremeRight;
+        }
+
+
+        $result           = $this->saveMany($saveManyWithData);
+
+        return $result;
+
+    }
 
 }

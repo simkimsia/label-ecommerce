@@ -13,8 +13,9 @@
 		
 		<td>
 			<?php
-				$id                 = $productImage['ProductImage']['id'];
-
+				$id    = $productImage['ProductImage']['id'];
+				$left  = $productImage['ProductImage']['left'];
+				$right = $productImage['ProductImage']['right'];
 				echo $this->Form->create('ProductImage', array('type' => 'file', 
 					'url' => Router::url(array(
 							'action'             => 'edit_by_product',
@@ -31,13 +32,28 @@
 			?>
 		</td>
 		<td class="actions">
-			
+			<?php echo $this->Html->link(__('Up'), array(
+				'action' => 'swap_order',
+				'product_id' => $product_id,
+				'product_variant_id' => $product_variant_id,
+				'left' => $left,
+				'right' => $id
+				)); 
+				?>
+			<?php echo $this->Html->link(__('Down'), array(
+				'action'             => 'swap_order',
+				'product_id'         => $product_id,
+				'product_variant_id' => $product_variant_id,
+				'left'               => $id,
+				'right'              => $right
+				)); ?>
 			<?php echo $this->Form->postLink(__('Delete'),
 			 array(
 			 	'action' => 'delete_by_product', 
 			 	'product_id' => $product_id,
 			 	'product_variant_id' => $product_variant_id,
-				 'id' => $id
+				 'id' => $id,
+
 				 ),
 			  null,
 			   __('Are you sure you want to delete # %s?',
