@@ -166,8 +166,6 @@ class ProductImage extends AppModel {
             'right' => $rightOfCurrentRight, // 6
             'order' => $orderOfCurrentRight, // 2
             );
-        $this->log($newLeft);
-        $this->log($newRight);
         $saveManyWithData = array($newLeft, $newRight);
         if($extremeLeft != null){
             $extremeLeft          = Hash::extract($extremeLeft, 'ProductImage');
