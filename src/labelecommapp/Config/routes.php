@@ -53,8 +53,8 @@
 			'prefix'     => 'admin'
 			),
 		array(
-			'pass' => array('product_id'),
-			'product_id'   => '[0-9]+'
+			'pass'       => array('product_id'),
+			'product_id' => '[0-9]+'
 		)
 	);
 
@@ -66,8 +66,8 @@
 			'prefix'     => 'admin'
 			),
 		array(
-			'pass' => array('product_id'),
-			'product_id'   => '[0-9]+'
+			'pass'       => array('product_id'),
+			'product_id' => '[0-9]+'
 		)
 	);
 
@@ -79,9 +79,9 @@
 			'prefix'     => 'admin'
 			),
 		array(
-			'pass'               => array('product_id', 'id'),
-			'product_id'         => '[0-9]+',
-			'id' => '[0-9]+'
+			'pass'       => array('product_id', 'id'),
+			'product_id' => '[0-9]+',
+			'id'         => '[0-9]+'
 		)
 	);
 

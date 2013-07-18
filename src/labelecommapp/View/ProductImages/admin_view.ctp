@@ -33,11 +33,11 @@
 		</td>
 		<td class="actions">
 			<?php echo $this->Html->link(__('Up'), array(
-				'action' => 'swap_order',
-				'product_id' => $product_id,
+				'action'             => 'swap_order',
+				'product_id'         => $product_id,
 				'product_variant_id' => $product_variant_id,
-				'left' => $left,
-				'right' => $id
+				'left'               => $left,
+				'right'              => $id
 				)); 
 				?>
 			<?php echo $this->Html->link(__('Down'), array(
@@ -47,12 +47,11 @@
 				'left'               => $id,
 				'right'              => $right
 				)); ?>
-			<?php echo $this->Form->postLink(__('Delete'),
-			 array(
-			 	'action' => 'delete_by_product', 
-			 	'product_id' => $product_id,
-			 	'product_variant_id' => $product_variant_id,
-				 'id' => $id,
+			<?php echo $this->Form->postLink(__('Delete'),array(
+				'action'             => 'delete_by_product', 
+				'product_id'         => $product_id,
+				'product_variant_id' => $product_variant_id,
+				'id'                 => $id,
 
 				 ),
 			  null,
@@ -64,6 +63,43 @@
 <?php endforeach; ?>
 	</table>
 
+</div>
+<div class="actions">
+	<h3><?php echo __('Actions'); ?></h3>
+	<ul>
+		<li>
+			<?php echo $this->Html->link(__('List Products'), array('controller' => 'products', 'action' => 'index')); ?>
+		</li>
+		<li>
+			<?php echo $this->Html->link(__('List This Product Variants'), '/admin/products/'.$product_id.'/variants'); ?>
+		</li>
+		<li>
+			<?php echo $this->Html->link(__('Edit This Product'), '/admin/products/edit/'.$product_id);
+
+			?>
+		</li>
+		<li>
+			<?php echo $this->Html->link(__('Edit This Variant'), '/admin/products/'.$product_id.'/variants/'.$product_variant_id);
+
+			?>
+		</li>
+		<li>
+			<?php echo $this->Form->postLink(__('Delete This Variant'),
+			 array(
+					'controller' => 'product_variants',
+					'action'     => 'delete_by_product', 
+					'product_id' => $product_id,
+					'id'         => $product_variant_id
+				 ),
+			  null,
+			   __('Are you sure you want to delete this variant?')); 
+		   ?>
+		</li>
+
+
+
+
+	</ul>
 </div>
 
 <div class="productImages form">
