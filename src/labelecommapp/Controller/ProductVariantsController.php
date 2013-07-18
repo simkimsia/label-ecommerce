@@ -154,7 +154,42 @@ class ProductVariantsController extends AppController {
 		$this->redirect(array('action' => 'index_by_product', 'id' =>$product_id));
 	}
 
+/**
+*
+* function to swap order of the variants
+*
+*/
+	
+	public function admin_swap_order($product_id, $currentLeftElem, $currentRightElem){
+		if($currentLeftElem == 0){
+			$this->Session->setFlash('Cannot swap. Already first item.');
+			$this->redirect('/admin/products/'.$product_id.'/variants/');
+		}
 
+		if($currentRightElem == 999){
+			$this->Session->setFlash('Cannot swap. Already last item.');
+			$this->redirect('/admin/products/'.$product_id.'/variants/');
+		}	
+
+
+		$currentLeft = $this->ProductVariant->getOrderStats($currentLeftElem);
+		// find out the left, right and order of $currentRightElem
+		$currentRight = $this->ProductVariant->getOrderStats($currentRightElem);
+		// determine the left, right, and order of $newLeftElem
+		$result = $this->ProductVariant->swap($currentLeft, $currentRight);
+		// determine the left, right, and order of $newRightElem
+
+
+		if($result){
+			$this->Session->setFlash(__('Swapped'));
+		}else {
+			$this->Session->setFlash(__('Not Swapped'));
+		}
+
+
+		$this->redirect('/admin/products/'.$product_id.'/variants/');
+
+	}
 
 	
 }

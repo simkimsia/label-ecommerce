@@ -172,6 +172,21 @@
 			'right'              => '[0-9]+'
 			)
 		);
+
+	Router::connect('/admin/products/:product_id/variants/:left/:right',
+		array(
+			'controller' => 'product_variants', 
+			'action'     => 'swap_order',
+			'admin'      => true,
+			'prefix'     => 'admin'
+			),
+		array(
+			'pass'               => array('product_id', 'left', 'right'),
+			'product_id'         => '[0-9]+',
+			'left'               => '[0-9]+',
+			'right'              => '[0-9]+'
+			)
+		);
 	
 
 /**

@@ -75,7 +75,6 @@
 		</li>
 		<li>
 			<?php echo $this->Html->link(__('Edit This Product'), '/admin/products/edit/'.$product_id);
-
 			?>
 		</li>
 		<li>

@@ -10,6 +10,11 @@
 			<th class="actions"><?php echo __('Actions'); ?></th>
 	</tr>
 	<?php foreach ($productVariants as $productVariant): ?>
+		<?php
+			$id    = $productVariant['ProductVariant']['id'];
+			$left  = $productVariant['ProductVariant']['left'];
+			$right = $productVariant['ProductVariant']['right'];
+		?>
 	<tr>
 		<td><?php echo h($productVariant['ProductVariant']['id']); ?>&nbsp;</td>
 		<td><?php echo h($productVariant['ProductVariant']['product_id']); ?>&nbsp;</td>
@@ -17,6 +22,20 @@
 		<td><?php echo h($productVariant['ProductVariant']['modified']); ?>&nbsp;</td>
 		<td><?php echo h($productVariant['ProductVariant']['name']); ?>&nbsp;</td>
 		<td class="actions">
+
+			<?php echo $this->Html->link(__('Up'), array(
+				'action'             => 'swap_order',
+				'product_id'         => $product_id,
+				'left'               => $left,
+				'right'              => $id
+				)); 
+				?>
+			<?php echo $this->Html->link(__('Down'), array(
+				'action'             => 'swap_order',
+				'product_id'         => $product_id,
+				'left'               => $id,
+				'right'              => $right
+				)); ?>
 			
 			<?php echo $this->Html->link(__('Edit'), 
 			array(
