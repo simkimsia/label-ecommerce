@@ -38,9 +38,9 @@
 
     <property name="configs" value="${appdirname}/Config/database.php,${appdirname}/Config/core.php,${appdirname}/Config/email.php" override="true" />
 
-    <property name="ugc.uploads" value="src/labelecommapp/webroot/uploads" override="true" />
+    <property name="ugc.uploads" value="src/labelecommapp/webroot/files" override="true" />
 
-    <property name="removals" value="src/labelecommapp/webroot/uploads,src/labelecommapp/webroot/test.php" override="true" />
+    <property name="removals" value="src/labelecommapp/webroot/files,src/labelecommapp/webroot/test.php" override="true" />
 
     <property name="server-user" value="www-data" override="true" />
     <property name="server-ip" value="166.78.124.182" override="true" />
@@ -93,7 +93,7 @@
 
     </target>
 
-	<target name="deploy-stage" depends="predeploy-stage,setup-environments,gitclone,update-symlink-current,symlink-server-configs,reboot-services,chmod-tmp,gitclone-plugins,run-composer,remove-buildtime-folders,run-migrations,run-assetcompress,run-clearcache,run-acosync">
+	<target name="deploy-stage" depends="predeploy-stage,setup-environments,gitclone,update-symlink-current,symlink-server-configs,symlink-ugc,reboot-services,chmod-tmp,gitclone-plugins,run-composer,remove-buildtime-folders,run-migrations,run-assetcompress,run-clearcache,run-acosync">
 		<echo msg="Finished deploying on rackspace server for stage environment!" />
 	</target>
 
@@ -107,7 +107,7 @@
 
     </target>
 
-<target name="symlink-server-configs">
+    <target name="symlink-server-configs">
         <echo msg="symlink config files into ${environment} deployment" />
         
         <foreach list="${configs}" param="dir" target="symlink-file" />
@@ -121,6 +121,17 @@
         <echo msg="${result}" />
 
     </target>
+
+    <!-- ============================================  -->
+    <!-- Target: symlink-ugc                           -->
+    <!-- ============================================  -->
+    <target name="symlink-ugc">
+        <echo msg="symlink user generated files into ${environment} deployment" />
+
+        <exec command="ssh -A ${host-used} 'ln -s ${environment.sitedir}uploads ${environment.sitedir}${build.time}/${ugc.uploads}'" outputProperty="result" />
+        <echo msg="${result}" />
+    </target>
+
 
     <target name="reboot-services">
         <echo msg="Clearing APC cache" />
@@ -224,6 +235,5 @@
         <exec command="ssh -A ${host-used} '${cd.current.src.app} &amp;&amp; Console/cake run the test commands'" outputProperty="result" escape="false" />
         <echo msg="${result}" />
     </target>
-
 
 </project>
