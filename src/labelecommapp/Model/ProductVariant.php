@@ -117,6 +117,41 @@ class ProductVariant extends AppModel {
         return $result;
 
     }
+/**
+ *
+ * retrieve the last variant and its order stats of a particular product
+ */
+    public function getLastOrderStats($product_id){
+        $conditions = array('ProductVariant.product_id' => $product_id, 'ProductVariant.right' => 999);
+        $fields     = array('ProductVariant.id', 'ProductVariant.left' , 'ProductVariant.right', 'ProductVariant.order');
+
+        $result = $this->find('first', array(
+            'conditions' => $conditions,
+            'fields'     => $fields,
+            ));
+
+        return $result;
+
+
+    }
+
+/**
+ *
+ * reorder the variant of a particular product
+ */
+    public function reorder($product_id){
+        $results      = $this->getAllOrderStats($product_id);
+        $saveManyData = array();
+        $count        = 0;
+
+        foreach($results['ProductVariant'] as $key => $array){
+            $array['order'] = $count;
+            $saveManyData[] = $array; 
+            $count          = $count + 1;
+        }
+        $this->saveMany($saveManyData);
+
+    }
 
     public function createAndReorder($data){
         $data = Hash::extract($data, 'ProductVariant');
