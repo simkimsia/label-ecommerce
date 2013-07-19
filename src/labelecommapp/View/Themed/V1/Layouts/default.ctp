@@ -14,8 +14,8 @@
 <link rel="shortcut icon" href="<?php echo $this->Html->assetUrl('img/favicon.ico'); ?>"/>
 <?php echo $this->Html->css('childlabel'); ?>
 <!-- Stylesheets Start End //-->
-<?php echo $this->Html->script('jquery-1.9.0.min', array('block' => 'libScriptBottom')); ?>
-<?php echo $this->Html->script('jquery.nivo.slider', array('block' => 'libScriptBottom')); ?>
+<?php echo $this->Html->script('jquery-1.9.0.min'); ?>
+<?php echo $this->Html->script('jquery.nivo.slider'); ?>
 <?php echo $this->Html->css('themes/default/default'); ?>
 <?php echo $this->Html->css('themes/light/light'); ?>
 <?php echo $this->Html->css('themes/dark/dark'); ?>
