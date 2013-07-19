@@ -232,15 +232,10 @@ class ProductImage extends AppModel {
         $saveManyData = array();
         $count        = 0;
 
-        foreach($results['ProductImage'] as $key => $array){
-            $array['order'] = $count;
-
-
-            $saveManyData[] = $array; 
-
-
-
-            $count                = $count + 1;
+        foreach($results as $key => $array){
+            $array['ProductImage']['order'] = $count;
+            $saveManyData[] = $array['ProductImage']; 
+            $count          = $count + 1;
         }
         $this->saveMany($saveManyData);
 
@@ -259,7 +254,7 @@ class ProductImage extends AppModel {
         $saveManyData[] = array('id' => $last['ProductImage']['id'], 'right' => $last['ProductImage']['right']); 
 
         $this->saveMany($saveManyData);
-
+        $this->reorder($data['product_variant_id']);
 
     }
 

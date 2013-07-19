@@ -143,10 +143,10 @@ class ProductVariant extends AppModel {
         $results      = $this->getAllOrderStats($product_id);
         $saveManyData = array();
         $count        = 0;
-
-        foreach($results['ProductVariant'] as $key => $array){
-            $array['order'] = $count;
-            $saveManyData[] = $array; 
+        $this->log($results);
+        foreach($results as $key => $array){
+            $array['ProductVariant']['order'] = $count;
+            $saveManyData[] = $array['ProductVariant']; 
             $count          = $count + 1;
         }
         $this->saveMany($saveManyData);
@@ -167,8 +167,87 @@ class ProductVariant extends AppModel {
         $saveManyData[] = array('id' => $data['id'], 'left' => $data['left'], 'order' => $data['order']); 
         $saveManyData[] = array('id' => $last['ProductVariant']['id'], 'right' => $last['ProductVariant']['right']); 
 
-        $this->saveMany($saveManyData);     
+        $this->saveMany($saveManyData);
+        $this->reorder($data['product_id']);
 
         return true;   
     }
+
+/**
+ *
+ * retrieve all variants and their order stats of a particular product only
+ */
+    public function getAllOrderStats($product_id){
+        $conditions = array('ProductVariant.product_id' => $product_id);
+        $fields     = array('ProductVariant.id', 'ProductVariant.left' , 'ProductVariant.right', 'ProductVariant.order');
+        $order      = array('ProductVariant.order');
+
+        $result = $this->find('all', array(
+            'conditions' => $conditions,
+            'fields'     => $fields,
+            'order'      => $order
+            ));
+
+        return $result;
+    }
+
+/**   
+ * retrieve all order stats except for the variant passed in.
+ *
+ */
+    public function getAllOrderStatsExcept($product_id, $id){
+        $conditions = array('ProductVariant.product_id' => $product_id, 'ProductVariant.id !=' => $id);
+        $fields     = array('ProductVariant.id', 'ProductVariant.left' , 'ProductVariant.right', 'ProductVariant.order');
+        $order      = array('ProductVariant.order');
+
+        $result = $this->find('all', array(
+            'conditions' => $conditions,
+            'fields'     => $fields,
+            'order'      => $order
+            ));
+
+        return $result;
+    }    
+
+/**
+ *
+ * reorder variants on deletion of variant
+ *
+ */    
+    public function deleteAndReorder($product_id, $id){
+
+        $delete               = $this->getOrderStats($id);
+        $deleteLeftNeighbour  = $delete['ProductVariant']['left'];
+        $deleteRightNeighbour = $delete['ProductVariant']['right'];
+        $theRest = $this->getAllOrderStatsExcept($product_id, $id);
+        if($deleteLeftNeighbour == 0){
+            $theRest[0]['ProductVariant']['left'] = 0;
+        }else if ($deleteRightNeighbour == 999){
+            $length = count($theRest);
+            $theRest[$length - 1]['ProductVariant']['right'] = 999;
+        }else{
+            foreach($theRest as $key => $array){
+                if($array['ProductVariant']['id'] == $deleteLeftNeighbour){
+                    $theRest[$key]['ProductVariant']['right'] = $deleteRightNeighbour;
+                }
+                if($array['ProductVariant']['id'] == $deleteRightNeighbour){
+                    $theRest[$key]['ProductVariant']['left'] = $deleteLeftNeighbour;
+                }
+            }
+
+        }
+
+        $result = $this->delete($id);
+        if($result){
+            $saveManyData = Hash::extract($theRest, '{n}.ProductVariant');
+            $this->saveMany($saveManyData);
+            $this->reorder($product_id);
+        }
+
+        return $result;
+    }
+
+
+
+
 }
