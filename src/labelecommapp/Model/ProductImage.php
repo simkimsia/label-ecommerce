@@ -148,7 +148,7 @@ class ProductImage extends AppModel {
 
         // get Right of currentRight
         $extremeRight = null;
-        if($rightOfCurrentRight != 999){
+        if($rightOfCurrentRight != 0){
             $extremeRight = $this->getOrderStats($rightOfCurrentRight);
 
         }
@@ -210,7 +210,7 @@ class ProductImage extends AppModel {
  * retrieve the last images and its order stats of a particular variant
  */
     public function getLastOrderStats($product_variant_id){
-        $conditions = array('ProductImage.product_variant_id' => $product_variant_id, 'ProductImage.right' => 999);
+        $conditions = array('ProductImage.product_variant_id' => $product_variant_id, 'ProductImage.right' => 0);
         $fields     = array('ProductImage.id', 'ProductImage.left' , 'ProductImage.right', 'ProductImage.order');
 
         $result = $this->find('first', array(
@@ -281,9 +281,9 @@ class ProductImage extends AppModel {
         $theRest = $this->getAllOrderStatsExcept($product_variant_id, $id);
         if($deleteLeftNeighbour == 0){
             $theRest[0]['ProductImage']['left'] = 0;
-        }else if ($deleteRightNeighbour == 999){
+        }else if ($deleteRightNeighbour == 0){
             $length = count($theRest);
-            $theRest[$length - 1]['ProductImage']['right'] = 999;
+            $theRest[$length - 1]['ProductImage']['right'] = 0;
         }else{
             foreach($theRest as $key => $array){
                 if($array['ProductImage']['id'] == $deleteLeftNeighbour){

@@ -166,7 +166,7 @@ class ProductVariantsController extends AppController {
 			$this->redirect('/admin/products/'.$product_id.'/variants/');
 		}
 
-		if($currentRightElem == 999){
+		if($currentRightElem == 0){
 			$this->Session->setFlash('Cannot swap. Already last item.');
 			$this->redirect('/admin/products/'.$product_id.'/variants/');
 		}	

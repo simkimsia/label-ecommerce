@@ -79,7 +79,7 @@ class ProductVariant extends AppModel {
 
         // get Right of currentRight
         $extremeRight = null;
-        if($rightOfCurrentRight != 999){
+        if($rightOfCurrentRight != 0){
             $extremeRight = $this->getOrderStats($rightOfCurrentRight);
 
         }
@@ -122,7 +122,7 @@ class ProductVariant extends AppModel {
  * retrieve the last variant and its order stats of a particular product
  */
     public function getLastOrderStats($product_id){
-        $conditions = array('ProductVariant.product_id' => $product_id, 'ProductVariant.right' => 999);
+        $conditions = array('ProductVariant.product_id' => $product_id, 'ProductVariant.right' => 0);
         $fields     = array('ProductVariant.id', 'ProductVariant.left' , 'ProductVariant.right', 'ProductVariant.order');
 
         $result = $this->find('first', array(
@@ -222,9 +222,9 @@ class ProductVariant extends AppModel {
         $theRest = $this->getAllOrderStatsExcept($product_id, $id);
         if($deleteLeftNeighbour == 0){
             $theRest[0]['ProductVariant']['left'] = 0;
-        }else if ($deleteRightNeighbour == 999){
+        }else if ($deleteRightNeighbour == 0){
             $length = count($theRest);
-            $theRest[$length - 1]['ProductVariant']['right'] = 999;
+            $theRest[$length - 1]['ProductVariant']['right'] = 0;
         }else{
             foreach($theRest as $key => $array){
                 if($array['ProductVariant']['id'] == $deleteLeftNeighbour){

@@ -159,7 +159,7 @@ class ProductImagesController extends AppController {
 			$this->redirect('/admin/products/'.$product_id.'/variants/'.$product_variant_id.'/images');
 		}
 
-		if($currentRightElem == 999){
+		if($currentRightElem == 0){
 			$this->Session->setFlash('Cannot swap. Already last item.');
 			$this->redirect('/admin/products/'.$product_id.'/variants/'.$product_variant_id.'/images');
 		}		

@@ -234,9 +234,9 @@ INSERT INTO `product_groups` (`id`, `name`, `type`, `created`, `modified`) VALUE
 DROP TABLE IF EXISTS `product_images`;
 CREATE TABLE `product_images` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
-  `order` int(3) unsigned NOT NULL DEFAULT '0',
-  `left` int(3) unsigned NOT NULL DEFAULT '0',
-  `right` int(3) unsigned NOT NULL DEFAULT '999',
+  `order` int(11) unsigned NOT NULL DEFAULT '0',
+  `left` int(11) unsigned NOT NULL DEFAULT '0',
+  `right` int(11) unsigned NOT NULL DEFAULT '0',
   `type` tinyint(2) NOT NULL DEFAULT '0',
   `product_id` int(11) unsigned NOT NULL,
   `product_variant_id` int(11) unsigned NOT NULL,
@@ -250,54 +250,54 @@ CREATE TABLE `product_images` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 INSERT INTO `product_images` (`id`, `order`, `left`, `right`, `type`, `product_id`, `product_variant_id`, `filename`, `dir`, `mimetype`, `filesize`, `created`, `modified`) VALUES
-(3,	0,	0,	4,	0,	1,	5,	'Tiny Dancer Rectangles.jpg',	'3',	'',	0,	'2013-07-10 22:46:33',	'2013-07-16 03:37:33'),
-(4,	1,	3,	5,	0,	1,	5,	'Mushroom Rectangles.jpg',	'4',	'',	0,	'2013-07-10 22:46:34',	'2013-07-16 03:37:33'),
-(5,	2,	4,	6,	0,	1,	5,	'Girl Patterns Rectangles.jpg',	'5',	'',	0,	'2013-07-10 22:46:34',	'2013-07-16 03:37:33'),
-(6,	3,	5,	7,	0,	1,	5,	'Aliens rectangles.jpg',	'6',	'',	0,	'2013-07-10 22:46:34',	'2013-07-16 03:37:13'),
-(7,	4,	6,	8,	0,	1,	5,	'Boys Patterns rectangles.jpg',	'7',	'',	0,	'2013-07-10 22:48:21',	'2013-07-10 22:48:21'),
-(8,	5,	7,	9,	0,	1,	5,	'Space Rectangles.jpg',	'8',	'',	0,	'2013-07-10 22:48:21',	'2013-07-10 22:48:21'),
-(9,	6,	8,	10,	0,	1,	5,	'Under the Sea rectangles.jpg',	'9',	'',	0,	'2013-07-10 22:48:22',	'2013-07-10 22:48:22'),
-(10,	7,	9,	11,	0,	1,	5,	'Vrooom Rectangles.jpg',	'10',	'',	0,	'2013-07-10 22:48:22',	'2013-07-10 22:48:22'),
-(11,	8,	10,	12,	0,	1,	5,	'Cupcake Rectangles.jpg',	'11',	'',	0,	'2013-07-10 22:48:48',	'2013-07-16 03:37:54'),
-(12,	9,	11,	13,	0,	1,	5,	'Cutie crawlies rectangles.jpg',	'12',	'',	0,	'2013-07-10 22:48:48',	'2013-07-17 23:22:57'),
-(13,	10,	12,	999,	0,	1,	5,	'Dinos rectangles.jpg',	'13',	'',	0,	'2013-07-10 22:48:48',	'2013-07-17 23:22:57');
+(3,	0,	0,	7,	0,	1,	5,	'Tiny Dancer Rectangles.jpg',	'3',	'',	0,	'2013-07-10 22:46:33',	'2013-07-19 03:48:19'),
+(7,	1,	3,	8,	0,	1,	5,	'Boys Patterns rectangles.jpg',	'7',	'',	0,	'2013-07-10 22:48:21',	'2013-07-19 03:48:19'),
+(8,	2,	7,	9,	0,	1,	5,	'Space Rectangles.jpg',	'8',	'',	0,	'2013-07-10 22:48:21',	'2013-07-19 03:48:19'),
+(9,	3,	8,	10,	0,	1,	5,	'Under the Sea rectangles.jpg',	'9',	'',	0,	'2013-07-10 22:48:22',	'2013-07-19 03:48:19'),
+(10,	4,	9,	11,	0,	1,	5,	'Vrooom Rectangles.jpg',	'10',	'',	0,	'2013-07-10 22:48:22',	'2013-07-19 03:48:19'),
+(11,	5,	10,	12,	0,	1,	5,	'Cupcake Rectangles.jpg',	'11',	'',	0,	'2013-07-10 22:48:48',	'2013-07-19 03:48:19'),
+(12,	6,	11,	13,	0,	1,	5,	'Cutie crawlies rectangles.jpg',	'12',	'',	0,	'2013-07-10 22:48:48',	'2013-07-19 03:48:19'),
+(13,	7,	12,	14,	0,	1,	5,	'Dinos rectangles.jpg',	'13',	'',	0,	'2013-07-10 22:48:48',	'2013-07-19 03:48:19'),
+(14,	8,	13,	15,	0,	1,	5,	'Mushroom Rectangles.jpg',	'14',	'',	0,	'2013-07-18 23:36:25',	'2013-07-19 03:48:19'),
+(15,	9,	14,	16,	0,	1,	5,	'Girl Patterns Rectangles.jpg',	'15',	'',	0,	'2013-07-18 23:38:55',	'2013-07-19 03:48:19'),
+(16,	10,	15,	0,	0,	1,	5,	'Aliens rectangles.jpg',	'16',	'',	0,	'2013-07-18 23:39:45',	'2013-07-19 03:48:19');
 
 DROP TABLE IF EXISTS `product_variants`;
 CREATE TABLE `product_variants` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `product_id` int(11) NOT NULL,
   `created` datetime NOT NULL,
-  `left` int(3) unsigned NOT NULL DEFAULT '0',
-  `right` int(3) unsigned NOT NULL DEFAULT '999',
-  `order` int(3) unsigned NOT NULL DEFAULT '0',
+  `left` int(11) unsigned NOT NULL DEFAULT '0',
+  `right` int(11) unsigned NOT NULL DEFAULT '0',
+  `order` int(11) unsigned NOT NULL DEFAULT '0',
   `modified` datetime NOT NULL,
   `name` varchar(255) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 INSERT INTO `product_variants` (`id`, `product_id`, `created`, `left`, `right`, `order`, `modified`, `name`) VALUES
-(5,	1,	'2013-06-30 03:31:44',	0,	999,	0,	'2013-06-30 03:31:44',	'DEFAULT'),
-(6,	2,	'2013-06-30 03:32:10',	0,	999,	0,	'2013-07-17 22:35:59',	'DEFAULT'),
-(7,	3,	'2013-06-30 03:32:29',	0,	999,	0,	'2013-07-17 22:35:59',	'Horizontal'),
-(8,	3,	'2013-06-30 03:32:37',	0,	999,	0,	'2013-07-17 22:35:59',	'Vertical'),
-(9,	4,	'2013-06-30 03:33:25',	0,	999,	0,	'2013-07-17 22:35:59',	'DEFAULT'),
-(11,	5,	'2013-06-30 03:34:21',	0,	999,	0,	'2013-06-30 03:34:21',	'DEFAULT'),
-(12,	6,	'2013-06-30 03:34:48',	0,	13,	0,	'2013-06-30 03:34:48',	'Small Rectangle Labels'),
-(13,	6,	'2013-06-30 03:34:59',	12,	14,	1,	'2013-06-30 03:34:59',	'Circle Labels'),
-(14,	6,	'2013-06-30 03:37:23',	13,	15,	2,	'2013-06-30 03:37:23',	'Birthday Labels'),
-(15,	6,	'2013-06-30 03:37:34',	14,	999,	3,	'2013-06-30 03:37:34',	'Book Labels'),
+(5,	1,	'2013-06-30 03:31:44',	0,	0,	0,	'2013-06-30 03:31:44',	'DEFAULT'),
+(6,	2,	'2013-06-30 03:32:10',	0,	0,	0,	'2013-07-17 22:35:59',	'DEFAULT'),
+(7,	3,	'2013-06-30 03:32:29',	0,	8,	0,	'2013-07-17 22:35:59',	'Horizontal'),
+(8,	3,	'2013-06-30 03:32:37',	7,	0,	1,	'2013-07-17 22:35:59',	'Vertical'),
+(9,	4,	'2013-06-30 03:33:25',	0,	0,	0,	'2013-07-17 22:35:59',	'DEFAULT'),
+(11,	5,	'2013-06-30 03:34:21',	0,	0,	0,	'2013-06-30 03:34:21',	'DEFAULT'),
+(12,	6,	'2013-06-30 03:34:48',	0,	13,	0,	'2013-07-19 03:21:06',	'Small Rectangle Labels'),
+(13,	6,	'2013-06-30 03:34:59',	12,	36,	1,	'2013-07-19 03:21:14',	'Circle Labels'),
+(15,	6,	'2013-06-30 03:37:34',	36,	0,	3,	'2013-07-19 03:21:14',	'Book Labels'),
 (17,	7,	'2013-06-30 03:37:58',	0,	18,	0,	'2013-06-30 03:37:58',	'Small Rectangle Labels'),
 (18,	7,	'2013-06-30 03:38:08',	17,	20,	1,	'2013-06-30 03:38:08',	'Birthday Labels'),
-(20,	7,	'2013-06-30 03:38:39',	18,	999,	2,	'2013-06-30 03:38:39',	'Book Labels'),
-(21,	8,	'2013-06-30 03:38:58',	0,	999,	0,	'2013-06-30 03:38:58',	'DEFAULT'),
-(22,	9,	'2013-06-30 03:39:19',	0,	999,	0,	'2013-06-30 03:39:19',	'DEFAULT'),
+(20,	7,	'2013-06-30 03:38:39',	18,	0,	2,	'2013-06-30 03:38:39',	'Book Labels'),
+(21,	8,	'2013-06-30 03:38:58',	0,	0,	0,	'2013-06-30 03:38:58',	'DEFAULT'),
+(22,	9,	'2013-06-30 03:39:19',	0,	0,	0,	'2013-06-30 03:39:19',	'DEFAULT'),
 (23,	10,	'2013-06-30 03:39:38',	0,	24,	0,	'2013-06-30 03:39:38',	'Rectangle Labels'),
-(24,	10,	'2013-06-30 03:39:49',	23,	999,	1,	'2013-06-30 03:39:49',	'Circle Labels'),
-(25,	11,	'2013-06-30 03:44:09',	0,	999,	0,	'2013-06-30 03:44:09',	'DEFAULT'),
-(26,	12,	'2013-06-30 03:44:35',	0,	999,	0,	'2013-06-30 03:44:35',	'DEFAULT'),
-(27,	14,	'2013-06-30 03:45:06',	0,	999,	0,	'2013-06-30 03:45:06',	'DEFAULT'),
+(24,	10,	'2013-06-30 03:39:49',	23,	0,	1,	'2013-06-30 03:39:49',	'Circle Labels'),
+(25,	11,	'2013-06-30 03:44:09',	0,	0,	0,	'2013-06-30 03:44:09',	'DEFAULT'),
+(26,	12,	'2013-06-30 03:44:35',	0,	0,	0,	'2013-06-30 03:44:35',	'DEFAULT'),
+(27,	14,	'2013-06-30 03:45:06',	0,	0,	0,	'2013-06-30 03:45:06',	'DEFAULT'),
 (28,	15,	'2013-06-30 03:45:31',	0,	29,	0,	'2013-06-30 03:45:31',	'Horizontal'),
-(29,	15,	'2013-06-30 03:45:40',	28,	999,	1,	'2013-06-30 03:45:40',	'Vertical');
+(29,	15,	'2013-06-30 03:45:40',	28,	0,	1,	'2013-06-30 03:45:40',	'Vertical'),
+(36,	6,	'2013-07-19 03:21:06',	13,	15,	2,	'2013-07-19 03:21:14',	'Birthday Labels');
 
 DROP TABLE IF EXISTS `users`;
 CREATE TABLE `users` (
@@ -320,4 +320,4 @@ INSERT INTO `users` (`id`, `full_name`, `email`, `password`, `short_name`, `toke
 (3,	'AikChun1',	'aikchun616@gmail.com',	'275108ab67a27356dab9dcff38275c044766397f',	'AikChun1',	NULL,	1,	'2013-06-28 13:51:57',	'2013-06-30 09:04:43'),
 (4,	'Daphne Ling',	'daphne@motherinc.org',	'275108ab67a27356dab9dcff38275c044766397f',	'Daphne',	'NULL',	3,	'2013-07-02 09:30:20',	'2013-07-02 09:30:20');
 
--- 2013-07-18 17:07:58
+-- 2013-07-19 03:53:03
