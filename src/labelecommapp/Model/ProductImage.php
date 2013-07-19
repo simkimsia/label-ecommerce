@@ -73,6 +73,7 @@ class ProductImage extends AppModel {
             if(empty($record['id'])) {
                 // this means we need to create new ProductImage record     
                     $this->create();
+                    $this->saveAndReorder($record);
             } else {
                 // this means that we need to UPDATE existing ProductImage record
                 // BUT FIRST we check if the id exists in the database
@@ -81,10 +82,10 @@ class ProductImage extends AppModel {
                     // so cannot UPDATE
                     throw new NotFoundException(__('Invalid image'));
                 }
+                // we just run save
+                $this->save($record);
+
             }
-            // regardless we create new or we update old
-            // we just run save
-            $this->save($record);
         }
         return true;
     }
@@ -183,6 +184,82 @@ class ProductImage extends AppModel {
         $result           = $this->saveMany($saveManyWithData);
 
         return $result;
+
+    }
+
+/**
+ *
+ * retrieve all images and their order stats of a particular variant only
+ */
+    public function getAllOrderStats($product_variant_id){
+        $conditions = array('ProductImage.product_variant_id' => $product_variant_id);
+        $fields     = array('ProductImage.id', 'ProductImage.left' , 'ProductImage.right', 'ProductImage.order');
+        $order      = array('ProductImage.order');
+
+        $result = $this->find('all', array(
+            'conditions' => $conditions,
+            'fields'     => $fields,
+            'order'      => $order
+            ));
+
+        return $result;
+    }
+
+/**
+ *
+ * retrieve the last images and its order stats of a particular variant
+ */
+    public function getLastOrderStats($product_variant_id){
+        $conditions = array('ProductImage.product_variant_id' => $product_variant_id, 'ProductImage.right' => 999);
+        $fields     = array('ProductImage.id', 'ProductImage.left' , 'ProductImage.right', 'ProductImage.order');
+
+        $result = $this->find('first', array(
+            'conditions' => $conditions,
+            'fields'     => $fields,
+            ));
+
+        return $result;
+
+
+    }
+
+/**
+ *
+ * reorder the images of a particular variant
+ */
+    public function reorder($product_variant_id){
+        $results      = $this->getAllOrderStats($product_variant_id);
+        $saveManyData = array();
+        $count        = 0;
+
+        foreach($results['ProductImage'] as $key => $array){
+            $array['order'] = $count;
+
+
+            $saveManyData[] = $array; 
+
+
+
+            $count                = $count + 1;
+        }
+        $this->saveMany($saveManyData);
+
+    }
+
+    public function saveAndReorder($data){
+        $last = $this->getLastOrderStats($data['product_variant_id']);
+        $this->save($data);
+        $newId = $this->getLastInsertID();
+        $last['ProductImage']['right'] = $newId;
+        $data['order']  = $last['ProductImage']['order'] + 1;
+        $data['left']   = $last['ProductImage']['id'];
+        $data['id']     = $newId;
+        $saveManyData   = array();
+        $saveManyData[] = array('id' => $data['id'], 'left' => $data['left'], 'order' => $data['order']); 
+        $saveManyData[] = array('id' => $last['ProductImage']['id'], 'right' => $last['ProductImage']['right']); 
+
+        $this->saveMany($saveManyData);
+
 
     }
 

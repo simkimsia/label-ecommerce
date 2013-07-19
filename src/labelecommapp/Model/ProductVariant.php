@@ -117,4 +117,23 @@ class ProductVariant extends AppModel {
         return $result;
 
     }
+
+    public function createAndReorder($data){
+        $data = Hash::extract($data, 'ProductVariant');
+        $last = $this->getLastOrderStats($data['product_id']);
+        $this->create();
+        $this->save($data);
+        $newId = $this->getLastInsertID();
+        $last['ProductVariant']['right'] = $newId;
+        $data['order']  = $last['ProductVariant']['order'] + 1;
+        $data['left']   = $last['ProductVariant']['id'];
+        $data['id']     = $newId;
+        $saveManyData   = array();
+        $saveManyData[] = array('id' => $data['id'], 'left' => $data['left'], 'order' => $data['order']); 
+        $saveManyData[] = array('id' => $last['ProductVariant']['id'], 'right' => $last['ProductVariant']['right']); 
+
+        $this->saveMany($saveManyData);     
+
+        return true;   
+    }
 }

@@ -84,8 +84,8 @@ class ProductVariantsController extends AppController {
 			// $this->request->data is in the form of data['Modelname']['fieldname']
 			$this->request->data['ProductVariant']['product_id'] = $product_id;
 
-			$this->ProductVariant->create();
-			if ($this->ProductVariant->save($this->request->data)) {
+			$this->ProductVariant->create(); // replace with createAndReorder
+			if ($this->ProductVariant->save($this->request->data)) { // replace argument with $results 
 				$this->Session->setFlash(__('The product variant has been saved'));
 			} else {
 				$this->Session->setFlash(__('The product variant could not be saved. Please, try again.'));
@@ -191,5 +191,5 @@ class ProductVariantsController extends AppController {
 
 	}
 
-	
+
 }
