@@ -7,46 +7,7 @@
             
             <div class="theContents clearfix">
                 <div class="productCircleHolder clearfix">
-                    <a href="#"><div class="leftArrow"></div></a>            
-                    <div class="productCircle">
-                        <ul>
-                            <li><a href="#">
-                                <?php
-                                echo $this->Html->image($product['Product']['variants'][0]['images'][0]['view_url'], array('width'=>'200'));?>
-                            </a></li>
-                            <li>
-                                <?php echo $this->Html->image('divider.png', array('class'=>'pddivider'));?>
-                            </li>
-                            <li><a href="#">
-                                <?php echo $this->Html->image($product['Product']['variants'][0]['images'][1]['view_url'], array('width'=>'200'));?>
-
-                                <!-- <?php echo $this->Html->image('circleBlue.png', array('width'=>'200'));?> -->
-                            </a></li>
-                            <li>
-                                <?php echo $this->Html->image('divider.png', array('class'=>'pddivider'));?>
-
-                            <li><a href="#">
-                                <?php 
-                                    echo $this->Html->image($product['Product']['variants'][0]['images'][2]['view_url'], array('width' => '200'));
-                                // echo $this->Html->image('circleLightblue.png', array('width'=>'200'));
-                                ?>
-                            </a></li>
-                        </ul>
-                    </div>
-                    <a href="#"><div class="rightArrow"></div></a>
-                    <div class="clearBoth"></div>
-                    <div class="chooseColor">
-                        <a href="#">
-                            <?php echo $this->Html->image('circleBlue.png', array('width'=>'20'));?>
-
-                        </a>&nbsp;&nbsp;<a href="#">
-                            <?php echo $this->Html->image('circleGrey.png', array('width'=>'20'));?>
-                    </a>&nbsp;&nbsp;<a href="#">
-                    <?php echo $this->Html->image('circleMangenta.png', array('width'=>'20'));?>
-                </a>&nbsp;&nbsp;<a href="#">
-                <?php echo $this->Html->image('circleYellow.png', array('width'=>'20'));?>
-            </a>&nbsp;&nbsp;&nbsp;&nbsp;<strong>Choose a Label Colour</strong>
-                    </div>
+                    <?php echo $this->element('scrollable', array('product' => $product)); ?>
                 </div>
                 <h2 class="price">$<?php echo h($product['Product']['price']); ?></h2>
                 <div class="desc"><?php echo h($product['Product']['name']); ?></div>
@@ -160,7 +121,7 @@
                     
                     <div class="rightInfo">
                     <span class="amount">$19.95</span><br />
-                    <span class="totalamount">Total amount</span> <span class="minitext">(w/GST & Shipping)</span>
+                    <span class="totalamount">Total amount</span> <span class="minitext">(w/GST &amp; Shipping)</span>
                         <div class="plane">
                             <div class="shippingfees">Shipping<br />$1.50</div>
                         </div>
@@ -179,38 +140,11 @@
             </a></div>
           </div>
         </div>
-
-
-
-
-
-
-<!-- <div class="products view">
-<h2><?php  echo __('Product'); ?></h2>
-    <dl>
-        <dt><?php echo __('Id'); ?></dt>
-        <dd>
-            <?php echo h($product['Product']['id']); ?>
-            &nbsp;
-        </dd>
-        <dt><?php echo __('Name'); ?></dt>
-        <dd>
-            <?php echo h($product['Product']['name']); ?>
-            &nbsp;
-        </dd>
-        <dt><?php echo __('Description'); ?></dt>
-        <dd>
-            <?php echo h($product['Product']['description']); ?>
-            &nbsp;
-        </dd>
-    </dl>
-</div>
-<div class="actions">
-    <h3><?php echo __('Actions'); ?></h3>
-    <ul>
-        <li><?php echo $this->Html->link(__('Edit Product'), array('action' => 'edit', $product['Product']['id'])); ?> </li>
-        <li><?php echo $this->Form->postLink(__('Delete Product'), array('action' => 'delete', $product['Product']['id']), null, __('Are you sure you want to delete # %s?', $product['Product']['id'])); ?> </li>
-        <li><?php echo $this->Html->link(__('List Products'), array('action' => 'index')); ?> </li>
-        <li><?php echo $this->Html->link(__('New Product'), array('action' => 'add')); ?> </li>
-    </ul>
-</div> -->
+<?php echo $this->Html->script('jquery.tools.min', array('block' => 'scriptBottom')); ?>
+<?php $this->append('scriptBottom'); ?>
+<script>
+    $(document).ready(function() {
+        $(".scrollable").scrollable();
+    });
+</script>
+<?php $this->end('scriptBottom'); ?>
