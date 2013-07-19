@@ -93,7 +93,7 @@
 
     </target>
 
-	<target name="deploy-stage" depends="predeploy-stage,setup-environments,gitclone,update-symlink-current,symlink-server-configs,symlink-ugc,reboot-services,chmod-tmp,gitclone-plugins,run-composer,remove-buildtime-folders,run-migrations,run-assetcompress,run-clearcache,run-acosync">
+	<target name="deploy-stage" depends="predeploy-stage,setup-environments,gitclone,update-symlink-current,symlink-server-configs,removefiles-from-cloned,symlink-ugc,reboot-services,chmod-tmp,gitclone-plugins,run-composer,remove-buildtime-folders,run-migrations,run-assetcompress,run-clearcache,run-acosync">
 		<echo msg="Finished deploying on rackspace server for stage environment!" />
 	</target>
 
@@ -103,6 +103,25 @@
 
         <exec command="ssh -A ${host-used} 'git clone -b ${environment.branch} ${repository-uri} ${environment.sitedir}${build.time}'"
          outputProperty="result" escape="false"/>
+        <echo msg="${result}" />
+
+    </target>
+
+    <!-- ============================================  -->
+    <!-- Target: removefiles-from-cloned               -->
+    <!-- ============================================  -->
+    <target name="removefiles-from-cloned">
+        <echo msg="remove files incompatible with ${environment} deployment" />
+        
+        <foreach list="${removals}" param="dir" target="remove-dir-recursively" />
+        
+    </target>
+
+    <target name="remove-dir-recursively">
+        <echo msg="removing ${dir} inside ${environment.sitedir}${build.time} recursively" />
+
+        <exec command="ssh -A ${host-used} 'rm -rf ${environment.sitedir}${build.time}/${dir}'" outputProperty="result" />
+
         <echo msg="${result}" />
 
     </target>
