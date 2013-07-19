@@ -14,31 +14,15 @@
 <link rel="shortcut icon" href="<?php echo $this->Html->assetUrl('img/favicon.ico'); ?>"/>
 <?php echo $this->Html->css('childlabel'); ?>
 <!-- Stylesheets Start End //-->
-<?php echo $this->Html->script('jquery-1.9.0.min'); ?>
-<?php echo $this->Html->script('jquery.nivo.slider'); ?>
+<?php echo $this->Html->script('jquery-1.9.0.min', array('block' => 'libScriptBottom')); ?>
+<?php echo $this->Html->script('jquery.nivo.slider', array('block' => 'libScriptBottom')); ?>
 <?php echo $this->Html->css('themes/default/default'); ?>
 <?php echo $this->Html->css('themes/light/light'); ?>
 <?php echo $this->Html->css('themes/dark/dark'); ?>
 <?php echo $this->Html->css('themes/bar/bar'); ?>
 <?php echo $this->Html->css('nivo-slider'); ?>
+<?php echo $this->Html->css('jquerytools'); ?>
 
-<script type="text/javascript">
-$(window).load(function() {
-    $('#slider').nivoSlider();
-});
-
-$(function() { 
-      $('#dropDownMenu').hide();
-      $("#menuBar > li")
-        .mouseenter(function() {
-          $(".menu_items", this).show();
-        })
-        .mouseleave(function() {
-          $(".menu_items", this).hide();
-        });
-    });
-
-</script>
 </head>
 <body>
 <div id="childContainer">
@@ -161,5 +145,24 @@ $(function() {
 
 
 </div>
+<?php echo $this->fetch('libScriptBottom'); ?>
+<script type="text/javascript">
+$(window).load(function() {
+    $('#slider').nivoSlider();
+});
+
+$(function() { 
+      $('#dropDownMenu').hide();
+      $("#menuBar > li")
+        .mouseenter(function() {
+          $(".menu_items", this).show();
+        })
+        .mouseleave(function() {
+          $(".menu_items", this).hide();
+        });
+    });
+
+</script>
+<?php echo $this->fetch('scriptBottom'); ?>
 </body>
 </html>

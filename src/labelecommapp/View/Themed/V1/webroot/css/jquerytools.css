@@ -1,0 +1,33 @@
+.scrollable {
+  /* required settings */
+  position:relative;
+  overflow:hidden;
+  width: 200px;
+  height:200px;
+  padding-top: 10px;
+}
+ 
+/*
+root element for scrollable items. Must be absolutely positioned
+and it should have a extremely large width to accommodate scrollable
+items.  it's enough that you set width and height for the root element
+and not for this element.
+*/
+.scrollable .items {
+  /* this cannot be too large */
+  width:200em;
+  position:absolute;
+  clear:both;
+}
+.items div {
+  float:left;
+  width: 200px;
+}
+.rightArrow1 {
+	float: left;
+	background: url(../img/arrows.png) 30px 30px;
+	width: 30px;
+	height: 30px;
+	margin-top: -107px;
+	margin-left: 600px;
+}
