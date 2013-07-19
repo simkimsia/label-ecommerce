@@ -136,7 +136,7 @@ class ProductImagesController extends AppController {
 			throw new NotFoundException(__('Invalid product image'));
 		}
 		$this->request->onlyAllow('post', 'delete');
-		if ($this->ProductImage->delete()) {
+		if ($this->ProductImage->deleteAndReorder($product_variant_id, $id)) {
 			$this->Session->setFlash(__('Product image deleted'));
 
 		}else{

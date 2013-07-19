@@ -263,4 +263,52 @@ class ProductImage extends AppModel {
 
     }
 
+    public function getAllOrderStatsExcept($product_variant_id, $id){
+        $conditions = array('ProductImage.product_variant_id' => $product_variant_id, 'ProductImage.id !=' => $id);
+        $fields     = array('ProductImage.id', 'ProductImage.left' , 'ProductImage.right', 'ProductImage.order');
+        $order      = array('ProductImage.order');
+
+        $result = $this->find('all', array(
+            'conditions' => $conditions,
+            'fields'     => $fields,
+            'order'      => $order
+            ));
+
+        return $result;
+    
+    }
+
+    public function deleteAndReorder($product_variant_id, $id){
+
+        $delete = $this->getOrderStats($id);
+        $deleteLeftNeighbour = $delete['ProductImage']['left'];
+        $deleteRightNeighbour = $delete['ProductImage']['right'];
+        $theRest = $this->getAllOrderStatsExcept($product_variant_id, $id);
+        if($deleteLeftNeighbour == 0){
+            $theRest[0]['ProductImage']['left'] = 0;
+        }else if ($deleteRightNeighbour == 999){
+            $length = count($theRest);
+            $theRest[$length - 1]['ProductImage']['right'] = 999;
+        }else{
+            foreach($theRest as $key => $array){
+                if($array['ProductImage']['id'] == $deleteLeftNeighbour){
+                    $theRest[$key]['ProductImage']['right'] = $deleteRightNeighbour;
+                }
+                if($array['ProductImage']['id'] == $deleteRightNeighbour){
+                    $theRest[$key]['ProductImage']['left'] = $deleteLeftNeighbour;
+                }
+            }
+
+        }
+
+        $result = $this->delete($id);
+        if($result){
+            $saveManyData = Hash::extract($theRest, '{n}.ProductImage');
+            $this->saveMany($saveManyData);
+            $this->reorder($product_variant_id);
+        }
+
+        return $result;
+    }
+
 }
