@@ -238,6 +238,12 @@ $cakeDescription = __d('cake_dev', 'ChildLabel: admin panel');
 						if (strtolower($currentController) === 'pages') {
 							$currentController = 'home';
 						}
+						if (strtolower($currentController) === 'product_variants') {
+							$currentController = 'products';
+						}
+						if (strtolower($currentController) === 'product_images') {
+							$currentController = 'products';
+						}
 						foreach ($dashboardTabs as $tab) {
 							$class = "";
 							$highlightTab = (strcasecmp($currentController, $tab) === 0);
