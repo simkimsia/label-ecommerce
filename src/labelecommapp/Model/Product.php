@@ -6,6 +6,12 @@ App::uses('AppModel', 'Model');
  */
 class Product extends AppModel {
 
+/**
+ * Display field
+ *
+ * @var string
+ */
+    public $displayField = 'name';
 
 	public $hasMany = array(
         'ProductImage' => array(
@@ -15,6 +21,7 @@ class Product extends AppModel {
         	'className' => 'ProductVariant'
     	)
     );
+
 /**
  * insert into product_variant ('name') VALUES 'DEFAULT' for new product
  * @param $data expect Post 
@@ -83,28 +90,36 @@ class Product extends AppModel {
 /**
  * 
  * Retrieve the variants and images
+ *
+ * @param $id int Product id
+ * @param $inOrder boolean Default true if we want the variant and images returned in their order
  */
-    public function getVariantsAndImages($id = null) {
+    public function getVariantsAndImages($id = null, $inOrder = true) {
         $conditions = array(
             'ProductVariant.product_id' => $id,
         );
         $fields = array(
-            'ProductVariant.id', 'ProductVariant.product_id', 'ProductVariant.name'
+            'ProductVariant.id', 
+            'ProductVariant.product_id', 
+            'ProductVariant.name'
 // and many more where necessary
         );
+        $variantOrder = array('ProductVariant.id');
+        $imageOrder = array('ProductImage.id');
+
+        if ($inOrder) {
+            $variantOrder = array('ProductVariant.order');
+            $imageOrder = array('ProductImage.order');
+        }
         $variants = $this->ProductVariant->find('all', array(
             'conditions' => $conditions,
             'fields'     => $fields,
-            'contain'    => array('ProductImage') // go google at cakephp for containable to get better idea
+            'order'      => $variantOrder,
+            'contain'    => array('ProductImage' => array(
+                'order' => $imageOrder
+            )) // go google at cakephp for containable to get better idea
         ));
         return $variants;
     }
-
-/**
- * Display field
- *
- * @var string
- */
-	public $displayField = 'name';
 
 }

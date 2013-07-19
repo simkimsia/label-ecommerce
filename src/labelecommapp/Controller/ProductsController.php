@@ -33,13 +33,9 @@ class ProductsController extends AppController {
 		if (!$this->Product->exists($id)) {
 			throw new NotFoundException(__('Invalid product'));
 		}
-		// $options = array('conditions' => array('Product.' . $this->Product->primaryKey => $id));
 
 		$data = $this->Product->getViewVars($id);
 		$this->set('product', $data);
-		$this->log($data);
-
-		// $this->set('product', $this->Product->find('first', $options));
 	}
 
 
