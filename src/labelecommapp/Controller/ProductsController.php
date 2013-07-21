@@ -91,6 +91,8 @@ class ProductsController extends AppController {
  */
 	public function admin_edit($id = null) {
 		$this->set('id', $id);
+		$findElem = $this->Product->find('first', array('conditions' => array('Product.id' => $id)));
+
 		if (!$this->Product->exists($id)) {
 			throw new NotFoundException(__('Invalid product'));
 		}
