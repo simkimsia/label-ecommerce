@@ -18,7 +18,7 @@ CREATE TABLE `acos` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 INSERT INTO `acos` (`id`, `parent_id`, `model`, `foreign_key`, `alias`, `lft`, `rght`) VALUES
-(1,	NULL,	NULL,	NULL,	'controllers',	1,	186),
+(1,	NULL,	NULL,	NULL,	'controllers',	1,	202),
 (2,	1,	NULL,	NULL,	'Groups',	2,	13),
 (3,	2,	NULL,	NULL,	'index',	3,	4),
 (4,	2,	NULL,	NULL,	'view',	5,	6),
@@ -110,7 +110,15 @@ INSERT INTO `acos` (`id`, `parent_id`, `model`, `foreign_key`, `alias`, `lft`, `
 (90,	79,	NULL,	NULL,	'admin_edit_by_product',	175,	176),
 (91,	79,	NULL,	NULL,	'admin_view_by_product',	177,	178),
 (92,	79,	NULL,	NULL,	'admin_swap_order',	179,	180),
-(93,	21,	NULL,	NULL,	'admin_swap_order',	55,	56);
+(93,	21,	NULL,	NULL,	'admin_swap_order',	55,	56),
+(94,	1,	NULL,	NULL,	'Carts',	186,	201),
+(95,	94,	NULL,	NULL,	'index',	187,	188),
+(96,	94,	NULL,	NULL,	'view',	189,	190),
+(97,	94,	NULL,	NULL,	'add',	191,	192),
+(98,	94,	NULL,	NULL,	'edit',	193,	194),
+(99,	94,	NULL,	NULL,	'delete',	195,	196),
+(100,	94,	NULL,	NULL,	'add_item',	197,	198),
+(101,	94,	NULL,	NULL,	'remove_item',	199,	200);
 
 DROP TABLE IF EXISTS `aros`;
 CREATE TABLE `aros` (
@@ -161,6 +169,30 @@ CREATE TABLE `attachments` (
   `type` varchar(255) DEFAULT NULL,
   `size` int(11) DEFAULT '0',
   `active` tinyint(1) DEFAULT '1',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+DROP TABLE IF EXISTS `carts`;
+CREATE TABLE `carts` (
+  `id` char(36) NOT NULL,
+  `user_id` char(36) NOT NULL,
+  `cart_item_count` int(5) NOT NULL DEFAULT '0',
+  `total_amount` decimal(10,2) NOT NULL DEFAULT '0.00',
+  `created` datetime NOT NULL,
+  `modified` datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+DROP TABLE IF EXISTS `cart_items`;
+CREATE TABLE `cart_items` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `product_id` int(11) NOT NULL,
+  `product_variant_id` int(11) NOT NULL,
+  `quantity` int(5) NOT NULL DEFAULT '0',
+  `unit_price` decimal(10,2) NOT NULL DEFAULT '0.00',
+  `created` datetime NOT NULL,
+  `modified` datetime NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -320,4 +352,4 @@ INSERT INTO `users` (`id`, `full_name`, `email`, `password`, `short_name`, `toke
 (3,	'AikChun1',	'aikchun616@gmail.com',	'275108ab67a27356dab9dcff38275c044766397f',	'AikChun1',	NULL,	1,	'2013-06-28 13:51:57',	'2013-06-30 09:04:43'),
 (4,	'Daphne Ling',	'daphne@motherinc.org',	'275108ab67a27356dab9dcff38275c044766397f',	'Daphne',	'NULL',	3,	'2013-07-02 09:30:20',	'2013-07-02 09:30:20');
 
--- 2013-07-19 03:53:03
+-- 2013-07-22 11:47:51
