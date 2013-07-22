@@ -79,7 +79,13 @@
 <div class="actions">
 	<h3><?php echo __('Actions'); ?></h3>
 	<ul>
-		<li><?php echo $this->Html->link(__('New Product Variant'), array('action' => 'add_by_product', 'product_id'=> $product_id)); ?></li>
+		<li>
+			<?php echo $this->Html->link(__('Back to Edit this product'), '/admin/products/edit/'.$product_id); ?>
+		</li>
+		<li>
+			<?php echo $this->Html->link(__('Back to Products'), '/admin/products/');?>
+		</li>
+
 	</ul>
 </div>
 
