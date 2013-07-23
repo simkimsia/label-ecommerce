@@ -187,6 +187,35 @@
 			'right'              => '[0-9]+'
 			)
 		);
+
+	//url for adding items to cart
+	Router::connect('/cart/:product_variant_id',
+		array(
+		'controller' => 'cart_items',
+		'action'     => 'add_item'
+
+		),
+
+		array(
+			'pass' => array('product_variant_id'),
+			'product_variant_id' => '[0-9]+'
+			)
+
+	);
+
+		Router::connect('/cart/remove/:product_variant_id',
+		array(
+			'controller' => 'cart_items',
+			'action'     => 'remove_item'
+
+		),
+
+		array(
+			'pass'               => array('product_variant_id'),
+			'product_variant_id' => '[0-9]+'
+			)
+
+	);
 	
 
 /**

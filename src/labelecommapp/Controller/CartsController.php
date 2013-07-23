@@ -94,11 +94,17 @@ class CartsController extends AppController {
 		$this->redirect(array('action' => 'index'));
 	}
 
-	public function add_item($product_id, $product_variant_id, $qty){
+	public function add_item($product_variant_id){
+		$quantity = 1;
+		if(isset($_POST['quantity'])){
+			$quantity = $_POST['quantity'];
+		}
 
+		
+		
 	}
 
-	public function remove_item($product_id, $product_variant_id){
+	public function remove_item($product_variant_id){
 		
 	}
 }

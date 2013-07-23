@@ -175,24 +175,57 @@ CREATE TABLE `attachments` (
 
 DROP TABLE IF EXISTS `carts`;
 CREATE TABLE `carts` (
-  `id` char(36) NOT NULL,
-  `user_id` char(36) NOT NULL,
-  `cart_item_count` int(5) NOT NULL DEFAULT '0',
-  `total_amount` decimal(10,2) NOT NULL DEFAULT '0.00',
-  `created` datetime NOT NULL,
-  `modified` datetime NOT NULL
+  `id` varchar(36) NOT NULL,
+  `user_id` varchar(36) DEFAULT NULL,
+  `name` varchar(255) DEFAULT NULL,
+  `total` float DEFAULT NULL,
+  `active` tinyint(1) DEFAULT '0',
+  `item_count` int(6) NOT NULL DEFAULT '0',
+  `created` datetime DEFAULT NULL,
+  `modified` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 
-DROP TABLE IF EXISTS `cart_items`;
-CREATE TABLE `cart_items` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `product_id` int(11) NOT NULL,
-  `product_variant_id` int(11) NOT NULL,
-  `quantity` int(5) NOT NULL DEFAULT '0',
-  `unit_price` decimal(10,2) NOT NULL DEFAULT '0.00',
-  `created` datetime NOT NULL,
-  `modified` datetime NOT NULL,
+DROP TABLE IF EXISTS `carts_items`;
+CREATE TABLE `carts_items` (
+  `id` varchar(36) NOT NULL,
+  `cart_id` varchar(36) DEFAULT NULL,
+  `foreign_key` varchar(36) DEFAULT NULL,
+  `model` varchar(64) DEFAULT NULL,
+  `quantity` int(4) DEFAULT NULL,
+  `name` varchar(255) DEFAULT NULL,
+  `price` float DEFAULT NULL,
+  `virtual` tinyint(1) DEFAULT '0' COMMENT 'Virtual as a download or a service',
+  `status` varchar(16) DEFAULT NULL COMMENT 'internal status, up to the app',
+  `created` datetime DEFAULT NULL,
+  `modified` datetime DEFAULT NULL,
+  `quantity_limit` int(8) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+DROP TABLE IF EXISTS `cart_rules`;
+CREATE TABLE `cart_rules` (
+  `id` varchar(36) NOT NULL,
+  `name` varchar(255) DEFAULT NULL,
+  `description` varchar(255) DEFAULT NULL,
+  `type` varchar(255) DEFAULT NULL COMMENT 'tax, discount',
+  `created` datetime DEFAULT NULL,
+  `modified` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+DROP TABLE IF EXISTS `cart_rule_conditions`;
+CREATE TABLE `cart_rule_conditions` (
+  `id` varchar(36) NOT NULL,
+  `cart_rule_id` varchar(36) DEFAULT NULL,
+  `position` int(2) NOT NULL,
+  `applies_to` varchar(255) DEFAULT NULL COMMENT 'cart, items',
+  `conditions` text,
+  `created` datetime DEFAULT NULL,
+  `modified` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -213,6 +246,111 @@ INSERT INTO `groups` (`id`, `name`, `display_name`, `created`, `modified`, `pare
 (1,	'Super Administrators',	'Super Admin',	'2013-06-28 03:01:06',	'2013-06-28 03:01:06',	NULL),
 (2,	'Users',	'Users',	'2013-06-28 03:01:57',	'2013-06-28 03:01:57',	NULL),
 (3,	'Shop Administrators',	'Shop Admin',	'2013-06-28 03:02:48',	'2013-06-28 03:02:48',	2);
+
+DROP TABLE IF EXISTS `orders`;
+CREATE TABLE `orders` (
+  `id` varchar(36) NOT NULL,
+  `user_id` varchar(36) DEFAULT NULL,
+  `cart_id` varchar(36) DEFAULT NULL,
+  `cart_snapshop` text,
+  `token` varchar(32) DEFAULT NULL,
+  `processor` varchar(64) DEFAULT NULL,
+  `status` varchar(16) DEFAULT NULL COMMENT 'internal status, up to the app',
+  `payment_reference` varchar(16) DEFAULT NULL,
+  `payment_status` varchar(16) DEFAULT NULL,
+  `transaction_fee` float DEFAULT NULL,
+  `invoice_number` varchar(64) DEFAULT NULL,
+  `billing_address` text,
+  `shipping_address` text,
+  `total` float DEFAULT NULL,
+  `currency` int(11) DEFAULT NULL,
+  `created` datetime DEFAULT NULL,
+  `modified` datetime DEFAULT NULL,
+  `order_item_count` int(8) NOT NULL DEFAULT '0',
+  `order_number` varchar(64) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `USER_INDEX` (`user_id`),
+  KEY `CART_INDEX` (`cart_id`),
+  KEY `TOKEN_INDEX` (`token`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+DROP TABLE IF EXISTS `order_addresses`;
+CREATE TABLE `order_addresses` (
+  `id` varchar(36) NOT NULL,
+  `order_id` varchar(36) DEFAULT NULL,
+  `user_id` varchar(36) DEFAULT NULL,
+  `first_name` varchar(128) DEFAULT NULL,
+  `last_name` varchar(128) DEFAULT NULL,
+  `company` varchar(128) DEFAULT NULL,
+  `street` varchar(128) DEFAULT NULL,
+  `street2` varchar(128) DEFAULT NULL,
+  `city` varchar(128) DEFAULT NULL,
+  `zip` varchar(128) DEFAULT NULL,
+  `country` varchar(2) DEFAULT NULL,
+  `type` varchar(2) DEFAULT NULL COMMENT 'billing or shipping',
+  `created` datetime DEFAULT NULL,
+  `modified` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `USER_INDEX` (`user_id`),
+  KEY `ORDER_INDEX` (`order_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+DROP TABLE IF EXISTS `order_items`;
+CREATE TABLE `order_items` (
+  `id` varchar(36) NOT NULL,
+  `order_id` varchar(36) DEFAULT NULL,
+  `foreign_key` varchar(36) DEFAULT NULL,
+  `model` varchar(64) DEFAULT NULL,
+  `quantity` int(4) DEFAULT NULL,
+  `name` varchar(255) DEFAULT NULL,
+  `price` float DEFAULT NULL,
+  `virtual` tinyint(1) DEFAULT '0' COMMENT 'Virtual as a download or a service',
+  `status` varchar(16) DEFAULT NULL COMMENT 'internal status, up to the app',
+  `shipped` tinyint(1) DEFAULT '0' COMMENT 'Virtual as a download or a service',
+  `shipping_date` datetime DEFAULT NULL,
+  `created` datetime DEFAULT NULL,
+  `modified` datetime DEFAULT NULL,
+  `total` float NOT NULL DEFAULT '0',
+  PRIMARY KEY (`id`),
+  KEY `FOREIGN_KEY_INDEX` (`foreign_key`),
+  KEY `ORDER_INDEX` (`order_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+DROP TABLE IF EXISTS `payment_api_transactions`;
+CREATE TABLE `payment_api_transactions` (
+  `id` varchar(36) NOT NULL,
+  `order_id` varchar(36) NOT NULL,
+  `token` varchar(255) NOT NULL,
+  `processor` varchar(255) NOT NULL,
+  `type` varchar(255) NOT NULL,
+  `message` text NOT NULL,
+  `file` text,
+  `line` int(6) DEFAULT NULL,
+  `trace` text,
+  `created` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `ORDER_INDEX` (`order_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+DROP TABLE IF EXISTS `payment_methods`;
+CREATE TABLE `payment_methods` (
+  `id` varchar(36) NOT NULL,
+  `name` varchar(255) DEFAULT NULL,
+  `alias` varchar(255) DEFAULT NULL,
+  `class` varchar(255) DEFAULT NULL,
+  `fee` float DEFAULT NULL COMMENT 'Can be used to charge a fee for that processor',
+  `active` tinyint(1) DEFAULT '0' COMMENT 'Virtual as a download or a service',
+  `description` varchar(255) DEFAULT NULL,
+  `position` int(11) DEFAULT NULL,
+  `created` datetime DEFAULT NULL,
+  `modified` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
 
 DROP TABLE IF EXISTS `products`;
 CREATE TABLE `products` (
@@ -331,6 +469,35 @@ INSERT INTO `product_variants` (`id`, `product_id`, `created`, `left`, `right`, 
 (29,	15,	'2013-06-30 03:45:40',	28,	0,	1,	'2013-06-30 03:45:40',	'Vertical'),
 (36,	6,	'2013-07-19 03:21:06',	13,	15,	2,	'2013-07-19 03:21:14',	'Birthday Labels');
 
+DROP TABLE IF EXISTS `schema_migrations`;
+CREATE TABLE `schema_migrations` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `class` varchar(255) NOT NULL,
+  `type` varchar(50) NOT NULL,
+  `created` datetime NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+INSERT INTO `schema_migrations` (`id`, `class`, `type`, `created`) VALUES
+(1,	'InitMigrations',	'Migrations',	'2013-07-22 19:01:10'),
+(2,	'ConvertVersionToClassNames',	'Migrations',	'2013-07-22 19:01:10'),
+(3,	'IncreaseClassNameLength',	'Migrations',	'2013-07-22 19:01:10'),
+(4,	'D287dbf03fef11e1b86c0800200c9a66',	'Cart',	'2013-07-22 19:01:50'),
+(5,	'ChangesAndNewFields',	'Cart',	'2013-07-22 19:01:50');
+
+DROP TABLE IF EXISTS `shipping_methods`;
+CREATE TABLE `shipping_methods` (
+  `id` varchar(36) NOT NULL,
+  `name` varchar(255) DEFAULT NULL,
+  `price` float DEFAULT NULL,
+  `currency` int(11) DEFAULT NULL,
+  `position` int(11) DEFAULT NULL,
+  `created` datetime DEFAULT NULL,
+  `modified` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
 DROP TABLE IF EXISTS `users`;
 CREATE TABLE `users` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
@@ -352,4 +519,4 @@ INSERT INTO `users` (`id`, `full_name`, `email`, `password`, `short_name`, `toke
 (3,	'AikChun1',	'aikchun616@gmail.com',	'275108ab67a27356dab9dcff38275c044766397f',	'AikChun1',	NULL,	1,	'2013-06-28 13:51:57',	'2013-06-30 09:04:43'),
 (4,	'Daphne Ling',	'daphne@motherinc.org',	'275108ab67a27356dab9dcff38275c044766397f',	'Daphne',	'NULL',	3,	'2013-07-02 09:30:20',	'2013-07-02 09:30:20');
 
--- 2013-07-22 11:47:51
+-- 2013-07-22 19:04:36
