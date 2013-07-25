@@ -34,6 +34,7 @@ App::uses('Controller', 'Controller');
 class AppController extends Controller {
 
 	public $components = array(
+		'Cart.CartManager',
 		'RequestHandler',
 		'Session',
 		'Acl',
@@ -51,7 +52,8 @@ class AppController extends Controller {
 
 	public $helpers = array(
 		'Html', 'Form', 'Session',
-		'AssetCompress.AssetCompress'
+		'AssetCompress.AssetCompress',
+		'Cart.Cart'
 	);
 
 	public $authUser = null;

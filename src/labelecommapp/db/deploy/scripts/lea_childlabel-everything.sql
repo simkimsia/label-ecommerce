@@ -18,7 +18,7 @@ CREATE TABLE `acos` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 INSERT INTO `acos` (`id`, `parent_id`, `model`, `foreign_key`, `alias`, `lft`, `rght`) VALUES
-(1,	NULL,	NULL,	NULL,	'controllers',	1,	202),
+(1,	NULL,	NULL,	NULL,	'controllers',	1,	270),
 (2,	1,	NULL,	NULL,	'Groups',	2,	13),
 (3,	2,	NULL,	NULL,	'index',	3,	4),
 (4,	2,	NULL,	NULL,	'view',	5,	6),
@@ -118,7 +118,41 @@ INSERT INTO `acos` (`id`, `parent_id`, `model`, `foreign_key`, `alias`, `lft`, `
 (98,	94,	NULL,	NULL,	'edit',	193,	194),
 (99,	94,	NULL,	NULL,	'delete',	195,	196),
 (100,	94,	NULL,	NULL,	'add_item',	197,	198),
-(101,	94,	NULL,	NULL,	'remove_item',	199,	200);
+(101,	94,	NULL,	NULL,	'remove_item',	199,	200),
+(102,	1,	NULL,	NULL,	'Cart',	202,	267),
+(103,	102,	NULL,	NULL,	'CartRules',	203,	210),
+(104,	103,	NULL,	NULL,	'admin_index',	204,	205),
+(105,	103,	NULL,	NULL,	'admin_add',	206,	207),
+(106,	103,	NULL,	NULL,	'admin_edit',	208,	209),
+(107,	102,	NULL,	NULL,	'Carts',	211,	226),
+(108,	107,	NULL,	NULL,	'index',	212,	213),
+(109,	107,	NULL,	NULL,	'view',	214,	215),
+(110,	107,	NULL,	NULL,	'add',	216,	217),
+(111,	107,	NULL,	NULL,	'edit',	218,	219),
+(112,	107,	NULL,	NULL,	'delete',	220,	221),
+(113,	107,	NULL,	NULL,	'add_item',	222,	223),
+(114,	107,	NULL,	NULL,	'remove_item',	224,	225),
+(115,	102,	NULL,	NULL,	'OrderAddresses',	227,	228),
+(116,	102,	NULL,	NULL,	'Orders',	229,	242),
+(117,	116,	NULL,	NULL,	'index',	230,	231),
+(118,	116,	NULL,	NULL,	'view',	232,	233),
+(119,	116,	NULL,	NULL,	'cancel',	234,	235),
+(120,	116,	NULL,	NULL,	'admin_index',	236,	237),
+(121,	116,	NULL,	NULL,	'admin_view',	238,	239),
+(122,	116,	NULL,	NULL,	'admin_refund',	240,	241),
+(123,	102,	NULL,	NULL,	'PaymentMethods',	243,	250),
+(124,	123,	NULL,	NULL,	'index',	244,	245),
+(125,	123,	NULL,	NULL,	'admin_index',	246,	247),
+(126,	123,	NULL,	NULL,	'admin_edit',	248,	249),
+(127,	102,	NULL,	NULL,	'ShippingMethods',	251,	266),
+(128,	127,	NULL,	NULL,	'index',	252,	253),
+(129,	127,	NULL,	NULL,	'view',	254,	255),
+(130,	127,	NULL,	NULL,	'admin_index',	256,	257),
+(131,	127,	NULL,	NULL,	'admin_view',	258,	259),
+(132,	127,	NULL,	NULL,	'admin_add',	260,	261),
+(133,	127,	NULL,	NULL,	'admin_edit',	262,	263),
+(134,	127,	NULL,	NULL,	'admin_delete',	264,	265),
+(135,	1,	NULL,	NULL,	'Search',	268,	269);
 
 DROP TABLE IF EXISTS `aros`;
 CREATE TABLE `aros` (
@@ -357,27 +391,28 @@ CREATE TABLE `products` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(255) NOT NULL,
   `description` text NOT NULL,
+  `currency` varchar(3) NOT NULL DEFAULT 'SGD',
   `price` decimal(6,2) NOT NULL DEFAULT '0.00',
   `created` datetime NOT NULL,
   `product_variant_count` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-INSERT INTO `products` (`id`, `name`, `description`, `price`, `created`, `product_variant_count`) VALUES
-(1,	'Rectangle Sticker Labels',	'With our classic vinyl rectangle sticker labels, you\'ll be able to label in style. Personalize all your kid\'s belongings and never lose another item again. \r\n\r\nDetails:\r\n51.5mm x 24mm\r\nPack contains 48 labels',	19.95,	'0000-00-00 00:00:00',	1),
-(2,	'Circle Sticker Labels',	'These supercute round vinyl labels are perfect for everything, ranging from bottles and bowls to sippy cups and snack boxes. Like all our sticker labels, they\'re waterproof, sterilizer-safe, microwavable and dishwasher-friendly. \r\n\r\nDetails: \r\n37.5 mm \r\nPack contains 42 labels ',	20.00,	'0000-00-00 00:00:00',	1),
-(3,	'Chinese Name Sticker Labels',	'Love Chinese? We do too! Identify belongings and teach your kids to write their Chinese names with these Chinese Name Sticker Labels. \r\n\r\nDetails: \r\n51.5mm x 24mm \r\nPack contains 48 labels ',	21.00,	'0000-00-00 00:00:00',	2),
-(4,	'Birthday Sticker Labels',	'Birthday Labels are a great way to say Happy Birthday! Instead of scribbling your name on wrappers with a marker, just stick on a personalized Birthday Label and you\'re good to go.  \r\n\r\nDetails: \r\n63mm x 29mm \r\nPack contains 27 labels ',	22.00,	'0000-00-00 00:00:00',	1),
-(5,	'Book Sticker Labels',	'Book labels are great for storybooks, textbooks, workbooks, notebooks, jotter books, coloring books and even sticker books. \r\n\r\nDetails: \r\n63mm x 29mm \r\nPack contains 27 labels  ',	23.00,	'0000-00-00 00:00:00',	1),
-(6,	'Split Dual Name Pack (Sticker Labels)',	'Instead of buying 2 separate packs for 2 kids, share a pack and combine both names in a Split Dual Name Pack. Sharing for the win!\r\n\r\nDetails:\r\nApplicable to all products.\r\nOnly 1 design per pack.\r\n\r\n\r\n',	24.00,	'0000-00-00 00:00:00',	4),
-(7,	'Split English/Chinese Pack (Sticker Labels)',	'Canâ€™t decide between having the labels in English or Chinese? Have the best of both worlds with our Split English/Chinese Pack. \r\n\r\nDetails:\r\nApplicable to all except circle labels\r\nLimited to 1 design per pack',	25.00,	'0000-00-00 00:00:00',	3),
-(8,	'Rectangle Iron On Labels',	'We\'ve taken all the awesomeness of our classic vinyl rectangle sticker labels and made it into iron on labels because tiny clothes need label love too. Safe for washing machines and dryers. \r\n\r\nDetails: \r\n45mm x 18mm \r\nPack contains 40 labels ',	26.00,	'0000-00-00 00:00:00',	1),
-(9,	'Circle Iron On Labels',	'Our round iron on labels look unbelievably on tiny clothes. Plus you won\'t have to worry about getting their clothes mixed up in preschool ever again. We\'d say it\'s a win-win!\r\n\r\nDetails: \r\n30 mm \r\nPack contains 36 labels ',	27.00,	'0000-00-00 00:00:00',	1),
-(10,	'Split Dual Name Pack (Iron On Labels)',	'Instead of buying 2 separate packs for 2 kids, share a pack and combine both names in a Split Dual Name Pack. Sharing for the win! \r\n\r\nDetails: \r\nApplicable to both rectangles and circles. \r\nOnly 1 design per pack.  ',	28.00,	'0000-00-00 00:00:00',	2),
-(11,	'Split English/Chinese Pack (Iron On Labels)',	'Canâ€™t decide between having the labels in English or Chinese? Have the best of both worlds with our Split English/Chinese Pack. \r\n\r\nDetails: \r\nApplicable to rectangle labels only \r\nLimited to 1 design per pack ',	29.00,	'0000-00-00 00:00:00',	1),
-(12,	'Get Me Started Value Pack',	'A Combo Pack to get you started!\r\n\r\n32 x Small Rectangle Sticker Labels\r\n14 x Circle Sticker Labels\r\n40 x Rectangle Iron Ons',	30.00,	'0000-00-00 00:00:00',	1),
-(14,	'Give Me Everything Pack',	'A super duper value pack!\r\n\r\n32 x Small Rectangle Sticker Labels\r\n32 x Chinese Name Sticker Labels\r\n28 x Circle Sticker Labels\r\n20 x Rectangle Iron Ons\r\n18 x Circle Iron Ons',	50.00,	'0000-00-00 00:00:00',	1),
-(15,	'Chinese Name Iron On Labels',	'Love Chinese? We do too! Identify belongings and teach your kids to write their Chinese names with these Chinese Name Sticker Labels. \r\n\r\nDetails: \r\n45mm x 18mm \r\nPack contains 40 labels  ',	15.00,	'0000-00-00 00:00:00',	2);
+INSERT INTO `products` (`id`, `name`, `description`, `currency`, `price`, `created`, `product_variant_count`) VALUES
+(1,	'Rectangle Sticker Labels',	'With our classic vinyl rectangle sticker labels, you\'ll be able to label in style. Personalize all your kid\'s belongings and never lose another item again. \r\n\r\nDetails:\r\n51.5mm x 24mm\r\nPack contains 48 labels',	'SGD',	19.95,	'0000-00-00 00:00:00',	1),
+(2,	'Circle Sticker Labels',	'These supercute round vinyl labels are perfect for everything, ranging from bottles and bowls to sippy cups and snack boxes. Like all our sticker labels, they\'re waterproof, sterilizer-safe, microwavable and dishwasher-friendly. \r\n\r\nDetails: \r\n37.5 mm \r\nPack contains 42 labels ',	'SGD',	20.00,	'0000-00-00 00:00:00',	1),
+(3,	'Chinese Name Sticker Labels',	'Love Chinese? We do too! Identify belongings and teach your kids to write their Chinese names with these Chinese Name Sticker Labels. \r\n\r\nDetails: \r\n51.5mm x 24mm \r\nPack contains 48 labels ',	'SGD',	21.00,	'0000-00-00 00:00:00',	2),
+(4,	'Birthday Sticker Labels',	'Birthday Labels are a great way to say Happy Birthday! Instead of scribbling your name on wrappers with a marker, just stick on a personalized Birthday Label and you\'re good to go.  \r\n\r\nDetails: \r\n63mm x 29mm \r\nPack contains 27 labels ',	'SGD',	22.00,	'0000-00-00 00:00:00',	1),
+(5,	'Book Sticker Labels',	'Book labels are great for storybooks, textbooks, workbooks, notebooks, jotter books, coloring books and even sticker books. \r\n\r\nDetails: \r\n63mm x 29mm \r\nPack contains 27 labels  ',	'SGD',	23.00,	'0000-00-00 00:00:00',	1),
+(6,	'Split Dual Name Pack (Sticker Labels)',	'Instead of buying 2 separate packs for 2 kids, share a pack and combine both names in a Split Dual Name Pack. Sharing for the win!\r\n\r\nDetails:\r\nApplicable to all products.\r\nOnly 1 design per pack.\r\n\r\n\r\n',	'SGD',	24.00,	'0000-00-00 00:00:00',	4),
+(7,	'Split English/Chinese Pack (Sticker Labels)',	'Canâ€™t decide between having the labels in English or Chinese? Have the best of both worlds with our Split English/Chinese Pack. \r\n\r\nDetails:\r\nApplicable to all except circle labels\r\nLimited to 1 design per pack',	'SGD',	25.00,	'0000-00-00 00:00:00',	3),
+(8,	'Rectangle Iron On Labels',	'We\'ve taken all the awesomeness of our classic vinyl rectangle sticker labels and made it into iron on labels because tiny clothes need label love too. Safe for washing machines and dryers. \r\n\r\nDetails: \r\n45mm x 18mm \r\nPack contains 40 labels ',	'SGD',	26.00,	'0000-00-00 00:00:00',	1),
+(9,	'Circle Iron On Labels',	'Our round iron on labels look unbelievably on tiny clothes. Plus you won\'t have to worry about getting their clothes mixed up in preschool ever again. We\'d say it\'s a win-win!\r\n\r\nDetails: \r\n30 mm \r\nPack contains 36 labels ',	'SGD',	27.00,	'0000-00-00 00:00:00',	1),
+(10,	'Split Dual Name Pack (Iron On Labels)',	'Instead of buying 2 separate packs for 2 kids, share a pack and combine both names in a Split Dual Name Pack. Sharing for the win! \r\n\r\nDetails: \r\nApplicable to both rectangles and circles. \r\nOnly 1 design per pack.  ',	'SGD',	28.00,	'0000-00-00 00:00:00',	2),
+(11,	'Split English/Chinese Pack (Iron On Labels)',	'Canâ€™t decide between having the labels in English or Chinese? Have the best of both worlds with our Split English/Chinese Pack. \r\n\r\nDetails: \r\nApplicable to rectangle labels only \r\nLimited to 1 design per pack ',	'SGD',	29.00,	'0000-00-00 00:00:00',	1),
+(12,	'Get Me Started Value Pack',	'A Combo Pack to get you started!\r\n\r\n32 x Small Rectangle Sticker Labels\r\n14 x Circle Sticker Labels\r\n40 x Rectangle Iron Ons',	'SGD',	30.00,	'0000-00-00 00:00:00',	1),
+(14,	'Give Me Everything Pack',	'A super duper value pack!\r\n\r\n32 x Small Rectangle Sticker Labels\r\n32 x Chinese Name Sticker Labels\r\n28 x Circle Sticker Labels\r\n20 x Rectangle Iron Ons\r\n18 x Circle Iron Ons',	'SGD',	50.00,	'0000-00-00 00:00:00',	1),
+(15,	'Chinese Name Iron On Labels',	'Love Chinese? We do too! Identify belongings and teach your kids to write their Chinese names with these Chinese Name Sticker Labels. \r\n\r\nDetails: \r\n45mm x 18mm \r\nPack contains 40 labels  ',	'SGD',	15.00,	'0000-00-00 00:00:00',	2);
 
 DROP TABLE IF EXISTS `products_in_groups`;
 CREATE TABLE `products_in_groups` (
@@ -435,6 +470,12 @@ INSERT INTO `product_images` (`id`, `order`, `left`, `right`, `type`, `product_i
 DROP TABLE IF EXISTS `product_variants`;
 CREATE TABLE `product_variants` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
+  `quantity` int(8) NOT NULL DEFAULT '0',
+  `max_quantity` int(8) NOT NULL DEFAULT '0',
+  `min_quantity` int(8) NOT NULL DEFAULT '0',
+  `for_sale` tinyint(1) NOT NULL DEFAULT '0',
+  `currency` varchar(3) NOT NULL DEFAULT 'SGD',
+  `price` decimal(6,2) NOT NULL DEFAULT '0.00',
   `product_id` int(11) NOT NULL,
   `created` datetime NOT NULL,
   `left` int(11) unsigned NOT NULL DEFAULT '0',
@@ -445,29 +486,29 @@ CREATE TABLE `product_variants` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-INSERT INTO `product_variants` (`id`, `product_id`, `created`, `left`, `right`, `order`, `modified`, `name`) VALUES
-(5,	1,	'2013-06-30 03:31:44',	0,	0,	0,	'2013-06-30 03:31:44',	'DEFAULT'),
-(6,	2,	'2013-06-30 03:32:10',	0,	0,	0,	'2013-07-17 22:35:59',	'DEFAULT'),
-(7,	3,	'2013-06-30 03:32:29',	0,	8,	0,	'2013-07-17 22:35:59',	'Horizontal'),
-(8,	3,	'2013-06-30 03:32:37',	7,	0,	1,	'2013-07-17 22:35:59',	'Vertical'),
-(9,	4,	'2013-06-30 03:33:25',	0,	0,	0,	'2013-07-17 22:35:59',	'DEFAULT'),
-(11,	5,	'2013-06-30 03:34:21',	0,	0,	0,	'2013-06-30 03:34:21',	'DEFAULT'),
-(12,	6,	'2013-06-30 03:34:48',	0,	13,	0,	'2013-07-19 03:21:06',	'Small Rectangle Labels'),
-(13,	6,	'2013-06-30 03:34:59',	12,	36,	1,	'2013-07-19 03:21:14',	'Circle Labels'),
-(15,	6,	'2013-06-30 03:37:34',	36,	0,	3,	'2013-07-19 03:21:14',	'Book Labels'),
-(17,	7,	'2013-06-30 03:37:58',	0,	18,	0,	'2013-06-30 03:37:58',	'Small Rectangle Labels'),
-(18,	7,	'2013-06-30 03:38:08',	17,	20,	1,	'2013-06-30 03:38:08',	'Birthday Labels'),
-(20,	7,	'2013-06-30 03:38:39',	18,	0,	2,	'2013-06-30 03:38:39',	'Book Labels'),
-(21,	8,	'2013-06-30 03:38:58',	0,	0,	0,	'2013-06-30 03:38:58',	'DEFAULT'),
-(22,	9,	'2013-06-30 03:39:19',	0,	0,	0,	'2013-06-30 03:39:19',	'DEFAULT'),
-(23,	10,	'2013-06-30 03:39:38',	0,	24,	0,	'2013-06-30 03:39:38',	'Rectangle Labels'),
-(24,	10,	'2013-06-30 03:39:49',	23,	0,	1,	'2013-06-30 03:39:49',	'Circle Labels'),
-(25,	11,	'2013-06-30 03:44:09',	0,	0,	0,	'2013-06-30 03:44:09',	'DEFAULT'),
-(26,	12,	'2013-06-30 03:44:35',	0,	0,	0,	'2013-06-30 03:44:35',	'DEFAULT'),
-(27,	14,	'2013-06-30 03:45:06',	0,	0,	0,	'2013-06-30 03:45:06',	'DEFAULT'),
-(28,	15,	'2013-06-30 03:45:31',	0,	29,	0,	'2013-06-30 03:45:31',	'Horizontal'),
-(29,	15,	'2013-06-30 03:45:40',	28,	0,	1,	'2013-06-30 03:45:40',	'Vertical'),
-(36,	6,	'2013-07-19 03:21:06',	13,	15,	2,	'2013-07-19 03:21:14',	'Birthday Labels');
+INSERT INTO `product_variants` (`id`, `quantity`, `max_quantity`, `min_quantity`, `for_sale`, `currency`, `price`, `product_id`, `created`, `left`, `right`, `order`, `modified`, `name`) VALUES
+(5,	1000,	0,	0,	1,	'SGD',	19.95,	1,	'2013-06-30 03:31:44',	0,	0,	0,	'2013-06-30 03:31:44',	'DEFAULT'),
+(6,	1000,	0,	0,	1,	'SGD',	20.00,	2,	'2013-06-30 03:32:10',	0,	0,	0,	'2013-07-17 22:35:59',	'DEFAULT'),
+(7,	1000,	0,	0,	1,	'SGD',	21.00,	3,	'2013-06-30 03:32:29',	0,	8,	0,	'2013-07-17 22:35:59',	'Horizontal'),
+(8,	1000,	0,	0,	1,	'SGD',	21.00,	3,	'2013-06-30 03:32:37',	7,	0,	1,	'2013-07-17 22:35:59',	'Vertical'),
+(9,	1000,	0,	0,	1,	'SGD',	22.00,	4,	'2013-06-30 03:33:25',	0,	0,	0,	'2013-07-17 22:35:59',	'DEFAULT'),
+(11,	1000,	0,	0,	1,	'SGD',	23.00,	5,	'2013-06-30 03:34:21',	0,	0,	0,	'2013-06-30 03:34:21',	'DEFAULT'),
+(12,	1000,	0,	0,	1,	'SGD',	24.00,	6,	'2013-06-30 03:34:48',	0,	13,	0,	'2013-07-19 03:21:06',	'Small Rectangle Labels'),
+(13,	1000,	0,	0,	1,	'SGD',	24.00,	6,	'2013-06-30 03:34:59',	12,	36,	1,	'2013-07-19 03:21:14',	'Circle Labels'),
+(15,	1000,	0,	0,	1,	'SGD',	24.00,	6,	'2013-06-30 03:37:34',	36,	0,	3,	'2013-07-19 03:21:14',	'Book Labels'),
+(17,	1000,	0,	0,	1,	'SGD',	25.00,	7,	'2013-06-30 03:37:58',	0,	18,	0,	'2013-06-30 03:37:58',	'Small Rectangle Labels'),
+(18,	1000,	0,	0,	1,	'SGD',	25.00,	7,	'2013-06-30 03:38:08',	17,	20,	1,	'2013-06-30 03:38:08',	'Birthday Labels'),
+(20,	1000,	0,	0,	1,	'SGD',	25.00,	7,	'2013-06-30 03:38:39',	18,	0,	2,	'2013-06-30 03:38:39',	'Book Labels'),
+(21,	1000,	0,	0,	1,	'SGD',	26.00,	8,	'2013-06-30 03:38:58',	0,	0,	0,	'2013-06-30 03:38:58',	'DEFAULT'),
+(22,	1000,	0,	0,	1,	'SGD',	27.00,	9,	'2013-06-30 03:39:19',	0,	0,	0,	'2013-06-30 03:39:19',	'DEFAULT'),
+(23,	1000,	0,	0,	1,	'SGD',	28.00,	10,	'2013-06-30 03:39:38',	0,	24,	0,	'2013-06-30 03:39:38',	'Rectangle Labels'),
+(24,	1000,	0,	0,	1,	'SGD',	28.00,	10,	'2013-06-30 03:39:49',	23,	0,	1,	'2013-06-30 03:39:49',	'Circle Labels'),
+(25,	1000,	0,	0,	1,	'SGD',	29.00,	11,	'2013-06-30 03:44:09',	0,	0,	0,	'2013-06-30 03:44:09',	'DEFAULT'),
+(26,	1000,	0,	0,	1,	'SGD',	30.00,	12,	'2013-06-30 03:44:35',	0,	0,	0,	'2013-06-30 03:44:35',	'DEFAULT'),
+(27,	1000,	0,	0,	1,	'SGD',	50.00,	14,	'2013-06-30 03:45:06',	0,	0,	0,	'2013-06-30 03:45:06',	'DEFAULT'),
+(28,	1000,	0,	0,	1,	'SGD',	15.00,	15,	'2013-06-30 03:45:31',	0,	29,	0,	'2013-06-30 03:45:31',	'Horizontal'),
+(29,	1000,	0,	0,	1,	'SGD',	15.00,	15,	'2013-06-30 03:45:40',	28,	0,	1,	'2013-06-30 03:45:40',	'Vertical'),
+(36,	1000,	0,	0,	1,	'SGD',	24.00,	6,	'2013-07-19 03:21:06',	13,	15,	2,	'2013-07-19 03:21:14',	'Birthday Labels');
 
 DROP TABLE IF EXISTS `schema_migrations`;
 CREATE TABLE `schema_migrations` (
@@ -519,4 +560,4 @@ INSERT INTO `users` (`id`, `full_name`, `email`, `password`, `short_name`, `toke
 (3,	'AikChun1',	'aikchun616@gmail.com',	'275108ab67a27356dab9dcff38275c044766397f',	'AikChun1',	NULL,	1,	'2013-06-28 13:51:57',	'2013-06-30 09:04:43'),
 (4,	'Daphne Ling',	'daphne@motherinc.org',	'275108ab67a27356dab9dcff38275c044766397f',	'Daphne',	'NULL',	3,	'2013-07-02 09:30:20',	'2013-07-02 09:30:20');
 
--- 2013-07-22 19:04:36
+-- 2013-07-25 03:53:30
