@@ -1,5 +1,6 @@
 <?php
 App::uses('AppModel', 'Model');
+App::uses('NotBuyableException', 'Cart.Lib/Error');
 /**
  * ProductVariant Model
  *
@@ -21,6 +22,53 @@ class ProductVariant extends AppModel {
 				'counterCache' => true
     		)
     	);
+/**
+ * Behaviors
+ *
+ * @var array
+ */
+    public $actsAs = array(
+        'Cart.Buyable' => array('nameField' => 'display_name'));
+
+
+/**
+ * This method will determine if the item is buyable or not and by this can be added to the cart or not
+ *
+ * @param array $data
+ * @return boolean
+ */
+    public function isBuyable($data) {
+        $result = $this->find('first', array(
+            'contain' => array(),
+            'conditions' => array(
+                $this->alias . '.' . $this->primaryKey => $data['CartsItem']['foreign_key'])));
+
+        if (!empty($result)) {
+            if ($result[$this->alias]['quantity'] == 0) {
+                $this->log('model Variant : line ' .__LINE__);
+                return false;
+            }
+
+            if ($data['CartsItem']['quantity'] > $result[$this->alias]['quantity']) {
+                $this->log('model Variant : line ' .__LINE__);
+                return false;
+            }
+
+            if ($result[$this->alias]['max_quantity'] > 0 && $data['CartsItem']['quantity'] >= $result[$this->alias]['max_quantity']) {
+                $this->log('model Variant : line ' .__LINE__);
+                return false;
+            }
+
+            if ($result[$this->alias]['min_quantity'] > 0 && $data['CartsItem']['quantity'] <= $result[$this->alias]['min_quantity']) {
+                $this->log('model Variant : line ' .__LINE__);
+                return false;
+            }
+            $this->log('model Variant : line ' .__LINE__);
+            return $result[$this->alias]['for_sale'] == 1 && $result[$this->alias]['quantity'] > 0;
+        }
+
+        return false;
+    }
 
 /**
  *
@@ -143,7 +191,6 @@ class ProductVariant extends AppModel {
         $results      = $this->getAllOrderStats($product_id);
         $saveManyData = array();
         $count        = 0;
-        $this->log($results);
         foreach($results as $key => $array){
             $array['ProductVariant']['order'] = $count;
             $saveManyData[] = $array['ProductVariant']; 
@@ -246,8 +293,6 @@ class ProductVariant extends AppModel {
 
         return $result;
     }
-
-
 
 
 }

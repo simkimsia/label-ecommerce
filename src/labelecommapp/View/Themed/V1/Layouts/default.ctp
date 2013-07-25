@@ -11,10 +11,10 @@
   <title></title>
 
 <!-- Stylesheets Start //-->
-<link rel="shortcut icon" href="<?php echo $this->Html->assetUrl('img/favicon.ico'); ?>"/>
+<link rel="shortcut icon" href="<?php echo $this->Html->assetUrl('img/cake.icon.png'); ?>"/>
 <?php echo $this->Html->css('childlabel'); ?>
 <!-- Stylesheets Start End //-->
-<?php echo $this->Html->script('jquery-1.9.0.min'); ?>
+<?php echo $this->Html->script('jquery-1.10.2'); ?>
 <?php echo $this->Html->script('jquery.nivo.slider'); ?>
 <?php echo $this->Html->css('themes/default/default'); ?>
 <?php echo $this->Html->css('themes/light/light'); ?>
@@ -25,6 +25,7 @@
 
 </head>
 <body>
+  <?php echo $this->Session->flash(); ?>
 <div id="childContainer">
     <div class="childHolder">
 

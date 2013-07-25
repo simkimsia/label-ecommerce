@@ -10,6 +10,7 @@
 		"simkimsia/utility_lib": "dev-master",
 		"simkimsia/permissions-extras": "dev-master",
 		"simkimsia/utility_behaviors": "dev-master",
-		"josegonzalez/upload": "dev-master"
+		"josegonzalez/upload": "dev-master",
+		"cakedc/search": "dev-master"
 	}
 }

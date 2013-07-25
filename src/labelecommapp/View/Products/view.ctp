@@ -68,6 +68,21 @@
                 <form method="post" action="#" class="addtocartBox">
                     <input type="text" name="" value="0" disabled="disabled" class="addtocartinput" />
                 </form>
+                <?php
+                    echo $this->Form->create('Cart', array(
+                        'action' => 'buy'));
+                    echo $this->Form->input('CartsItem.quantity', array(
+                        'label' => false,
+                        'div' => false,
+                        'style' => 'width: 50px;',
+                        'default' => 1));
+                    echo $this->Form->submit(__('buy'), array(
+                        'div' => false));
+                    echo $this->Form->hidden('CartsItem.foreign_key', array(
+                        'value' => $product['Product']['variants'][0]['id']));
+                    echo $this->Form->hidden('CartsItem.model', array(
+                        'value' => 'ProductVariant'));
+                ?>
           </div>
           
           <div class="topContent secondrow">

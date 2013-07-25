@@ -23,6 +23,29 @@ class ProductVariantsController extends AppController {
 	}
 
 /**
+ * index method
+ *
+ * @return void
+ */
+	public function admin_rename() {
+		$this->ProductVariant->recursive = 0;
+		$results = $this->ProductVariant->find('all');
+		foreach($results as $key=>$variant) {
+			$this->ProductVariant->id = $variant['ProductVariant']['id'];
+			$vName = $variant['ProductVariant']['name'];
+			$pName = $variant['Product']['name'];
+			if ($vName == 'DEFAULT'){
+				$this->ProductVariant->saveField('display_name', $pName);
+			} else {
+				$this->ProductVariant->saveField('display_name', $pName .  ' - ' . $vName );
+			}
+		}
+		$this->Session->setFlash('successfully rename');
+		$this->redirect('/');
+	}
+
+
+/**
  * display all the variants that belong to a particular product indicated by $productId
  *
  * @throws NotFoundException

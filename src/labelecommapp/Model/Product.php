@@ -71,7 +71,6 @@ class Product extends AppModel {
         ));
 // get variants and their images
         $variantsAndImages = $this->getVariantsAndImages($id);
-        $this->log($variantsAndImages);
         $variants            = Hash::combine($variantsAndImages, '{n}.ProductVariant.id', '{n}.ProductVariant');
         $images              = Hash::combine($variantsAndImages, '{n}.ProductVariant.id', '{n}.ProductImage');
         foreach($variants as $variant_id => $variant){
