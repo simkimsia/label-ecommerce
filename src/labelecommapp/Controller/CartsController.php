@@ -7,6 +7,12 @@ App::uses('AppController', 'Controller');
  */
 class CartsController extends AppController {
 
+	public function beforeFilter() {
+		parent::beforeFilter();
+		$this->Auth->allow();
+	}
+
+
 /**
  * index method
  *
@@ -24,12 +30,9 @@ class CartsController extends AppController {
  * @param string $id
  * @return void
  */
-	public function view($id = null) {
-		if (!$this->Cart->exists($id)) {
-			throw new NotFoundException(__('Invalid cart'));
-		}
-		$options = array('conditions' => array('Cart.' . $this->Cart->primaryKey => $id));
-		$this->set('cart', $this->Cart->find('first', $options));
+	public function view() {
+		$this->layout = 'cart';
+
 	}
 
 /**
