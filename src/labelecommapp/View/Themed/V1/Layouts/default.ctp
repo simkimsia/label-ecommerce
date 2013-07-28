@@ -22,7 +22,8 @@
 <?php echo $this->Html->css('themes/bar/bar'); ?>
 <?php echo $this->Html->css('nivo-slider'); ?>
 <?php echo $this->Html->css('jquerytools'); ?>
-
+<?php echo $this->Html->script('alertify/0.3.10/alertify.min', array('block' => 'libScriptBottom')); ?>
+<?php echo $this->Html->css('alertify/0.3.10/themes/alertify.default'); ?>
 </head>
 <body>
   <?php echo $this->Session->flash(); ?>
