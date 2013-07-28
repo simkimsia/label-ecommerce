@@ -63,7 +63,15 @@ src/labelecommapp/Vendor/titon/*
 src/labelecommapp/Vendor/mjohnson/*
 
 ## ignore Plugin
-src/labelecommapp/Plugin/*
+src/labelecommapp/Plugin/AclExtras
+src/labelecommapp/Plugin/AssetCompress
+src/labelecommapp/Plugin/ClearCache
+src/labelecommapp/Plugin/Migrations
+src/labelecommapp/Plugin/PermissionsExtras
+src/labelecommapp/Plugin/Search
+src/labelecommapp/Plugin/Upload
+src/labelecommapp/Plugin/UtilityBehaviors
+src/labelecommapp/Plugin/UtilityLib
 
 ## ignore composer.lock as well
 src/labelecommapp/composer.lock
