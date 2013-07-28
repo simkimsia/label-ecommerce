@@ -23,15 +23,16 @@
 <?php echo $this->Html->css('nivo-slider'); ?>
 <?php echo $this->Html->css('jquerytools'); ?>
 <?php echo $this->Html->script('libs/alertify/0.3.10/alertify.min', array('block' => 'libScriptBottom')); ?>
+<?php echo $this->Html->css('alertify/0.3.10/themes/alertify.core'); ?>
 <?php echo $this->Html->css('alertify/0.3.10/themes/alertify.default'); ?>
 </head>
 <body>
-  <?php echo $this->Session->flash(); ?>
+  <?php $session = $this->Session->flash('flash', array('element' => 'flash_blank')); ?>
 <div id="childContainer">
     <div class="childHolder">
 
 
-        
+
         <ul id="menuBar">
           <li>
             <a href="/products/view/1"><div class="shop">shop</div></a>
@@ -164,6 +165,11 @@ $(function() {
         });
     });
 
+// alertify the Session
+var sessionMsg = '<?php echo $session; ?>';
+if (sessionMsg != "") {
+  alertify.success(sessionMsg);
+}
 </script>
 <?php echo $this->fetch('scriptBottom'); ?>
 </body>
