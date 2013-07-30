@@ -142,13 +142,13 @@
 </div>
 </div>
 <div id="u48" class="u48_container"   >
-<div id="u48_img" class="u48_normal detectCanvas"></div>
+<a href="/carts/view?step=3"><div id="u48_img" class="u48_normal detectCanvas"></div></a>
 <div id="u49" class="u49" style="visibility:hidden;"  >
 <div id="u49_rtf"></div>
 </div>
 </div>
 <div id="u50" class="u50_container"   >
-<div id="u50_img" class="u50_normal detectCanvas"></div>
+<a href="/carts/view?step=4"><div id="u50_img" class="u50_normal detectCanvas"></div></a>
 <div id="u51" class="u51" style="visibility:hidden;"  >
 <div id="u51_rtf"></div>
 </div>

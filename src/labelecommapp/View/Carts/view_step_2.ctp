@@ -121,7 +121,7 @@
 <DIV id="u39_line" class="u39_line" ></DIV>
 </div>
 <div id="u40" class="u40_container"   >
-<div id="u40_img" class="u40_normal detectCanvas"></div>
+<a href="/carts/view?step=1"><div id="u40_img" class="u40_normal detectCanvas"></div></a>
 <div id="u41" class="u41" style="visibility:hidden;"  >
 <div id="u41_rtf"></div>
 </div>
@@ -133,13 +133,13 @@
 </div>
 </div>
 <div id="u44" class="u44_container"   >
-<div id="u44_img" class="u44_normal detectCanvas"></div>
+<a href="/carts/view?step=3"><div id="u44_img" class="u44_normal detectCanvas"></div></a>
 <div id="u45" class="u45" style="visibility:hidden;"  >
 <div id="u45_rtf"></div>
 </div>
 </div>
 <div id="u46" class="u46_container"   >
-<div id="u46_img" class="u46_normal detectCanvas"></div>
+<a href="/carts/view?step=4"><div id="u46_img" class="u46_normal detectCanvas"></div></a>
 <div id="u47" class="u47" style="visibility:hidden;"  >
 <div id="u47_rtf"></div>
 </div>
