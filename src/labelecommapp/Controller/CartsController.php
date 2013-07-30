@@ -31,7 +31,15 @@ class CartsController extends AppController {
  * @return void
  */
 	public function view() {
+		if(isset($_GET['step'])){
+			$step = $_GET['step'];
+
+		}else{
+			$step = 1;
+		}
+		$this->set('step', $step);
 		$this->layout = 'cart';
+		$this->render('view_step_'.$step);
 
 	}
 
