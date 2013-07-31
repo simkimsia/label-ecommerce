@@ -68,10 +68,18 @@ class AppController extends Controller {
 		$this->_determineTheme();
 		$this->_prepareLogin();
 		$this->_setAuthUser();
-		// $productModel = ClassRegistry::init('Product');
-		// $productsForSale = $productModel->find('all');
-		// // set a View Variable
-		// $this->set('productsForSale', $productsForSale);
+		$this->_extractCartData();
+	}
+	protected function _extractCartData() {
+		//Configure AuthComponent
+		$cart = $this->Session->read('Cart.Cart');
+		$cartItemCount = 0;
+		if(isset($cart['item_count'])){
+			$cartItemCount = $cart['item_count'];
+
+		}
+
+		$this->set('cartItemCount', $cartItemCount);
 	}
 
 

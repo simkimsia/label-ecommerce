@@ -45,25 +45,25 @@ class ProductVariant extends AppModel {
 
         if (!empty($result)) {
             if ($result[$this->alias]['quantity'] == 0) {
-                $this->log('model Variant : line ' .__LINE__);
+                
                 return false;
             }
 
             if ($data['CartsItem']['quantity'] > $result[$this->alias]['quantity']) {
-                $this->log('model Variant : line ' .__LINE__);
+                
                 return false;
             }
 
             if ($result[$this->alias]['max_quantity'] > 0 && $data['CartsItem']['quantity'] >= $result[$this->alias]['max_quantity']) {
-                $this->log('model Variant : line ' .__LINE__);
+                
                 return false;
             }
 
             if ($result[$this->alias]['min_quantity'] > 0 && $data['CartsItem']['quantity'] <= $result[$this->alias]['min_quantity']) {
-                $this->log('model Variant : line ' .__LINE__);
+                
                 return false;
             }
-            $this->log('model Variant : line ' .__LINE__);
+            
             return $result[$this->alias]['for_sale'] == 1 && $result[$this->alias]['quantity'] > 0;
         }
 

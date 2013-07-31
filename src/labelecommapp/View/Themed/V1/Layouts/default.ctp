@@ -85,7 +85,7 @@
         <div class="topRightArea">
             <div class="topBtn">
               <div class="circleBtn "><a href="#" class="spacer">My<br />Account</a></div>
-              <div class="circleBtn"><a href="#">My<br />Cart <span>Item 0</span></a></div>
+              <div class="circleBtn"><a href="#">My<br />Cart <span>Item <?php echo $cartItemCount;?></span></a></div>
             </div>
             <div class="btmBtn">
               <a href="https://www.facebook.com/childlabel"><div class="FBtn">Love</div></a>
