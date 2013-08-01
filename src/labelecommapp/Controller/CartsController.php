@@ -40,6 +40,7 @@ class CartsController extends AppController {
 		$this->set('step', $step);
 		$this->layout = 'cart';
 		$this->log($this->Session->read('Cart'));
+		$this->set('carts', $this->Session->read('Cart'));
 		$this->render('view_step_'.$step);
 
 	}

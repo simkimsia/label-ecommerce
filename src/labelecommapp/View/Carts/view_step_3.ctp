@@ -595,7 +595,7 @@
 <div id="u108_rtf"><p style="text-align:center;"><span style="font-family:Helvetica;font-size:12px;font-weight:bold;font-style:normal;text-decoration:none;color:#666666;">Item Price</span></p></div>
 </div>
 <div id="u109" class="u109"  >
-<div id="u109_rtf"><p style="text-align:left;"><span style="font-family:Helvetica;font-size:18px;font-weight:bold;font-style:normal;text-decoration:none;color:#404040;">Product name</span></p></div>
+<div id="u109_rtf"><p style="text-align:left;"><span style="font-family:Helvetica;font-size:18px;font-weight:bold;font-style:normal;text-decoration:none;color:#404040;">Product Name</span></p></div>
 </div>
 <div id="u110" class="u110"  >
 <div id="u110_rtf"><p style="text-align:left;"><span style="font-family:Helvetica;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">Product Description</span></p></div>
