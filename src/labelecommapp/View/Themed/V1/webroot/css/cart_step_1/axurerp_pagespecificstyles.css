@@ -895,3 +895,44 @@ div {
     word-wrap:break-word;
 }
 
+.u56_line {
+    background-image: url('../../img/cart_step_1/u56_line.png');
+}
+
+.u56_line {
+    position:absolute;
+    left:0px;
+    top:4px;
+    width:940px;
+    height:3px;
+}
+
+.u56 {
+    position:absolute;
+    left:9px;
+    top:300px;
+    width:940px;
+    height:10px;
+    
+}
+
+.u57_line {
+    background-image: url('../../img/cart_step_1/u57_line.png');
+}
+
+.u57_line {
+    position:absolute;
+    left:0px;
+    top:4px;
+    width:940px;
+    height:3px;
+}
+
+.u57 {
+    position:absolute;
+    left:9px;
+    top:151px;
+    width:940px;
+    height:10px;
+    
+}
