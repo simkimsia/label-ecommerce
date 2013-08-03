@@ -1,3 +1,4 @@
+
 <?php setlocale(LC_MONETARY, null);?>
 <div id="main_container">
 
@@ -564,68 +565,82 @@
 <div id="u98_rtf"></div>
 </div>
 </div>
-<div id="u99" class="u99_container"   >
-<div id="u99_img" class="u99_normal detectCanvas"></div>
-<div id="u100" class="u100" style="visibility:hidden;"  >
-<div id="u100_rtf"></div>
-</div>
-</div>
-<div id="u101" class="u101_container"   >
-<div id="u101_img" class="u101_normal detectCanvas"></div>
-<div id="u102" class="u102" style="visibility:hidden;"  >
-<div id="u102_rtf"></div>
-</div>
-</div>
-<div id="u103" class="u103_container"   >
-<div id="u103_img" class="u103_normal detectCanvas"></div>
-<div id="u104" class="u104" style="visibility:hidden;"  >
-<div id="u104_rtf"></div>
-</div>
-</div>
-<div id="u105" class="u105_container"   >
-<div id="u105_img" class="u105_normal detectCanvas"></div>
-<div id="u106" class="u106" style="visibility:hidden;"  >
-<div id="u106_rtf"></div>
-</div>
-</div>
-<?php foreach($carts['CartsItem'] as $key => $cartItems) {?>
 <div id="u107" class="u107"  >
 <div id="u107_rtf"><p style="text-align:center;"><span style="font-family:Helvetica;font-size:12px;font-weight:bold;font-style:normal;text-decoration:none;color:#666666;">Product</span></p></div>
 </div>
 <div id="u108" class="u108"  >
 <div id="u108_rtf"><p style="text-align:center;"><span style="font-family:Helvetica;font-size:12px;font-weight:bold;font-style:normal;text-decoration:none;color:#666666;">Item Price</span></p></div>
-</div>
-<div id="u109" class="u109"  >
-<div id="u109_rtf"><p style="text-align:left;"><span style="font-family:Helvetica;font-size:18px;font-weight:bold;font-style:normal;text-decoration:none;color:#404040;"><?php echo $cartItems['name'];?></span></p></div>
-</div>
-<div id="u110" class="u110"  >
-<div id="u110_rtf"><p style="text-align:left;"><span style="font-family:Helvetica;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">Product Description</span></p></div>
-</div>
-<div id="u111" class="u111"  >
-<div id="u111_rtf"><p style="text-align:left;"><span style="font-family:Helvetica;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">SKU: #3439913975</span></p></div>
-</div>
-<div id="u112" class="u112"  >
-<div id="u112_rtf"><p style="text-align:left;"><span style="font-family:Helvetica;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">Size: M</span></p></div>
-</div>
-<div id="u113" class="u113"  >
-<div id="u113_rtf"><p style="text-align:left;"><span style="font-family:Helvetica;font-size:15px;font-weight:bold;font-style:normal;text-decoration:none;color:#333333;"><?php echo money_format("$%i", $cartItems['price']);?></span></p></div>
-</div>
+
 <div id="u114" class="u114"  >
 <div id="u114_rtf"><p style="text-align:center;"><span style="font-family:Helvetica;font-size:12px;font-weight:bold;font-style:normal;text-decoration:none;color:#666666;">Quantity</span></p></div>
-</div>
-<INPUT id="u115" type=text value=<?php echo '"'.$cartItems['quantity'].'"'?> class="u115"     >
-
-<div id="u116" class="u116"  >
-<div id="u116_rtf"><p style="text-align:center;"><span style="font-family:Helvetica;font-size:13px;font-weight:normal;font-style:normal;text-decoration:underline;color:#00438A;">Update</span></p></div>
-</div>
-<div id="u117" class="u117"  >
-<div id="u117_rtf"><p style="text-align:center;"><span style="font-family:Helvetica;font-size:13px;font-weight:normal;font-style:normal;text-decoration:underline;color:#00438A;">Remove</span></p></div>
 </div>
 <div id="u118" class="u118"  >
 <div id="u118_rtf"><p style="text-align:center;"><span style="font-family:Helvetica;font-size:12px;font-weight:bold;font-style:normal;text-decoration:none;color:#666666;">Price</span></p></div>
 </div>
-<div id="u119" class="u119"  >
-<div id="u119_rtf"><p style="text-align:left;"><span style="font-family:Helvetica;font-size:15px;font-weight:bold;font-style:normal;text-decoration:none;color:#333333;"><?php $qty_item = $cartItems['quantity'] * $cartItems['price']; echo money_format("$%i", $qty_item);?></span></p></div>
+<?php $number_of_items = $carts['Cart']['item_count'];
+
+    foreach($carts['CartsItem'] as $key => $cartItems){
+    ?>
+ <div id="u99" class="u99_container"  style=<?php echo '"top:'.(1306+(($number_of_items-1)*149)).'px"';?>>
+<div id="u99_img" class="u99_normal detectCanvas"></div>
+<div id="u100" class="u100" style="visibility:hidden;"  >
+<div id="u100_rtf"></div>
+</div>
+</div>
+<div id="u101" class="u101_container"   style=<?php echo '"top:'.(1307+(($number_of_items-1)*149)).'px"';?>>
+<div id="u101_img" class="u101_normal detectCanvas"></div>
+<div id="u102" class="u102" style="visibility:hidden;"  >
+<div id="u102_rtf"></div>
+</div>
+</div>
+<div id="u103" class="u103_container"   style=<?php echo '"top:'.(1312+(($number_of_items-1)*149)).'px"';?>>
+<div id="u103_img" class="u103_normal detectCanvas"></div>
+<div id="u104" class="u104" style="visibility:hidden;"  >
+<div id="u104_rtf"></div>
+</div>
+</div>
+<div id="u105" class="u105_container"   style=<?php echo '"top:'.(1254+(($number_of_items-1)*149)).'px"';?>>
+<div id="u105_img" class="u105_normal detectCanvas"></div>
+<div id="u106" class="u106" style="visibility:hidden;"  >
+<div id="u106_rtf"></div>
+</div>
+</div>
+
+<div id="u109" class="u109"  style=<?php echo '"top:'.(1309+(($number_of_items-1)*149)).'px"';?>>
+<div id="u109_rtf"><p style="text-align:left;"><span style="font-family:Helvetica;font-size:18px;font-weight:bold;font-style:normal;text-decoration:none;color:#404040;">Product name</span></p></div>
+</div>
+
+</div>
+<div id="u110" class="u110"  style=<?php echo '"top:'.(1339+(($number_of_items-1)*149)).'px"';?>>
+<div id="u110_rtf"><p style="text-align:left;"><span style="font-family:Helvetica;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">Product Description</span></p></div>
+</div>
+<div id="u111" class="u111"  style=<?php echo '"top:'.(1363+(($number_of_items-1)*149)).'px"';?>>
+<div id="u111_rtf"><p style="text-align:left;"><span style="font-family:Helvetica;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">SKU: #3439913975</span></p></div>
+</div>
+<div id="u112" class="u112"  style=<?php echo '"top:'.(1387+(($number_of_items-1)*149)).'px"';?>>
+<div id="u112_rtf"><p style="text-align:left;"><span style="font-family:Helvetica;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">Size: M</span></p></div>
+</div>
+<div id="u113" class="u113"  style=<?php echo '"top:'.(1312+(($number_of_items-1)*149)).'px"';?>>
+<div id="u113_rtf"><p style="text-align:left;"><span style="font-family:Helvetica;font-size:15px;font-weight:bold;font-style:normal;text-decoration:none;color:#333333;">$399.00</span></p></div>
+</div>
+
+<INPUT id="u115" type=text value="1" class="u115"     style=<?php echo '"top:'.(1308+(($number_of_items-1)*149)).'px"';?>>
+
+<div id="u116" class="u116"  style=<?php echo '"top:'.(1343+(($number_of_items-1)*149)).'px"';?>>
+<div id="u116_rtf"><p style="text-align:center;"><span style="font-family:Helvetica;font-size:13px;font-weight:normal;font-style:normal;text-decoration:underline;color:#00438A;">Update</span></p></div>
+</div>
+<div id="u117" class="u117"  style=<?php echo '"top:'.(1363+(($number_of_items-1)*149)).'px"';?>>
+<div id="u117_rtf"><p style="text-align:center;"><span style="font-family:Helvetica;font-size:13px;font-weight:normal;font-style:normal;text-decoration:underline;color:#00438A;">Remove</span></p></div>
+</div>
+
+<div id="u119" class="u119"  style=<?php echo '"top:'.(1312+(($number_of_items-1)*149)).'px"';?> >
+<div id="u119_rtf"><p style="text-align:left;"><span style="font-family:Helvetica;font-size:15px;font-weight:bold;font-style:normal;text-decoration:none;color:#333333;">$399.00</span></p></div>
+</div> 
+
+<div id="u160" class="u160" style=<?php echo '"top:'.(1430+(($number_of_items-1)*149)).'px"';?> >
+<DIV id="u160_line" class="u160_line" ></DIV>
+</div><div id="u161" class="u161" style=<?php echo '"top:'.(1281+(($number_of_items-1)*149)).'px"';?>>
+<DIV id="u161_line" class="u161_line" ></DIV>
 </div>
 <?php }?>
 <div id="u120" class="u120_container"   >
@@ -638,7 +653,7 @@
 <div id="u122_rtf"><p style="text-align:right;"><span style="font-family:Helvetica;font-size:15px;font-weight:normal;font-style:normal;text-decoration:none;color:#666666;">Subtotal</span></p></div>
 </div>
 <div id="u123" class="u123"  >
-<div id="u123_rtf"><p style="text-align:left;"><span style="font-family:Helvetica;font-size:15px;font-weight:bold;font-style:normal;text-decoration:none;color:#333333;"><?php echo money_format("$%i", $carts['Cart']['total']);?></span></p></div>
+<div id="u123_rtf"><p style="text-align:left;"><span style="font-family:Helvetica;font-size:15px;font-weight:bold;font-style:normal;text-decoration:none;color:#333333;">$399.00</span></p></div>
 </div>
 <div id="u124" class="u124"  >
 <div id="u124_rtf"><p style="text-align:right;"><span style="font-family:Helvetica;font-size:15px;font-weight:normal;font-style:normal;text-decoration:none;color:#666666;">Shipping</span></p></div>
@@ -662,13 +677,14 @@
 <div id="u130_rtf"><p style="text-align:right;"><span style="font-family:Helvetica;font-size:18px;font-weight:bold;font-style:normal;text-decoration:none;color:#404040;">TOTAL</span></p></div>
 </div>
 <div id="u131" class="u131"  >
-<div id="u131_rtf"><p style="text-align:left;"><span style="font-family:Helvetica;font-size:20px;font-weight:bold;font-style:normal;text-decoration:none;color:#FFFFFF;"><?php echo money_format("$%i", $carts['Cart']['total_price']);?></span></p></div>
+<div id="u131_rtf"><p style="text-align:left;"><span style="font-family:Helvetica;font-size:20px;font-weight:bold;font-style:normal;text-decoration:none;color:#FFFFFF;">$418.00</span></p></div>
 </div>
 <div id="u132" class="u132"  >
 <div id="u132_rtf"><p style="text-align:left;"><span style="font-family:Helvetica;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">Shopping cart</span></p></div>
 </div><div id="u133" class="u133" >
 <DIV id="u133_line" class="u133_line" ></DIV>
 </div>
+
 <div id="u134" class="u134_container"   >
 <a href="/carts/view?step=1"><div id="u134_img" class="u134_normal detectCanvas"></div></a>
 <div id="u135" class="u135" style="visibility:hidden;"  >
@@ -676,7 +692,7 @@
 </div>
 </div>
 <div id="u136" class="u136_container"   >
-<a href="/carts/view?step=2"><div id="u136_img" class="u136_normal detectCanvas"></div></a>
+<a href="/carts/view?step=2"><div id="u136_img" class="u136_normal detectCanvas"></div>
 <div id="u137" class="u137" style="visibility:hidden;"  >
 <div id="u137_rtf"></div>
 </div>
@@ -702,4 +718,53 @@
 <div id="u144" class="u144"  >
 <div id="u144_rtf"><p style="text-align:left;"><span style="font-family:Helvetica;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">Payment confirmation</span></p></div>
 </div>
+<!-- item display -->
+
+<div id="u145" class="u145_container"   >
+<div id="u145_img" class="u145_normal detectCanvas"></div>
+<div id="u146" class="u146" style="visibility:hidden;"  >
+<div id="u146_rtf"></div>
+</div>
+</div>
+<div id="u147" class="u147_container"  style=<?php echo '"top:'.(1307+(($number_of_items-1)*149)).'px"';?>>
+<div id="u147_img" class="u147_normal detectCanvas"></div>
+<div id="u148" class="u148" style="visibility:hidden;"  >
+<div id="u148_rtf"></div>
+</div>
+</div>
+<div id="u149" class="u149_container"   style=<?php echo '"top:'.(1312+(($number_of_items-1)*149)).'px"';?>>
+<div id="u149_img" class="u149_normal detectCanvas"></div>
+<div id="u150" class="u150" style="visibility:hidden;"  >
+<div id="u150_rtf"></div>
+</div>
+</div>
+<div id="u151" class="u151"  style=<?php echo '"top:'.(1309+(($number_of_items-1)*149)).'px"';?>>
+<div id="u151_rtf"><p style="text-align:left;"><span style="font-family:Helvetica;font-size:18px;font-weight:bold;font-style:normal;text-decoration:none;color:#404040;">Product name</span></p></div>
+</div>
+<div id="u152" class="u152" style=<?php echo '"top:'.(1339+(($number_of_items-1)*149)).'px"';?> >
+<div id="u152_rtf"><p style="text-align:left;"><span style="font-family:Helvetica;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">Product Description</span></p></div>
+</div>
+<div id="u153" class="u153" style=<?php echo '"top:'.(1363+(($number_of_items-1)*149)).'px"';?> >
+<div id="u153_rtf"><p style="text-align:left;"><span style="font-family:Helvetica;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">SKU: #3439913975</span></p></div>
+</div>
+<div id="u154" class="u154"  style=<?php echo '"top:'.(1387+(($number_of_items-1)*149)).'px"';?> >
+<div id="u154_rtf"><p style="text-align:left;"><span style="font-family:Helvetica;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">Size: M</span></p></div>
+</div>
+<div id="u155" class="u155"  style=<?php echo '"top:'.(1312+(($number_of_items-1)*149)).'px"';?>>
+<div id="u155_rtf"><p style="text-align:left;"><span style="font-family:Helvetica;font-size:15px;font-weight:bold;font-style:normal;text-decoration:none;color:#333333;">$399.00</span></p></div>
+</div>
+<INPUT id="u156" type=text value="1" class="u156"    style=<?php echo '"top:'.(1308+(($number_of_items-1)*149)).'px"';?> >
+
+<div id="u157" class="u157" style=<?php echo '"top:'.(1343+(($number_of_items-1)*149)).'px"';?> >
+<div id="u157_rtf"><p style="text-align:center;"><span style="font-family:Helvetica;font-size:13px;font-weight:normal;font-style:normal;text-decoration:underline;color:#00438A;">Update</span></p></div>
+</div>
+<div id="u158" class="u158" style=<?php echo '"top:'.(1363+(($number_of_items-1)*149)).'px"';?> >
+<div id="u158_rtf"><p style="text-align:center;"><span style="font-family:Helvetica;font-size:13px;font-weight:normal;font-style:normal;text-decoration:underline;color:#00438A;">Remove</span></p></div>
+</div>
+<div id="u159" class="u159" style=<?php echo '"top:'.(1312+(($number_of_items-1)*149)).'px"';?> >
+<div id="u159_rtf"><p style="text-align:left;"><span style="font-family:Helvetica;font-size:15px;font-weight:bold;font-style:normal;text-decoration:none;color:#333333;">$399.00</span></p></div>
+</div>
+
+<!-- item display ends -->
+<DIV id="u162" style="border-style:dotted; border-color:red; visibility:hidden; position:absolute; left:9px; top:1281px; width:940px; height:159px;;" ></div>
 </div>

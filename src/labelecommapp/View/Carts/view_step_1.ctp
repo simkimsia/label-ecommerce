@@ -113,7 +113,6 @@
 <div id="u31" class="u31"  style=<?php echo '"top:'.(354+(($number_of_items-1)*149)).'px"';?>>
 <div id="u31_rtf"><p style="text-align:left;"><span style="font-family:Helvetica;font-size:15px;font-weight:bold;font-style:normal;text-decoration:none;color:#333333;">$15.00</span></p></div>
 </div>
-// stopped here
 <div id="u32" class="u32"  style=<?php echo '"top:'.(384+(($number_of_items-1)*149)).'px"';?> >
 <div id="u32_rtf"><p style="text-align:right;"><span style="font-family:Helvetica;font-size:15px;font-weight:normal;font-style:normal;text-decoration:none;color:#666666;">Taxes</span></p></div>
 </div>
