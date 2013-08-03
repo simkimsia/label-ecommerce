@@ -5,8 +5,8 @@
 	"require": {
 		"cakedc/migrations": "dev-develop",
 		"ceeram/clear_cache": "dev-master",
-		"simkimsia/acl_extras": "dev-master",
-		"simkimsia/asset_compress": "dev-master",
+		"markstory/acl_extras": "dev-master",
+		"markstory/asset_compress": "dev-master",
 		"simkimsia/utility_lib": "dev-master",
 		"simkimsia/permissions-extras": "dev-master",
 		"simkimsia/utility_behaviors": "dev-master",

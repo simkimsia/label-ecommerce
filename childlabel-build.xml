@@ -93,7 +93,7 @@
 
     </target>
 
-	<target name="deploy-stage" depends="predeploy-stage,setup-environments,gitclone,update-symlink-current,symlink-server-configs,removefiles-from-cloned,symlink-ugc,reboot-services,chmod-tmp,gitclone-plugins,run-composer,remove-buildtime-folders,run-migrations,run-assetcompress,run-clearcache,run-acosync">
+	<target name="deploy-stage" depends="predeploy-stage,setup-environments,gitclone,update-symlink-current,symlink-server-configs,removefiles-from-cloned,symlink-ugc,reboot-services,chmod-tmp,run-composer,remove-buildtime-folders,run-migrations,run-assetcompress,run-clearcache,run-acosync">
 		<echo msg="Finished deploying on rackspace server for stage environment!" />
 	</target>
 
@@ -188,22 +188,6 @@
         <!-- <delete dir="${environment.sitedir}current" quiet='true' /> -->
         <exec command="ssh -A ${host-used} 'ln -s ${environment.sitedir}${build.time} ${environment.sitedir}current'" outputProperty="result" />
         <echo msg="${result}" />
-    </target>
-
-    <target name="gitclone-plugins">
-        <echo msg="Git cloning plugins in ${appdirname}" />
-
-        <property name="plugindir" value="${environment.sitedir}current/${appdirname}/Plugin/" override="true" />
-
-        <!-- run git clone on plugin -->
-        <property name="plugin.name" value="Composer" override="true" />
-        <property name="plugin.repo" value="git@github.com:uzyn/cakephp-composer.git" override="true" />
-
-        <exec command="ssh -A ${host-used} 'git clone ${plugin.repo} ${plugindir}${plugin.name}'"
-         outputProperty="result" escape="false"/>
-        <echo msg="${result}" />
-        <!-- end run git clone on plugin -->
-
     </target>
 
     <target name="run-composer">
