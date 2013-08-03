@@ -15,171 +15,151 @@
 </div>
 </div>
 <div id="u4" class="u4"  >
-<div id="u4_rtf"><p style="text-align:center;"><span style="font-family:Helvetica;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#666666;">Go back shopping</span></p></div>
+<div id="u4_rtf"><p style="text-align:left;"><span style="font-family:Helvetica;font-size:18px;font-weight:bold;font-style:normal;text-decoration:none;color:#404040;">Shipping options</span></p></div>
 </div>
-<div id="u5" class="u5_container"   >
-<div id="u5_img" class="u5_normal detectCanvas"></div>
-<div id="u6" class="u6" style="visibility:hidden;"  >
-<div id="u6_rtf"></div>
+<div id="u5" class="u5"  >
+<div id="u5_rtf"><p style="text-align:left;"><span style="font-family:Helvetica;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">Please choose one of the shipping options below:</span></p></div>
 </div>
+<DIV id="u6container" style="position:absolute; left:29px; top:231px; width:300px; height:16px; ; ; ;" >
+<LABEL for="u6">
+<div id="u7" class="u7"  >
+<div id="u7_rtf"><p style="text-align:left;"><span style="font-family:Helvetica;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#404040;">1 business day shipping</span></p></div>
 </div>
-<div id="u7" class="u7_container"   >
-<div id="u7_img" class="u7_normal detectCanvas"></div>
-<div id="u8" class="u8" style="visibility:hidden;"  >
-<div id="u8_rtf"></div>
-</div>
-</div>
+</LABEL>
+<INPUT id="u6" name="RadioGroup1" style="position:absolute; left:-3px; top:-2px;" type="radio" value="radio" checked  >
+</DIV>
+<DIV id="u8container" style="position:absolute; left:29px; top:259px; width:490px; height:16px; ; ; ;" >
+<LABEL for="u8">
 <div id="u9" class="u9"  >
-<div id="u9_rtf"><p style="text-align:center;"><span style="font-family:Helvetica;font-size:13px;font-weight:bold;font-style:normal;text-decoration:none;color:#FFFFFF;">Review order</span></p></div>
-</div><div id="u10" class="u10" >
-<DIV id="u10_line" class="u10_line" ></DIV>
+<div id="u9_rtf"><p style="text-align:left;"><span style="font-family:Helvetica;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#404040;">Standard shipping (4-5 business days)</span></p></div>
 </div>
+</LABEL>
+<INPUT id="u8" name="RadioGroup1" style="position:absolute; left:-3px; top:-2px;" type="radio" value="radio"   >
+</DIV>
+<DIV id="u10container" style="position:absolute; left:29px; top:287px; width:300px; height:15px; ; ; ;" >
+<LABEL for="u10">
 <div id="u11" class="u11"  >
-<div id="u11_rtf"><p style="text-align:left;"><span style="font-family:Helvetica;font-size:18px;font-weight:bold;font-style:normal;text-decoration:none;color:#404040;">Shipping options</span></p></div>
+<div id="u11_rtf"><p style="text-align:left;"><span style="font-family:Arial;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">UPS (1-2 business days) - </span><span style="font-family:Arial;font-size:13px;font-weight:bold;font-style:normal;text-decoration:none;color:#333333;">$25.00</span></p></div>
 </div>
-<div id="u12" class="u12"  >
-<div id="u12_rtf"><p style="text-align:left;"><span style="font-family:Helvetica;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">Please choose one of the shipping options below:</span></p></div>
+</LABEL>
+<INPUT id="u10" name="RadioGroup1" style="position:absolute; left:-3px; top:-2px;" type="radio" value="radio"   >
+</DIV>
+<DIV id="u12container" style="position:absolute; left:29px; top:315px; width:300px; height:15px; ; ; ;" >
+<LABEL for="u12">
+<div id="u13" class="u13"  >
+<div id="u13_rtf"><p style="text-align:left;"><span style="font-family:Arial;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">FEDEX (1 business day) - </span><span style="font-family:Arial;font-size:13px;font-weight:bold;font-style:normal;text-decoration:none;color:#333333;">$40.00</span></p></div>
 </div>
-<DIV id="u13container" style="position:absolute; left:29px; top:231px; width:300px; height:16px; ; ; ;" >
-<LABEL for="u13">
+</LABEL>
+<INPUT id="u12" name="RadioGroup1" style="position:absolute; left:-3px; top:-2px;" type="radio" value="radio"   >
+</DIV>
 <div id="u14" class="u14"  >
-<div id="u14_rtf"><p style="text-align:left;"><span style="font-family:Helvetica;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#404040;">1 business day shipping</span></p></div>
+<div id="u14_rtf"><p style="text-align:left;"><span style="font-family:Arial;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#BFBFBF;">Note: This is a note that adds some details to the list.</span></p></div>
 </div>
-</LABEL>
-<INPUT id="u13" name="RadioGroup1" style="position:absolute; left:-3px; top:-2px;" type="radio" value="radio" checked  >
-</DIV>
-<DIV id="u15container" style="position:absolute; left:29px; top:259px; width:490px; height:16px; ; ; ;" >
-<LABEL for="u15">
-<div id="u16" class="u16"  >
-<div id="u16_rtf"><p style="text-align:left;"><span style="font-family:Helvetica;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#404040;">Standard shipping (4-5 business days)</span></p></div>
-</div>
-</LABEL>
-<INPUT id="u15" name="RadioGroup1" style="position:absolute; left:-3px; top:-2px;" type="radio" value="radio"   >
-</DIV>
-<DIV id="u17container" style="position:absolute; left:29px; top:287px; width:300px; height:16px; ; ; ;" >
-<LABEL for="u17">
-<div id="u18" class="u18"  >
-<div id="u18_rtf"><p style="text-align:left;"><span style="font-family:Arial;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">UPS (1-2 business days) - </span><span style="font-family:Arial;font-size:13px;font-weight:bold;font-style:normal;text-decoration:none;color:#333333;">$25.00</span></p></div>
-</div>
-</LABEL>
-<INPUT id="u17" name="RadioGroup1" style="position:absolute; left:-3px; top:-2px;" type="radio" value="radio"   >
-</DIV>
-<DIV id="u19container" style="position:absolute; left:29px; top:315px; width:300px; height:16px; ; ; ;" >
-<LABEL for="u19">
-<div id="u20" class="u20"  >
-<div id="u20_rtf"><p style="text-align:left;"><span style="font-family:Arial;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">FEDEX (1 business day) - </span><span style="font-family:Arial;font-size:13px;font-weight:bold;font-style:normal;text-decoration:none;color:#333333;">$40.00</span></p></div>
-</div>
-</LABEL>
-<INPUT id="u19" name="RadioGroup1" style="position:absolute; left:-3px; top:-2px;" type="radio" value="radio"   >
-</DIV>
-<div id="u21" class="u21"  >
-<div id="u21_rtf"><p style="text-align:left;"><span style="font-family:Arial;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#BFBFBF;">Note: This is a note that adds some details to the list.</span></p></div>
-</div>
-<div id="u22" class="u22_container"   >
-<div id="u22_img" class="u22_normal detectCanvas"></div>
-<div id="u23" class="u23" style="visibility:hidden;"  >
-<div id="u23_rtf"></div>
+<div id="u15" class="u15_container"   >
+<div id="u15_img" class="u15_normal detectCanvas"></div>
+<div id="u16" class="u16" style="visibility:hidden;"  >
+<div id="u16_rtf"></div>
 </div>
 </div>
-<div id="u24" class="u24"  >
-<div id="u24_rtf"><p style="text-align:left;"><span style="font-family:Helvetica;font-size:18px;font-weight:bold;font-style:normal;text-decoration:none;color:#404040;">Shipping address</span></p></div>
+<div id="u17" class="u17"  >
+<div id="u17_rtf"><p style="text-align:left;"><span style="font-family:Helvetica;font-size:18px;font-weight:bold;font-style:normal;text-decoration:none;color:#404040;">Shipping address</span></p></div>
 </div>
-<div id="u25" class="u25_container"   >
-<div id="u25_img" class="u25_normal detectCanvas"></div>
-<div id="u26" class="u26" style="visibility:hidden;"  >
-<div id="u26_rtf"></div>
+<div id="u18" class="u18_container"   >
+<div id="u18_img" class="u18_normal detectCanvas"></div>
+<div id="u19" class="u19" style="visibility:hidden;"  >
+<div id="u19_rtf"></div>
 </div>
 </div>
-<DIV id="u27" style="" >
-<DIV id="pd1u27" style="visibility:hidden;" data-label="Enabled">
-<INPUT id="u28" type=text value="" class="u28" data-label="Text"    >
+<DIV id="u20" style="" >
+<DIV id="pd1u20" style="visibility:hidden;" data-label="Enabled">
+<INPUT id="u21" type=text value="" class="u21" data-label="Text"    >
 
 </DIV>
-<DIV id="pd0u27" style="" data-label="Disabled">
-<INPUT id="u29" type=text value="enter text..." class="u29"     >
+<DIV id="pd0u20" style="" data-label="Disabled">
+<INPUT id="u22" type=text value="enter text..." class="u22"     >
 
 </DIV>
 </DIV>
-<div id="u30" class="u30"  >
-<div id="u30_rtf"><p style="text-align:right;"><span style="font-family:Helvetica;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">Your name (first and last)</span></p></div>
+<div id="u23" class="u23"  >
+<div id="u23_rtf"><p style="text-align:right;"><span style="font-family:Helvetica;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">Your name (first and last)</span></p></div>
 </div>
-<div id="u31" class="u31_container"   >
-<div id="u31_img" class="u31_normal detectCanvas"></div>
-<div id="u32" class="u32" style="visibility:hidden;"  >
-<div id="u32_rtf"></div>
+<div id="u24" class="u24_container"   >
+<div id="u24_img" class="u24_normal detectCanvas"></div>
+<div id="u25" class="u25" style="visibility:hidden;"  >
+<div id="u25_rtf"></div>
 </div>
 </div>
-<DIV id="u33" style="" >
-<DIV id="pd1u33" style="visibility:hidden;" data-label="Enabled">
-<INPUT id="u34" type=text value="" class="u34" data-label="Text"    >
+<DIV id="u26" style="" >
+<DIV id="pd1u26" style="visibility:hidden;" data-label="Enabled">
+<INPUT id="u27" type=text value="" class="u27" data-label="Text"    >
 
 </DIV>
-<DIV id="pd0u33" style="" data-label="Disabled">
-<INPUT id="u35" type=text value="enter text..." class="u35"     >
-
-</DIV>
-</DIV>
-<div id="u36" class="u36"  >
-<div id="u36_rtf"><p style="text-align:right;"><span style="font-family:Helvetica;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">Shipping address</span></p></div>
-</div>
-<div id="u37" class="u37_container"   >
-<div id="u37_img" class="u37_normal detectCanvas"></div>
-<div id="u38" class="u38" style="visibility:hidden;"  >
-<div id="u38_rtf"></div>
-</div>
-</div>
-<DIV id="u39" style="" >
-<DIV id="pd1u39" style="visibility:hidden;" data-label="Enabled">
-<INPUT id="u40" type=text value="" class="u40" data-label="Text"    >
-
-</DIV>
-<DIV id="pd0u39" style="" data-label="Disabled">
-<INPUT id="u41" type=text value="enter text..." class="u41"     >
+<DIV id="pd0u26" style="" data-label="Disabled">
+<INPUT id="u28" type=text value="enter text..." class="u28"     >
 
 </DIV>
 </DIV>
-<div id="u42" class="u42_container"   >
-<div id="u42_img" class="u42_normal detectCanvas"></div>
-<div id="u43" class="u43" style="visibility:hidden;"  >
-<div id="u43_rtf"></div>
+<div id="u29" class="u29"  >
+<div id="u29_rtf"><p style="text-align:right;"><span style="font-family:Helvetica;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">Shipping address</span></p></div>
+</div>
+<div id="u30" class="u30_container"   >
+<div id="u30_img" class="u30_normal detectCanvas"></div>
+<div id="u31" class="u31" style="visibility:hidden;"  >
+<div id="u31_rtf"></div>
 </div>
 </div>
-<DIV id="u44" style="" >
-<DIV id="pd1u44" style="visibility:hidden;" data-label="Enabled">
-<INPUT id="u45" type=text value="" class="u45" data-label="Text"    >
+<DIV id="u32" style="" >
+<DIV id="pd1u32" style="visibility:hidden;" data-label="Enabled">
+<INPUT id="u33" type=text value="" class="u33" data-label="Text"    >
 
 </DIV>
-<DIV id="pd0u44" style="" data-label="Disabled">
-<INPUT id="u46" type=text value="enter text..." class="u46"     >
+<DIV id="pd0u32" style="" data-label="Disabled">
+<INPUT id="u34" type=text value="enter text..." class="u34"     >
 
 </DIV>
 </DIV>
+<div id="u35" class="u35_container"   >
+<div id="u35_img" class="u35_normal detectCanvas"></div>
+<div id="u36" class="u36" style="visibility:hidden;"  >
+<div id="u36_rtf"></div>
+</div>
+</div>
+<DIV id="u37" style="" >
+<DIV id="pd1u37" style="visibility:hidden;" data-label="Enabled">
+<INPUT id="u38" type=text value="" class="u38" data-label="Text"    >
+
+</DIV>
+<DIV id="pd0u37" style="" data-label="Disabled">
+<INPUT id="u39" type=text value="enter text..." class="u39"     >
+
+</DIV>
+</DIV>
+<div id="u40" class="u40"  >
+<div id="u40_rtf"><p style="text-align:right;"><span style="font-family:Helvetica;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">City</span></p></div>
+</div>
+<div id="u41" class="u41_container"   >
+<div id="u41_img" class="u41_normal detectCanvas"></div>
+<div id="u42" class="u42" style="visibility:hidden;"  >
+<div id="u42_rtf"></div>
+</div>
+</div>
+<DIV id="u43" style="" >
+<DIV id="pd1u43" style="visibility:hidden;" data-label="Enabled">
+<INPUT id="u44" type=text value="" class="u44" data-label="Text"    >
+
+</DIV>
+<DIV id="pd0u43" style="" data-label="Disabled">
+<INPUT id="u45" type=text value="enter text..." class="u45"     >
+
+</DIV>
+</DIV>
+<div id="u46" class="u46"  >
+<div id="u46_rtf"><p style="text-align:right;"><span style="font-family:Helvetica;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">State</span></p></div>
+</div>
 <div id="u47" class="u47"  >
-<div id="u47_rtf"><p style="text-align:right;"><span style="font-family:Helvetica;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">City</span></p></div>
+<div id="u47_rtf"><p style="text-align:right;"><span style="font-family:Helvetica;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">Country</span></p></div>
 </div>
-<div id="u48" class="u48_container"   >
-<div id="u48_img" class="u48_normal detectCanvas"></div>
-<div id="u49" class="u49" style="visibility:hidden;"  >
-<div id="u49_rtf"></div>
-</div>
-</div>
-<DIV id="u50" style="" >
-<DIV id="pd1u50" style="visibility:hidden;" data-label="Enabled">
-<INPUT id="u51" type=text value="" class="u51" data-label="Text"    >
-
-</DIV>
-<DIV id="pd0u50" style="" data-label="Disabled">
-<INPUT id="u52" type=text value="enter text..." class="u52"     >
-
-</DIV>
-</DIV>
-<div id="u53" class="u53"  >
-<div id="u53_rtf"><p style="text-align:right;"><span style="font-family:Helvetica;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">State</span></p></div>
-</div>
-<div id="u54" class="u54"  >
-<div id="u54_rtf"><p style="text-align:right;"><span style="font-family:Helvetica;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">Country</span></p></div>
-</div>
-<SELECT id="u55" class="u55"   >
+<SELECT id="u48" class="u48"   >
 <OPTION  value="Australia">Australia</OPTION>
 <OPTION selected value="Canada">Canada</OPTION>
 <OPTION  value="France">France</OPTION>
@@ -431,50 +411,72 @@
 <OPTION  value="Zimbabwe">Zimbabwe</OPTION>
 </SELECT>
 
-<div id="u56" class="u56_container"   >
-<div id="u56_img" class="u56_normal detectCanvas"></div>
-<div id="u57" class="u57" style="visibility:hidden;"  >
-<div id="u57_rtf"></div>
+<div id="u49" class="u49_container"   >
+<div id="u49_img" class="u49_normal detectCanvas"></div>
+<div id="u50" class="u50" style="visibility:hidden;"  >
+<div id="u50_rtf"></div>
 </div>
 </div>
-<DIV id="u58" style="" >
-<DIV id="pd1u58" style="visibility:hidden;" data-label="Enabled">
-<INPUT id="u59" type=text value="" class="u59" data-label="Text"    >
+<DIV id="u51" style="" >
+<DIV id="pd1u51" style="visibility:hidden;" data-label="Enabled">
+<INPUT id="u52" type=text value="" class="u52" data-label="Text"    >
 
 </DIV>
-<DIV id="pd0u58" style="" data-label="Disabled">
-<INPUT id="u60" type=text value="enter text..." class="u60"     >
+<DIV id="pd0u51" style="" data-label="Disabled">
+<INPUT id="u53" type=text value="enter text..." class="u53"     >
 
 </DIV>
 </DIV>
-<div id="u61" class="u61"  >
-<div id="u61_rtf"><p style="text-align:right;"><span style="font-family:Helvetica;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">Phone number</span></p></div>
+<div id="u54" class="u54"  >
+<div id="u54_rtf"><p style="text-align:right;"><span style="font-family:Helvetica;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">Phone number</span></p></div>
 </div>
-<DIV id="u62container" style="position:absolute; left:192px; top:860px; width:342px; height:16px; ; ; ;" >
-<LABEL for="u62">
-<div id="u63" class="u63"  >
-<div id="u63_rtf"><p style="text-align:left;"><span style="font-family:Helvetica;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">Save this shipping address for future use</span></p></div>
+<DIV id="u55container" style="position:absolute; left:192px; top:860px; width:342px; height:16px; ; ; ;" >
+<LABEL for="u55">
+<div id="u56" class="u56"  >
+<div id="u56_rtf"><p style="text-align:left;"><span style="font-family:Helvetica;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">Save this shipping address for future use</span></p></div>
 </div>
 </LABEL>
-<INPUT id="u62" style="position:absolute; left:-3px; top:-2px;" type="checkbox" value="checkbox"  checked >
+<INPUT id="u55" style="position:absolute; left:-3px; top:-2px;" type="checkbox" value="checkbox"  checked >
 </DIV>
-<div id="u64" class="u64_container"   >
-<div id="u64_img" class="u64_normal detectCanvas"></div>
-<div id="u65" class="u65" style="visibility:hidden;"  >
-<div id="u65_rtf"></div>
+<div id="u57" class="u57_container"   >
+<div id="u57_img" class="u57_normal detectCanvas"></div>
+<div id="u58" class="u58" style="visibility:hidden;"  >
+<div id="u58_rtf"></div>
 </div>
 </div>
-<div id="u66" class="u66"  >
-<div id="u66_rtf"><p style="text-align:left;"><span style="font-family:Helvetica;font-size:18px;font-weight:bold;font-style:normal;text-decoration:none;color:#404040;">Payment</span></p></div>
+<div id="u59" class="u59"  >
+<div id="u59_rtf"><p style="text-align:left;"><span style="font-family:Helvetica;font-size:18px;font-weight:bold;font-style:normal;text-decoration:none;color:#404040;">Payment</span></p></div>
 </div>
-<div id="u67" class="u67"  >
-<div id="u67_rtf"><p style="text-align:right;"><span style="font-family:Helvetica;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">We accept</span></p></div>
+<div id="u60" class="u60"  >
+<div id="u60_rtf"><p style="text-align:right;"><span style="font-family:Helvetica;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">We accept</span></p></div>
 </div>
-<div id="u68" class="u68_container"   >
-<div id="u68_img" class="u68_normal detectCanvas"></div>
-<div id="u69" class="u69" style="visibility:hidden;"  >
-<div id="u69_rtf"></div>
+<div id="u61" class="u61_container"   >
+<div id="u61_img" class="u61_normal detectCanvas"></div>
+<div id="u62" class="u62" style="visibility:hidden;"  >
+<div id="u62_rtf"></div>
 </div>
+</div>
+<div id="u63" class="u63_container"   >
+<div id="u63_img" class="u63_normal detectCanvas"></div>
+<div id="u64" class="u64" style="visibility:hidden;"  >
+<div id="u64_rtf"></div>
+</div>
+</div>
+<DIV id="u65" style="" >
+<DIV id="pd1u65" style="visibility:hidden;" data-label="Enabled">
+<INPUT id="u66" type=text value="" class="u66" data-label="Text"    >
+
+</DIV>
+<DIV id="pd0u65" style="" data-label="Disabled">
+<INPUT id="u67" type=text value="enter text..." class="u67"     >
+
+</DIV>
+</DIV>
+<div id="u68" class="u68"  >
+<div id="u68_rtf"><p style="text-align:right;"><span style="font-family:Helvetica;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">Your card number</span></p></div>
+</div>
+<div id="u69" class="u69"  >
+<div id="u69_rtf"><p style="text-align:right;"><span style="font-family:Helvetica;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">Your card number</span></p></div>
 </div>
 <div id="u70" class="u70_container"   >
 <div id="u70_img" class="u70_normal detectCanvas"></div>
@@ -492,279 +494,270 @@
 
 </DIV>
 </DIV>
-<div id="u75" class="u75"  >
-<div id="u75_rtf"><p style="text-align:right;"><span style="font-family:Helvetica;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">Your card number</span></p></div>
-</div>
-<div id="u76" class="u76"  >
-<div id="u76_rtf"><p style="text-align:right;"><span style="font-family:Helvetica;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">Your card number</span></p></div>
-</div>
-<div id="u77" class="u77_container"   >
-<div id="u77_img" class="u77_normal detectCanvas"></div>
-<div id="u78" class="u78" style="visibility:hidden;"  >
-<div id="u78_rtf"></div>
+<div id="u75" class="u75_container"   >
+<div id="u75_img" class="u75_normal detectCanvas"></div>
+<div id="u76" class="u76" style="visibility:hidden;"  >
+<div id="u76_rtf"></div>
 </div>
 </div>
-<DIV id="u79" style="" >
-<DIV id="pd1u79" style="visibility:hidden;" data-label="Enabled">
-<INPUT id="u80" type=text value="" class="u80" data-label="Text"    >
+<DIV id="u77" style="" >
+<DIV id="pd1u77" style="visibility:hidden;" data-label="Enabled">
+<INPUT id="u78" type=text value="" class="u78" data-label="Text"    >
 
 </DIV>
-<DIV id="pd0u79" style="" data-label="Disabled">
-<INPUT id="u81" type=text value="enter text..." class="u81"     >
+<DIV id="pd0u77" style="" data-label="Disabled">
+<INPUT id="u79" type=text value="enter text..." class="u79"     >
 
 </DIV>
 </DIV>
+<div id="u80" class="u80_container"   >
+<div id="u80_img" class="u80_normal detectCanvas"></div>
+<div id="u81" class="u81" style="visibility:hidden;"  >
+<div id="u81_rtf"></div>
+</div>
+</div>
 <div id="u82" class="u82_container"   >
 <div id="u82_img" class="u82_normal detectCanvas"></div>
 <div id="u83" class="u83" style="visibility:hidden;"  >
 <div id="u83_rtf"></div>
 </div>
 </div>
-<DIV id="u84" style="" >
-<DIV id="pd1u84" style="visibility:hidden;" data-label="Enabled">
-<INPUT id="u85" type=text value="" class="u85" data-label="Text"    >
-
-</DIV>
-<DIV id="pd0u84" style="" data-label="Disabled">
-<INPUT id="u86" type=text value="enter text..." class="u86"     >
-
-</DIV>
-</DIV>
+<div id="u84" class="u84"  >
+<div id="u84_rtf"><p style="text-align:center;"><span style="font-family:Helvetica;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">This form is completely secure.</span></p></div>
+</div>
+<div id="u85" class="u85"  >
+<div id="u85_rtf"><p style="text-align:center;"><span style="font-family:Helvetica;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">We use advance security systems to ensure a complete protection.</span></p></div>
+</div><div id="u86" class="u86" >
+<DIV id="u86_line" class="u86_line" ></DIV>
+</div>
 <div id="u87" class="u87_container"   >
 <div id="u87_img" class="u87_normal detectCanvas"></div>
 <div id="u88" class="u88" style="visibility:hidden;"  >
 <div id="u88_rtf"></div>
 </div>
 </div>
-<div id="u89" class="u89_container"   >
-<div id="u89_img" class="u89_normal detectCanvas"></div>
-<div id="u90" class="u90" style="visibility:hidden;"  >
-<div id="u90_rtf"></div>
+<div id="u89" class="u89"  >
+<div id="u89_rtf"><p style="text-align:left;"><span style="font-family:Helvetica;font-size:18px;font-weight:bold;font-style:normal;text-decoration:none;color:#404040;">Summary</span></p></div>
 </div>
+<div id="u90" class="u90_container"   >
+<div id="u90_img" class="u90_normal detectCanvas"></div>
+<div id="u91" class="u91" style="visibility:hidden;"  >
+<div id="u91_rtf"></div>
 </div>
-<div id="u91" class="u91"  >
-<div id="u91_rtf"><p style="text-align:center;"><span style="font-family:Helvetica;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">This form is completely secure.</span></p></div>
 </div>
 <div id="u92" class="u92"  >
-<div id="u92_rtf"><p style="text-align:center;"><span style="font-family:Helvetica;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">We use advance security systems to ensure a complete protection.</span></p></div>
-</div><div id="u93" class="u93" >
-<DIV id="u93_line" class="u93_line" ></DIV>
+<div id="u92_rtf"><p style="text-align:center;"><span style="font-family:Helvetica;font-size:12px;font-weight:bold;font-style:normal;text-decoration:none;color:#666666;">Product</span></p></div>
 </div>
-<div id="u94" class="u94_container"   >
-<div id="u94_img" class="u94_normal detectCanvas"></div>
-<div id="u95" class="u95" style="visibility:hidden;"  >
-<div id="u95_rtf"></div>
+<div id="u93" class="u93"  >
+<div id="u93_rtf"><p style="text-align:center;"><span style="font-family:Helvetica;font-size:12px;font-weight:bold;font-style:normal;text-decoration:none;color:#666666;">Item Price</span></p></div>
 </div>
+<div id="u94" class="u94"  >
+<div id="u94_rtf"><p style="text-align:center;"><span style="font-family:Helvetica;font-size:12px;font-weight:bold;font-style:normal;text-decoration:none;color:#666666;">Quantity</span></p></div>
+</div>
+<div id="u95" class="u95"  >
+<div id="u95_rtf"><p style="text-align:center;"><span style="font-family:Helvetica;font-size:12px;font-weight:bold;font-style:normal;text-decoration:none;color:#666666;">Price</span></p></div>
 </div>
 <div id="u96" class="u96"  >
-<div id="u96_rtf"><p style="text-align:left;"><span style="font-family:Helvetica;font-size:18px;font-weight:bold;font-style:normal;text-decoration:none;color:#404040;">Summary</span></p></div>
+<div id="u96_rtf"><p style="text-align:left;"><span style="font-family:Helvetica;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">Shopping cart</span></p></div>
+</div><div id="u97" class="u97" >
+<DIV id="u97_line" class="u97_line" ></DIV>
 </div>
-<div id="u97" class="u97_container"   >
-<div id="u97_img" class="u97_normal detectCanvas"></div>
-<div id="u98" class="u98" style="visibility:hidden;"  >
-<div id="u98_rtf"></div>
+<div id="u98" class="u98_container"   >
+<div id="u98_img" class="u98_normal detectCanvas"></div>
+<div id="u99" class="u99" style="visibility:hidden;"  >
+<div id="u99_rtf"></div>
 </div>
+</div>
+<div id="u100" class="u100_container"   >
+<div id="u100_img" class="u100_normal detectCanvas"></div>
+<div id="u101" class="u101" style="visibility:hidden;"  >
+<div id="u101_rtf"></div>
+</div>
+</div>
+<div id="u102" class="u102_container"   >
+<div id="u102_img" class="u102_normal detectCanvas"></div>
+<div id="u103" class="u103" style="visibility:hidden;"  >
+<div id="u103_rtf"></div>
+</div>
+</div>
+<div id="u104" class="u104_container"   >
+<div id="u104_img" class="u104_normal detectCanvas"></div>
+<div id="u105" class="u105" style="visibility:hidden;"  >
+<div id="u105_rtf"></div>
+</div>
+</div>
+<div id="u106" class="u106"  >
+<div id="u106_rtf"><p style="text-align:left;"><span style="font-family:Helvetica;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">Sign in</span></p></div>
 </div>
 <div id="u107" class="u107"  >
-<div id="u107_rtf"><p style="text-align:center;"><span style="font-family:Helvetica;font-size:12px;font-weight:bold;font-style:normal;text-decoration:none;color:#666666;">Product</span></p></div>
+<div id="u107_rtf"><p style="text-align:left;"><span style="font-family:Helvetica;font-size:13px;font-weight:bold;font-style:normal;text-decoration:none;color:#333333;">Shipping and billing</span></p></div>
 </div>
 <div id="u108" class="u108"  >
-<div id="u108_rtf"><p style="text-align:center;"><span style="font-family:Helvetica;font-size:12px;font-weight:bold;font-style:normal;text-decoration:none;color:#666666;">Item Price</span></p></div>
-
-<div id="u114" class="u114"  >
-<div id="u114_rtf"><p style="text-align:center;"><span style="font-family:Helvetica;font-size:12px;font-weight:bold;font-style:normal;text-decoration:none;color:#666666;">Quantity</span></p></div>
+<div id="u108_rtf"><p style="text-align:left;"><span style="font-family:Helvetica;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">Payment confirmation</span></p></div>
+</div>
+<div id="u109" class="u109_container"   >
+<div id="u109_img" class="u109_normal detectCanvas"></div>
+<div id="u110" class="u110" style="visibility:hidden;"  >
+<div id="u110_rtf"></div>
+</div>
+</div>
+<div id="u111" class="u111_container"   >
+<div id="u111_img" class="u111_normal detectCanvas"></div>
+<div id="u112" class="u112" style="visibility:hidden;"  >
+<div id="u112_rtf"></div>
+</div>
+</div>
+<div id="u113" class="u113_container"   >
+<div id="u113_img" class="u113_normal detectCanvas"></div>
+<div id="u114" class="u114" style="visibility:hidden;"  >
+<div id="u114_rtf"></div>
+</div>
+</div>
+<div id="u115" class="u115"  >
+<div id="u115_rtf"><p style="text-align:left;"><span style="font-family:Helvetica;font-size:18px;font-weight:bold;font-style:normal;text-decoration:none;color:#404040;">Product name</span></p></div>
+</div>
+<div id="u116" class="u116"  >
+<div id="u116_rtf"><p style="text-align:left;"><span style="font-family:Helvetica;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">Product Description</span></p></div>
+</div>
+<div id="u117" class="u117"  >
+<div id="u117_rtf"><p style="text-align:left;"><span style="font-family:Helvetica;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">SKU: #3439913975</span></p></div>
 </div>
 <div id="u118" class="u118"  >
-<div id="u118_rtf"><p style="text-align:center;"><span style="font-family:Helvetica;font-size:12px;font-weight:bold;font-style:normal;text-decoration:none;color:#666666;">Price</span></p></div>
+<div id="u118_rtf"><p style="text-align:left;"><span style="font-family:Helvetica;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">Size: M</span></p></div>
 </div>
-<?php $number_of_items = $carts['Cart']['item_count'];
-
-    foreach($carts['CartsItem'] as $key => $cartItems){
-    ?>
- <div id="u99" class="u99_container"  style=<?php echo '"top:'.(1306+(($number_of_items-1)*149)).'px"';?>>
-<div id="u99_img" class="u99_normal detectCanvas"></div>
-<div id="u100" class="u100" style="visibility:hidden;"  >
-<div id="u100_rtf"></div>
-</div>
-</div>
-<div id="u101" class="u101_container"   style=<?php echo '"top:'.(1307+(($number_of_items-1)*149)).'px"';?>>
-<div id="u101_img" class="u101_normal detectCanvas"></div>
-<div id="u102" class="u102" style="visibility:hidden;"  >
-<div id="u102_rtf"></div>
-</div>
-</div>
-<div id="u103" class="u103_container"   style=<?php echo '"top:'.(1312+(($number_of_items-1)*149)).'px"';?>>
-<div id="u103_img" class="u103_normal detectCanvas"></div>
-<div id="u104" class="u104" style="visibility:hidden;"  >
-<div id="u104_rtf"></div>
-</div>
-</div>
-<div id="u105" class="u105_container"   style=<?php echo '"top:'.(1254+(($number_of_items-1)*149)).'px"';?>>
-<div id="u105_img" class="u105_normal detectCanvas"></div>
-<div id="u106" class="u106" style="visibility:hidden;"  >
-<div id="u106_rtf"></div>
-</div>
-</div>
-
-<div id="u109" class="u109"  style=<?php echo '"top:'.(1309+(($number_of_items-1)*149)).'px"';?>>
-<div id="u109_rtf"><p style="text-align:left;"><span style="font-family:Helvetica;font-size:18px;font-weight:bold;font-style:normal;text-decoration:none;color:#404040;">Product name</span></p></div>
-</div>
-
-</div>
-<div id="u110" class="u110"  style=<?php echo '"top:'.(1339+(($number_of_items-1)*149)).'px"';?>>
-<div id="u110_rtf"><p style="text-align:left;"><span style="font-family:Helvetica;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">Product Description</span></p></div>
-</div>
-<div id="u111" class="u111"  style=<?php echo '"top:'.(1363+(($number_of_items-1)*149)).'px"';?>>
-<div id="u111_rtf"><p style="text-align:left;"><span style="font-family:Helvetica;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">SKU: #3439913975</span></p></div>
-</div>
-<div id="u112" class="u112"  style=<?php echo '"top:'.(1387+(($number_of_items-1)*149)).'px"';?>>
-<div id="u112_rtf"><p style="text-align:left;"><span style="font-family:Helvetica;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">Size: M</span></p></div>
-</div>
-<div id="u113" class="u113"  style=<?php echo '"top:'.(1312+(($number_of_items-1)*149)).'px"';?>>
-<div id="u113_rtf"><p style="text-align:left;"><span style="font-family:Helvetica;font-size:15px;font-weight:bold;font-style:normal;text-decoration:none;color:#333333;">$399.00</span></p></div>
-</div>
-
-<INPUT id="u115" type=text value="1" class="u115"     style=<?php echo '"top:'.(1308+(($number_of_items-1)*149)).'px"';?>>
-
-<div id="u116" class="u116"  style=<?php echo '"top:'.(1343+(($number_of_items-1)*149)).'px"';?>>
-<div id="u116_rtf"><p style="text-align:center;"><span style="font-family:Helvetica;font-size:13px;font-weight:normal;font-style:normal;text-decoration:underline;color:#00438A;">Update</span></p></div>
-</div>
-<div id="u117" class="u117"  style=<?php echo '"top:'.(1363+(($number_of_items-1)*149)).'px"';?>>
-<div id="u117_rtf"><p style="text-align:center;"><span style="font-family:Helvetica;font-size:13px;font-weight:normal;font-style:normal;text-decoration:underline;color:#00438A;">Remove</span></p></div>
-</div>
-
-<div id="u119" class="u119"  style=<?php echo '"top:'.(1312+(($number_of_items-1)*149)).'px"';?> >
+<div id="u119" class="u119"  >
 <div id="u119_rtf"><p style="text-align:left;"><span style="font-family:Helvetica;font-size:15px;font-weight:bold;font-style:normal;text-decoration:none;color:#333333;">$399.00</span></p></div>
-</div> 
+</div>
+<INPUT id="u120" type=text value="1" class="u120"     >
 
-<div id="u160" class="u160" style=<?php echo '"top:'.(1430+(($number_of_items-1)*149)).'px"';?> >
-<DIV id="u160_line" class="u160_line" ></DIV>
-</div><div id="u161" class="u161" style=<?php echo '"top:'.(1281+(($number_of_items-1)*149)).'px"';?>>
-<DIV id="u161_line" class="u161_line" ></DIV>
-</div>
-<?php }?>
-<div id="u120" class="u120_container"   >
-<div id="u120_img" class="u120_normal detectCanvas"></div>
-<div id="u121" class="u121" style="visibility:hidden;"  >
-<div id="u121_rtf"></div>
-</div>
+<div id="u121" class="u121"  >
+<div id="u121_rtf"><p style="text-align:center;"><span style="font-family:Helvetica;font-size:13px;font-weight:normal;font-style:normal;text-decoration:underline;color:#00438A;">Update</span></p></div>
 </div>
 <div id="u122" class="u122"  >
-<div id="u122_rtf"><p style="text-align:right;"><span style="font-family:Helvetica;font-size:15px;font-weight:normal;font-style:normal;text-decoration:none;color:#666666;">Subtotal</span></p></div>
+<div id="u122_rtf"><p style="text-align:center;"><span style="font-family:Helvetica;font-size:13px;font-weight:normal;font-style:normal;text-decoration:underline;color:#00438A;">Remove</span></p></div>
 </div>
 <div id="u123" class="u123"  >
 <div id="u123_rtf"><p style="text-align:left;"><span style="font-family:Helvetica;font-size:15px;font-weight:bold;font-style:normal;text-decoration:none;color:#333333;">$399.00</span></p></div>
+</div><div id="u124" class="u124" >
+<DIV id="u124_line" class="u124_line" ></DIV>
+</div><div id="u125" class="u125" >
+<DIV id="u125_line" class="u125_line" ></DIV>
+</div><div id="u126" class="u126" >
+<DIV id="u126_line" class="u126_line" ></DIV>
+</div><div id="u127" class="u127" >
+<DIV id="u127_line" class="u127_line" ></DIV>
 </div>
-<div id="u124" class="u124"  >
-<div id="u124_rtf"><p style="text-align:right;"><span style="font-family:Helvetica;font-size:15px;font-weight:normal;font-style:normal;text-decoration:none;color:#666666;">Shipping</span></p></div>
-</div>
-<div id="u125" class="u125"  >
-<div id="u125_rtf"><p style="text-align:left;"><span style="font-family:Helvetica;font-size:15px;font-weight:bold;font-style:normal;text-decoration:none;color:#333333;">$15.00</span></p></div>
-</div>
-<div id="u126" class="u126"  >
-<div id="u126_rtf"><p style="text-align:right;"><span style="font-family:Helvetica;font-size:15px;font-weight:normal;font-style:normal;text-decoration:none;color:#666666;">Taxes</span></p></div>
-</div>
-<div id="u127" class="u127"  >
-<div id="u127_rtf"><p style="text-align:left;"><span style="font-family:Helvetica;font-size:15px;font-weight:bold;font-style:normal;text-decoration:none;color:#333333;">$4.00</span></p></div>
-</div>
-<div id="u128" class="u128_container"   >
-<div id="u128_img" class="u128_normal detectCanvas"></div>
-<div id="u129" class="u129" style="visibility:hidden;"  >
-<div id="u129_rtf"></div>
+<DIV id="u128" style="border-style:dotted; border-color:red; visibility:hidden; position:absolute; left:4px; top:1281px; width:950px; height:159px;;" ></div>
+<div id="u129" class="u129_container"   >
+<div id="u129_img" class="u129_normal detectCanvas"></div>
+<div id="u130" class="u130" style="visibility:hidden;"  >
+<div id="u130_rtf"></div>
 </div>
 </div>
-<div id="u130" class="u130"  >
-<div id="u130_rtf"><p style="text-align:right;"><span style="font-family:Helvetica;font-size:18px;font-weight:bold;font-style:normal;text-decoration:none;color:#404040;">TOTAL</span></p></div>
+<div id="u131" class="u131_container"   >
+<div id="u131_img" class="u131_normal detectCanvas"></div>
+<div id="u132" class="u132" style="visibility:hidden;"  >
+<div id="u132_rtf"></div>
 </div>
-<div id="u131" class="u131"  >
-<div id="u131_rtf"><p style="text-align:left;"><span style="font-family:Helvetica;font-size:20px;font-weight:bold;font-style:normal;text-decoration:none;color:#FFFFFF;">$418.00</span></p></div>
 </div>
-<div id="u132" class="u132"  >
-<div id="u132_rtf"><p style="text-align:left;"><span style="font-family:Helvetica;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">Shopping cart</span></p></div>
-</div><div id="u133" class="u133" >
-<DIV id="u133_line" class="u133_line" ></DIV>
+<div id="u133" class="u133_container"   >
+<div id="u133_img" class="u133_normal detectCanvas"></div>
+<div id="u134" class="u134" style="visibility:hidden;"  >
+<div id="u134_rtf"></div>
 </div>
+</div>
+<div id="u135" class="u135"  >
+<div id="u135_rtf"><p style="text-align:left;"><span style="font-family:Helvetica;font-size:18px;font-weight:bold;font-style:normal;text-decoration:none;color:#404040;">Product name</span></p></div>
+</div>
+<div id="u136" class="u136"  >
+<div id="u136_rtf"><p style="text-align:left;"><span style="font-family:Helvetica;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">Product Description</span></p></div>
+</div>
+<div id="u137" class="u137"  >
+<div id="u137_rtf"><p style="text-align:left;"><span style="font-family:Helvetica;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">SKU: #3439913975</span></p></div>
+</div>
+<div id="u138" class="u138"  >
+<div id="u138_rtf"><p style="text-align:left;"><span style="font-family:Helvetica;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">Size: M</span></p></div>
+</div>
+<div id="u139" class="u139"  >
+<div id="u139_rtf"><p style="text-align:left;"><span style="font-family:Helvetica;font-size:15px;font-weight:bold;font-style:normal;text-decoration:none;color:#333333;">$399.00</span></p></div>
+</div>
+<INPUT id="u140" type=text value="1" class="u140"     >
 
-<div id="u134" class="u134_container"   >
-<a href="/carts/view?step=1"><div id="u134_img" class="u134_normal detectCanvas"></div></a>
-<div id="u135" class="u135" style="visibility:hidden;"  >
-<div id="u135_rtf"></div>
-</div>
-</div>
-<div id="u136" class="u136_container"   >
-<a href="/carts/view?step=2"><div id="u136_img" class="u136_normal detectCanvas"></div>
-<div id="u137" class="u137" style="visibility:hidden;"  >
-<div id="u137_rtf"></div>
-</div>
-</div>
-<div id="u138" class="u138_container"   >
-<div id="u138_img" class="u138_normal detectCanvas"></div>
-<div id="u139" class="u139" style="visibility:hidden;"  >
-<div id="u139_rtf"></div>
-</div>
-</div>
-<div id="u140" class="u140_container"   >
-<a href="/carts/view?step=4"><div id="u140_img" class="u140_normal detectCanvas"></div></a>
-<div id="u141" class="u141" style="visibility:hidden;"  >
-<div id="u141_rtf"></div>
-</div>
+<div id="u141" class="u141"  >
+<div id="u141_rtf"><p style="text-align:center;"><span style="font-family:Helvetica;font-size:13px;font-weight:normal;font-style:normal;text-decoration:underline;color:#00438A;">Update</span></p></div>
 </div>
 <div id="u142" class="u142"  >
-<div id="u142_rtf"><p style="text-align:left;"><span style="font-family:Helvetica;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">Sign in</span></p></div>
+<div id="u142_rtf"><p style="text-align:center;"><span style="font-family:Helvetica;font-size:13px;font-weight:normal;font-style:normal;text-decoration:underline;color:#00438A;">Remove</span></p></div>
 </div>
 <div id="u143" class="u143"  >
-<div id="u143_rtf"><p style="text-align:left;"><span style="font-family:Helvetica;font-size:13px;font-weight:bold;font-style:normal;text-decoration:none;color:#333333;">Shipping and billing</span></p></div>
+<div id="u143_rtf"><p style="text-align:left;"><span style="font-family:Helvetica;font-size:15px;font-weight:bold;font-style:normal;text-decoration:none;color:#333333;">$399.00</span></p></div>
+</div><div id="u144" class="u144" >
+<DIV id="u144_line" class="u144_line" ></DIV>
+</div><div id="u145" class="u145" >
+<DIV id="u145_line" class="u145_line" ></DIV>
+</div><div id="u146" class="u146" >
+<DIV id="u146_line" class="u146_line" ></DIV>
+</div><div id="u147" class="u147" >
+<DIV id="u147_line" class="u147_line" ></DIV>
 </div>
-<div id="u144" class="u144"  >
-<div id="u144_rtf"><p style="text-align:left;"><span style="font-family:Helvetica;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">Payment confirmation</span></p></div>
-</div>
-<!-- item display -->
-
-<div id="u145" class="u145_container"   >
-<div id="u145_img" class="u145_normal detectCanvas"></div>
-<div id="u146" class="u146" style="visibility:hidden;"  >
-<div id="u146_rtf"></div>
-</div>
-</div>
-<div id="u147" class="u147_container"  style=<?php echo '"top:'.(1307+(($number_of_items-1)*149)).'px"';?>>
-<div id="u147_img" class="u147_normal detectCanvas"></div>
-<div id="u148" class="u148" style="visibility:hidden;"  >
-<div id="u148_rtf"></div>
-</div>
-</div>
-<div id="u149" class="u149_container"   style=<?php echo '"top:'.(1312+(($number_of_items-1)*149)).'px"';?>>
+<DIV id="u148" style="border-style:dotted; border-color:red; visibility:hidden; position:absolute; left:4px; top:1430px; width:950px; height:159px;;" ></div>
+<div id="u149" class="u149_container"   >
 <div id="u149_img" class="u149_normal detectCanvas"></div>
 <div id="u150" class="u150" style="visibility:hidden;"  >
 <div id="u150_rtf"></div>
 </div>
 </div>
-<div id="u151" class="u151"  style=<?php echo '"top:'.(1309+(($number_of_items-1)*149)).'px"';?>>
-<div id="u151_rtf"><p style="text-align:left;"><span style="font-family:Helvetica;font-size:18px;font-weight:bold;font-style:normal;text-decoration:none;color:#404040;">Product name</span></p></div>
+<div id="u151" class="u151"  >
+<div id="u151_rtf"><p style="text-align:center;"><span style="font-family:Helvetica;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#666666;">Go back shopping</span></p></div>
 </div>
-<div id="u152" class="u152" style=<?php echo '"top:'.(1339+(($number_of_items-1)*149)).'px"';?> >
-<div id="u152_rtf"><p style="text-align:left;"><span style="font-family:Helvetica;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">Product Description</span></p></div>
+<div id="u152" class="u152"  >
+<div id="u152_rtf"><p style="text-align:left;"><span style="font-family:Helvetica;font-size:20px;font-weight:bold;font-style:normal;text-decoration:none;color:#FFFFFF;">$418.00</span></p></div>
 </div>
-<div id="u153" class="u153" style=<?php echo '"top:'.(1363+(($number_of_items-1)*149)).'px"';?> >
-<div id="u153_rtf"><p style="text-align:left;"><span style="font-family:Helvetica;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">SKU: #3439913975</span></p></div>
+<div id="u153" class="u153_container"   >
+<div id="u153_img" class="u153_normal detectCanvas"></div>
+<div id="u154" class="u154" style="visibility:hidden;"  >
+<div id="u154_rtf"></div>
 </div>
-<div id="u154" class="u154"  style=<?php echo '"top:'.(1387+(($number_of_items-1)*149)).'px"';?> >
-<div id="u154_rtf"><p style="text-align:left;"><span style="font-family:Helvetica;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">Size: M</span></p></div>
 </div>
-<div id="u155" class="u155"  style=<?php echo '"top:'.(1312+(($number_of_items-1)*149)).'px"';?>>
-<div id="u155_rtf"><p style="text-align:left;"><span style="font-family:Helvetica;font-size:15px;font-weight:bold;font-style:normal;text-decoration:none;color:#333333;">$399.00</span></p></div>
+<div id="u155" class="u155"  >
+<div id="u155_rtf"><p style="text-align:center;"><span style="font-family:Helvetica;font-size:13px;font-weight:bold;font-style:normal;text-decoration:none;color:#FFFFFF;">Review order</span></p></div>
 </div>
-<INPUT id="u156" type=text value="1" class="u156"    style=<?php echo '"top:'.(1308+(($number_of_items-1)*149)).'px"';?> >
-
-<div id="u157" class="u157" style=<?php echo '"top:'.(1343+(($number_of_items-1)*149)).'px"';?> >
-<div id="u157_rtf"><p style="text-align:center;"><span style="font-family:Helvetica;font-size:13px;font-weight:normal;font-style:normal;text-decoration:underline;color:#00438A;">Update</span></p></div>
+<div id="u156" class="u156_container"   >
+<div id="u156_img" class="u156_normal detectCanvas"></div>
+<div id="u157" class="u157" style="visibility:hidden;"  >
+<div id="u157_rtf"></div>
 </div>
-<div id="u158" class="u158" style=<?php echo '"top:'.(1363+(($number_of_items-1)*149)).'px"';?> >
-<div id="u158_rtf"><p style="text-align:center;"><span style="font-family:Helvetica;font-size:13px;font-weight:normal;font-style:normal;text-decoration:underline;color:#00438A;">Remove</span></p></div>
 </div>
-<div id="u159" class="u159" style=<?php echo '"top:'.(1312+(($number_of_items-1)*149)).'px"';?> >
+<div id="u158" class="u158"  >
+<div id="u158_rtf"><p style="text-align:right;"><span style="font-family:Helvetica;font-size:15px;font-weight:normal;font-style:normal;text-decoration:none;color:#666666;">Subtotal</span></p></div>
+</div>
+<div id="u159" class="u159"  >
 <div id="u159_rtf"><p style="text-align:left;"><span style="font-family:Helvetica;font-size:15px;font-weight:bold;font-style:normal;text-decoration:none;color:#333333;">$399.00</span></p></div>
 </div>
-
-<!-- item display ends -->
-<DIV id="u162" style="border-style:dotted; border-color:red; visibility:hidden; position:absolute; left:9px; top:1281px; width:940px; height:159px;;" ></div>
+<div id="u160" class="u160"  >
+<div id="u160_rtf"><p style="text-align:right;"><span style="font-family:Helvetica;font-size:15px;font-weight:normal;font-style:normal;text-decoration:none;color:#666666;">Shipping</span></p></div>
+</div>
+<div id="u161" class="u161"  >
+<div id="u161_rtf"><p style="text-align:left;"><span style="font-family:Helvetica;font-size:15px;font-weight:bold;font-style:normal;text-decoration:none;color:#333333;">$15.00</span></p></div>
+</div>
+<div id="u162" class="u162"  >
+<div id="u162_rtf"><p style="text-align:right;"><span style="font-family:Helvetica;font-size:15px;font-weight:normal;font-style:normal;text-decoration:none;color:#666666;">Taxes</span></p></div>
+</div>
+<div id="u163" class="u163"  >
+<div id="u163_rtf"><p style="text-align:left;"><span style="font-family:Helvetica;font-size:15px;font-weight:bold;font-style:normal;text-decoration:none;color:#333333;">$4.00</span></p></div>
+</div>
+<div id="u164" class="u164_container"   >
+<div id="u164_img" class="u164_normal detectCanvas"></div>
+<div id="u165" class="u165" style="visibility:hidden;"  >
+<div id="u165_rtf"></div>
+</div>
+</div>
+<div id="u166" class="u166"  >
+<div id="u166_rtf"><p style="text-align:right;"><span style="font-family:Helvetica;font-size:18px;font-weight:bold;font-style:normal;text-decoration:none;color:#404040;">TOTAL</span></p></div>
+</div>
+<div id="u167" class="u167"  >
+<div id="u167_rtf"><p style="text-align:left;"><span style="font-family:Helvetica;font-size:20px;font-weight:bold;font-style:normal;text-decoration:none;color:#FFFFFF;">$418.00</span></p></div>
+</div>
+<DIV id="u168" style="border-style:dotted; border-color:red; visibility:hidden; position:absolute; left:9px; top:1584px; width:940px; height:188px;;" ></div>
+<DIV id="u169" style="border-style:dotted; border-color:red; visibility:hidden; position:absolute; left:9px; top:1584px; width:947px; height:241px;;" ></div>
 </div>
