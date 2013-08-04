@@ -1,5 +1,4 @@
 
-<?php setlocale(LC_MONETARY, null);?>
 <div id="main_container">
 
 <div id="u0" class="u0_container"   >
@@ -36,7 +35,7 @@
 </LABEL>
 <INPUT id="u8" name="RadioGroup1" style="position:absolute; left:-3px; top:-2px;" type="radio" value="radio"   >
 </DIV>
-<DIV id="u10container" style="position:absolute; left:29px; top:287px; width:300px; height:15px; ; ; ;" >
+<DIV id="u10container" style="position:absolute; left:29px; top:287px; width:300px; height:16px; ; ; ;" >
 <LABEL for="u10">
 <div id="u11" class="u11"  >
 <div id="u11_rtf"><p style="text-align:left;"><span style="font-family:Arial;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">UPS (1-2 business days) - </span><span style="font-family:Arial;font-size:13px;font-weight:bold;font-style:normal;text-decoration:none;color:#333333;">$25.00</span></p></div>
@@ -44,7 +43,7 @@
 </LABEL>
 <INPUT id="u10" name="RadioGroup1" style="position:absolute; left:-3px; top:-2px;" type="radio" value="radio"   >
 </DIV>
-<DIV id="u12container" style="position:absolute; left:29px; top:315px; width:300px; height:15px; ; ; ;" >
+<DIV id="u12container" style="position:absolute; left:29px; top:315px; width:300px; height:16px; ; ; ;" >
 <LABEL for="u12">
 <div id="u13" class="u13"  >
 <div id="u13_rtf"><p style="text-align:left;"><span style="font-family:Arial;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">FEDEX (1 business day) - </span><span style="font-family:Arial;font-size:13px;font-weight:bold;font-style:normal;text-decoration:none;color:#333333;">$40.00</span></p></div>
