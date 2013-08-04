@@ -1,4 +1,5 @@
-<?php setlocale(LC_MONETARY, null);?>
+<?php setlocale(LC_MONETARY, null);
+	$number_of_items = $carts['Cart']['item_count'];?>
 <div id="main_container">
 
 <div id="u0" class="u0_container"   >
@@ -46,19 +47,19 @@
 <DIV id="u14_line" class="u14_line" ></DIV>
 </div>
 <div id="u15" class="u15_container"   >
-<div id="u15_img" class="u15_normal detectCanvas"></div>
+<a href="/carts/view?step=1"><div id="u15_img" class="u15_normal detectCanvas"></div></a>
 <div id="u16" class="u16" style="visibility:hidden;"  >
 <div id="u16_rtf"></div>
 </div>
 </div>
 <div id="u17" class="u17_container"   >
-<div id="u17_img" class="u17_normal detectCanvas"></div>
+<a href="/carts/view?step=2"><div id="u17_img" class="u17_normal detectCanvas"></div></a>
 <div id="u18" class="u18" style="visibility:hidden;"  >
 <div id="u18_rtf"></div>
 </div>
 </div>
 <div id="u19" class="u19_container"   >
-<div id="u19_img" class="u19_normal detectCanvas"></div>
+<a href="/carts/view?step=3"><div id="u19_img" class="u19_normal detectCanvas"></div></a>
 <div id="u20" class="u20" style="visibility:hidden;"  >
 <div id="u20_rtf"></div>
 </div>

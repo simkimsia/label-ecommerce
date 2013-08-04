@@ -1,4 +1,5 @@
-
+<?php setlocale(LC_MONETARY, null);
+$number_of_items = $carts['Cart']['item_count'];?>
 <div id="main_container">
 
 <div id="u0" class="u0_container"   >
@@ -562,13 +563,13 @@
 <DIV id="u97_line" class="u97_line" ></DIV>
 </div>
 <div id="u98" class="u98_container"   >
-<div id="u98_img" class="u98_normal detectCanvas"></div>
+<a href="/carts/view?step=1"><div id="u98_img" class="u98_normal detectCanvas"></div></a>
 <div id="u99" class="u99" style="visibility:hidden;"  >
 <div id="u99_rtf"></div>
 </div>
 </div>
 <div id="u100" class="u100_container"   >
-<div id="u100_img" class="u100_normal detectCanvas"></div>
+<a href="/carts/view?step=2"><div id="u100_img" class="u100_normal detectCanvas"></div></a>
 <div id="u101" class="u101" style="visibility:hidden;"  >
 <div id="u101_rtf"></div>
 </div>
@@ -580,7 +581,7 @@
 </div>
 </div>
 <div id="u104" class="u104_container"   >
-<div id="u104_img" class="u104_normal detectCanvas"></div>
+<a href="/carts/view?step=4"><div id="u104_img" class="u104_normal detectCanvas"></div></a>
 <div id="u105" class="u105" style="visibility:hidden;"  >
 <div id="u105_rtf"></div>
 </div>
@@ -594,59 +595,66 @@
 <div id="u108" class="u108"  >
 <div id="u108_rtf"><p style="text-align:left;"><span style="font-family:Helvetica;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">Payment confirmation</span></p></div>
 </div>
-<div id="u109" class="u109_container"   >
+<!-- layout starts here -->
+<?php  
+    foreach($carts['CartsItem'] as $key => $cartItems) { ?>
+<div id="u109" class="u109_container"   style=<?php echo '"top:'.(1306+$key*149).'px"';?>>
 <div id="u109_img" class="u109_normal detectCanvas"></div>
 <div id="u110" class="u110" style="visibility:hidden;"  >
 <div id="u110_rtf"></div>
 </div>
 </div>
-<div id="u111" class="u111_container"   >
+<div id="u111" class="u111_container"   style=<?php echo '"top:'.(1312+$key*149).'px"';?>>
 <div id="u111_img" class="u111_normal detectCanvas"></div>
 <div id="u112" class="u112" style="visibility:hidden;"  >
 <div id="u112_rtf"></div>
 </div>
 </div>
-<div id="u113" class="u113_container"   >
+<div id="u113" class="u113_container"   style=<?php echo '"top:'.(1312+$key*149).'px"';?>>
 <div id="u113_img" class="u113_normal detectCanvas"></div>
 <div id="u114" class="u114" style="visibility:hidden;"  >
 <div id="u114_rtf"></div>
 </div>
 </div>
-<div id="u115" class="u115"  >
-<div id="u115_rtf"><p style="text-align:left;"><span style="font-family:Helvetica;font-size:18px;font-weight:bold;font-style:normal;text-decoration:none;color:#404040;">Product name</span></p></div>
+<div id="u115" class="u115"  style=<?php echo '"top:'.(1309+$key*149).'px"';?>>
+<div id="u115_rtf"><p style="text-align:left;"><span style="font-family:Helvetica;font-size:18px;font-weight:bold;font-style:normal;text-decoration:none;color:#404040;"><?php echo $cartItems['name']; ?></span></p></div>
 </div>
-<div id="u116" class="u116"  >
+<div id="u116" class="u116"  style=<?php echo '"top:'.(1339+$key*149).'px"';?>>
 <div id="u116_rtf"><p style="text-align:left;"><span style="font-family:Helvetica;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">Product Description</span></p></div>
 </div>
-<div id="u117" class="u117"  >
+<div id="u117" class="u117"  style=<?php echo '"top:'.(1363+$key*149).'px"';?>>
 <div id="u117_rtf"><p style="text-align:left;"><span style="font-family:Helvetica;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">SKU: #3439913975</span></p></div>
 </div>
-<div id="u118" class="u118"  >
+<div id="u118" class="u118"  style=<?php echo '"top:'.(1387+$key*149).'px"';?>>
 <div id="u118_rtf"><p style="text-align:left;"><span style="font-family:Helvetica;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">Size: M</span></p></div>
 </div>
-<div id="u119" class="u119"  >
-<div id="u119_rtf"><p style="text-align:left;"><span style="font-family:Helvetica;font-size:15px;font-weight:bold;font-style:normal;text-decoration:none;color:#333333;">$399.00</span></p></div>
+<div id="u119" class="u119"  style=<?php echo '"top:'.(1312+$key*149).'px"';?>>
+<div id="u119_rtf"><p style="text-align:left;"><span style="font-family:Helvetica;font-size:15px;font-weight:bold;font-style:normal;text-decoration:none;color:#333333;"><?php echo money_format("$%i" ,$cartItems['price']);?></span></p></div>
 </div>
-<INPUT id="u120" type=text value="1" class="u120"     >
+<INPUT id="u120" type=text value=<?php echo '"'.$cartItems['quantity'].'"'?> class="u120"     style=<?php echo '"top:'.(1308+$key*149).'px"';?>>
 
-<div id="u121" class="u121"  >
+<div id="u121" class="u121"  style=<?php echo '"top:'.(1343+$key*149).'px"';?>>
 <div id="u121_rtf"><p style="text-align:center;"><span style="font-family:Helvetica;font-size:13px;font-weight:normal;font-style:normal;text-decoration:underline;color:#00438A;">Update</span></p></div>
 </div>
-<div id="u122" class="u122"  >
+<div id="u122" class="u122"  style=<?php echo '"top:'.(1363+$key*149).'px"';?>>
 <div id="u122_rtf"><p style="text-align:center;"><span style="font-family:Helvetica;font-size:13px;font-weight:normal;font-style:normal;text-decoration:underline;color:#00438A;">Remove</span></p></div>
 </div>
-<div id="u123" class="u123"  >
-<div id="u123_rtf"><p style="text-align:left;"><span style="font-family:Helvetica;font-size:15px;font-weight:bold;font-style:normal;text-decoration:none;color:#333333;">$399.00</span></p></div>
-</div><div id="u124" class="u124" >
+<div id="u123" class="u123"  style=<?php echo '"top:'.(1312+$key*149).'px"';?>>
+<div id="u123_rtf"><p style="text-align:left;"><span style="font-family:Helvetica;font-size:15px;font-weight:bold;font-style:normal;text-decoration:none;color:#333333;"><?php $qty_price = $cartItems['price'] * $cartItems['quantity']; echo money_format("$%i", $qty_price);?></span></p></div>
+</div><div id="u124" class="u124" style=<?php echo '"top:'.(1430+$key*149).'px"';?>>
 <DIV id="u124_line" class="u124_line" ></DIV>
-</div><div id="u125" class="u125" >
+</div><div id="u125" class="u125" style=<?php echo '"top:'.(1281+$key*149).'px"';?>>
 <DIV id="u125_line" class="u125_line" ></DIV>
-</div><div id="u126" class="u126" >
+</div><div id="u126" class="u126" style=<?php echo '"top:'.(1286+$key*149).'px"';?>>
 <DIV id="u126_line" class="u126_line" ></DIV>
-</div><div id="u127" class="u127" >
+</div><div id="u127" class="u127" style=<?php echo '"top:'.(1286+$key*149).'px"';?>>
 <DIV id="u127_line" class="u127_line" ></DIV>
 </div>
-<DIV id="u128" style="border-style:dotted; border-color:red; visibility:hidden; position:absolute; left:4px; top:1281px; width:950px; height:159px;;" ></div>
+<DIV id="u128" style=<?php echo '"border-style:dotted; border-color:red; visibility:hidden; position:absolute; left:4px; top:'.(1281+$key*149).'px; width:950px; height:159px"';?> > </div>
+
+<?php }?>
+    <!-- layout ends here -->
+<!--
 <div id="u129" class="u129_container"   >
 <div id="u129_img" class="u129_normal detectCanvas"></div>
 <div id="u130" class="u130" style="visibility:hidden;"  >
@@ -700,63 +708,67 @@
 <DIV id="u147_line" class="u147_line" ></DIV>
 </div>
 <DIV id="u148" style="border-style:dotted; border-color:red; visibility:hidden; position:absolute; left:4px; top:1430px; width:950px; height:159px;;" ></div>
-<div id="u149" class="u149_container"   >
+-->
+<!-- footer starts -->
+
+<div id="u149" class="u149_container"   style=<?php echo '"top:'.(1648+(($number_of_items-1)*149)).'px"';?>>
 <div id="u149_img" class="u149_normal detectCanvas"></div>
 <div id="u150" class="u150" style="visibility:hidden;"  >
 <div id="u150_rtf"></div>
 </div>
 </div>
-<div id="u151" class="u151"  >
+<div id="u151" class="u151" style=<?php echo '"top:'.(1654+(($number_of_items-1)*149)).'px"';?> >
 <div id="u151_rtf"><p style="text-align:center;"><span style="font-family:Helvetica;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#666666;">Go back shopping</span></p></div>
 </div>
-<div id="u152" class="u152"  >
-<div id="u152_rtf"><p style="text-align:left;"><span style="font-family:Helvetica;font-size:20px;font-weight:bold;font-style:normal;text-decoration:none;color:#FFFFFF;">$418.00</span></p></div>
+<div id="u152" class="u152"  style=<?php echo '"top:'.(1574+(($number_of_items-1)*149)).'px"';?> >
+<div></div><div id="u152_rtf"><p style="text-align:left;"><span style="font-family:Helvetica;font-size:20px;font-weight:bold;font-style:normal;text-decoration:none;color:#FFFFFF;">$418.00</span></p></div>
 </div>
-<div id="u153" class="u153_container"   >
+<div id="u153" class="u153_container"  style=<?php echo '"top:'.(1648+(($number_of_items-1)*149)).'px"';?> >
 <div id="u153_img" class="u153_normal detectCanvas"></div>
 <div id="u154" class="u154" style="visibility:hidden;"  >
 <div id="u154_rtf"></div>
 </div>
 </div>
-<div id="u155" class="u155"  >
+<div id="u155" class="u155" style=<?php echo '"top:'.(1654+(($number_of_items-1)*149)).'px"';?> >
 <div id="u155_rtf"><p style="text-align:center;"><span style="font-family:Helvetica;font-size:13px;font-weight:bold;font-style:normal;text-decoration:none;color:#FFFFFF;">Review order</span></p></div>
 </div>
-<div id="u156" class="u156_container"   >
+<div id="u156" class="u156_container" style=<?php echo '"top:'.(1435+(($number_of_items-1)*149)).'px"';?>  >
 <div id="u156_img" class="u156_normal detectCanvas"></div>
 <div id="u157" class="u157" style="visibility:hidden;"  >
 <div id="u157_rtf"></div>
 </div>
 </div>
-<div id="u158" class="u158"  >
+<div id="u158" class="u158"  style=<?php echo '"top:'.(1454+(($number_of_items-1)*149)).'px"';?> >
 <div id="u158_rtf"><p style="text-align:right;"><span style="font-family:Helvetica;font-size:15px;font-weight:normal;font-style:normal;text-decoration:none;color:#666666;">Subtotal</span></p></div>
 </div>
-<div id="u159" class="u159"  >
-<div id="u159_rtf"><p style="text-align:left;"><span style="font-family:Helvetica;font-size:15px;font-weight:bold;font-style:normal;text-decoration:none;color:#333333;">$399.00</span></p></div>
+<div id="u159" class="u159"  style=<?php echo '"top:'.(1454+(($number_of_items-1)*149)).'px"';?>>
+<div id="u159_rtf"><p style="text-align:left;"><span style="font-family:Helvetica;font-size:15px;font-weight:bold;font-style:normal;text-decoration:none;color:#333333;"><?php echo money_format("$%i",$carts['Cart']['total']);?></span></p></div>
 </div>
-<div id="u160" class="u160"  >
+<div id="u160" class="u160"  style=<?php echo '"top:'.(1484+(($number_of_items-1)*149)).'px"';?>>
 <div id="u160_rtf"><p style="text-align:right;"><span style="font-family:Helvetica;font-size:15px;font-weight:normal;font-style:normal;text-decoration:none;color:#666666;">Shipping</span></p></div>
 </div>
-<div id="u161" class="u161"  >
+<div id="u161" class="u161"  style=<?php echo '"top:'.(1484+(($number_of_items-1)*149)).'px"';?>>
 <div id="u161_rtf"><p style="text-align:left;"><span style="font-family:Helvetica;font-size:15px;font-weight:bold;font-style:normal;text-decoration:none;color:#333333;">$15.00</span></p></div>
 </div>
-<div id="u162" class="u162"  >
+<div id="u162" class="u162"  style=<?php echo '"top:'.(1514+(($number_of_items-1)*149)).'px"';?>>
 <div id="u162_rtf"><p style="text-align:right;"><span style="font-family:Helvetica;font-size:15px;font-weight:normal;font-style:normal;text-decoration:none;color:#666666;">Taxes</span></p></div>
 </div>
-<div id="u163" class="u163"  >
+<div id="u163" class="u163"  style=<?php echo '"top:'.(1514+(($number_of_items-1)*149)).'px"';?>>
 <div id="u163_rtf"><p style="text-align:left;"><span style="font-family:Helvetica;font-size:15px;font-weight:bold;font-style:normal;text-decoration:none;color:#333333;">$4.00</span></p></div>
 </div>
-<div id="u164" class="u164_container"   >
+<div id="u164" class="u164_container"  style=<?php echo '"top:'.(1549+(($number_of_items-1)*149)).'px"';?> >
 <div id="u164_img" class="u164_normal detectCanvas"></div>
 <div id="u165" class="u165" style="visibility:hidden;"  >
 <div id="u165_rtf"></div>
 </div>
 </div>
-<div id="u166" class="u166"  >
+<div id="u166" class="u166" style=<?php echo '"top:'.(1575+(($number_of_items-1)*149)).'px"';?> >
 <div id="u166_rtf"><p style="text-align:right;"><span style="font-family:Helvetica;font-size:18px;font-weight:bold;font-style:normal;text-decoration:none;color:#404040;">TOTAL</span></p></div>
 </div>
-<div id="u167" class="u167"  >
-<div id="u167_rtf"><p style="text-align:left;"><span style="font-family:Helvetica;font-size:20px;font-weight:bold;font-style:normal;text-decoration:none;color:#FFFFFF;">$418.00</span></p></div>
+<div id="u167" class="u167" style=<?php echo '"top:'.(1574+(($number_of_items-1)*149)).'px"';?> >
+<div id="u167_rtf"><p style="text-align:left;"><span style="font-family:Helvetica;font-size:20px;font-weight:bold;font-style:normal;text-decoration:none;color:#FFFFFF;"><?php echo money_format("$%i", $carts['Cart']['total_price']);?></span></p></div>
 </div>
-<DIV id="u168" style="border-style:dotted; border-color:red; visibility:hidden; position:absolute; left:9px; top:1584px; width:940px; height:188px;;" ></div>
-<DIV id="u169" style="border-style:dotted; border-color:red; visibility:hidden; position:absolute; left:9px; top:1584px; width:947px; height:241px;;" ></div>
+<DIV id="u168" style=<?php echo '"border-style:dotted; border-color:red; visibility:hidden; position:absolute; left:9px; top:'.(1435+(($number_of_items-1)*149)).'px; width:940px; height:188px;;"';?> ></div>
+<DIV id="u169" style=<?php echo '"border-style:dotted; border-color:red; visibility:hidden; position:absolute; left:9px; top:'.(1435+(($number_of_items-1)*149)).'px; width:940px; height:188px;;"';?> ></div>
+    <!-- footer ends -->
 </div>

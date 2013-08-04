@@ -1,3 +1,5 @@
+<?php setlocale(LC_MONETARY, null); 
+	$number_of_items = $carts['Cart']['item_count'];?>
 <div id="main_container">
 
 <div id="u0" class="u0_container"   >
@@ -6,13 +8,13 @@
 <div id="u1_rtf"></div>
 </div>
 </div>
-<div id="u2" class="u2_container"   >
+<div id="u2" class="u2_container" style=<?php echo '"top:'.(518+(($number_of_items-1)*149)).'px"';?>  >
 <div id="u2_img" class="u2_normal detectCanvas"></div>
 <div id="u3" class="u3" style="visibility:hidden;"  >
 <div id="u3_rtf"></div>
 </div>
 </div>
-<div id="u4" class="u4"  >
+<div id="u4" class="u4" style=<?php echo '"top:'.(524+(($number_of_items-1)*149)).'px"';?> >
 <div id="u4_rtf"><p style="text-align:center;"><span style="font-family:Helvetica;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#666666;">Go back shopping</span></p></div>
 </div>
 <div id="u5" class="u5_container"   >
@@ -54,8 +56,7 @@
 <div ><p style="text-align:center;"><span style="font-family:Helvetica;font-size:12px;font-weight:bold;font-style:normal;text-decoration:none;color:#666666;">Price</span></p></div>
 </div>
 
-<?php setlocale(LC_MONETARY, null); 
-	$number_of_items = $carts['Cart']['item_count'];
+<?php 
 	foreach($carts['CartsItem'] as $key => $cartItems){ 
 
 	?>
