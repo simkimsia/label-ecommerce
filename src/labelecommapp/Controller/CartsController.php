@@ -39,10 +39,51 @@ class CartsController extends AppController {
 		}
 		$this->set('step', $step);
 		$this->layout = 'cart';
-		$this->log($this->Session->read('Cart'));
-		$this->set('carts', $this->Session->read('Cart'));
-		$this->render('view_step_'.$step);
+		// $this->log($this->Session->read('Cart'));
+		// need to collect images and store them if necessary
+		$theCart = $this->Session->read('Cart');
 
+		// instantiate the ProductImage model here.
+		// and put in the url to the item image
+		$imageModel = ClassRegistry::init('ProductImage');
+		foreach($theCart['CartsItem'] as $index => $item) {
+			if (empty($item['image'])) {
+				$variant_id = $item['foreign_key'];
+				$conditions = array('ProductImage.product_variant_id' => $variant_id);
+				$defaultImage = array('thumb_url');
+				$image = $imageModel->find('first', array(
+					'conditions' => $conditions
+				));
+
+				$image					= array_merge($defaultImage, $image);
+				$url					= $this->getImageForStep($image['thumb_url'], $step);
+				$theCart['CartsItem'][$index]['image']	= $url;
+				$this->Session->write("Cart.CartsItem.$index.image", $url);
+			}
+		}
+
+		$this->set('carts', $theCart);
+		$this->render('view_step_'.$step);
+	}
+
+/**
+ * caters for default placeholder image
+ */
+	protected function getImageForStep($url, $step) {
+		if (empty($url)) {
+			switch($step) {
+				case 1:
+					return '/theme/V1/img/cart_step_1/u9_normal.png';
+				break;
+				case 3:
+					return '/theme/V1/img/cart_step_3/u46_normal.png';
+				break;
+				case 4:
+					return '/theme/V1/img/cart_item/u46_normal.png';
+				break;
+			}
+		}
+		return $url;
 	}
 
 /**

@@ -58,7 +58,20 @@
 	</div>
 </div>
 <div class="u9_container" style=<?php echo '"top:'.(182+$key*149).'px"';?>>
-	<div class="u9_img u9_normal detectCanvas"></div>
+
+	<?php // let's prepare the image
+
+	// if the image is present, we will not use placeholder and we will add top: 4px and left: 4px;
+	$imagePresent = (strpos($cartItems['image'], '/files/product_image/filename') !== false);
+
+	$backgroundImage = 'background-image: url(\'' . $cartItems['image'] . '\');';
+	if ($imagePresent) {
+		$backgroundImage .= 'top: 4px; left: 4px;';
+	}
+	$style = '"' . $backgroundImage . '"';
+	?>
+
+	<div class="u9_img u9_normal detectCanvas" style=<?php echo $style;?>></div>
 	<div class="u10" style="visibility:hidden;"  >
 		<div></div>
 	</div>
