@@ -57,6 +57,7 @@ class CartsController extends AppController {
 
 				$image					= array_merge($defaultImage, $image);
 				$url					= $this->getImageForStep($image['thumb_url'], $step);
+
 				$theCart['CartsItem'][$index]['image']	= $url;
 				$this->Session->write("Cart.CartsItem.$index.image", $url);
 			}

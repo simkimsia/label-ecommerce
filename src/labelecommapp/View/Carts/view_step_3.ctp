@@ -611,6 +611,19 @@ $number_of_items = $carts['Cart']['item_count'];?>
 </div>
 </div>
 <div id="u113" class="u113_container"   style=<?php echo '"top:'.(1312+$key*149).'px"';?>>
+
+    <?php // let's prepare the image
+
+    // if the image is present, we will not use placeholder and we will add top: 4px and left: 4px;
+    $imagePresent = (strpos($cartItems['image'], '/files/product_image/filename') !== false);
+
+    $backgroundImage = 'background-image: url(\'' . $cartItems['image'] . '\');';
+    if ($imagePresent) {
+        $backgroundImage .= 'top: 4px; left: 4px;';
+    }
+    $style = '"' . $backgroundImage . '"';
+    ?>
+
 <div id="u113_img" class="u113_normal detectCanvas"></div>
 <div id="u114" class="u114" style="visibility:hidden;"  >
 <div id="u114_rtf"></div>

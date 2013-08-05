@@ -153,6 +153,19 @@
 </div>
 </div>
 <div id="u51" class="u51_container"   style=<?php echo '"top:'.(336+$key*149).'px"';?>>
+
+	<?php // let's prepare the image
+
+	// if the image is present, we will not use placeholder and we will add top: 4px and left: 4px;
+	$imagePresent = (strpos($cartItems['image'], '/files/product_image/filename') !== false);
+
+	$backgroundImage = 'background-image: url(\'' . $cartItems['image'] . '\');';
+	if ($imagePresent) {
+		$backgroundImage .= 'top: 4px; left: 4px;';
+	}
+	$style = '"' . $backgroundImage . '"';
+	?>
+	
 <div id="u51_img" class="u51_normal detectCanvas"></div>
 <div id="u52" class="u52" style="visibility:hidden;"  >
 <div id="u52_rtf"></div>
