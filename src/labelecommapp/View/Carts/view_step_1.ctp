@@ -11,30 +11,13 @@
 <div id="u2" class="u2_container" style=<?php echo '"top:'.(518+(($number_of_items-1)*149)).'px"';?>  >
 <div id="u2_img" class="u2_normal detectCanvas"></div>
 <div id="u3" class="u3" style="visibility:hidden;"  >
-<div id="u3_rtf"></div>
-</div>
+	<div id="u3_rtf"></div>
+	</div>
 </div>
 <div id="u4" class="u4" style=<?php echo '"top:'.(524+(($number_of_items-1)*149)).'px"';?> >
 <div id="u4_rtf"><p style="text-align:center;"><span style="font-family:Helvetica;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#666666;">Go back shopping</span></p></div>
 </div>
-<div id="u5" class="u5_container"   >
-<div id="u5_img" class="u5_normal detectCanvas"></div>
-<div id="u6" class="u6" style="visibility:hidden;"  >
-<div id="u6_rtf"></div>
-</div>
-</div>
-<div id="u7" class="u7_container"   >
-<div id="u7_img" class="u7_normal detectCanvas"></div>
-<div id="u8" class="u8" style="visibility:hidden;"  >
-<div id="u8_rtf"></div>
-</div>
-</div>
-<div id="u9" class="u9_container"   >
-<div id="u9_img" class="u9_normal detectCanvas"></div>
-<div id="u10" class="u10" style="visibility:hidden;"  >
-<div id="u10_rtf"></div>
-</div>
-</div>
+
 <div id="u11" class="u11_container"   >
 <div id="u11_img" class="u11_normal detectCanvas"></div>
 <div id="u12" class="u12" style="visibility:hidden;"  >
@@ -61,6 +44,26 @@
 
 	?>
 <div class="item">
+<!-- photo here -->
+<div class="u5_container" style=<?php echo '"top:'.(176+$key*149).'px"';?>>
+	<div class="u5_img u5_normal detectCanvas"></div>
+	<div class="u6" style="visibility:hidden;"  >
+		<div></div>
+	</div>
+</div>
+<div class="u7_container" style=<?php echo '"top:'.(177+$key*149).'px"';?>>
+	<div class="u7_img u7_normal detectCanvas"></div>
+	<div class="u8" style="visibility:hidden;"  >
+		<div></div>
+	</div>
+</div>
+<div class="u9_container" style=<?php echo '"top:'.(182+$key*149).'px"';?>>
+	<div class="u9_img u9_normal detectCanvas"></div>
+	<div class="u10" style="visibility:hidden;"  >
+		<div></div>
+	</div>
+</div>
+<!-- end photo here -->
 <div  class="u15"  style=<?php echo '"top:'.(179+$key*149).'px"';?>>
 <div ><p style="text-align:left;"><span style="font-family:Helvetica;font-size:18px;font-weight:bold;font-style:normal;text-decoration:none;color:#404040;"></span><?php echo $cartItems['name']?></p></div>
 </div>

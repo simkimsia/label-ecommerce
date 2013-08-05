@@ -123,7 +123,7 @@ div {
     height:102px;
 }
 
-#u5_img {
+.u5_img {
     position:absolute;
     left:-3px;
     top:-3px;
@@ -157,7 +157,7 @@ div {
     height:100px;
 }
 
-#u7_img {
+.u7_img {
     position:absolute;
     left:-3px;
     top:-3px;
@@ -191,7 +191,7 @@ div {
     height:90px;
 }
 
-#u9_img {
+.u9_img {
     position:absolute;
     left:-3px;
     top:-3px;
