@@ -63,6 +63,14 @@ class CartsController extends AppController {
 			}
 		}
 
+		if ($step == 3) {
+			// get the shipping options
+			$shippingOptionModel = ClassRegistry::init('ShippingOption');
+			$options = $shippingOptionModel->find('all');
+			// then set them
+			// $this->set();
+		}
+
 		$this->set('carts', $theCart);
 		$this->render('view_step_'.$step);
 	}
