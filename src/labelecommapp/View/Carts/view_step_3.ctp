@@ -20,14 +20,29 @@ $number_of_items = $carts['Cart']['item_count'];?>
 <div id="u5" class="u5"  >
 <div id="u5_rtf"><p style="text-align:left;"><span style="font-family:Helvetica;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">Please choose one of the shipping options below:</span></p></div>
 </div>
-<DIV id="u6container" style="position:absolute; left:29px; top:231px; width:300px; height:16px; ; ; ;" >
+
+<div id="radio_button" style=<?php echo '"font-family:Helvetica;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#404040;
+;position:absolute; left:29px; top:'. 231 .'px; width:300px; height:16px; ; ; ;"'?>>
+<?php foreach($shipping_options as $key => $shipping) {?>
+  <input type="radio" name="ship_options" id=<?php echo '"'. $shipping['ShippingOption']['name'] .'"';?> value=<?php echo '"'. $shipping['ShippingOption']['name'] .'"';?> >
+<label for=<?php echo '"'. $shipping['ShippingOption']['name'] .'"';?>> 
+    <?php echo '"'. $shipping['ShippingOption']['name'] .'"';?>
+</label>
+<br><br>
+<?php }?>
+ </div>
+<!--
+<DIV id="u6container" style="position:absolute; left:29px; top:231x; width:490px; height:16px; ; ; ;" >
+    
 <LABEL for="u6">
+
 <div id="u7" class="u7"  >
 <div id="u7_rtf"><p style="text-align:left;"><span style="font-family:Helvetica;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#404040;">1 business day shipping</span></p></div>
 </div>
 </LABEL>
 <INPUT id="u6" name="RadioGroup1" style="position:absolute; left:-3px; top:-2px;" type="radio" value="radio" checked  >
 </DIV>
+
 <DIV id="u8container" style="position:absolute; left:29px; top:259px; width:490px; height:16px; ; ; ;" >
 <LABEL for="u8">
 <div id="u9" class="u9"  >
@@ -52,6 +67,7 @@ $number_of_items = $carts['Cart']['item_count'];?>
 </LABEL>
 <INPUT id="u12" name="RadioGroup1" style="position:absolute; left:-3px; top:-2px;" type="radio" value="radio"   >
 </DIV>
+-->
 <div id="u14" class="u14"  >
 <div id="u14_rtf"><p style="text-align:left;"><span style="font-family:Arial;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#BFBFBF;">Note: This is a note that adds some details to the list.</span></p></div>
 </div>

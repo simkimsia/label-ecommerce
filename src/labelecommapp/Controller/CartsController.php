@@ -50,7 +50,7 @@ class CartsController extends AppController {
 			if (empty($item['image'])) {
 				$variant_id = $item['foreign_key'];
 				$conditions = array('ProductImage.product_variant_id' => $variant_id);
-				$defaultImage = array('thumb_url');
+				$defaultImage = array('thumb_url' => '');
 				$image = $imageModel->find('first', array(
 					'conditions' => $conditions
 				));
@@ -69,6 +69,8 @@ class CartsController extends AppController {
 			$options = $shippingOptionModel->find('all');
 			// then set them
 			// $this->set();
+			$this->set('shipping_options', $options);
+			$this->log($options);
 		}
 
 		$this->set('carts', $theCart);
