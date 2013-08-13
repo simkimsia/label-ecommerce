@@ -45,42 +45,48 @@
 <INPUT id="u14" type=text value="" class="u14" data-label="Text"    >
 
 </DIV>
-<DIV id="pd0u13" style="" data-label="Disabled">
-<INPUT id="u15" type=text value="enter text..." class="u15"     >
+<form action="/users/login" method="post" id="loginForm">
+	<DIV id="pd0u13" style="" data-label="Disabled">
+	<INPUT id="u15" name="data[User][email]" type=text placeholder="example@example.com" class="u15"     >
 
-</DIV>
-</DIV>
-<div id="u16" class="u16"  >
-<div id="u16_rtf"><p style="text-align:left;"><span style="font-family:Helvetica;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">Your email address</span></p></div>
-</div>
-<div id="u17" class="u17_container"   >
-<div id="u17_img" class="u17_normal detectCanvas"></div>
-<div id="u18" class="u18" style="visibility:hidden;"  >
-<div id="u18_rtf"></div>
-</div>
-</div>
-<DIV id="u19" style="" >
-<DIV id="pd1u19" style="visibility:hidden;" data-label="Enabled">
-<INPUT id="u20" type=text value="" class="u20" data-label="Text"    >
+	</DIV>
+	</DIV>
+	<div id="u16" class="u16"  >
+	<div id="u16_rtf"><p style="text-align:left;"><span style="font-family:Helvetica;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">Your email address</span></p></div>
+	</div>
+	<div id="u17" class="u17_container"   >
+	<div id="u17_img" class="u17_normal detectCanvas"></div>
+	<div id="u18" class="u18" style="visibility:hidden;"  >
+	<div id="u18_rtf"></div>
+	</div>
+	</div>
+	<DIV id="u19" style="" >
+	<DIV id="pd1u19" style="visibility:hidden;" data-label="Enabled">
+	<INPUT id="u20" type=text value="" class="u20" data-label="Text"    >
 
-</DIV>
-<DIV id="pd0u19" style="" data-label="Disabled">
-<INPUT id="u21" type=text value="enter text..." class="u21"     >
+	</DIV>
+	<DIV id="pd0u19" style="" data-label="Disabled">
+	<INPUT id="u21" name="data[User][password]" type="password" placeholder="enter password..." class="u21"     >
 
-</DIV>
-</DIV>
-<div id="u22" class="u22"  >
-<div id="u22_rtf"><p style="text-align:left;"><span style="font-family:Helvetica;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">Your password</span></p></div>
-</div>
-<div id="u23" class="u23_container"   >
-<div id="u23_img" class="u23_normal detectCanvas"></div>
-<div id="u24" class="u24" style="visibility:hidden;"  >
-<div id="u24_rtf"></div>
-</div>
-</div>
-<div id="u25" class="u25"  >
-<div id="u25_rtf"><p style="text-align:center;"><span style="font-family:Helvetica;font-size:13px;font-weight:bold;font-style:normal;text-decoration:none;color:#FFFFFF;">Login</span></p></div>
-</div><div id="u26" class="u26" >
+	</DIV>
+	</DIV>
+
+	<div id="u22" class="u22"  >
+	<div id="u22_rtf"><p style="text-align:left;"><span style="font-family:Helvetica;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">Your password</span></p></div>
+	</div>
+	<div id="u23" class="u23_container submitForLogin"   >
+		<div id="u23_img" class="u23_normal detectCanvas"></div>
+		<div id="u24" class="u24" style="visibility:hidden;"  >
+			<div id="u24_rtf"></div>
+		</div>
+	</div>
+	<!-- Login button -->
+	<div id="u25" class="u25 submitForLogin"  >
+		<div id="u25_rtf"><p style="text-align:center;"><span style="font-family:Helvetica;font-size:13px;font-weight:bold;font-style:normal;text-decoration:none;color:#FFFFFF;">Login</span></p></div>
+	</div>
+</form>
+
+<div id="u26" class="u26" >
 <DIV id="u26_line" class="u26_line" ></DIV>
 </div>
 <div id="u27" class="u27"  >
@@ -154,3 +160,18 @@
 <div id="u50_rtf"><p style="text-align:left;"><span style="font-family:Helvetica;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">Payment confirmation</span></p></div>
 </div>
 </div>
+
+
+<?php $this->append('scriptBottom'); ?>
+<script type="text/javascript">
+	$(document).ready(function() {
+
+		$(".submitForLogin").click(function() {
+			console.log("oi!!");
+			// what happens when cliock on u23
+			$("#loginForm").submit();
+		});
+
+	});
+</script>
+<?php $this->end('scriptBottom'); ?>

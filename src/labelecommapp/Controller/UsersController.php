@@ -146,10 +146,19 @@ class UsersController extends AppController {
 		}
 	}
 
+	protected function _comeFromCartStep2($referer) {
+		return (strpos($referer, 'step=2') !== false);
+	}
+
 	public function login() {
 		if ($this->request->is('post')) {
 			if ($this->Auth->login()) {
-				$this->redirect($this->Auth->redirectUrl());
+				$referer = $this->referer();
+				$redirectTo = $this->Auth->redirectUrl();
+				if ($this->_comeFromCartStep2($referer)) {
+					$redirectTo = '/carts/view?step=3';
+				}
+				$this->redirect($redirectTo);
 			} else {
 				$this->Session->setFlash('Your username or password was incorrect.');
 			}

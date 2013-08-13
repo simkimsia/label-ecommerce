@@ -37,6 +37,9 @@ class CartsController extends AppController {
 		}else{
 			$step = 1;
 		}
+		if($step == 2 && $this->Auth->user('id') > 0) {
+			$this->redirect('/carts/view');
+		}
 		$this->set('step', $step);
 		$this->layout = 'cart';
 		// $this->log($this->Session->read('Cart'));
@@ -179,6 +182,6 @@ class CartsController extends AppController {
  */
 
 	public function save_address(){
-		
+
 	}
 }

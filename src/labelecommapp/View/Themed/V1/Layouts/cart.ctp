@@ -13,8 +13,9 @@
 </head>
 <body>
 	<?php echo $this->fetch('content');?>
+	<?php echo $this->Html->script('jquery-1.10.2'); ?>
+	<?php echo $this->fetch('scriptBottom'); ?>
 </body>
-
 </html>
 
 
