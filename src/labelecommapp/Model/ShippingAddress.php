@@ -13,4 +13,8 @@ class ShippingAddress extends AppModel {
  */
 	public $displayField = 'name';
 
+	public $actsAs = array(
+        'UtilityBehaviors.FindXORCreatable'
+    );
+
 }

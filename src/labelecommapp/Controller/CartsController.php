@@ -23,6 +23,19 @@ class CartsController extends AppController {
 		$this->set('carts', $this->paginate());
 	}
 
+	protected function _checkLoginAtStep2($step) {
+		if($step == 2 && $this->Auth->user('id') > 0) {
+			$this->redirect('/carts/view');
+		}
+	}
+
+	protected function _checkLoginAtStep3And4($step) {
+		if(($step == 3 || $step == 4) && !$this->Auth->login()){
+			$this->redirect('/carts/view?step=2');
+		}
+	}
+
+
 /**
  * view method
  *
@@ -37,9 +50,10 @@ class CartsController extends AppController {
 		}else{
 			$step = 1;
 		}
-		if($step == 2 && $this->Auth->user('id') > 0) {
-			$this->redirect('/carts/view');
-		}
+		
+		$this->_checkLoginAtStep2($step);
+		$this->_checkLoginAtStep3And4($step);
+		
 		$this->set('step', $step);
 		$this->layout = 'cart';
 		// $this->log($this->Session->read('Cart'));
@@ -73,7 +87,7 @@ class CartsController extends AppController {
 			// then set them
 			// $this->set();
 			$this->set('shipping_options', $options);
-			$this->log($options);
+			//$this->log($options);
 		}
 
 		$this->set('carts', $theCart);
@@ -98,6 +112,21 @@ class CartsController extends AppController {
 			}
 		}
 		return $url;
+	}
+
+/**
+ * save shipping address
+ *
+ */
+
+	public function save_address(){
+		$this->log($this->request->data);
+
+		$address_data = $this->request->data['ShippingAddress'];
+		$address_data['user_id'] = $this->Auth->user('id');
+		$shipping_address_model = ClassRegistry::init('ShippingAddress');
+		$shipping_address_model->findXORCreate($address_data);
+
 	}
 
 /**
@@ -176,12 +205,5 @@ class CartsController extends AppController {
 		
 	}
 
-/**
- * save shipping address
- *
- */
 
-	public function save_address(){
-
-	}
 }

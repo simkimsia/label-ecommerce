@@ -20,11 +20,11 @@ $number_of_items = $carts['Cart']['item_count'];?>
 <div id="u5" class="u5"  >
 <div id="u5_rtf"><p style="text-align:left;"><span style="font-family:Helvetica;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">Please choose one of the shipping options below:</span></p></div>
 </div>
-
+<form action="/carts/save_address" method = "post" name="shippingOrders" id="shippingForm"> 
 <div id="radio_button" style=<?php echo '"font-family:Helvetica;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#404040;
 ;position:absolute; left:29px; top:'. 231 .'px; width:300px; height:16px; ; ; ;"'?>>
 <?php foreach($shipping_options as $key => $shipping) {?>
-  <input type="radio" name="ship_options" id=<?php echo '"'. $shipping['ShippingOption']['name'] .'"';?> value="<?php echo $shipping['ShippingOption']['name'];?>" >
+  <input type="radio" name="data[Order][shipping_option_id]" id="<?php echo $shipping['ShippingOption']['name'];?>" value="<?php echo $shipping['ShippingOption']['name'];?>" >
 <label for=<?php echo '"'. $shipping['ShippingOption']['name'] .'"';?>> 
     <?php echo  $shipping['ShippingOption']['name'];?>
 </label>
@@ -92,7 +92,7 @@ $number_of_items = $carts['Cart']['item_count'];?>
 
 </DIV>
 <DIV id="pd0u20" style="" data-label="Disabled">
-<INPUT id="u22" type=text placeholder="enter text..." class="u22"     >
+<INPUT id="u22" name="data[ShippingAddress][name]" type=text placeholder="enter text..." class="u22"     >
 
 </DIV>
 </DIV>
@@ -111,7 +111,7 @@ $number_of_items = $carts['Cart']['item_count'];?>
 
 </DIV>
 <DIV id="pd0u26" style="" data-label="Disabled">
-<INPUT id="u28" type=text placeholder="enter text..." class="u28"     >
+<INPUT id="u28" name="data[ShippingAddress][address]" type=text placeholder="enter text..." class="u28"     >
 
 </DIV>
 </DIV>
@@ -146,7 +146,7 @@ $number_of_items = $carts['Cart']['item_count'];?>
 
 </DIV>
 <DIV id="pd0u37" style="" data-label="Disabled">
-<INPUT id="u39" type=text placeholder="enter text..." class="u39"     >
+<INPUT id="u39" name="data[ShippingAddress][city]" type=text placeholder="enter text..." class="u39"     >
 
 </DIV>
 </DIV>
@@ -165,7 +165,7 @@ $number_of_items = $carts['Cart']['item_count'];?>
 
 </DIV>
 <DIV id="pd0u43" style="" data-label="Disabled">
-<INPUT id="u45" type=text placeholder="enter text..." class="u45"     >
+<INPUT id="u45" name="data[ShippingAddress][state]"type=text placeholder="enter text..." class="u45"     >
 
 </DIV>
 </DIV>
@@ -175,7 +175,7 @@ $number_of_items = $carts['Cart']['item_count'];?>
 <div id="u47" class="u47"  >
 <div id="u47_rtf"><p style="text-align:right;"><span style="font-family:Helvetica;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">Country</span></p></div>
 </div>
-<SELECT id="u48" class="u48"   >
+<SELECT id="u48" class="u48"  name="data[ShippingAddress][country]" >
 <OPTION  selected value="Singapore">Singapore</OPTION>
 <OPTION  value="Australia">Australia</OPTION>
 <OPTION  value="Canada">Canada</OPTION>
@@ -440,7 +440,7 @@ $number_of_items = $carts['Cart']['item_count'];?>
 
 </DIV>
 <DIV id="pd0u51" style="" data-label="Disabled">
-<INPUT id="u53" type=text placeholder="enter text..." class="u53"     >
+<INPUT id="u53" name="data[ShippingAddress][phone_number]" type=text placeholder="enter text..." class="u53"     >
 
 </DIV>
 </DIV>
@@ -753,12 +753,13 @@ $number_of_items = $carts['Cart']['item_count'];?>
 <div id="u152" class="u152"  style=<?php echo '"top:'.(1574+(($number_of_items-1)*149)).'px"';?> >
 <div></div><div id="u152_rtf"><p style="text-align:left;"><span style="font-family:Helvetica;font-size:20px;font-weight:bold;font-style:normal;text-decoration:none;color:#FFFFFF;">$418.00</span></p></div>
 </div>
-<div id="u153" class="u153_container"  style=<?php echo '"top:'.(1648+(($number_of_items-1)*149)).'px"';?> >
+<div id="u153" class="u153_container submitForShipping"  style=<?php echo '"top:'.(1648+(($number_of_items-1)*149)).'px"';?> >
 <div id="u153_img" class="u153_normal detectCanvas"></div>
 <div id="u154" class="u154" style="visibility:hidden;"  >
 <div id="u154_rtf"></div>
 </div>
 </div>
+</form>
 <div id="u155" class="u155" style=<?php echo '"top:'.(1654+(($number_of_items-1)*149)).'px"';?> >
 <div id="u155_rtf"><p style="text-align:center;"><span style="font-family:Helvetica;font-size:13px;font-weight:bold;font-style:normal;text-decoration:none;color:#FFFFFF;">Review order</span></p></div>
 </div>
@@ -802,3 +803,19 @@ $number_of_items = $carts['Cart']['item_count'];?>
 <DIV id="u169" style=<?php echo '"border-style:dotted; border-color:red; visibility:hidden; position:absolute; left:9px; top:'.(1435+(($number_of_items-1)*149)).'px; width:940px; height:188px;;"';?> ></div>
     <!-- footer ends -->
 </div>
+
+
+
+<?php $this->append('scriptBottom'); ?>
+<script type="text/javascript">
+    $(document).ready(function() {
+
+        $(".submitForShipping").click(function() {
+            console.log("oi!!");
+            // what happens when click on u153
+            $("#shippingForm").submit();
+        });
+
+    });
+</script>
+<?php $this->end('scriptBottom'); ?>
