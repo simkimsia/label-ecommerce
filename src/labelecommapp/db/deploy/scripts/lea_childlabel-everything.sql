@@ -161,6 +161,18 @@ INSERT INTO `acos` (`id`, `parent_id`, `model`, `foreign_key`, `alias`, `lft`, `
 (141,	137,	NULL,	NULL,	'admin_edit',	279,	280),
 (142,	137,	NULL,	NULL,	'admin_delete',	281,	282);
 
+DROP TABLE IF EXISTS `addresses`;
+CREATE TABLE `addresses` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `order_address_id` varchar(36) NOT NULL,
+  `user_id` int(11) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+INSERT INTO `addresses` (`id`, `order_address_id`, `user_id`) VALUES
+(1,	'5209',	3),
+(2,	'5209d6bd-fd78-48a7-a815-075dd87f8d82',	3);
+
 DROP TABLE IF EXISTS `aros`;
 CREATE TABLE `aros` (
   `id` int(10) NOT NULL AUTO_INCREMENT,
@@ -341,6 +353,10 @@ CREATE TABLE `order_addresses` (
   KEY `ORDER_INDEX` (`order_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+INSERT INTO `order_addresses` (`id`, `order_id`, `user_id`, `first_name`, `last_name`, `company`, `street`, `street2`, `city`, `zip`, `country`, `type`, `created`, `modified`) VALUES
+('5209cea6-62fc-4f6c-b584-074cd87f8d82',	NULL,	'3',	'sim',	NULL,	NULL,	'asd',	NULL,	'asd',	'123',	'SG',	'sh',	'2013-08-12 23:13:58',	'2013-08-12 23:13:58'),
+('5209d6bd-c3c8-45b8-9418-075dd87f8d82',	NULL,	'3',	'qwe',	NULL,	NULL,	'asxd',	NULL,	'zxc',	'800',	'SG',	'bi',	'2013-08-12 23:48:29',	'2013-08-12 23:48:29'),
+('5209d6bd-fd78-48a7-a815-075dd87f8d82',	NULL,	'3',	'',	NULL,	NULL,	'',	NULL,	'',	'',	'SG',	'sh',	'2013-08-12 23:48:29',	'2013-08-12 23:48:29');
 
 DROP TABLE IF EXISTS `order_items`;
 CREATE TABLE `order_items` (
@@ -538,19 +554,6 @@ INSERT INTO `schema_migrations` (`id`, `class`, `type`, `created`) VALUES
 (4,	'D287dbf03fef11e1b86c0800200c9a66',	'Cart',	'2013-07-22 19:01:50'),
 (5,	'ChangesAndNewFields',	'Cart',	'2013-07-22 19:01:50');
 
-DROP TABLE IF EXISTS `shipping_addresses`;
-CREATE TABLE `shipping_addresses` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `name` varchar(255) NOT NULL,
-  `address` text NOT NULL,
-  `city` varchar(255) NOT NULL,
-  `country` varchar(255) NOT NULL,
-  `state` varchar(255) NOT NULL,
-  `phone_number` varchar(255) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
-
 DROP TABLE IF EXISTS `shipping_methods`;
 CREATE TABLE `shipping_methods` (
   `id` varchar(36) NOT NULL,
@@ -598,4 +601,4 @@ INSERT INTO `users` (`id`, `full_name`, `email`, `password`, `short_name`, `toke
 (3,	'AikChun1',	'aikchun616@gmail.com',	'275108ab67a27356dab9dcff38275c044766397f',	'AikChun1',	NULL,	1,	'2013-06-28 13:51:57',	'2013-06-30 09:04:43'),
 (4,	'Daphne Ling',	'daphne@motherinc.org',	'275108ab67a27356dab9dcff38275c044766397f',	'Daphne',	'NULL',	3,	'2013-07-02 09:30:20',	'2013-07-02 09:30:20');
 
--- 2013-08-12 18:22:05
+-- 2013-08-12 23:57:24
