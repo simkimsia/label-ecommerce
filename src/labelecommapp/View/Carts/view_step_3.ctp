@@ -24,9 +24,9 @@ $number_of_items = $carts['Cart']['item_count'];?>
 <div id="radio_button" style=<?php echo '"font-family:Helvetica;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#404040;
 ;position:absolute; left:29px; top:'. 231 .'px; width:300px; height:16px; ; ; ;"'?>>
 <?php foreach($shipping_options as $key => $shipping) {?>
-  <input type="radio" name="ship_options" id=<?php echo '"'. $shipping['ShippingOption']['name'] .'"';?> value=<?php echo '"'. $shipping['ShippingOption']['name'] .'"';?> >
+  <input type="radio" name="ship_options" id=<?php echo '"'. $shipping['ShippingOption']['name'] .'"';?> value="<?php echo $shipping['ShippingOption']['name'];?>" >
 <label for=<?php echo '"'. $shipping['ShippingOption']['name'] .'"';?>> 
-    <?php echo '"'. $shipping['ShippingOption']['name'] .'"';?>
+    <?php echo  $shipping['ShippingOption']['name'];?>
 </label>
 <br><br>
 <?php }?>
@@ -92,7 +92,7 @@ $number_of_items = $carts['Cart']['item_count'];?>
 
 </DIV>
 <DIV id="pd0u20" style="" data-label="Disabled">
-<INPUT id="u22" type=text value="enter text..." class="u22"     >
+<INPUT id="u22" type=text placeholder="enter text..." class="u22"     >
 
 </DIV>
 </DIV>
@@ -111,7 +111,7 @@ $number_of_items = $carts['Cart']['item_count'];?>
 
 </DIV>
 <DIV id="pd0u26" style="" data-label="Disabled">
-<INPUT id="u28" type=text value="enter text..." class="u28"     >
+<INPUT id="u28" type=text placeholder="enter text..." class="u28"     >
 
 </DIV>
 </DIV>
@@ -130,7 +130,7 @@ $number_of_items = $carts['Cart']['item_count'];?>
 
 </DIV>
 <DIV id="pd0u32" style="" data-label="Disabled">
-<INPUT id="u34" type=text value="enter text..." class="u34"     >
+<INPUT id="u34" type=text placeholder="enter text..." class="u34"     >
 
 </DIV>
 </DIV>
@@ -146,7 +146,7 @@ $number_of_items = $carts['Cart']['item_count'];?>
 
 </DIV>
 <DIV id="pd0u37" style="" data-label="Disabled">
-<INPUT id="u39" type=text value="enter text..." class="u39"     >
+<INPUT id="u39" type=text placeholder="enter text..." class="u39"     >
 
 </DIV>
 </DIV>
@@ -165,7 +165,7 @@ $number_of_items = $carts['Cart']['item_count'];?>
 
 </DIV>
 <DIV id="pd0u43" style="" data-label="Disabled">
-<INPUT id="u45" type=text value="enter text..." class="u45"     >
+<INPUT id="u45" type=text placeholder="enter text..." class="u45"     >
 
 </DIV>
 </DIV>
@@ -176,8 +176,9 @@ $number_of_items = $carts['Cart']['item_count'];?>
 <div id="u47_rtf"><p style="text-align:right;"><span style="font-family:Helvetica;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">Country</span></p></div>
 </div>
 <SELECT id="u48" class="u48"   >
+<OPTION  selected value="Singapore">Singapore</OPTION>
 <OPTION  value="Australia">Australia</OPTION>
-<OPTION selected value="Canada">Canada</OPTION>
+<OPTION  value="Canada">Canada</OPTION>
 <OPTION  value="France">France</OPTION>
 <OPTION  value="Germany">Germany</OPTION>
 <OPTION  value="Netherlands">Netherlands</OPTION>
@@ -439,7 +440,7 @@ $number_of_items = $carts['Cart']['item_count'];?>
 
 </DIV>
 <DIV id="pd0u51" style="" data-label="Disabled">
-<INPUT id="u53" type=text value="enter text..." class="u53"     >
+<INPUT id="u53" type=text placeholder="enter text..." class="u53"     >
 
 </DIV>
 </DIV>
