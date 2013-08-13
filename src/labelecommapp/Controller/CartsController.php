@@ -122,10 +122,21 @@ class CartsController extends AppController {
 	public function save_address(){
 		$this->log($this->request->data);
 
+		$this->request->onlyAllow('post');
+
 		$address_data = $this->request->data['ShippingAddress'];
 		$address_data['user_id'] = $this->Auth->user('id');
 		$shipping_address_model = ClassRegistry::init('ShippingAddress');
 		$shipping_address_model->findXORCreate($address_data);
+
+		if($shipping_address_model->findXORCreate($address_data)) {
+			$this->Session->setFlash(__('Shipping address have been saved'));
+			$this->redirect('/carts/view?step=4');
+		}
+
+		$this->Session->setFlash(__('Shipping could not be saved'));
+		$this->redirect('carts/view?step=2');
+
 
 	}
 
