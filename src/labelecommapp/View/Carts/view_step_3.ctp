@@ -55,7 +55,7 @@ $number_of_items = $carts['Cart']['item_count'];?>
 
 </DIV>
 <DIV id="pd0u20" style="" data-label="Disabled">
-<INPUT id="u22" name="data[ShippingAddress][first_name]" type=text placeholder="enter text..." class="u22"     >
+<INPUT id="shipping_name" name="data[ShippingAddress][first_name]" type=text placeholder="enter text..." class="u22"     >
 
 </DIV>
 </DIV>
@@ -74,7 +74,7 @@ $number_of_items = $carts['Cart']['item_count'];?>
 
 </DIV>
 <DIV id="pd0u26" style="" data-label="Disabled">
-<INPUT id="u28" name="data[ShippingAddress][street]" type=text placeholder="enter text..." class="u28"     >
+<INPUT id="shipping_street" name="data[ShippingAddress][street]" type=text placeholder="enter text..." class="u28"     >
 
 </DIV>
 </DIV>
@@ -93,7 +93,7 @@ $number_of_items = $carts['Cart']['item_count'];?>
 
 </DIV>
 <DIV id="pd0u32" style="" data-label="Disabled">
-<INPUT id="u34" name="data[ShippingAddress][street2]" type=text placeholder="enter text..." class="u34"     >
+<INPUT id="shipping_street2" name="data[ShippingAddress][street2]" type=text placeholder="enter text..." class="u34"     >
 
 </DIV>
 </DIV>
@@ -112,7 +112,7 @@ $number_of_items = $carts['Cart']['item_count'];?>
 
 </DIV>
 <DIV id="pd0u38" style="" data-label="Disabled">
-<INPUT id="u40" name="data[ShippingAddress][zip]" type=text placeholder="enter text..." class="u40"     >
+<INPUT id="shipping_zip" name="data[ShippingAddress][zip]" type=text placeholder="enter text..." class="u40"     >
 
 </DIV>
 </DIV>
@@ -122,7 +122,7 @@ $number_of_items = $carts['Cart']['item_count'];?>
 <div id="u42" class="u42"  >
 <div id="u42_rtf"><p style="text-align:right;"><span style="font-family:Helvetica;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">Country</span></p></div>
 </div>
-<SELECT id="u43" class="u43"  name="data[ShippingAddress][country]" >
+<SELECT id="shipping_country" class="u43"  name="data[ShippingAddress][country]" >
     <?php echo $this->element('country_dropdown');?>
 </SELECT>
 
@@ -214,7 +214,7 @@ $number_of_items = $carts['Cart']['item_count'];?>
 
 </DIV>
 <DIV id="pd0u70" style="" data-label="Disabled">
-<INPUT id="u72" name="data[ShippingAddress][city]" type=text placeholder="enter text..." class="u72"     >
+<INPUT id="shipping_city" name="data[ShippingAddress][city]" type=text placeholder="enter text..." class="u72"     >
 
 </DIV>
 </DIV>
@@ -249,7 +249,7 @@ $number_of_items = $carts['Cart']['item_count'];?>
 
 </DIV>
 <DIV id="pd0u77" style="" data-label="Disabled">
-<INPUT id="u79" name="data[BillingAddress][first_name]" type=text placeholder="enter text..." class="u79"     >
+<INPUT id="billing_name" name="data[BillingAddress][first_name]" type=text placeholder="enter text..." class="u79"     >
 
 </DIV>
 </DIV>
@@ -268,7 +268,7 @@ $number_of_items = $carts['Cart']['item_count'];?>
 
 </DIV>
 <DIV id="pd0u83" style="" data-label="Disabled">
-<INPUT id="u85" name="data[BillingAddress][street]" type=text placeholder="enter text..." class="u85"     >
+<INPUT id="billing_street" name="data[BillingAddress][street]" type=text placeholder="enter text..." class="u85"     >
 
 </DIV>
 </DIV>
@@ -287,7 +287,7 @@ $number_of_items = $carts['Cart']['item_count'];?>
 
 </DIV>
 <DIV id="pd0u89" style="" data-label="Disabled">
-<INPUT id="u91" name="data[BillingAddress][street2]" type=text placeholder="enter text..." class="u91">
+<INPUT id="billing_street2" name="data[BillingAddress][street2]" type=text placeholder="enter text..." class="u91">
 
 </DIV>
 </DIV>
@@ -306,7 +306,7 @@ $number_of_items = $carts['Cart']['item_count'];?>
 
 </DIV>
 <DIV id="pd0u95" style="" data-label="Disabled">
-<INPUT id="u97" name="data[BillingAddress][zip]" type=text placeholder="enter text..." class="u97"     >
+<INPUT id="billing_zip" name="data[BillingAddress][zip]" type=text placeholder="enter text..." class="u97"     >
 
 </DIV>
 </DIV>
@@ -316,7 +316,7 @@ $number_of_items = $carts['Cart']['item_count'];?>
 <div id="u99" class="u99"  >
 <div id="u99_rtf"><p style="text-align:right;"><span style="font-family:Helvetica;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">Country</span></p></div>
 </div>
-<SELECT id="u100" class="u100"   name="data[BillingAddress][country]">
+<SELECT id="billing_country" class="u100"   name="data[BillingAddress][country]">
     <?php echo $this->element('country_dropdown');?>
 </SELECT>
 
@@ -332,7 +332,7 @@ $number_of_items = $carts['Cart']['item_count'];?>
 
 </DIV>
 <DIV id="pd0u103" style="" data-label="Disabled">
-<INPUT id="u105" name="data[BillingAddress][city]" type=text placeholder="enter text..." class="u105"     >
+<INPUT id="billing_city" name="data[BillingAddress][city]" type=text placeholder="enter text..." class="u105"     >
 
 </DIV>
 </DIV>
@@ -351,7 +351,10 @@ $number_of_items = $carts['Cart']['item_count'];?>
 
     <?php endforeach; ?>
 
+    <OPTION value="dash" disabled>---</OPTION>
+    <OPTION value="new" >new address</OPTION>
 </SELECT>
+
 <?php }?>
 </div>
 <?php $this->append('scriptBottom'); ?>
@@ -381,10 +384,16 @@ $number_of_items = $carts['Cart']['item_count'];?>
                     console.log("change shipping!!");
                     // what happens when click on u153
                     selectedShippingIndex = $(this).val();
-                    selectedShipping = shipping_addresses[selectedShippingIndex];
-                    console.log(selectedShipping);
-
+                    if(selectedShippingIndex == 'new') {
+                        clearForm('shipping');
+                    }else {
+                        selectedShipping = shipping_addresses[selectedShippingIndex];
+                        console.log(selectedShipping);
+                        fillInForm('shipping');
+                    }
                 });
+
+                fillInForm('shipping');
 
             }
             if(billing_addresses.length != 0) {
@@ -394,14 +403,62 @@ $number_of_items = $carts['Cart']['item_count'];?>
                     console.log("change billing!!");
                     // what happens when click on u153
                     selectedBillingIndex = $(this).val();
-                    selectedBilling = billing_addresses[selectedBillingIndex];
-                    console.log(selectedBilling);
+                    if(selectedBillingIndex == 'new') {
+                        clearForm('billing');
+                    }else {
+                        selectedBilling = billing_addresses[selectedBillingIndex];
+                        console.log(selectedBilling);
+                        fillInForm('billing');
+                    }
+
                 });
-                
+
+            fillInForm('billing');
+            }
+        }
+
+        function fillInForm(type) {
+            if (type == 'shipping') {
+                $("#shipping_name").val(selectedShipping['first_name']);
+                $("#shipping_street").val(selectedShipping['street']);
+                $("#shipping_street2").val(selectedShipping['street2']);
+                $("#shipping_city").val(selectedShipping['city']);
+                $("#shipping_country").val(selectedShipping['country']);
+                $("#shipping_zip").val(selectedShipping['zip']);
+
+            }
+            if (type == 'billing') {
+                $("#billing_name").val(selectedBilling['first_name']);
+                $("#billing_street").val(selectedBilling['street']);
+                $("#billing_street2").val(selectedBilling['street2']);
+                $("#billing_city").val(selectedBilling['city']);
+                $("#billing_country").val(selectedBilling['country']);
+                $("#billing_zip").val(selectedBilling['zip']);
+
             }
 
         }
+        function clearForm(type) {
+            if (type == 'shipping') {
+                $("#shipping_name").val('');
+                $("#shipping_street").val('');
+                $("#shipping_street2").val('');
+                $("#shipping_city").val('');
+                $("#shipping_country").val('SG');
+                $("#shipping_zip").val('');
 
+            }
+            if (type == 'billing') {
+                $("#billing_name").val('');
+                $("#billing_street").val('');
+                $("#billing_street2").val('');
+                $("#billing_city").val('');
+                $("#billing_country").val('SG');
+                $("#billing_zip").val('');
+
+            }
+
+        }
     });
 </script>
 <?php $this->end('scriptBottom'); ?>
