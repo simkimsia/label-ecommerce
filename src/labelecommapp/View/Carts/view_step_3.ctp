@@ -218,19 +218,25 @@ $number_of_items = $carts['Cart']['item_count'];?>
 
 </DIV>
 </DIV>
-<SELECT id="u73" class="u73"   >
-    <?php foreach($shipping_addresses as $address):
-        $format = '%1$s %2$s %3$s %4$s';
-        $display = sprintf($format, $address['first_name'], $address['street'], $address['street2'], $address['zip']);
-        ?>
-        <OPTION><?php echo $display; ?></OPTION>
-
-    <?php endforeach; ?>
-</SELECT>
-
+<?php if(!empty($shipping_addresses)){
+    ?>
 <div id="u74" class="u74"  >
 <div id="u74_rtf"><p style="text-align:left;"><span style="font-family:Arial;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">Use previously saved address:</span></p></div>
 </div>
+
+<SELECT id="u73" class="u73"   >
+    <?php foreach($shipping_addresses as $index => $address):
+        $format = '%1$s %2$s %3$s %4$s';
+        $display = sprintf($format, $address['first_name'], $address['street'], $address['street2'], $address['zip']);
+        $selected = ($index == 0)? ' selected' : '';
+        ?>
+        <OPTION value="<?php echo $index; ?>" <?php echo $selected; ?>><?php echo $display; ?></OPTION>
+
+    <?php endforeach; ?>
+    <OPTION value="dash" disabled>---</OPTION>
+    <OPTION value="new" >new address</OPTION>
+</SELECT>
+<?php }?>
 <div id="u75" class="u75_container"   >
 <div id="u75_img" class="u75_normal detectCanvas"></div>
 <div id="u76" class="u76" style="visibility:hidden;"  >
@@ -330,30 +336,71 @@ $number_of_items = $carts['Cart']['item_count'];?>
 
 </DIV>
 </DIV>
+<?php if(!empty($billing_addresses)) {?>
+<div id="u107" class="u107"  >
+<div id="u107_rtf"><p style="text-align:left;"><span style="font-family:Arial;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">Use previously saved address:</span></p></div>
+</div>
 <SELECT id="u106" class="u106"   >
-    <?php foreach($billing_addresses as $address):
+    <?php foreach($billing_addresses as $index => $address):
         $format = '%1$s %2$s %3$s %4$s';
         $display = sprintf($format, $address['first_name'], $address['street'], $address['street2'], $address['zip']);
+        $selected = ($index == 0)? ' selected' : '';
+
         ?>
-        <OPTION><?php echo $display; ?></OPTION>
+        <OPTION value="<?php echo $index; ?>"<?php echo $selected; ?> ><?php echo $display; ?></OPTION>
 
     <?php endforeach; ?>
 
 </SELECT>
-
-<div id="u107" class="u107"  >
-<div id="u107_rtf"><p style="text-align:left;"><span style="font-family:Arial;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">Use previously saved address:</span></p></div>
-</div>
+<?php }?>
 </div>
 <?php $this->append('scriptBottom'); ?>
 <script type="text/javascript">
+        var shipping_addresses =  null;
+        var billing_addresses =  null;
+        var selectedBillingIndex = null;
+        var selectedBilling = null;
+        var selectedShippingIndex = null;
+        var selectedShipping = null;
     $(document).ready(function() {
+        initializeAddresses();
 
         $(".submitForShipping").click(function() {
             console.log("oi!!");
             // what happens when click on u153
             $("#shippingForm").submit();
         });
+
+        function initializeAddresses() {
+            shipping_addresses =  JSON.parse('<?php echo json_encode($shipping_addresses); ?>');
+            billing_addresses =  JSON.parse('<?php echo json_encode($billing_addresses); ?>');
+            if(shipping_addresses.length != 0) {
+                selectedShippingIndex = $("#u73").val();
+                selectedShipping = shipping_addresses[selectedShippingIndex];
+                $("#u73").change(function() {
+                    console.log("change shipping!!");
+                    // what happens when click on u153
+                    selectedShippingIndex = $(this).val();
+                    selectedShipping = shipping_addresses[selectedShippingIndex];
+                    console.log(selectedShipping);
+
+                });
+
+            }
+            if(billing_addresses.length != 0) {
+                selectedBillingIndex = $("#u106").val();
+                selectedBilling = billing_addresses[selectedBillingIndex];
+                $("#u106").change(function() {
+                    console.log("change billing!!");
+                    // what happens when click on u153
+                    selectedBillingIndex = $(this).val();
+                    selectedBilling = billing_addresses[selectedBillingIndex];
+                    console.log(selectedBilling);
+                });
+                
+            }
+
+        }
 
     });
 </script>
