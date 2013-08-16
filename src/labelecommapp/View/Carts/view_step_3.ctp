@@ -186,7 +186,7 @@ $number_of_items = $carts['Cart']['item_count'];?>
 <div id="u62_rtf"><p style="text-align:left;"><span style="font-family:Helvetica;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">Save this billing address for future use</span></p></div>
 </div>
 </LABEL>
-<INPUT id="u61" style="position:absolute; left:-3px; top:-2px;" type="checkbox" value="checkbox"  checked >
+<INPUT id="u61" name="data[BillingAddress][save]" style="position:absolute; left:-3px; top:-2px;" type="checkbox" value="checked"  checked >
 </DIV>
 <div id="u63" class="u63"  >
 <div id="u63_rtf"><p style="text-align:left;"><span style="font-family:Helvetica;font-size:18px;font-weight:bold;font-style:normal;text-decoration:none;color:#404040;">Billing address</span></p></div>
@@ -219,6 +219,13 @@ $number_of_items = $carts['Cart']['item_count'];?>
 </DIV>
 </DIV>
 <SELECT id="u73" class="u73"   >
+    <?php foreach($shipping_addresses as $address):
+        $format = '%1$s %2$s %3$s %4$s';
+        $display = sprintf($format, $address['first_name'], $address['street'], $address['street2'], $address['zip']);
+        ?>
+        <OPTION><?php echo $display; ?></OPTION>
+
+    <?php endforeach; ?>
 </SELECT>
 
 <div id="u74" class="u74"  >
@@ -324,6 +331,14 @@ $number_of_items = $carts['Cart']['item_count'];?>
 </DIV>
 </DIV>
 <SELECT id="u106" class="u106"   >
+    <?php foreach($billing_addresses as $address):
+        $format = '%1$s %2$s %3$s %4$s';
+        $display = sprintf($format, $address['first_name'], $address['street'], $address['street2'], $address['zip']);
+        ?>
+        <OPTION><?php echo $display; ?></OPTION>
+
+    <?php endforeach; ?>
+
 </SELECT>
 
 <div id="u107" class="u107"  >

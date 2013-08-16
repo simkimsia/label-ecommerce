@@ -88,6 +88,13 @@ class CartsController extends AppController {
 			// $this->set();
 			$this->set('shipping_options', $options);
 			//$this->log($options);
+			$addressModel = ClassRegistry::init('Address');
+			$user_id = $this->Auth->user('id');
+			$addresses = $addressModel->getAllByUser($user_id);
+			$shipping_addresses = Hash::extract($addresses, '{n}.OrderAddress[type = sh]');
+			$billing_addresses = Hash::extract($addresses, '{n}.OrderAddress[type = bi]');
+			$this->set(compact('shipping_addresses', 'billing_addresses'));
+
 		}
 
 		$this->set('carts', $theCart);

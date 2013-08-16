@@ -11,6 +11,14 @@ class Address extends AppModel {
         'UtilityBehaviors.FindXORCreatable'
     );
 
+     public $belongsTo = array(
+        'OrderAddress' => array(
+            'className'    => 'OrderAddress',
+            'foreignKey'   => 'order_address_id'
+        )
+        
+    );
+
     // a function that findsXORCreate OrderAdddress for shipping
 /**
  * given $shippingAddressData without alias as key we need to findXORCreate OrderAddress for shipping
@@ -88,6 +96,19 @@ class Address extends AppModel {
     	}
     	
     	return $result;
+    }
+
+/**
+ * Get all the shipping address and billing address of the user
+ *
+ */
+    public function getAllByUser($user_id) {
+
+        $conditions = array('Address.user_id' => $user_id);
+        $addresses = $this->find('all', 
+            array('conditions' => $conditions,
+                'contain' => array('OrderAddress')));
+        return $addresses;
     }
 
 }
