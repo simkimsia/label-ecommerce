@@ -31,15 +31,15 @@ class Address extends AppModel {
     	// we expect the minimum fields
     	// user_id, save
     	// these are the expected fields from the form
-    	// name, address, country, state, city, phone_number
+    	// name, address, country, state, city
     	$saveToAddressBook = array_key_exists('save', $shippingAddressData);
-    	unset($shippingAddressData['save']);
+    	
     	// instantiate teh model
     	$orderAddressModel = ClassRegistry::init('OrderAddress');
     	// attach the FindXORCreatable behaavior to the model
     	$orderAddressModel->Behaviors->attach('UtilityBehaviors.FindXORCreatable');
     	// make sure that the address is meant for shipping
-    	$shippingAddressData['type'] = 'shipping';
+    	$shippingAddressData['type'] = 'sh';
     	$shippingAddress = $orderAddressModel->findXORCreate($shippingAddressData);
 
     	$errorInFindXORCreateShipping = empty($shippingAddress);
@@ -73,13 +73,13 @@ class Address extends AppModel {
     	// these are the expected fields from the form
     	// name, address, country, state, city, phone_number
     	$saveToAddressBook = array_key_exists('save', $billingAddressData);
-    	unset($billingAddressData['save']);
+    	
     	// instantiate teh model
     	$orderAddressModel = ClassRegistry::init('OrderAddress');
     	// attach the FindXORCreatable behaavior to the model
     	$orderAddressModel->Behaviors->attach('UtilityBehaviors.FindXORCreatable');
     	// make sure that the address is meant for billing
-    	$billingAddressData['type'] = 'billing';
+    	$billingAddressData['type'] = 'bi';
     	$billingAddress = $orderAddressModel->findXORCreate($billingAddressData);
 
     	$errorInFindXORCreateBilling = empty($billingAddress);

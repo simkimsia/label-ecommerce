@@ -55,11 +55,11 @@ $number_of_items = $carts['Cart']['item_count'];?>
 
 </DIV>
 <DIV id="pd0u20" style="" data-label="Disabled">
-<INPUT id="shipping_name" name="data[ShippingAddress][first_name]" type=text placeholder="enter text..." class="u22"     >
+<INPUT id="shipping_name" name="data[ShippingAddress][first_name]" type=text placeholder="enter text..." class="u22 "  >
 
 </DIV>
 </DIV>
-<div id="u23" class="u23"  >
+<div id="u23" class="u23 "  >
 <div id="u23_rtf"><p style="text-align:right;"><span style="font-family:Helvetica;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">Your name (first and last)</span></p></div>
 </div>
 <div id="u24" class="u24_container"   >
@@ -74,11 +74,11 @@ $number_of_items = $carts['Cart']['item_count'];?>
 
 </DIV>
 <DIV id="pd0u26" style="" data-label="Disabled">
-<INPUT id="shipping_street" name="data[ShippingAddress][street]" type=text placeholder="enter text..." class="u28"     >
+<INPUT id="shipping_street" name="data[ShippingAddress][street]" type=text placeholder="enter text..." class="u28 "     >
 
 </DIV>
 </DIV>
-<div id="u29" class="u29"  >
+<div id="u29" class="u29 "  >
 <div id="u29_rtf"><p style="text-align:right;"><span style="font-family:Helvetica;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">Shipping address</span></p></div>
 </div>
 <div id="u30" class="u30_container"   >
@@ -93,11 +93,11 @@ $number_of_items = $carts['Cart']['item_count'];?>
 
 </DIV>
 <DIV id="pd0u32" style="" data-label="Disabled">
-<INPUT id="shipping_street2" name="data[ShippingAddress][street2]" type=text placeholder="enter text..." class="u34"     >
+<INPUT id="shipping_street2" name="data[ShippingAddress][street2]" type=text placeholder="enter text..." class="u34 "     >
 
 </DIV>
 </DIV>
-<div id="u35" class="u35"  >
+<div id="u35" class="u35 "  >
 <div id="u35_rtf"><p style="text-align:right;"><span style="font-family:Helvetica;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">City</span></p></div>
 </div>
 <div id="u36" class="u36_container"   >
@@ -112,17 +112,17 @@ $number_of_items = $carts['Cart']['item_count'];?>
 
 </DIV>
 <DIV id="pd0u38" style="" data-label="Disabled">
-<INPUT id="shipping_zip" name="data[ShippingAddress][zip]" type=text placeholder="enter text..." class="u40"     >
+<INPUT id="shipping_zip" name="data[ShippingAddress][zip]" type=text placeholder="enter text..." class="u40 "     >
 
 </DIV>
 </DIV>
 <div id="u41" class="u41"  >
 <div id="u41_rtf"><p style="text-align:right;"><span style="font-family:Helvetica;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">Zip</span></p></div>
 </div>
-<div id="u42" class="u42"  >
+<div id="u42" class="u42 "  >
 <div id="u42_rtf"><p style="text-align:right;"><span style="font-family:Helvetica;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">Country</span></p></div>
 </div>
-<SELECT id="shipping_country" class="u43"  name="data[ShippingAddress][country]" >
+<SELECT id="shipping_country" class="u43 "  name="data[ShippingAddress][country]" >
     <?php echo $this->element('country_dropdown');?>
 </SELECT>
 
@@ -173,12 +173,12 @@ $number_of_items = $carts['Cart']['item_count'];?>
 <div id="u58_rtf"><p style="text-align:left;"><span style="font-family:Helvetica;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">Payment confirmation</span></p></div>
 </div>
 <DIV id="u59container"  style="position:absolute; left:29px; top:1004px; width:342px; height:16px; ; ; ;" >
-<LABEL for="u59">
+<LABEL for="shipping_equal_billing">
 <div id="u60" class="u60"  >
 <div id="u60_rtf"><p style="text-align:left;"><span style="font-family:Helvetica;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">Billing address same as shipping</span></p></div>
 </div>
 </LABEL>
-<INPUT id="u59" name="data[bill_same_ship]" style="position:absolute; left:-3px; top:-2px;" type="checkbox" value="checkbox"  checked >
+<INPUT id="shipping_equal_billing" name="data[shipping_equal_billing]" style="position:absolute; left:-3px; top:-2px;" type="checkbox" value="checked"   >
 </DIV>
 <DIV id="u61container" style="position:absolute; left:513px; top:971px; width:342px; height:16px; ; ; ;" >
 <LABEL for="u61">
@@ -230,14 +230,14 @@ $number_of_items = $carts['Cart']['item_count'];?>
         $display = sprintf($format, $address['first_name'], $address['street'], $address['street2'], $address['zip']);
         $selected = ($index == 0)? ' selected' : '';
         ?>
-        <OPTION value="<?php echo $index; ?>" <?php echo $selected; ?>><?php echo $display; ?></OPTION>
+        <OPTION value="<?php echo $index; ?>" <?php //echo $selected; ?>><?php echo $display; ?></OPTION>
 
     <?php endforeach; ?>
     <OPTION value="dash" disabled>---</OPTION>
     <OPTION value="new" >new address</OPTION>
 </SELECT>
 <?php }?>
-<div id="u75" class="u75_container"   >
+<div id="u75" class="u75_container billing_related"   >
 <div id="u75_img" class="u75_normal detectCanvas"></div>
 <div id="u76" class="u76" style="visibility:hidden;"  >
 <div id="u76_rtf"></div>
@@ -249,14 +249,14 @@ $number_of_items = $carts['Cart']['item_count'];?>
 
 </DIV>
 <DIV id="pd0u77" style="" data-label="Disabled">
-<INPUT id="billing_name" name="data[BillingAddress][first_name]" type=text placeholder="enter text..." class="u79"     >
+<INPUT id="billing_name" name="data[BillingAddress][first_name]" type=text placeholder="enter text..." class="u79 billing_related"     >
 
 </DIV>
 </DIV>
-<div id="u80" class="u80"  >
+<div id="u80" class="u80 billing_related"  >
 <div id="u80_rtf"><p style="text-align:right;"><span style="font-family:Helvetica;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">Your name (first and last)</span></p></div>
 </div>
-<div id="u81" class="u81_container"   >
+<div id="u81" class="u81_container billing_related"   >
 <div id="u81_img" class="u81_normal detectCanvas"></div>
 <div id="u82" class="u82" style="visibility:hidden;"  >
 <div id="u82_rtf"></div>
@@ -268,14 +268,14 @@ $number_of_items = $carts['Cart']['item_count'];?>
 
 </DIV>
 <DIV id="pd0u83" style="" data-label="Disabled">
-<INPUT id="billing_street" name="data[BillingAddress][street]" type=text placeholder="enter text..." class="u85"     >
+<INPUT id="billing_street" name="data[BillingAddress][street]" type=text placeholder="enter text..." class="u85 billing_related"     >
 
 </DIV>
 </DIV>
 <div id="u86" class="u86"  >
-<div id="u86_rtf"><p style="text-align:right;"><span style="font-family:Helvetica;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">Shipping address</span></p></div>
+<div id="u86_rtf"><p style="text-align:right;"><span id="billing_address_label" style="font-family:Helvetica;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">Billing address</span></p></div>
 </div>
-<div id="u87" class="u87_container"   >
+<div id="u87" class="u87_container billing_related"   >
 <div id="u87_img" class="u87_normal detectCanvas"></div>
 <div id="u88" class="u88" style="visibility:hidden;"  >
 <div id="u88_rtf"></div>
@@ -287,14 +287,14 @@ $number_of_items = $carts['Cart']['item_count'];?>
 
 </DIV>
 <DIV id="pd0u89" style="" data-label="Disabled">
-<INPUT id="billing_street2" name="data[BillingAddress][street2]" type=text placeholder="enter text..." class="u91">
+<INPUT id="billing_street2" name="data[BillingAddress][street2]" type=text placeholder="enter text..." class="u91 billing_related">
 
 </DIV>
 </DIV>
-<div id="u92" class="u92"  >
+<div id="u92" class="u92 billing_related"  >
 <div id="u92_rtf"><p style="text-align:right;"><span style="font-family:Helvetica;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">City</span></p></div>
 </div>
-<div id="u93" class="u93_container"   >
+<div id="u93" class="u93_container billing_related"   >
 <div id="u93_img" class="u93_normal detectCanvas"></div>
 <div id="u94" class="u94" style="visibility:hidden;"  >
 <div id="u94_rtf"></div>
@@ -306,21 +306,21 @@ $number_of_items = $carts['Cart']['item_count'];?>
 
 </DIV>
 <DIV id="pd0u95" style="" data-label="Disabled">
-<INPUT id="billing_zip" name="data[BillingAddress][zip]" type=text placeholder="enter text..." class="u97"     >
+<INPUT id="billing_zip" name="data[BillingAddress][zip]" type=text placeholder="enter text..." class="u97 billing_related"     >
 
 </DIV>
 </DIV>
-<div id="u98" class="u98"  >
+<div id="u98" class="u98 billing_related" >
 <div id="u98_rtf"><p style="text-align:right;"><span style="font-family:Helvetica;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">Zip</span></p></div>
 </div>
-<div id="u99" class="u99"  >
+<div id="u99" class="u99 billing_related"  >
 <div id="u99_rtf"><p style="text-align:right;"><span style="font-family:Helvetica;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">Country</span></p></div>
 </div>
-<SELECT id="billing_country" class="u100"   name="data[BillingAddress][country]">
+<SELECT id="billing_country" class="u100 billing_related"   name="data[BillingAddress][country]">
     <?php echo $this->element('country_dropdown');?>
 </SELECT>
 
-<div id="u101" class="u101_container"   >
+<div id="u101" class="u101_container billing_related"   >
 <div id="u101_img" class="u101_normal detectCanvas"></div>
 <div id="u102" class="u102" style="visibility:hidden;"  >
 <div id="u102_rtf"></div>
@@ -332,22 +332,22 @@ $number_of_items = $carts['Cart']['item_count'];?>
 
 </DIV>
 <DIV id="pd0u103" style="" data-label="Disabled">
-<INPUT id="billing_city" name="data[BillingAddress][city]" type=text placeholder="enter text..." class="u105"     >
+<INPUT id="billing_city" name="data[BillingAddress][city]" type=text placeholder="enter text..." class="u105 billing_related"     >
 
 </DIV>
 </DIV>
 <?php if(!empty($billing_addresses)) {?>
-<div id="u107" class="u107"  >
+<div id="u107" class="u107 billing_related"  >
 <div id="u107_rtf"><p style="text-align:left;"><span style="font-family:Arial;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">Use previously saved address:</span></p></div>
 </div>
-<SELECT id="u106" class="u106"   >
+<SELECT id="u106" class="u106 billing_related"   >
     <?php foreach($billing_addresses as $index => $address):
         $format = '%1$s %2$s %3$s %4$s';
         $display = sprintf($format, $address['first_name'], $address['street'], $address['street2'], $address['zip']);
         $selected = ($index == 0)? ' selected' : '';
 
         ?>
-        <OPTION value="<?php echo $index; ?>"<?php echo $selected; ?> ><?php echo $display; ?></OPTION>
+        <OPTION value="<?php echo $index; ?>"<?php //echo $selected; ?> ><?php echo $display; ?></OPTION>
 
     <?php endforeach; ?>
 
@@ -372,6 +372,14 @@ $number_of_items = $carts['Cart']['item_count'];?>
             console.log("oi!!");
             // what happens when click on u153
             $("#shippingForm").submit();
+        });
+
+        $("#shipping_equal_billing").click(function () {
+            if ($(this).is(':checked')) {
+                hideBilling();
+            } else {
+                showBilling();
+            }
         });
 
         function initializeAddresses() {
@@ -438,6 +446,7 @@ $number_of_items = $carts['Cart']['item_count'];?>
             }
 
         }
+
         function clearForm(type) {
             if (type == 'shipping') {
                 $("#shipping_name").val('');
@@ -459,6 +468,24 @@ $number_of_items = $carts['Cart']['item_count'];?>
             }
 
         }
+
+        function hideBilling() {
+            
+            $("#billing_address_label").text("Your billing address same as shipping");
+            $("#u86").css("width", 250);
+
+            // things to hide
+          
+            $(".billing_related").hide();
+        }
+
+        function showBilling() {
+            $(".billing_related").show();
+            $("#billing_address_label").text("Billing Address");
+            $("#u86").css("width", 105);
+        }
     });
+
+
 </script>
 <?php $this->end('scriptBottom'); ?>
