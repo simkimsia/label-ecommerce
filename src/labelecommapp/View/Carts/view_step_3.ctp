@@ -24,7 +24,7 @@ $number_of_items = $carts['Cart']['item_count'];?>
 <div id="radio_button" style=<?php echo '"font-family:Helvetica;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#404040;
 ;position:absolute; left:29px; top:'. 231 .'px; width:300px; height:16px; ; ; ;"'?>>
 <?php foreach($shipping_options as $key => $shipping) {?>
-  <input type="radio" name="data[Order][shipping_option_id]" id="<?php echo $shipping['ShippingOption']['name'];?>" value="<?php echo $shipping['ShippingOption']['name'];?>" >
+  <input type="radio" name="data[shipping_option_id][id]" id="<?php echo $shipping['ShippingOption']['name'];?>" value="<?php echo $shipping['ShippingOption']['id'];?>" >
 <label for=<?php echo '"'. $shipping['ShippingOption']['name'] .'"';?>> 
     <?php echo  $shipping['ShippingOption']['name'];?>
 </label>

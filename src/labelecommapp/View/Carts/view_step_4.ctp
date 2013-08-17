@@ -1,6 +1,6 @@
 <?php setlocale(LC_MONETARY, null);
 	$number_of_items = $carts['Cart']['item_count'];
-	echo print_r($this->Session->read('ShippingAddress'));
+	echo print_r($this->Session->read('ShippingOption'));
 	?>
 
 <div id="main_container">
