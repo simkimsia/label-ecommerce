@@ -132,7 +132,7 @@ $number_of_items = $carts['Cart']['item_count'];?>
 <div id="u45_rtf"><p style="text-align:left;"><span style="font-family:Helvetica;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">Save this shipping address for future use</span></p></div>
 </div>
 </LABEL>
-<INPUT id="u44" name="data[ShippingAddress][save]" style="position:absolute; left:-3px; top:-2px;" type="checkbox" value="checkbox"  checked >
+<INPUT id="u44" name="data[ShippingAddress][save]" style="position:absolute; left:-3px; top:-2px;" type="checkbox" value="checked"  checked >
 </DIV>
 <div id="u46" class="u46"  >
 <div id="u46_rtf"><p style="text-align:left;"><span style="font-family:Helvetica;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">Shopping cart</span></p></div>
@@ -140,13 +140,17 @@ $number_of_items = $carts['Cart']['item_count'];?>
 <DIV id="u47_line" class="u47_line" ></DIV>
 </div>
 <div id="u48" class="u48_container"   >
+    <a href="/carts/view?step=1">
 <div id="u48_img" class="u48_normal detectCanvas"></div>
+</a>
 <div id="u49" class="u49" style="visibility:hidden;"  >
 <div id="u49_rtf"></div>
 </div>
 </div>
 <div id="u50" class="u50_container"   >
+    <a href="/carts/view?step=2">
 <div id="u50_img" class="u50_normal detectCanvas"></div>
+</a>
 <div id="u51" class="u51" style="visibility:hidden;"  >
 <div id="u51_rtf"></div>
 </div>
@@ -158,7 +162,9 @@ $number_of_items = $carts['Cart']['item_count'];?>
 </div>
 </div>
 <div id="u54" class="u54_container"   >
+    <a href="/carts/view?step=4">
 <div id="u54_img" class="u54_normal detectCanvas"></div>
+</a>
 <div id="u55" class="u55" style="visibility:hidden;"  >
 <div id="u55_rtf"></div>
 </div>

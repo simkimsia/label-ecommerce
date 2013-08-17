@@ -83,16 +83,13 @@ class CartsController extends AppController {
 		if ($step == 3) {
 			// get the shipping options
 			$shippingOptionModel = ClassRegistry::init('ShippingOption');
-			$options = $shippingOptionModel->find('all');
-			// then set them
-			// $this->set();
+			$options             = $shippingOptionModel->find('all');
 			$this->set('shipping_options', $options);
-			//$this->log($options);
-			$addressModel = ClassRegistry::init('Address');
-			$user_id = $this->Auth->user('id');
-			$addresses = $addressModel->getAllByUser($user_id);
+			$addressModel       = ClassRegistry::init('Address');
+			$user_id            = $this->Auth->user('id');
+			$addresses          = $addressModel->getAllByUser($user_id);
 			$shipping_addresses = Hash::extract($addresses, '{n}.OrderAddress[type = sh]');
-			$billing_addresses = Hash::extract($addresses, '{n}.OrderAddress[type = bi]');
+			$billing_addresses  = Hash::extract($addresses, '{n}.OrderAddress[type = bi]');
 			$this->set(compact('shipping_addresses', 'billing_addresses'));
 
 		}
@@ -127,23 +124,27 @@ class CartsController extends AppController {
  */
 
 	public function save_address(){
-		$this->log($this->request->data);
 
 		$this->request->onlyAllow('post');
-
-		$shipping_address_data = $this->request->data['ShippingAddress'];
+		$shipping_address_data            = $this->request->data['ShippingAddress'];
 		$shipping_address_data['user_id'] = $this->Auth->user('id');
-		$address_model = ClassRegistry::init('Address');
-		$result = $address_model->findXORCreateShipping($shipping_address_data);
-		if($this->request->data['shipping_equal_billing'] == 'checked'){
+		$address_model                    = ClassRegistry::init('Address');
+		$shipping_result                  = $address_model->findXORCreateShipping($shipping_address_data);
+		$session_shipping = Hash::extract($shipping_result, 'ShippingAddress');
+		if(array_key_exists('shipping_equal_billing', $this->request->data)){
 			$billing_address_data = $this->request->data['ShippingAddress'];
 		} else {
 			$billing_address_data = $this->request->data['BillingAddress'];
 		}
+		$this->Session->write('ShippingAddress', $session_shipping);
 		$billing_address_data['user_id'] = $this->Auth->user('id');
-		$billing_result = $address_model->findXORCreateBilling($billing_address_data); 
-		if($result) {
+		$billing_result                  = $address_model->findXORCreateBilling($billing_address_data); 
+		$session_billing = Hash::extract($billing_result, 'BillingAddress');
+
+		$this->Session->write('BillingAddress', $session_billing);
+		if($shipping_result && $billing_result) {
 			$this->Session->setFlash(__('Shipping address have been saved'));
+
 			$this->redirect('/carts/view?step=4');
 		}
 		$this->Session->setFlash(__('Shipping could not be saved'));
