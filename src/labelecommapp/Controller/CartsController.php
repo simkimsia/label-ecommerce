@@ -94,8 +94,22 @@ class CartsController extends AppController {
 
 		}
 
+		if($step == 4) {
+			// get shipping options' details (e.g. period/fees)
+			$shippingOptionModel = ClassRegistry::init('ShippingOption');
+			$shipping_option_from_session = $this->Session->read('ShippingOption');
+			$shipping_details = $shippingOptionModel->find('first', array(
+		        'conditions' => array('ShippingOption.id' => $shipping_option_from_session['id'])
+		    ));
+		    $shipping_options = Hash::extract($shipping_details, 'ShippingOption');
+		    $this->log('this is shipping_options');
+		    $this->log($shipping_options);
+		    $this->set('shipping_options', $shipping_options);
+
+		}
 		$this->set('carts', $theCart);
 		$this->render('view_step_'.$step);
+
 	}
 
 /**
@@ -126,7 +140,6 @@ class CartsController extends AppController {
 	public function save_address(){
 
 		$this->request->onlyAllow('post');
-		$this->log($this->request->data);
 		$shipping_address_data            = $this->request->data['ShippingAddress'];
 		$shipping_address_data['user_id'] = $this->Auth->user('id');
 		$address_model                    = ClassRegistry::init('Address');
@@ -141,8 +154,8 @@ class CartsController extends AppController {
 		
 		if($shipping_result && $billing_result) {
 			$this->Session->setFlash(__('Shipping address have been saved'));
-			$session_shipping = Hash::extract($shipping_result, 'ShippingAddress');
-			$session_billing  = Hash::extract($billing_result, 'BillingAddress');
+			$session_shipping         = Hash::extract($shipping_result, 'ShippingAddress');
+			$session_billing          = Hash::extract($billing_result, 'BillingAddress');
 			$session_shipping_options = Hash::extract($this->request->data, 'shipping_option_id');
 			$this->Session->write('ShippingAddress', $session_shipping);
 			$this->Session->write('BillingAddress', $session_billing);

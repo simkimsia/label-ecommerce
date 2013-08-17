@@ -1,6 +1,5 @@
 <?php setlocale(LC_MONETARY, null);
 	$number_of_items = $carts['Cart']['item_count'];
-	echo print_r($this->Session->read('ShippingOption'));
 	?>
 
 <div id="main_container">
@@ -39,7 +38,7 @@
 <div id="u10_rtf"><p style="text-align:left;"><span style="font-family:Helvetica;font-size:14px;font-weight:bold;font-style:normal;text-decoration:none;color:#404040;">Henri</span><span style="font-family:Helvetica;font-size:14px;font-weight:normal;font-style:normal;text-decoration:none;color:#404040;">, your order will be shipped as soon as you complete your order.</span></p></div>
 </div>
 <div id="u11" class="u11"  >
-<div id="u11_rtf"><p style="text-align:left;"><span style="font-family:Helvetica;font-size:14px;font-weight:bold;font-style:normal;text-decoration:none;color:#404040;">Estimate shipping date</span><span style="font-family:Helvetica;font-size:14px;font-weight:normal;font-style:normal;text-decoration:none;color:#404040;">: within 24 hours</span></p></div>
+<div id="u11_rtf"><p style="text-align:left;"><span style="font-family:Helvetica;font-size:14px;font-weight:bold;font-style:normal;text-decoration:none;color:#404040;">Estimate shipping date</span><span style="font-family:Helvetica;font-size:14px;font-weight:normal;font-style:normal;text-decoration:none;color:#404040;">: <?php echo $shipping_options['period'];?></span></p></div>
 </div>
 <div id="u12" class="u12"  >
 <div id="u12_rtf"><p style="text-align:left;"><span style="font-family:Helvetica;font-size:14px;font-weight:bold;font-style:normal;text-decoration:none;color:#404040;">Estimate delivery date</span><span style="font-family:Helvetica;font-size:14px;font-weight:normal;font-style:normal;text-decoration:none;color:#404040;">: Dec 14, 2012</span></p></div>
@@ -118,7 +117,7 @@
 <div id="u37_rtf"><p style="text-align:right;"><span style="font-family:Helvetica;font-size:15px;font-weight:normal;font-style:normal;text-decoration:none;color:#666666;">Shipping</span></p></div>
 </div>
 <div id="u38" class="u38"  style=<?php echo '"top:'.(508+(($number_of_items-1)*149)).'px"';?>>
-<div id="u38_rtf"><p style="text-align:left;"><span style="font-family:Helvetica;font-size:15px;font-weight:bold;font-style:normal;text-decoration:none;color:#333333;">$15.00</span></p></div>
+<div id="u38_rtf"><p style="text-align:left;"><span style="font-family:Helvetica;font-size:15px;font-weight:bold;font-style:normal;text-decoration:none;color:#333333;"><?php echo money_format('$%i',$shipping_options['fees'])?></span></p></div>
 </div>
 <div id="u39" class="u39"  style=<?php echo '"top:'.(538+(($number_of_items-1)*149)).'px"';?>>
 <div id="u39_rtf"><p style="text-align:right;"><span style="font-family:Helvetica;font-size:15px;font-weight:normal;font-style:normal;text-decoration:none;color:#666666;">Taxes</span></p></div>
@@ -136,7 +135,7 @@
 <div id="u43_rtf"><p style="text-align:right;"><span style="font-family:Helvetica;font-size:18px;font-weight:bold;font-style:normal;text-decoration:none;color:#404040;">TOTAL</span></p></div>
 </div>
 <div id="u44" class="u44"  style=<?php echo '"top:'.(598+(($number_of_items-1)*149)).'px"';?>>
-<div id="u44_rtf"><p style="text-align:left;"><span style="font-family:Helvetica;font-size:20px;font-weight:bold;font-style:normal;text-decoration:none;color:#FFFFFF;"><?php echo money_format("$%i", $carts['Cart']['total_price']);?></span></p></div>
+<div id="u44_rtf"><p style="text-align:left;"><span style="font-family:Helvetica;font-size:20px;font-weight:bold;font-style:normal;text-decoration:none;color:#FFFFFF;"><?php $grand_total = $carts['Cart']['total_price']+$shipping_options['fees']; echo money_format("$%i", $grand_total);?></span></p></div>
 </div>
 <DIV id="u45"  style=<?php echo '"border-style:dotted; border-color:red; visibility:hidden; position:absolute; left:9px; top:'.(459+(($number_of_items-1)*149)).'px; width:940px; height:188px;;"';?>></div>
 	<!-- footer ends -->
