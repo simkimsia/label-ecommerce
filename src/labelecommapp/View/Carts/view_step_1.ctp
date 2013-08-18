@@ -149,13 +149,13 @@
 <div id="u37_rtf"><p style="text-align:left;"><span style="font-family:Helvetica;font-size:20px;font-weight:bold;font-style:normal;text-decoration:none;color:#FFFFFF;"><?php echo money_format("$%i", $carts['Cart']['total_price']);?></span></p></div>
 </div>
 <div id="u38" class="u38_container"   style=<?php echo '"top:'.(518+(($number_of_items-1)*149)).'px"';?>>
-<div id="u38_img" class="u38_normal detectCanvas"></div>
+<a href="/carts/view?step=2"><div id="u38_img" class="u38_normal detectCanvas"></div></a>
 <div id="u39" class="u39" style=<?php echo '"visibility:hidden;top:'.(6+(($number_of_items-1)*149)).'px"';?>  >
 <div id="u39_rtf"></div>
 </div>
 </div>
 <div id="u40" class="u40" style=<?php echo '"top:'.(524+(($number_of_items-1)*149)).'px"';?> >
-<div id="u40_rtf"><p style="text-align:center;"><span style="font-family:Helvetica;font-size:13px;font-weight:bold;font-style:normal;text-decoration:none;color:#FFFFFF;">Proceed to checkout</span></p></div>
+<div id="u40_rtf"><p style="text-align:center;"><span style="font-family:Helvetica;font-size:13px;font-weight:bold;font-style:normal;text-decoration:none;color:#FFFFFF;"><a href="/carts/view?step=2"  style="text-decoration:none;">Proceed to checkout</a></span></p></div>
 </div><div id="u41" class="u41" style=<?php echo '"top:'.(514+(($number_of_items-1)*149)).'px"';?> >
 <DIV id="u41_line" class="u41_line" ></DIV>
 </div>

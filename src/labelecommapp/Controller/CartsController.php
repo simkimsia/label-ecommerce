@@ -102,8 +102,6 @@ class CartsController extends AppController {
 		        'conditions' => array('ShippingOption.id' => $shipping_option_from_session['id'])
 		    ));
 		    $shipping_options = Hash::extract($shipping_details, 'ShippingOption');
-		    $this->log('this is shipping_options');
-		    $this->log($shipping_options);
 		    $this->set('shipping_options', $shipping_options);
 
 		}
@@ -137,8 +135,11 @@ class CartsController extends AppController {
  *
  */
 
-	public function save_address(){
-
+	public function save_address() {
+		if(empty($this->request->data['shipping_option_id'])) {
+			$this->Session->setFlash('Please choose shipping option');
+			$this->redirect('/carts/view?step=3');
+		}
 		$this->request->onlyAllow('post');
 		$shipping_address_data            = $this->request->data['ShippingAddress'];
 		$shipping_address_data['user_id'] = $this->Auth->user('id');
@@ -163,7 +164,7 @@ class CartsController extends AppController {
 			$this->redirect('/carts/view?step=4');
 		}
 		$this->Session->setFlash(__('Shipping could not be saved'));
-		$this->redirect('carts/view?step=2');
+		$this->redirect('carts/view?step=3');
 
 	}
 

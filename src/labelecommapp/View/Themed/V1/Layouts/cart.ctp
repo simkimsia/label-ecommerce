@@ -10,11 +10,24 @@
 <!--[if IE 6]>
     <link href="Classic_Step_1_files/axurerp_pagespecificstyles_ie6.css" type="text/css" rel="stylesheet">
 <![endif]-->
+    <?php echo $this->Html->script('jquery-1.10.2'); ?>
+    <?php echo $this->Html->script('libs/alertify/0.3.10/alertify.min', array('block' => 'libScriptBottom')); ?>
+    <?php echo $this->Html->css('alertify/0.3.10/themes/alertify.core'); ?>
+    <?php echo $this->Html->css('alertify/0.3.10/themes/alertify.default'); ?>
 </head>
-<body>
+<body vlink="#FFFFFF" link="#FFFFFF" alink="#FFFFFF">
+    <?php $session = $this->Session->flash('flash', array('element' => 'flash_blank')); ?>
 	<?php echo $this->fetch('content');?>
 	<?php echo $this->Html->script('jquery-1.10.2'); ?>
-	<?php echo $this->fetch('scriptBottom'); ?>
+    <?php echo $this->fetch('libScriptBottom'); ?>
+    <script type="text/javascript">
+        // alertify the Session
+        var sessionMsg = '<?php echo $session; ?>';
+        if (sessionMsg != "") {
+          alertify.success(sessionMsg);
+        }
+    </script>
+    <?php echo $this->fetch('scriptBottom'); ?>
 </body>
 </html>
 
