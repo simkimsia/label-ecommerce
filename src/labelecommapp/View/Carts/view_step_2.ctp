@@ -86,7 +86,7 @@
 	</div>
 </form>
 
-<div id="u26" class="u26" >
+<div id="u26" class="u26 submitForLogin" >
 <DIV id="u26_line" class="u26_line" ></DIV>
 </div>
 <div id="u27" class="u27"  >

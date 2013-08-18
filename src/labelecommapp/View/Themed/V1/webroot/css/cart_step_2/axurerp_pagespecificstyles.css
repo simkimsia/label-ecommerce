@@ -449,6 +449,7 @@ div {
     top:356px;
     width:73px;
     height:28px;
+    cursor: pointer;
 }
 
 #u23_img {
@@ -479,7 +480,7 @@ div {
     top:362px;
     width:73px;
     height:16px;
-    ;
+    cursor: pointer;
     ;
     ;
     font-family:Arial;
@@ -497,6 +498,7 @@ div {
     top:4px;
     width:66px;
     height:3px;
+
 }
 
 .u26 {
@@ -505,6 +507,7 @@ div {
     top:352px;
     width:66px;
     height:10px;
+    cursor: pointer;
     
 }
 
