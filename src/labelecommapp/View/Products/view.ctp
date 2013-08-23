@@ -20,13 +20,7 @@
                             
                        
                     <?php } }?>
-                    <!-- <li><a href="/products/view/2">Circle Labels</a></li>
-                    <li><a href="/products/view/1">Small Rectangle</a></li>
-                    <li><a href="/products/view/3">Small Rectangle (Chinese)</a></li>
-                    <li><a href="/products/view/4">Birthday Large</a></li>
-                    <li><a href="/products/view/5">Book Labels</a></li>
-                    <li><a href="/products/view/6">Split Dual Name Pack</a></li>
-                     <li><a href="/products/view/7">Split English/Chinese name pack</a></li> -->
+
                 </ul>
                 <div class="productdetails"><span class="detail"><br/>Details:</span><span class="thewords"><br/><br/><br/>
                     <?php 
@@ -65,9 +59,11 @@
           </div>
           
           <div class="addtocart">
+            <!--
                 <form method="post" action="#" class="addtocartBox">
                     <input type="text" name="" value="0" disabled="disabled" class="addtocartinput" />
                 </form>
+            -->
                 <?php
                     echo $this->Form->create('Cart', array(
                         'action' => 'buy'));
@@ -77,11 +73,14 @@
                         'style' => 'width: 50px;',
                         'default' => 1));
                     echo $this->Form->submit(__('buy'), array(
-                        'div' => false));
+                        'div' => false,
+                        'style' => 'margin-left: 120px;width: 80px; position:relative; top:-36px;'));
                     echo $this->Form->hidden('CartsItem.foreign_key', array(
                         'value' => $product['Product']['variants'][0]['id']));
                     echo $this->Form->hidden('CartsItem.model', array(
                         'value' => 'ProductVariant'));
+
+                    echo $this->Form->end();
                 ?>
           </div>
           
