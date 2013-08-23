@@ -11,6 +11,7 @@
 		"simkimsia/permissions-extras": "dev-master",
 		"simkimsia/utility_behaviors": "dev-master",
 		"josegonzalez/upload": "dev-master",
-		"cakedc/search": "dev-master"
+		"cakedc/search": "dev-master",
+		"omnipay/omnipay": "dev-master"
 	}
 }

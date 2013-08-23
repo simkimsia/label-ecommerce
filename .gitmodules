@@ -1,3 +1,0 @@
-[submodule "src/labelecommapp/Plugin/Cart"]
-	path = src/labelecommapp/Plugin/Cart
-	url = git://github.com/burzum/Cart.git
