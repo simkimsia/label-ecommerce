@@ -1,0 +1,3 @@
+[submodule "src/labelecommapp/Plugin/Cart"]
+	path = src/labelecommapp/Plugin/Cart
+	url = https://github.com/AikChun/Cart.git

@@ -12,6 +12,8 @@
 		"simkimsia/utility_behaviors": "dev-master",
 		"josegonzalez/upload": "dev-master",
 		"cakedc/search": "dev-master",
-		"omnipay/omnipay": "dev-master"
+		"omnipay/omnipay": "dev-master",
+		"silex/silex": "1.0.*@dev",
+		"twig/twig": "~1.12"
 	}
 }

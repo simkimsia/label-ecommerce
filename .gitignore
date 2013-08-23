@@ -64,6 +64,10 @@ src/labelecommapp/Vendor/mjohnson
 src/labelecommapp/Vendor/guzzle
 src/labelecommapp/Vendor/omnipay
 src/labelecommapp/Vendor/symfony
+src/labelecommapp/Vendor/psr
+src/labelecommapp/Vendor/pimple
+src/labelecommapp/Vendor/silex
+src/labelecommapp/Vendor/twig
 
 ## ignore Plugin
 src/labelecommapp/Plugin/AclExtras
