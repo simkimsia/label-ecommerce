@@ -174,7 +174,15 @@ class CartsController extends AppController {
  */
 
 	public function pay() {
+		$payments_selected = $this->request->data['payments'];
+		if(empty($payments_selected)) {
+			$this->Session->setFlash(__('Please select a payment method!'));
+			$referer = $this->referer();
+			$this->redirect($referer);
+		}
+
 		$this->log($this->request->data);
+
 	}
 
 /**
