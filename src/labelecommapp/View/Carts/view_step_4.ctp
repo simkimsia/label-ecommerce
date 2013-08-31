@@ -87,7 +87,7 @@
 <div id="u27_rtf"></div>
 </div>
 </div>
-<div id="u28" class="u28_container"   style=<?php echo '"top:'.(718+(($number_of_items-1)*149)).'px"';?>>
+<div id="u28" class="u28_container payment_submit"   style=<?php echo '"top:'.(718+(($number_of_items-1)*149)).'px"';?>>
 <div id="u28_img" class="u28_normal detectCanvas"></div>
 <div id="u29" class="u29" style="visibility:hidden;"  >
 <div id="u29_rtf"></div>
@@ -96,7 +96,7 @@
 <div id="u30" class="u30" style=<?php echo '"top:'.(724+(($number_of_items-1)*149)).'px"';?> >
 <div id="u30_rtf"><p style="text-align:left;"><span style="font-family:Helvetica;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">I have read the terms and conditions and clicking Place my order will constitute my acceptance of these </span><span style="font-family:Helvetica;font-size:13px;font-weight:normal;font-style:normal;text-decoration:underline;color:#333333;">terms</span><span style="font-family:Helvetica;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;"> for this order.</span></p></div>
 </div>
-<div id="u31" class="u31"  style=<?php echo '"top:'.(724+(($number_of_items-1)*149)).'px"';?>>
+<div id="u31" class="u31 payment_submit"  style=<?php echo '"top:'.(724+(($number_of_items-1)*149)).'px"';?>>
 <div id="u31_rtf"><p style="text-align:center;"><span style="font-family:Helvetica;font-size:13px;font-weight:bold;font-style:normal;text-decoration:none;color:#FFFFFF;">Place order</span></p></div>
 </div>
 <DIV id="u32" style=<?php echo '"border-style:dotted; border-color:red; visibility:hidden; position:absolute; left:9px; top:'.(698+(($number_of_items-1)*149)).'px; width:940px; height:67px;;"';?>  ></div>
@@ -209,58 +209,27 @@
 </div>
 <DIV id="u66"  style=<?php echo '"border-style:dotted; border-color:red; visibility:hidden; position:absolute; left:4px; top:'.(305+$key*149).'px; width:950px; height:159px;;"';?>  ></div>
 	<?php }?>
-<!-- item display ends-->
-<!-- <div id="u67" class="u67_container"   >
-<div id="u67_img" class="u67_normal detectCanvas"></div>
-<div id="u68" class="u68" style="visibility:hidden;"  >
-<div id="u68_rtf"></div>
 </div>
-</div>
-<div id="u69" class="u69_container"   >
-<div id="u69_img" class="u69_normal detectCanvas"></div>
-<div id="u70" class="u70" style="visibility:hidden;"  >
-<div id="u70_rtf"></div>
-</div>
-</div>
-<div id="u71" class="u71_container"   >
-<div id="u71_img" class="u71_normal detectCanvas"></div>
-<div id="u72" class="u72" style="visibility:hidden;"  >
-<div id="u72_rtf"></div>
-</div>
-</div>
-<div id="u73" class="u73"  >
-<div id="u73_rtf"><p style="text-align:left;"><span style="font-family:Helvetica;font-size:18px;font-weight:bold;font-style:normal;text-decoration:none;color:#404040;">Product name</span></p></div>
-</div>
-<div id="u74" class="u74"  >
-<div id="u74_rtf"><p style="text-align:left;"><span style="font-family:Helvetica;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">Product Description</span></p></div>
-</div>
-<div id="u75" class="u75"  >
-<div id="u75_rtf"><p style="text-align:left;"><span style="font-family:Helvetica;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">SKU: #3439913975</span></p></div>
-</div>
-<div id="u76" class="u76"  >
-<div id="u76_rtf"><p style="text-align:left;"><span style="font-family:Helvetica;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">Size: M</span></p></div>
-</div>
-<div id="u77" class="u77"  >
-<div id="u77_rtf"><p style="text-align:left;"><span style="font-family:Helvetica;font-size:15px;font-weight:bold;font-style:normal;text-decoration:none;color:#333333;">$399.00</span></p></div>
-</div>
-<INPUT id="u78" type=text value="1" class="u78"     >
 
-<div id="u79" class="u79"  >
-<div id="u79_rtf"><p style="text-align:center;"><span style="font-family:Helvetica;font-size:13px;font-weight:normal;font-style:normal;text-decoration:underline;color:#00438A;">Update</span></p></div>
+<form action="/carts/pay" method="post" name="payment_form" id="payment_form"> 
+<div id="radio_buttons" class="radio_buttons" style="position">
+ <input type="radio" name="data[payments]" id="paypal" value="paypal" >
+
+ <img src="https://www.paypal.com/en_US/i/logo/PayPal_mark_37x23.gif" class="paypal_image" align="left"><span class="payment_text" style ="
+margin-left: 45px;">The safer, easier way to pay.</span>  </br>
+
+ <input type="radio" name="data[payments]" id="internet_banking" value="internet_banking" ><span class="payment_text">Internal Banking </span> </input/>
 </div>
-<div id="u80" class="u80"  >
-<div id="u80_rtf"><p style="text-align:center;"><span style="font-family:Helvetica;font-size:13px;font-weight:normal;font-style:normal;text-decoration:underline;color:#00438A;">Remove</span></p></div>
-</div>
-<div id="u81" class="u81"  >
-<div id="u81_rtf"><p style="text-align:left;"><span style="font-family:Helvetica;font-size:15px;font-weight:bold;font-style:normal;text-decoration:none;color:#333333;">$399.00</span></p></div>
-</div><div id="u82" class="u82" >
-<DIV id="u82_line" class="u82_line" ></DIV>
-</div><div id="u83" class="u83" >
-<DIV id="u83_line" class="u83_line" ></DIV>
-</div><div id="u84" class="u84" >
-<DIV id="u84_line" class="u84_line" ></DIV>
-</div><div id="u85" class="u85" >
-<DIV id="u85_line" class="u85_line" ></DIV>
-</div>
-<DIV id="u86" style="border-style:dotted; border-color:red; visibility:hidden; position:absolute; left:4px; top:454px; width:950px; height:159px;;" ></div> -->
-</div>
+</form>
+
+<?php $this->append('scriptBottom'); ?>
+<script type="text/javascript">
+    $(document).ready(function() {
+
+    	$(".payment_submit").click(function() {
+    		console.log('click');
+            $("#payment_form").submit();
+        });
+	});
+</script>
+<?php $this->end('scriptBottom');?>

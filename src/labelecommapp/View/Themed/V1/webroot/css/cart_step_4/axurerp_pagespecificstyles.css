@@ -1350,3 +1350,30 @@ div {
     
 }
 
+.radio_buttons {
+    position: relative;
+    top: 800px;
+    left: -9px;
+    width: 940px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: left;
+}
+
+.paypal_image {
+    margin-right: -19px;
+position: relative;
+left: 44px;
+display: inline-block;
+}
+
+.payment_text {
+    font-family: Helvetica;
+    font-size: 13px;
+    font-weight: normal;
+    font-style: normal;
+    text-decoration: none;
+    color: #333333;
+    display: inline-block;
+}
+

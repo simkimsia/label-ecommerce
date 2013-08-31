@@ -169,6 +169,15 @@ class CartsController extends AppController {
 	}
 
 /**
+ * This is a submission function for view 4
+ *
+ */
+
+	public function pay() {
+		$this->log($this->request->data);
+	}
+
+/**
  * add method
  *
  * @return void
