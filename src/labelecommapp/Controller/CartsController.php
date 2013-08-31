@@ -50,6 +50,8 @@ class CartsController extends AppController {
 		}else{
 			$step = 1;
 		}
+
+
 		
 		$this->_checkLoginAtStep2($step);
 		$this->_checkLoginAtStep3And4($step);
@@ -180,8 +182,19 @@ class CartsController extends AppController {
 			$referer = $this->referer();
 			$this->redirect($referer);
 		}
+		else if ($payments_selected == 'paypal') {
+			App::uses('Paypal', 'Lib/Paypal');
+			Paypal::$returnUrl = Router::url('/carts/view?step=4', true);
+			Paypal::$cancelUrl = Router::url('/carts/view?step=4', true);
+			$cart_data = $this->Session->read('Cart');
+			$this->log($cart_data);
+			Paypal::pay($cart_data);
+			$this->log('After invoking Paypal::pay()');
+			$this->redirect('/carts/view?step=4');
+		}
 
 		$this->log($this->request->data);
+
 
 	}
 
