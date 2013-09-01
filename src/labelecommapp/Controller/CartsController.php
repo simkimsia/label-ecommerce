@@ -188,12 +188,11 @@ class CartsController extends AppController {
 		else if ($payments_selected == 'paypal') {
 			$order_model                          = ClassRegistry::init('Cart.Order');
 			$cart_data                            = $this->Session->read('Cart');
-			// $cart_data['Cart']['requires_shipping'] = true;
+
 			$address_model                        = ClassRegistry::init('Address');
 			$shipping_address_text                = $address_model->prepareAddressAsText($cart_data['ShippingAddress']);
 			$billing_address_text                 = $address_model->prepareAddressAsText($cart_data['BillingAddress']);
-			// $cart_data['Cart']['billing_address'] = $billing_address_text;
-			// $cart_data['Cart']['shipping_address'] = $shipping_address_text;
+
 			$order_data  = $order_model->createOrder($cart_data, 'PAYPAL_EXPRESS' );
 			if ($order_data) {
 				$orderId = $order_data['Order']['id'];
@@ -210,6 +209,26 @@ class CartsController extends AppController {
 			}
 			
 			$this->log('After invoking Paypal::pay()');
+		} else if ($payments_selected == 'internet_banking') {
+			$order_model                          = ClassRegistry::init('Cart.Order');
+			$cart_data                            = $this->Session->read('Cart');
+
+			$address_model                        = ClassRegistry::init('Address');
+			$shipping_address_text                = $address_model->prepareAddressAsText($cart_data['ShippingAddress']);
+			$billing_address_text                 = $address_model->prepareAddressAsText($cart_data['BillingAddress']);
+
+			$order_data  = $order_model->createOrder($cart_data, 'INTERNET_BANKING' );
+			if ($order_data) {
+				$orderId = $order_data['Order']['id'];
+				$order_model->id = $orderId;
+				$order_model->set('billing_address', $billing_address_text);
+				$order_model->set('shipping_address', $shipping_address_text);
+				$order_model->save(null, array('callbacks' => false, 'validates' => false));
+				$this->log($order_data);
+				$this->Session->write('Cart.Order', $order_data['Order']);
+				$this->redirect('/carts/successful_ib');
+			}
+			
 		}
 		$this->autoRender = false;
 	}
@@ -223,7 +242,12 @@ class CartsController extends AppController {
 			$response = Paypal::completePurchase($cart_data);
 			$this->log('After invoking Paypal::completePurchase()');
 			if($response->isSuccessful()) {
-				// need to clear the Session.Cart
+				// update the Order payment_status to completed
+				$order_model = ClassRegistry::init('Cart.Order');
+				$order_data = $this->Session->read('Cart.Order');
+				$order_model->updatePaymentStatus($order_data['id'], 'completed');
+
+				// @TODO need to clear the Session.Cart
 				$this->redirect('/carts/successful');
 			}
 
@@ -231,6 +255,22 @@ class CartsController extends AppController {
 
 	public function successful() {
 
+	}
+
+/**
+ * success message for ib @TODO
+ */
+	public function successful_ib() {
+		// in the View tell the user to make payments 
+		// give the ib details there
+		// bank name
+		// branch code
+		// account name
+		// account number
+		// give the order invoice number also
+		// $order_data = $this->Session->read('Cart.Order');
+		// $order_data['invoice_number'];
+		// @TODO once again you need to remove the Session Cart
 	}
 
 /**
