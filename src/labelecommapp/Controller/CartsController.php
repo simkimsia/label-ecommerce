@@ -1,4 +1,7 @@
 <?php
+	require APP.DS.'Vendor/autoload.php';
+	use Omnipay\Common\GatewayFactory;
+
 App::uses('AppController', 'Controller');
 /**
  * Carts Controller
@@ -99,7 +102,7 @@ class CartsController extends AppController {
 		if($step == 4) {
 			// get shipping options' details (e.g. period/fees)
 			$shippingOptionModel = ClassRegistry::init('ShippingOption');
-			$shipping_option_from_session = $this->Session->read('ShippingOption');
+			$shipping_option_from_session = $this->Session->read('Cart.ShippingOption');
 			$shipping_details = $shippingOptionModel->find('first', array(
 		        'conditions' => array('ShippingOption.id' => $shipping_option_from_session['id'])
 		    ));
@@ -160,9 +163,9 @@ class CartsController extends AppController {
 			$session_shipping         = Hash::extract($shipping_result, 'ShippingAddress');
 			$session_billing          = Hash::extract($billing_result, 'BillingAddress');
 			$session_shipping_options = Hash::extract($this->request->data, 'shipping_option_id');
-			$this->Session->write('ShippingAddress', $session_shipping);
-			$this->Session->write('BillingAddress', $session_billing);
-			$this->Session->write('ShippingOption', $session_shipping_options);
+			$this->Session->write('Cart.ShippingAddress', $session_shipping);
+			$this->Session->write('Cart.BillingAddress', $session_billing);
+			$this->Session->write('Cart.ShippingOption', $session_shipping_options);
 			$this->redirect('/carts/view?step=4');
 		}
 		$this->Session->setFlash(__('Shipping could not be saved'));
@@ -183,18 +186,50 @@ class CartsController extends AppController {
 			$this->redirect($referer);
 		}
 		else if ($payments_selected == 'paypal') {
+			$order_model                          = ClassRegistry::init('Cart.Order');
+			$cart_data                            = $this->Session->read('Cart');
+			// $cart_data['Cart']['requires_shipping'] = true;
+			$address_model                        = ClassRegistry::init('Address');
+			$shipping_address_text                = $address_model->prepareAddressAsText($cart_data['ShippingAddress']);
+			$billing_address_text                 = $address_model->prepareAddressAsText($cart_data['BillingAddress']);
+			// $cart_data['Cart']['billing_address'] = $billing_address_text;
+			// $cart_data['Cart']['shipping_address'] = $shipping_address_text;
+			$order_data  = $order_model->createOrder($cart_data, 'PAYPAL_EXPRESS' );
+			if ($order_data) {
+				$orderId = $order_data['Order']['id'];
+				$order_model->id = $orderId;
+				$order_model->set('billing_address', $billing_address_text);
+				$order_model->set('shipping_address', $shipping_address_text);
+				$order_model->save(null, array('callbacks' => false, 'validates' => false));
+				$this->log($order_data);
+				$this->Session->write('Cart.Order', $order_data['Order']);
+				App::uses('Paypal', 'Lib/Paypal');
+				Paypal::$returnUrl = Router::url('/carts/complete_purchase', true);
+				Paypal::$cancelUrl = Router::url('/carts/view?step=4', true);
+				Paypal::pay($order_data);
+			}
+			
+			$this->log('After invoking Paypal::pay()');
+		}
+		$this->autoRender = false;
+	}
+
+	public function complete_purchase() {
 			App::uses('Paypal', 'Lib/Paypal');
 			Paypal::$returnUrl = Router::url('/carts/view?step=4', true);
 			Paypal::$cancelUrl = Router::url('/carts/view?step=4', true);
 			$cart_data = $this->Session->read('Cart');
 			$this->log($cart_data);
-			Paypal::pay($cart_data);
-			$this->log('After invoking Paypal::pay()');
-			$this->redirect('/carts/view?step=4');
-		}
+			$response = Paypal::completePurchase($cart_data);
+			$this->log('After invoking Paypal::completePurchase()');
+			if($response->isSuccessful()) {
+				// need to clear the Session.Cart
+				$this->redirect('/carts/successful');
+			}
 
-		$this->log($this->request->data);
+	}
 
+	public function successful() {
 
 	}
 

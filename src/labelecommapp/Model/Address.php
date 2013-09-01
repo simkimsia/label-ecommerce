@@ -111,4 +111,32 @@ class Address extends AppModel {
         return $addresses;
     }
 
+    public function prepareAddressAsText($address_data) {
+        $text = '';
+        $blacklist = array(
+            'id',
+            'created',
+            'modified',
+            'order_id',
+            'user_id',
+            'type'
+            );
+        if($address_data['type'] == 'sh') {
+            $text .= "ShippingAddress:\n";
+        }
+
+        if($address_data['type'] == 'bi') {
+            $text .= "BillingAddress:\n";
+        }
+
+        foreach($address_data as $field => $value) {
+            if(in_array($field, $blacklist)) {
+                continue;
+            }
+            $text .= $field . ' : ' . $value . "\n";
+        }
+        return $text;
+
+    }
+
 }
