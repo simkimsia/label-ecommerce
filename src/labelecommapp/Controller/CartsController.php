@@ -247,14 +247,15 @@ class CartsController extends AppController {
 				$order_data = $this->Session->read('Cart.Order');
 				$order_model->updatePaymentStatus($order_data['id'], 'completed');
 
-				// @TODO need to clear the Session.Cart
+				
+				// @TODO empty the cart here??
 				$this->redirect('/carts/successful');
 			}
 
 	}
 
 	public function successful() {
-
+		$this->CartManager->emptyCart();
 	}
 
 /**
@@ -270,7 +271,7 @@ class CartsController extends AppController {
 		// give the order invoice number also
 		// $order_data = $this->Session->read('Cart.Order');
 		// $order_data['invoice_number'];
-		// @TODO once again you need to remove the Session Cart
+		// @TODO once again you need to empty the cart
 	}
 
 /**
