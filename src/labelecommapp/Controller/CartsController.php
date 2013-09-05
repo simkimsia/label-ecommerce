@@ -28,7 +28,7 @@ class CartsController extends AppController {
 
 	protected function _checkLoginAtStep2($step) {
 		if($step == 2 && $this->Auth->user('id') > 0) {
-			$this->redirect('/carts/view');
+			$this->redirect('/carts/view?step=3');
 		}
 	}
 
@@ -37,6 +37,7 @@ class CartsController extends AppController {
 			$this->redirect('/carts/view?step=2');
 		}
 	}
+
 
 
 /**
