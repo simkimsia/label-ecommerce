@@ -233,6 +233,11 @@ class CartsController extends AppController {
 		$this->autoRender = false;
 	}
 
+/**
+ *	function invoked after successful transaction
+ *
+ */
+
 	public function complete_purchase() {
 			App::uses('Paypal', 'Lib/Paypal');
 			Paypal::$returnUrl = Router::url('/carts/view?step=4', true);
@@ -248,15 +253,13 @@ class CartsController extends AppController {
 				$order_model->updatePaymentStatus($order_data['id'], 'completed');
 
 				
-				// @TODO empty the cart here??
+				// empty cart before showing success page.
+				$this->CartManager->emptyCart();
 				$this->redirect('/carts/successful');
 			}
 
 	}
 
-	public function successful() {
-		$this->CartManager->emptyCart();
-	}
 
 /**
  * success message for ib @TODO
