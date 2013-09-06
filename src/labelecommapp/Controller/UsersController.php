@@ -186,6 +186,7 @@ class UsersController extends AppController {
 
 	public function logout($message = 'Good-Bye') {
 		$this->Session->setFlash($message);
+		$this->CartManager->emptyCart();
 		$this->redirect($this->Auth->logout());
 	}
 

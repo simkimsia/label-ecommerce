@@ -38,7 +38,9 @@ class CartsController extends AppController {
 		}
 	}
 
+	public function cart_unfilled(){
 
+	}
 
 /**
  * view method
@@ -65,7 +67,11 @@ class CartsController extends AppController {
 		// $this->log($this->Session->read('Cart'));
 		// need to collect images and store them if necessary
 		$theCart = $this->Session->read('Cart');
-
+		$this->log('showing cart items');
+		$this->log($theCart);
+		if($theCart['Cart']['item_count'] == 0){
+			$this->redirect('/carts/cart_unfilled');
+		}
 		// instantiate the ProductImage model here.
 		// and put in the url to the item image
 		$imageModel = ClassRegistry::init('ProductImage');
