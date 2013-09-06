@@ -90,6 +90,11 @@ class ProductVariant extends AppModel {
 		if (!empty($getParams['page'])) {
 			$options['page'] = $getParams['page'];
 		}
+        if(empty($getParams['sort'])) {
+            $options['order'] = 'ProductVariant.order';
+        }else {
+            $options['order'] = $getParams['sort'];
+        }
 		return $options;
 	}
 
