@@ -105,6 +105,10 @@ class CartsController extends AppController {
 		}
 
 		if($step == 4) {
+			$cart_in_session = $this->Session->read('Cart');
+			if(!array_key_exists('ShippingOption', $cart_in_session)){
+				$this->redirect($this->referer());
+			}
 			// get shipping options' details (e.g. period/fees)
 			$shippingOptionModel = ClassRegistry::init('ShippingOption');
 			$shipping_option_from_session = $this->Session->read('Cart.ShippingOption');
