@@ -107,6 +107,7 @@ class CartsController extends AppController {
 		if($step == 4) {
 			$cart_in_session = $this->Session->read('Cart');
 			if(!array_key_exists('ShippingOption', $cart_in_session)){
+				$this->Session->setFlash('Please select a shipping option');
 				$this->redirect($this->referer());
 			}
 			// get shipping options' details (e.g. period/fees)
