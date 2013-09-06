@@ -3,13 +3,13 @@
 	<?php echo $this->Html->image('success_icon.png',array('width' => '200px', 'heigth' => '200px'))?>
 </div>
 <div>
-	Bank: Big Key Bank <br><br>
+	Bank: <?php echo Configure::read('IB_BANK');?> <br><br>
 </div>
 <div>
-	Branch: TapAve <br><br>
+	Branch: <?php echo Configure::read('BRANCH_CODE');?> <br><br>
 </div>
 <div>
-	Account Name:ChildLabel <br><br>
+	Account Name: <?php echo Configure::read('ACCT_NAME');?> <br><br>
 </div>
 <div>
 	</div>
