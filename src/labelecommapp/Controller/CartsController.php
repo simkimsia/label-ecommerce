@@ -57,7 +57,6 @@ class CartsController extends AppController {
 			$step = 1;
 		}
 
-
 		
 		$this->_checkLoginAtStep2($step);
 		$this->_checkLoginAtStep3And4($step);
@@ -67,8 +66,7 @@ class CartsController extends AppController {
 		// $this->log($this->Session->read('Cart'));
 		// need to collect images and store them if necessary
 		$theCart = $this->Session->read('Cart');
-		$this->log('showing cart items');
-		$this->log($theCart);
+
 		if($theCart['Cart']['item_count'] == 0){
 			$this->redirect('/carts/cart_unfilled');
 		}
@@ -279,9 +277,10 @@ class CartsController extends AppController {
 		// account name
 		// account number
 		// give the order invoice number also
-		// $order_data = $this->Session->read('Cart.Order');
-		// $order_data['invoice_number'];
+		$order_data = $this->Session->read('Cart.Order');
+		$this->set('invoice_number', $order_data['invoice_number']);
 		// @TODO once again you need to empty the cart
+		$this->CartManager->emptyCart();
 	}
 
 /**
