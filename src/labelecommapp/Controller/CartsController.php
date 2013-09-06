@@ -211,7 +211,6 @@ class CartsController extends AppController {
 				$order_model->set('billing_address', $billing_address_text);
 				$order_model->set('shipping_address', $shipping_address_text);
 				$order_model->save(null, array('callbacks' => false, 'validates' => false));
-				$this->log($order_data);
 				$this->Session->write('Cart.Order', $order_data['Order']);
 				App::uses('Paypal', 'Lib/Paypal');
 				Paypal::$returnUrl = Router::url('/carts/complete_purchase', true);
@@ -219,7 +218,7 @@ class CartsController extends AppController {
 				Paypal::pay($order_data);
 			}
 			
-			$this->log('After invoking Paypal::pay()');
+
 		} else if ($payments_selected == 'internet_banking') {
 			$order_model                          = ClassRegistry::init('Cart.Order');
 			$cart_data                            = $this->Session->read('Cart');
@@ -235,7 +234,6 @@ class CartsController extends AppController {
 				$order_model->set('billing_address', $billing_address_text);
 				$order_model->set('shipping_address', $shipping_address_text);
 				$order_model->save(null, array('callbacks' => false, 'validates' => false));
-				$this->log($order_data);
 				$this->Session->write('Cart.Order', $order_data['Order']);
 				$this->redirect('/carts/successful_ib');
 			}
@@ -254,9 +252,7 @@ class CartsController extends AppController {
 			Paypal::$returnUrl = Router::url('/carts/view?step=4', true);
 			Paypal::$cancelUrl = Router::url('/carts/view?step=4', true);
 			$cart_data = $this->Session->read('Cart');
-			$this->log($cart_data);
 			$response = Paypal::completePurchase($cart_data);
-			$this->log('After invoking Paypal::completePurchase()');
 			if($response->isSuccessful()) {
 				// update the Order payment_status to completed
 				$order_model = ClassRegistry::init('Cart.Order');

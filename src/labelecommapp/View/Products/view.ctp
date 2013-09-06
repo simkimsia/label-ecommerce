@@ -16,7 +16,7 @@
                     <?php 
                         if(count($product['Product']['variants']) != 1){
                             foreach($product['Product']['variants'] as $variant){
-                                ?><li><a href="/products/view/2"><?php echo $variant['name']?></a></li>
+                                ?><li><?php echo $this->Html->link($variant['name'],'/products/view/'.$product['Product']['id'].'#'.$variant['id'])?></a></li>
                             
                        
                     <?php } }?>

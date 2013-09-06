@@ -221,3 +221,7 @@ a:active {
 * html .clearfix {
   height: 1%;
 }
+
+.hidden {
+	display: none;
+}
