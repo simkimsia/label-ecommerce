@@ -134,7 +134,7 @@
 <div id="u43" class="u43"  style=<?php echo '"top:'.(599+(($number_of_items-1)*149)).'px"';?>>
 <div id="u43_rtf"><p style="text-align:right;"><span style="font-family:Helvetica;font-size:18px;font-weight:bold;font-style:normal;text-decoration:none;color:#404040;">TOTAL</span></p></div>
 </div>
-<div id="u44" class="u44"  style=<?php echo '"top:'.(598+(($number_of_items-1)*149)).'px"';?>>
+<div id="u44" class="u44"  style=<?php $total_price_top_position = (598+(($number_of_items-1)*149)); echo '"top:'.$total_price_top_position.'px"';?>>
 <div id="u44_rtf"><p style="text-align:left;"><span style="font-family:Helvetica;font-size:20px;font-weight:bold;font-style:normal;text-decoration:none;color:#FFFFFF;"><?php $grand_total = $carts['Cart']['total_price']+$shipping_options['fees']; echo money_format("$%i", $grand_total);?></span></p></div>
 </div>
 <DIV id="u45"  style=<?php echo '"border-style:dotted; border-color:red; visibility:hidden; position:absolute; left:9px; top:'.(459+(($number_of_items-1)*149)).'px; width:940px; height:188px;;"';?>></div>
@@ -212,7 +212,7 @@
 </div>
 
 <form action="/carts/pay" method="post" name="payment_form" id="payment_form"> 
-<div id="radio_buttons" class="radio_buttons" style="position">
+<div id="radio_buttons" class="radio_buttons" style="position:absolute;top:<?php echo $total_price_top_position + 55;?>px;left:450px">
  <input type="radio" name="data[payments]" id="paypal" value="paypal" >
 
  <img src="https://www.paypal.com/en_US/i/logo/PayPal_mark_37x23.gif" class="paypal_image" align="left"><span class="payment_text" style ="
