@@ -16,7 +16,7 @@
                     <?php 
                         if(count($product['Product']['variants']) != 1){
                             foreach($product['Product']['variants'] as $variant){
-                                ?><li><?php echo $this->Html->link($variant['name'],'/products/view/'.$product['Product']['id'].'#'.$variant['id'])?></a></li>
+                                ?><li><?php echo $this->Html->link($variant['name'],'/products/view/'.$product['Product']['id'].'#'.$variant['id'], array('class' => 'variant_links', 'ref' => '#variant_'.$variant['id'].'_images'))?></a></li>
                             
                        
                     <?php } }?>
@@ -159,6 +159,26 @@
 <script>
     $(document).ready(function() {
         $(".scrollable").scrollable();
+        if(window.location.hash) {
+
+            console.log(window.location.hash);
+            var hash = window.location.hash;
+
+            var the_scrollable = '#variant_'+ hash.substr(1) +'_images';
+            $(".variant_images_scrollable").hide();
+            $(the_scrollable).show();
+
+        }
+        $(".variant_links").click(function (e){
+
+            var the_scrollable = $(e.target).attr('ref');
+
+            $(".variant_images_scrollable").hide();
+            $(the_scrollable).show();
+
+        });
+
+        
     });
 </script>
 <?php $this->end('scriptBottom'); ?>
