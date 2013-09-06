@@ -218,6 +218,10 @@ class ProductImage extends AppModel {
             'fields'     => $fields,
             ));
 
+        if($result === false ) {
+
+        }
+
         return $result;
 
 
@@ -245,16 +249,18 @@ class ProductImage extends AppModel {
         $last = $this->getLastOrderStats($data['product_variant_id']);
         $this->save($data);
         $newId = $this->getLastInsertID();
-        $last['ProductImage']['right'] = $newId;
-        $data['order']  = $last['ProductImage']['order'] + 1;
-        $data['left']   = $last['ProductImage']['id'];
-        $data['id']     = $newId;
-        $saveManyData   = array();
-        $saveManyData[] = array('id' => $data['id'], 'left' => $data['left'], 'order' => $data['order']); 
-        $saveManyData[] = array('id' => $last['ProductImage']['id'], 'right' => $last['ProductImage']['right']); 
+        if($last) {
+            $last['ProductImage']['right'] = $newId;
+            $data['order']  = $last['ProductImage']['order'] + 1;
+            $data['left']   = $last['ProductImage']['id'];
+            $data['id']     = $newId;
+            $saveManyData   = array();
+            $saveManyData[] = array('id' => $data['id'], 'left' => $data['left'], 'order' => $data['order']); 
+            $saveManyData[] = array('id' => $last['ProductImage']['id'], 'right' => $last['ProductImage']['right']); 
+            $this->saveMany($saveManyData);
+            $this->reorder($data['product_variant_id']);
+        }
 
-        $this->saveMany($saveManyData);
-        $this->reorder($data['product_variant_id']);
 
     }
 
