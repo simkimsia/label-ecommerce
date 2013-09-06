@@ -42,6 +42,7 @@ class CartsController extends AppController {
 
 	}
 
+
 /**
  * view method
  *
@@ -270,6 +271,9 @@ class CartsController extends AppController {
 
 	}
 
+	public function successful(){
+		
+	}
 
 /**
  * success message for ib @TODO
