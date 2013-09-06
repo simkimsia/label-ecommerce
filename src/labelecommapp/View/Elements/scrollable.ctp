@@ -6,6 +6,7 @@
     $hidden_class = '';
 
   } 
+  
 ?>
 
                     <div id="variant_<?php echo $variant['id'];?>_images" class="variant_images_scrollable <?php echo $hidden_class; ?>" style="margin:0 auto; width: 600px; height:250px; text-align: center;">

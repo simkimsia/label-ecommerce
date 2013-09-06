@@ -34,7 +34,8 @@ App::uses('Controller', 'Controller');
 class AppController extends Controller {
 
 	public $components = array(
-		'Cart.CartManager',
+		'Cart.CartManager' => array(
+			'afterAddItemRedirect' => '{referer}#{id}'),
 		'RequestHandler',
 		'Session',
 		'Acl',

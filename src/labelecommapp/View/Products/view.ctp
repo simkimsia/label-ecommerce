@@ -15,8 +15,16 @@
 
                     <?php 
                         if(count($product['Product']['variants']) != 1){
-                            foreach($product['Product']['variants'] as $variant){
-                                ?><li><?php echo $this->Html->link($variant['name'],'/products/view/'.$product['Product']['id'].'#'.$variant['id'], array('class' => 'variant_links', 'ref' => '#variant_'.$variant['id'].'_images'))?></a></li>
+
+                            foreach($product['Product']['variants'] as $index => $variant) {
+                                $bold_class = '';
+                                if($index == 0) {
+
+                                    $bold_class = 'bold';
+
+                                } 
+                              
+                                ?><li><?php echo $this->Html->link($variant['name'],'/products/view/'.$product['Product']['id'].'#'.$variant['id'], array('class' => 'variant_links ' .$bold_class, 'ref' => '#variant_'.$variant['id'].'_images','id' => 'variant_'.$variant['id']))?></a></li>
                             
                        
                     <?php } }?>
@@ -161,12 +169,16 @@
         $(".scrollable").scrollable();
         if(window.location.hash) {
 
-            console.log(window.location.hash);
             var hash = window.location.hash;
 
             var the_scrollable = '#variant_'+ hash.substr(1) +'_images';
             $(".variant_images_scrollable").hide();
             $(the_scrollable).show();
+
+            var the_variant_link = '#variant_'+hash.substr(1);
+            $(".variant_links").css('font-weight', 'normal');
+            $(the_variant_link).css('font-weight', 'bold');
+            $("#CartsItemForeignKey").val(hash.substr(1));
 
         }
         $(".variant_links").click(function (e){
@@ -175,7 +187,10 @@
 
             $(".variant_images_scrollable").hide();
             $(the_scrollable).show();
-
+            $(".variant_links").css('font-weight', 'normal');
+            $(e.target).css('font-weight', 'bold');
+            var variant_id = e.target.id.substr(8);
+            $("#CartsItemForeignKey").val(variant_id);
         });
 
         
