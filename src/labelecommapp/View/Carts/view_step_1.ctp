@@ -78,7 +78,7 @@
 </div>
 <!-- end photo here -->
 <div  class="u15"  style=<?php echo '"top:'.(179+$key*149).'px"';?>>
-<div ><p style="text-align:left;"><span style="font-family:Helvetica;font-size:18px;font-weight:bold;font-style:normal;text-decoration:none;color:#404040;"></span><?php echo $cartItems['name']?></p></div>
+<div ><p style="text-align:left;"><span style="font-family:Helvetica;font-size:18px;font-weight:bold;font-style:normal;text-decoration:none;color:#404040;"><?php echo $cartItems['name']?></span></p></div>
 </div>
 <div  class="u16"  style=<?php echo '"top:'.(209+$key*149).'px"';?>>
 <div ><p style="text-align:left;"><span style="font-family:Helvetica;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">Product Description</span></p></div>
@@ -93,6 +93,11 @@
 <div ><p style="text-align:left;"><span style="font-family:Helvetica;font-size:15px;font-weight:bold;font-style:normal;text-decoration:none;color:#333333;"><?php echo money_format("$%i", $cartItems['price']);?></span></p></div>
 </div>
 
+<div id="u64" class="u64" style=<?php echo '"top:'.(160+$key*149).'px"';?>>
+<DIV id="u64_line" class="u64_line" ></DIV>
+</div><div id="u65" class="u65" style=<?php echo '"top:'.(160+$key*149).'px"';?>>
+<DIV id="u65_line" class="u65_line" ></DIV>
+</div>
 <INPUT  type=text value=<?php echo '"'.$cartItems['quantity'].'"'?> class="u21"  style=<?php echo '"top:'.(178+$key*149).'px"';?>     >
 
 <div  class="u22"  style=<?php echo '"top:'.(213+$key*149).'px"';?> >
@@ -112,7 +117,7 @@
 </div>
 </div>
 <?php  } ?>
-<div id="u26" class="u26_container"  style=<?php echo '"top:'.(301+(($number_of_items-1)*149)).'px"';?> >
+<div id="u26" class="u26_container"  style=<?php echo '"top:'.(305+(($number_of_items-1)*149)).'px"';?> >
 <div id="u26_img" class="u26_normal detectCanvas"></div>
 <div id="u27" class="u27" style=<?php echo '"visibility:hidden;top:'.( 49 +(($number_of_items-1)*149)).'px"';?>   >
 <div id="u27_rtf"></div>

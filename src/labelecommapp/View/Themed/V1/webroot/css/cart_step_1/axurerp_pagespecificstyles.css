@@ -263,7 +263,7 @@ div {
 
 .u14 {
     position:absolute;
-    left:436px;
+    left:530px;
     top:135px;
     width:98px;
     height:14px;
@@ -279,7 +279,7 @@ div {
     position:absolute;
     left:152px;
     top:179px;
-    width:200px;
+    width:400px;
     height:22px;
     ;
     ;
@@ -333,7 +333,7 @@ div {
 
 .u19 {
     position:absolute;
-    left:455px;
+    left:555px;
     top:182px;
     width:62px;
     height:18px;
@@ -347,7 +347,7 @@ div {
 
 .u20 {
     position:absolute;
-    left:616px;
+    left:670px;
     top:135px;
     width:98px;
     height:14px;
@@ -361,7 +361,7 @@ div {
 
 .u21 {
     position:absolute;
-    left:641px;
+    left:695px;
     top:178px;
     width:47px;
     height:25px;
@@ -379,7 +379,7 @@ div {
 
 .u22 {
     position:absolute;
-    left:637px;
+    left:688px;
     top:213px;
     width:57px;
     height:16px;
@@ -393,7 +393,7 @@ div {
 
 .u23 {
     position:absolute;
-    left:639px;
+    left:690px;
     top:233px;
     width:57px;
     height:16px;
@@ -934,5 +934,47 @@ div {
     top:151px;
     width:940px;
     height:10px;
+    
+}
+
+
+.u64_line {
+    background-image: url('../../img/cart_item/u59_line.png');
+}
+
+.u64_line {
+    position:absolute;
+    left:4px;
+    top:0px;
+    width:3px;
+    height:149px;
+}
+
+.u64 {
+    position:absolute;
+    left:4px;
+    top:310px;
+    width:10px;
+    height:149px;
+    
+}
+.u65_line {
+    background-image: url('../../img/cart_item/u59_line.png');
+}
+
+.u65_line {
+    position:absolute;
+    left:4px;
+    top:0px;
+    width:3px;
+    height:149px;
+}
+
+.u65 {
+    position:absolute;
+    left:944px;
+    top:310px;
+    width:10px;
+    height:149px;
     
 }
