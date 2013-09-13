@@ -478,6 +478,7 @@ div {
 
 .u28_normal {
     background-image: url('../../img/cart_place_order/u28_normal.png');
+    cursor: pointer;
 }
 
 .u28_container {
@@ -530,7 +531,7 @@ div {
     top:873px;
     width:139px;
     height:16px;
-    ;
+    cursor: pointer;
     ;
     ;
     font-family:Arial;
