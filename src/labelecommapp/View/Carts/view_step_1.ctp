@@ -15,7 +15,7 @@
 	</div>
 </div>
 <div id="u4" class="u4" style=<?php echo '"top:'.(524+(($number_of_items-1)*149)).'px"';?> >
-<div id="u4_rtf"><p style="text-align:center;"><span style="font-family:Helvetica;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#666666;">Go back shopping</span></p></div>
+<div id="u4_rtf"><p style="text-align:center;"><a href="/" style="text-decoration:none;"><span style="font-family:Helvetica;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#666666;">Go back shopping</span></a></p></div>
 </div>
 
 <div id="u11" class="u11_container"   >

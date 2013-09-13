@@ -73,6 +73,7 @@ div {
     top:518px;
     width:131px;
     height:28px;
+    
 }
 
 #u2_img {
@@ -109,6 +110,7 @@ div {
     font-family:Arial;
     text-align:left;
     word-wrap:break-word;
+    cursor:pointer;
 }
 
 .u5_normal {
