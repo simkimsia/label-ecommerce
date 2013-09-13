@@ -212,7 +212,7 @@
 </div>
 
 <form action="/carts/pay" method="post" name="payment_form" id="payment_form"> 
-<div id="radio_buttons" class="radio_buttons" style="position:absolute;top:<?php echo $total_price_top_position + 55;?>px;left:450px">
+<div id="radio_buttons" class="radio_buttons" style="position:absolute;top:<?php echo $total_price_top_position + 55;?>px;left:160px">
  <input type="radio" name="data[payments]" id="paypal" value="paypal" >
 
  <img src="https://www.paypal.com/en_US/i/logo/PayPal_mark_37x23.gif" class="paypal_image" align="left"><span class="payment_text" style ="
