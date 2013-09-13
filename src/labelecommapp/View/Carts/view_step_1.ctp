@@ -98,7 +98,7 @@
 </div><div id="u65" class="u65" style=<?php echo '"top:'.(160+$key*149).'px"';?>>
 <DIV id="u65_line" class="u65_line" ></DIV>
 </div>
-<INPUT  type=text value=<?php echo '"'.$cartItems['quantity'].'"'?> class="u21"  style=<?php echo '"top:'.(178+$key*149).'px"';?>     >
+<INPUT  type=text value=<?php echo '"'.$cartItems['quantity'].'"'?> class="u21" ref="<?php echo $cartItems['foreign_key']?>" style=<?php echo '"top:'.(178+$key*149).'px"';?>     >
 
 <div  class="u22"  style=<?php echo '"top:'.(213+$key*149).'px"';?> >
 <div ><p style="text-align:center;"><span style="font-family:Helvetica;font-size:13px;font-weight:normal;font-style:normal;text-decoration:underline;color:#00438A;">Update</span></p></div>
@@ -203,3 +203,45 @@
 <div id="u54_rtf"><p style="text-align:left;"><span style="font-family:Helvetica;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">Payment confirmation</span></p></div>
 </div>
 </div>
+
+<?php echo $this->Html->script('jquery.tools.min', array('block' => 'scriptBottom')); ?>
+<?php $this->append('scriptBottom'); ?>
+<script>
+    $(document).ready(function() {
+    	$('.u22').click(function (e){
+    		e.preventDefault();
+    		var data = new Array();
+    		$('.u21').each(function (index){
+				var variant_id = $(this).attr('ref');
+				var quantity   =$(this).val();
+				data.push( {foreign_key:variant_id, quantity:quantity});
+    		});
+    		updateCart(data);
+    	});
+
+    	function updateCart(data) {
+    		var l = window.location;
+    		var base_url = l.protocol + "//" + l.host;
+    		var url = base_url + "/carts/update" ;
+    		var result = false;
+    		var post_data = {data:data};
+    		var settings = {
+    			type : "post",
+    			url  : url,
+    			data : post_data,
+    			success: function (response) {
+    				console.log('Success');
+    				console.log(response);
+    				window.location.href = '/carts/view?step=1';
+    			},
+    			error: function (response) {
+    				console.log('error');
+    				console.log(response);
+    			},
+    			dataType: 'json'
+    		};
+    		$.ajax(settings);
+    	}
+    });
+</script>
+<?php $this->end('scriptBottom'); ?>

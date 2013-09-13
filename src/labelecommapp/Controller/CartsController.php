@@ -368,5 +368,23 @@ class CartsController extends AppController {
 		$this->redirect($this->referer());
 	}
 
+	public function update() {
+		$this->autoRender = false;
+		$cart_data = $this->Session->read('Cart');
+		foreach($this->request->data as $new_index => $new_data) {
+			foreach($cart_data['CartsItem'] as $index => $cartsItem) {
+				if($cartsItem['foreign_key'] == $new_data['foreign_key'] ) {
+					$cart_data['CartsItem'][$index]['quantity'] = $new_data['quantity'];
+					$updated_data = array('CartsItem' => $cart_data['CartsItem'][$index]);
+					$this->CartManager->updateItem($updated_data);
+					break;
+				}
+			}
+		}
+		
+		
+		
+		echo json_encode(array('code'=>1200, 'message'=>'success'));
+	}
 
 }
