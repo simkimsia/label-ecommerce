@@ -1353,9 +1353,8 @@ div {
 
 .radio_buttons {
     position: relative;
-    top: 800px;
-    left: -9px;
-    width: 940px;
+    left: -300px;
+    width: 300px;
     margin-left: auto;
     margin-right: auto;
     text-align: left;
