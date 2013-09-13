@@ -66,7 +66,6 @@ class CartsController extends AppController {
 		$this->layout = 'cart';
 		// need to collect images and store them if necessary
 		$theCart = $this->Session->read('Cart');
-
 		if($theCart['Cart']['item_count'] == 0){
 			$this->redirect('/carts/cart_unfilled');
 		}
@@ -360,7 +359,13 @@ class CartsController extends AppController {
 	}
 
 	public function remove_item($product_variant_id){
-		
+		$data = array(
+				'CartsItem' => array('remove' => true,
+					'model' => 'ProductVariant',
+					'foreign_key' => $product_variant_id),
+				);
+		$this->CartManager->updateItem($data);
+		$this->redirect($this->referer());
 	}
 
 

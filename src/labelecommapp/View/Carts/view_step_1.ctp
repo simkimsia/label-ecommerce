@@ -104,7 +104,7 @@
 <div ><p style="text-align:center;"><span style="font-family:Helvetica;font-size:13px;font-weight:normal;font-style:normal;text-decoration:underline;color:#00438A;">Update</span></p></div>
 </div>
 <div  class="u23"  style=<?php echo '"top:'.(233+$key*149).'px"';?> >
-<div ><p style="text-align:center;"><span style="font-family:Helvetica;font-size:13px;font-weight:normal;font-style:normal;text-decoration:underline;color:#00438A;">Remove</span></p></div>
+<div ><p style="text-align:center;"><a href="/carts/remove_item/<?php echo $cartItems['foreign_key']?>"><span style="font-family:Helvetica;font-size:13px;font-weight:normal;font-style:normal;text-decoration:underline;color:#00438A;">Remove</span></a></p></div>
 </div>
 
 <div class="u25"  style=<?php echo '"top:'.(182+$key*149).'px"';?> >
