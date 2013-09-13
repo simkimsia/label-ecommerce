@@ -78,7 +78,7 @@
 </div>
 <!-- end photo here -->
 <div  class="u15"  style=<?php echo '"top:'.(179+$key*149).'px"';?>>
-<div ><p style="text-align:left;"><span style="font-family:Helvetica;font-size:18px;font-weight:bold;font-style:normal;text-decoration:none;color:#404040;"><?php echo $cartItems['name']?></span></p></div>
+<div ><p style="text-align:left;"><span style="font-family:Helvetica;font-size:18px;font-weight:bold;font-style:normal;text-decoration:none;color:#404040;"><?php echo $cartItems['short_name']?></span></p></div>
 </div>
 <div  class="u16"  style=<?php echo '"top:'.(209+$key*149).'px"';?>>
 <div ><p style="text-align:left;"><span style="font-family:Helvetica;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">Product Description</span></p></div>

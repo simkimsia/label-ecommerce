@@ -35,7 +35,6 @@ class ProductsController extends AppController {
 		}
 
 		$data = $this->Product->getViewVars($id);
-		$this->log($data);
 		$this->set('product', $data);
 	}
 

@@ -64,7 +64,6 @@ class CartsController extends AppController {
 		
 		$this->set('step', $step);
 		$this->layout = 'cart';
-		// $this->log($this->Session->read('Cart'));
 		// need to collect images and store them if necessary
 		$theCart = $this->Session->read('Cart');
 
@@ -268,7 +267,7 @@ class CartsController extends AppController {
 	}
 
 	public function successful(){
-		
+		$this->CartManager->emptyCart();
 	}
 
 /**

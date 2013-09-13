@@ -174,7 +174,7 @@
 </div>
 </div>
 <div id="u53" class="u53"  style=<?php echo '"top:'.(333+$key*149).'px"';?>>
-<div id="u53_rtf"><p style="text-align:left;"><span style="font-family:Helvetica;font-size:18px;font-weight:bold;font-style:normal;text-decoration:none;color:#404040;"><?php echo $cartItems['name'];?></span></p></div>
+<div id="u53_rtf"><p style="text-align:left;"><span style="font-family:Helvetica;font-size:18px;font-weight:bold;font-style:normal;text-decoration:none;color:#404040;"><?php echo $cartItems['short_name'];?></span></p></div>
 </div>
 <div id="u54" class="u54"  style=<?php echo '"top:'.(363+$key*149).'px"';?>>
 <div id="u54_rtf"><p style="text-align:left;"><span style="font-family:Helvetica;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">Product Description</span></p></div>
