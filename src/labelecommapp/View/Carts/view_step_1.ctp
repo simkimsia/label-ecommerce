@@ -101,7 +101,7 @@
 <INPUT  type=text value=<?php echo '"'.$cartItems['quantity'].'"'?> class="u21" ref="<?php echo $cartItems['foreign_key']?>" style=<?php echo '"top:'.(178+$key*149).'px"';?>     >
 
 <div  class="u22"  style=<?php echo '"top:'.(213+$key*149).'px"';?> >
-<div ><p style="text-align:center;"><span style="font-family:Helvetica;font-size:13px;font-weight:normal;font-style:normal;text-decoration:underline;color:#00438A;">Update</span></p></div>
+<div ><p style="text-align:center;"><a class ="update" href="#"><span style="font-family:Helvetica;font-size:13px;font-weight:normal;font-style:normal;text-decoration:underline;color:#00438A;">Update</span></a></p></div>
 </div>
 <div  class="u23"  style=<?php echo '"top:'.(233+$key*149).'px"';?> >
 <div ><p style="text-align:center;"><a href="/carts/remove_item/<?php echo $cartItems['foreign_key']?>"><span style="font-family:Helvetica;font-size:13px;font-weight:normal;font-style:normal;text-decoration:underline;color:#00438A;">Remove</span></a></p></div>
@@ -208,7 +208,7 @@
 <?php $this->append('scriptBottom'); ?>
 <script>
     $(document).ready(function() {
-    	$('.u22').click(function (e){
+    	$('.update').click(function (e){
     		e.preventDefault();
     		var data = new Array();
     		$('.u21').each(function (index){
