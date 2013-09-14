@@ -188,14 +188,8 @@
 <div id="u57" class="u57"  style=<?php echo '"top:'.(336+$key*149).'px"';?>>
 <div id="u57_rtf"><p style="text-align:left;"><span style="font-family:Helvetica;font-size:15px;font-weight:bold;font-style:normal;text-decoration:none;color:#333333;"><?php echo money_format("$%i",$cartItems['price']); ?></span></p></div>
 </div>
-<INPUT id="u58" type=text value=<?php echo '"'.$cartItems['quantity'].'"'?> class="u58"     style=<?php echo '"top:'.(332+$key*149).'px"';?>>
+<INPUT disabled id="u58" type=text value=<?php echo '"'.$cartItems['quantity'].'"'?> class="u58"     style=<?php echo '"top:'.(332+$key*149).'px"';?>>
 
-<div id="u59" class="u59"  style=<?php echo '"top:'.(367+$key*149).'px"';?>>
-<div id="u59_rtf"><p style="text-align:center;"><span style="font-family:Helvetica;font-size:13px;font-weight:normal;font-style:normal;text-decoration:underline;color:#00438A;">Update</span></p></div>
-</div>
-<div id="u60" class="u60"  style=<?php echo '"top:'.(387+$key*149).'px"';?>>
-<div id="u60_rtf"><p style="text-align:center;"><span style="font-family:Helvetica;font-size:13px;font-weight:normal;font-style:normal;text-decoration:underline;color:#00438A;">Remove</span></p></div>
-</div>
 <div id="u61" class="u61"  style=<?php echo '"top:'.(336+$key*149).'px"';?>>
 <div id="u61_rtf"><p style="text-align:left;"><span style="font-family:Helvetica;font-size:15px;font-weight:bold;font-style:normal;text-decoration:none;color:#333333;"><?php $qty_price = $cartItems['quantity'] * $cartItems['price']; echo money_format("$%i", $qty_price);?></span></p></div>
 </div><div id="u62" class="u62" style=<?php echo '"top:'.(454+$key*149).'px"';?>>
