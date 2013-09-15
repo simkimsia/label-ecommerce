@@ -55,7 +55,7 @@ $number_of_items = $carts['Cart']['item_count'];?>
 
 </DIV>
 <DIV id="pd0u20" style="" data-label="Disabled">
-<INPUT id="shipping_name" name="data[ShippingAddress][first_name]" type=text placeholder="enter text..." class="u22 "  >
+<INPUT id="shipping_first_name" name="data[ShippingAddress][first_name]" type=text placeholder="enter text..." class="u22 "  >
 
 </DIV>
 </DIV>
@@ -71,7 +71,7 @@ $number_of_items = $carts['Cart']['item_count'];?>
 
 </DIV>
 <DIV id="pd0u200" style="" data-label="Disabled">
-<INPUT id="shipping_name" name="data[ShippingAddress][last_name]" type=text placeholder="enter text..." class="u220 "  >
+<INPUT id="shipping_last_name" name="data[ShippingAddress][last_name]" type=text placeholder="enter text..." class="u220 "  >
 
 </DIV>
 </DIV>
@@ -274,7 +274,7 @@ $number_of_items = $carts['Cart']['item_count'];?>
 
 </DIV>
 <DIV id="pd0u77" style="" data-label="Disabled">
-<INPUT id="billing_name" name="data[BillingAddress][first_name]" type=text placeholder="enter text..." class="u79 billing_related"     >
+<INPUT id="billing_first_name" name="data[BillingAddress][first_name]" type=text placeholder="enter text..." class="u79 billing_related"     >
 
 </DIV>
 </DIV>
@@ -290,7 +290,7 @@ $number_of_items = $carts['Cart']['item_count'];?>
 
 </DIV>
 <DIV id="pd0u770" style="" data-label="Disabled">
-<INPUT id="billing_name" name="data[BillingAddress][first_name]" type=text placeholder="enter text..." class="u79 billing_related"     >
+<INPUT id="billing_last_name" name="data[BillingAddress][last_name]" type=text placeholder="enter text..." class="u79 billing_related"     >
 
 </DIV>
 </DIV>
@@ -474,7 +474,8 @@ $number_of_items = $carts['Cart']['item_count'];?>
 
         function fillInForm(type) {
             if (type == 'shipping') {
-                $("#shipping_name").val(selectedShipping['first_name']);
+                $("#shipping_first_name").val(selectedShipping['first_name']);
+                $("#shipping_last_name").val(selectedShipping['last_name']);
                 $("#shipping_street").val(selectedShipping['street']);
                 $("#shipping_street2").val(selectedShipping['street2']);
                 $("#shipping_city").val(selectedShipping['city']);
@@ -483,7 +484,8 @@ $number_of_items = $carts['Cart']['item_count'];?>
 
             }
             if (type == 'billing') {
-                $("#billing_name").val(selectedBilling['first_name']);
+                $("#billing_first_name").val(selectedBilling['first_name']);
+                $("#billing_last_name").val(selectedBilling['last_name']);
                 $("#billing_street").val(selectedBilling['street']);
                 $("#billing_street2").val(selectedBilling['street2']);
                 $("#billing_city").val(selectedBilling['city']);
@@ -496,7 +498,8 @@ $number_of_items = $carts['Cart']['item_count'];?>
 
         function clearForm(type) {
             if (type == 'shipping') {
-                $("#shipping_name").val('');
+                $("#shipping_first_name").val('');
+                $("#shipping_last_name").val('');
                 $("#shipping_street").val('');
                 $("#shipping_street2").val('');
                 $("#shipping_city").val('');
@@ -505,7 +508,8 @@ $number_of_items = $carts['Cart']['item_count'];?>
 
             }
             if (type == 'billing') {
-                $("#billing_name").val('');
+                $("#billing_first_name").val('');
+                $("#billing_last_name").val('');
                 $("#billing_street").val('');
                 $("#billing_street2").val('');
                 $("#billing_city").val('');
