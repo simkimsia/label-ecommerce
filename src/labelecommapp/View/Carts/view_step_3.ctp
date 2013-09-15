@@ -59,8 +59,27 @@ $number_of_items = $carts['Cart']['item_count'];?>
 
 </DIV>
 </DIV>
+<div id="u180" class="u180_container"   >
+<div id="u180_img" class="u180_normal detectCanvas"></div>
+<div id="u190" class="u190" style="visibility:hidden;"  >
+<div id="u19_rtf"></div>
+</div>
+</div>
+<DIV id="u200" style="" >
+<DIV id="pd1u20" style="visibility:hidden;" data-label="Enabled">
+<INPUT id="u210" type=text value="" class="u210" data-label="Text"    >
+
+</DIV>
+<DIV id="pd0u200" style="" data-label="Disabled">
+<INPUT id="shipping_name" name="data[ShippingAddress][last_name]" type=text placeholder="enter text..." class="u220 "  >
+
+</DIV>
+</DIV>
 <div id="u23" class="u23 "  >
-<div id="u23_rtf"><p style="text-align:right;"><span style="font-family:Helvetica;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">Your name (first and last)</span></p></div>
+<div id="u23_rtf"><p style=""><span style="font-family:Helvetica;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">First Name</span></p></div>
+</div>
+<div id="u230" class="u230 "  >
+<div id="u230_rtf"><p style="text-align:left;"><span style="font-family:Helvetica;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">Last Name</span></p></div>
 </div>
 <div id="u24" class="u24_container"   >
 <div id="u24_img" class="u24_normal detectCanvas"></div>
@@ -126,7 +145,7 @@ $number_of_items = $carts['Cart']['item_count'];?>
     <?php echo $this->element('country_dropdown');?>
 </SELECT>
 
-<DIV id="u44container" style="position:absolute; left:29px; top:971px; width:342px; height:16px; ; ; ;" >
+<DIV id="u44container" style="position:absolute; left:29px; top:986px; width:342px; height:16px; ; ; ;" >
 <LABEL for="u44">
 <div id="u45" class="u45"  >
 <div id="u45_rtf"><p style="text-align:left;"><span style="font-family:Helvetica;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">Save this shipping address for future use</span></p></div>
@@ -178,7 +197,7 @@ $number_of_items = $carts['Cart']['item_count'];?>
 <div id="u58" class="u58"  >
 <div id="u58_rtf"><p style="text-align:left;"><span style="font-family:Helvetica;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">Payment confirmation</span></p></div>
 </div>
-<DIV id="u59container"  style="position:absolute; left:29px; top:1004px; width:342px; height:16px; ; ; ;" >
+<DIV id="u59container"  style="position:absolute; left:29px; top:1019px; width:342px; height:16px; ; ; ;" >
 <LABEL for="shipping_equal_billing">
 <div id="u60" class="u60"  >
 <div id="u60_rtf"><p style="text-align:left;"><span style="font-family:Helvetica;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">Billing address same as shipping</span></p></div>
@@ -186,7 +205,7 @@ $number_of_items = $carts['Cart']['item_count'];?>
 </LABEL>
 <INPUT id="shipping_equal_billing" name="data[shipping_equal_billing]" style="position:absolute; left:-3px; top:-2px;" type="checkbox" value="checked"   >
 </DIV>
-<DIV id="u61container" style="position:absolute; left:513px; top:971px; width:342px; height:16px; ; ; ;" >
+<DIV id="u61container" style="position:absolute; left:513px; top:985px; width:342px; height:16px; ; ; ;" >
 <LABEL for="u61">
 <div id="u62" class="u62"  >
 <div id="u62_rtf"><p style="text-align:left;"><span style="font-family:Helvetica;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">Save this billing address for future use</span></p></div>
@@ -259,9 +278,31 @@ $number_of_items = $carts['Cart']['item_count'];?>
 
 </DIV>
 </DIV>
-<div id="u80" class="u80 billing_related"  >
-<div id="u80_rtf"><p style="text-align:right;"><span style="font-family:Helvetica;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">Your name (first and last)</span></p></div>
+<div id="u750" class="u750_container billing_related"   >
+<div id="u750_img" class="u750_normal detectCanvas"></div>
+<div id="u760" class="u760" style="visibility:hidden;"  >
+<div id="u760_rtf"></div>
 </div>
+</div>
+<DIV id="u770" style="" >
+<DIV id="pd1u770" style="visibility:hidden;" data-label="Enabled">
+<INPUT id="u780" type=text value="" class="u780" data-label="Text"    >
+
+</DIV>
+<DIV id="pd0u770" style="" data-label="Disabled">
+<INPUT id="billing_name" name="data[BillingAddress][first_name]" type=text placeholder="enter text..." class="u79 billing_related"     >
+
+</DIV>
+</DIV>
+<div id="u80" class="u80 billing_related"  >
+<div id="u80_rtf"><p style="text-align:left;"><span style="font-family:Helvetica;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">First Name</span></p></div>
+</div>
+
+
+<div id="u800" class="u800 billing_related"  >
+<div id="u800_rtf"><p style="text-align:left;"><span style="font-family:Helvetica;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">Last Name</span></p></div>
+</div>
+
 <div id="u81" class="u81_container billing_related"   >
 <div id="u81_img" class="u81_normal detectCanvas"></div>
 <div id="u82" class="u82" style="visibility:hidden;"  >
