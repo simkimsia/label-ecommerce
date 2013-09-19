@@ -62,9 +62,7 @@
                 
             </div>
           </div>
-          <div class="footerContent">
-            
-          </div>
+          <div class="footerContent" ></div>
           
           <div class="addtocart">
             <!--
@@ -91,11 +89,15 @@
                     echo $this->Form->end();
                 ?>
           </div>
+
+          <div style="height:40px;"></div>
           
-          <div class="topContent secondrow">
-          </div>
-          <div class="mainContent">
+     <!--      <div class="topContent secondrow">
+          </div> 
             
+           
+          <div class="mainContent">
+           
             <div class="theContents fixheight clearfix">
                 <div class="cartHolder">
                     <div class="cartInfo">
@@ -155,13 +157,16 @@
                 </div>
             </div>
           </div>
+          -->
+          <!--
           <div class="footerContent">
             <div class="checkout"><a href="#">
                     <?php $this->Html->image('checkoutbtn.png');?>
 
             </a></div>
-          </div>
-        </div>
+          </div> 
+        </div>-->
+       
 <?php echo $this->Html->script('jquery.tools.min', array('block' => 'scriptBottom')); ?>
 <?php $this->append('scriptBottom'); ?>
 <script>
