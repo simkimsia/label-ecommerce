@@ -11,7 +11,7 @@ class UsersController extends AppController {
 		parent::beforeFilter();
 		$this->Auth->allow('send_enquiry_email',
 			'admin_forget_password',
-			'reset_password'); 
+			'reset_password', 'view_my_own_profile'); 
 	}
 
 /**
@@ -204,6 +204,33 @@ class UsersController extends AppController {
 		$this->set('user', $this->User->find('first', $options));
 		$this->render('view');
 	}
+
+/**
+ * view_my_own_profile method for normal users
+ *
+ * @throws NotFoundException
+ * @param string $id
+ * @return void
+ */
+	public function view_my_own_profile() {
+		if($this->Auth->user('id') > 0){
+			$this->User->recursive = 0;
+			$order_model = ClassRegistry::init('Cart.Order');
+			
+			$options = array('Order.user_id' => $this->Auth->user('id'));
+			$users_orders = $order_model->find('all', array('conditions' => $options));
+			$this->set('users_orders', $users_orders);
+			$this->set('users_fullname', $this->Auth->user('full_name'));
+		}
+		else{
+			$this->redirect('/users/login');
+			
+		}
+
+	}
+
+
+
 
 /**
  * edit_my_own_profile method

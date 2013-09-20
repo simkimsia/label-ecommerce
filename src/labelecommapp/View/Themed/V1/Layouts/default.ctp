@@ -84,7 +84,12 @@
 
         <div class="topRightArea">
             <div class="topBtn">
-              <div class="circleBtn "><a href="#" class="spacer">My<br />Account</a></div>
+              <?php if($authUser) {?>
+              <div class="circleBtn "><a href="/users/view_my_own_profile" class="spacer">Hi<br /><?php echo $authUser['short_name'];?></a></div>
+              <?php }
+              else {?>
+              <div class="circleBtn "><a href="/users/view_my_own_profile" class="spacer">My<br />Account</a></div>
+              <?php }?>
               <div class="circleBtn"><a href="/carts/view">My<br />Cart <span>Item <?php echo $cartItemCount;?></span></a></div>
             </div>
             <div class="btmBtn">

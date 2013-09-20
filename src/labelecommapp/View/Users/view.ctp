@@ -5,9 +5,9 @@
 	</div>
 	<div class="grid_10 push_5">
 		<dl>
-			<dt><?php echo __('Full Name'); ?></dt>
+			<dt><?php echo __('Invoice No.'); ?></dt>
 			<dd>
-				<?php echo h($user['User']['full_name']); ?>
+				<?php echo h($user['User']['invoice_number']); ?>
 				&nbsp;
 			</dd>
 			<dt><?php echo __('Short Name'); ?></dt>
