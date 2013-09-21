@@ -32,7 +32,7 @@
 				echo $this->Html->link($message, array('action' => 'index'));
 			}
 		}
-
+		if ($authUser['group_id'] == SHOP_ADMIN || $authUser['group_id'] == SUPER_ADMIN) {
 			$message = 'Add User';
 			echo ' | ';
 			if ($this->params['action'] == 'add') {
@@ -40,6 +40,15 @@
 			} else {
 				echo $this->Html->link($message, array('action' => 'add'));
 			}
+		}
+			$message = 'Logout';
+			echo ' | ';
+			if ($this->params['action'] == 'logout') {
+				echo "<strong>" . $message . "</strong>";
+			} else {
+				echo $this->Html->link($message, array('action' => 'logout'));
+			}			
+
 		}
 
 	 else {

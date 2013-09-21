@@ -35,7 +35,9 @@ class AppModel extends Model {
 	public $actsAs = array(
 		'Containable', 
 		'UtilityBehaviors.FindXORCreatable',
-		'UtilityBehaviors.ModelDataExtractable');
+		'UtilityBehaviors.ModelDataExtractable',
+		'Queryable.Queryable'
+	);
 
 	public $authUser = null;
 

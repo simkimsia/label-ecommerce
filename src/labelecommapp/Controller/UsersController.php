@@ -7,6 +7,20 @@ App::uses('AppController', 'Controller');
  */
 class UsersController extends AppController {
 
+
+	public $paginate = array(
+        'User' => array (
+        	'limit' => 20,
+    		'maxLimit' => 100,
+    		'paramType' => 'named',
+        ),
+        'Order' => array (
+        	'limit' => 20,
+    		'maxLimit' => 100,
+    		'paramType' => 'named',
+        )
+    );
+
 	public function beforeFilter() {
 		parent::beforeFilter();
 		$this->Auth->allow('send_enquiry_email',
@@ -214,12 +228,19 @@ class UsersController extends AppController {
  */
 	public function view_my_own_profile() {
 		if($this->Auth->user('id') > 0){
-			$this->User->recursive = 0;
-			$order_model = ClassRegistry::init('Cart.Order');
 			
-			$options = array('Order.user_id' => $this->Auth->user('id'));
-			$users_orders = $order_model->find('all', array('conditions' => $options));
+			// we want the paginator to use default settings for page limit and maxLimit
+			$this->Paginator->settings = $this->paginate;
+
+			// we only want orders specific to logged in User
+			$conditions                                       = array('Order.user_id' => $this->Auth->user('id'));
+			$this->Paginator->settings['Order']['conditions'] = $conditions;
+
+    		// similar to findAll(), but fetches paged results
+    		$users_orders = $this->Paginator->paginate('Order');
+
 			$this->set('users_orders', $users_orders);
+			
 			$this->set('users_fullname', $this->Auth->user('full_name'));
 		}
 		else{

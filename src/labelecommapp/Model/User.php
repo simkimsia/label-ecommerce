@@ -38,6 +38,27 @@ class User extends AppModel {
 	);
 
 /**
+ * hasMany associations
+ *
+ * @var array
+ */
+	public $hasMany = array(
+		'Order' => array(
+		    'className' => 'Cart.Order',
+		    'foreignKey' => 'user_id',
+		    'dependent' => false,
+		    'conditions' => '',
+		    'fields' => '',
+		    'order' => '',
+		    'limit' => '',
+		    'offset' => '',
+		    'exclusive' => '',
+		    'finderQuery' => '',
+		    'counterQuery' => ''
+		),
+	);
+
+/**
  *
  * Acl related code
  */
