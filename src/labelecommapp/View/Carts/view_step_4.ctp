@@ -220,9 +220,17 @@ margin-left: 45px;">The safer, easier way to pay.</span>  </br>
 <script type="text/javascript">
     $(document).ready(function() {
 
+    	var submitted = false;
+
     	$(".payment_submit").click(function() {
     		console.log('click');
-            $("#payment_form").submit();
+    		if (!submitted) {
+    			$("#payment_form").submit();
+    			console.log('submitted!');	
+    			submitted = true;
+    		}
+            
+            $(".payment_submit").click(false);
         });
 	});
 </script>

@@ -15,7 +15,7 @@ class UsersController extends AppController {
     		'paramType' => 'named',
         ),
         'Order' => array (
-        	'limit' => 20,
+        	'limit' => 1,
     		'maxLimit' => 100,
     		'paramType' => 'named',
         )
@@ -241,7 +241,6 @@ class UsersController extends AppController {
 
 			$this->set('users_orders', $users_orders);
 			
-			$this->set('users_fullname', $this->Auth->user('full_name'));
 		}
 		else{
 			$this->redirect('/users/login');

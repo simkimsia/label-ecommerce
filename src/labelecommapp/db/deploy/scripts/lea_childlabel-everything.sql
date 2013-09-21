@@ -18,7 +18,7 @@ CREATE TABLE `acos` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 INSERT INTO `acos` (`id`, `parent_id`, `model`, `foreign_key`, `alias`, `lft`, `rght`) VALUES
-(1,	NULL,	NULL,	NULL,	'controllers',	1,	284),
+(1,	NULL,	NULL,	NULL,	'controllers',	1,	314),
 (2,	1,	NULL,	NULL,	'Groups',	2,	13),
 (3,	2,	NULL,	NULL,	'index',	3,	4),
 (4,	2,	NULL,	NULL,	'view',	5,	6),
@@ -64,7 +64,7 @@ INSERT INTO `acos` (`id`, `parent_id`, `model`, `foreign_key`, `alias`, `lft`, `
 (44,	36,	NULL,	NULL,	'admin_add',	91,	92),
 (45,	36,	NULL,	NULL,	'admin_edit',	93,	94),
 (46,	36,	NULL,	NULL,	'admin_delete',	95,	96),
-(47,	1,	NULL,	NULL,	'Users',	98,	139),
+(47,	1,	NULL,	NULL,	'Users',	98,	141),
 (48,	47,	NULL,	NULL,	'index',	99,	100),
 (49,	47,	NULL,	NULL,	'view',	101,	102),
 (50,	47,	NULL,	NULL,	'add',	103,	104),
@@ -81,85 +81,100 @@ INSERT INTO `acos` (`id`, `parent_id`, `model`, `foreign_key`, `alias`, `lft`, `
 (61,	47,	NULL,	NULL,	'admin_change_my_own_password',	125,	126),
 (62,	47,	NULL,	NULL,	'forget_password',	127,	128),
 (63,	47,	NULL,	NULL,	'reset_password',	129,	130),
-(64,	1,	NULL,	NULL,	'AclExtras',	140,	141),
-(65,	1,	NULL,	NULL,	'AssetCompress',	142,	143),
-(66,	1,	NULL,	NULL,	'ClearCache',	144,	153),
-(67,	66,	NULL,	NULL,	'ClearCache',	145,	152),
-(68,	67,	NULL,	NULL,	'files',	146,	147),
-(69,	67,	NULL,	NULL,	'engines',	148,	149),
-(70,	67,	NULL,	NULL,	'groups',	150,	151),
-(71,	1,	NULL,	NULL,	'Migrations',	154,	155),
-(72,	1,	NULL,	NULL,	'PermissionsExtras',	156,	157),
-(73,	1,	NULL,	NULL,	'UtilityLib',	158,	159),
+(64,	1,	NULL,	NULL,	'AclExtras',	142,	143),
+(65,	1,	NULL,	NULL,	'AssetCompress',	144,	145),
+(66,	1,	NULL,	NULL,	'ClearCache',	146,	155),
+(67,	66,	NULL,	NULL,	'ClearCache',	147,	154),
+(68,	67,	NULL,	NULL,	'files',	148,	149),
+(69,	67,	NULL,	NULL,	'engines',	150,	151),
+(70,	67,	NULL,	NULL,	'groups',	152,	153),
+(71,	1,	NULL,	NULL,	'Migrations',	156,	157),
+(72,	1,	NULL,	NULL,	'PermissionsExtras',	158,	159),
+(73,	1,	NULL,	NULL,	'UtilityLib',	160,	161),
 (74,	47,	NULL,	NULL,	'admin_reset_password',	131,	132),
 (75,	47,	NULL,	NULL,	'admin_index',	133,	134),
 (76,	47,	NULL,	NULL,	'admin_add',	135,	136),
 (77,	47,	NULL,	NULL,	'admin_edit',	137,	138),
 (78,	8,	NULL,	NULL,	'admin_display',	17,	18),
-(79,	1,	NULL,	NULL,	'ProductImages',	160,	183),
-(80,	79,	NULL,	NULL,	'index',	161,	162),
-(81,	79,	NULL,	NULL,	'view',	163,	164),
-(82,	79,	NULL,	NULL,	'add',	165,	166),
-(83,	79,	NULL,	NULL,	'edit',	167,	168),
-(84,	79,	NULL,	NULL,	'delete',	169,	170),
-(85,	79,	NULL,	NULL,	'admin_add_by_product',	171,	172),
-(86,	1,	NULL,	NULL,	'Upload',	184,	185),
-(87,	1,	NULL,	NULL,	'UtilityBehaviors',	186,	187),
-(88,	79,	NULL,	NULL,	'admin_index_by_product',	173,	174),
-(89,	79,	NULL,	NULL,	'admin_delete_by_product',	175,	176),
-(90,	79,	NULL,	NULL,	'admin_edit_by_product',	177,	178),
-(91,	79,	NULL,	NULL,	'admin_view_by_product',	179,	180),
-(92,	79,	NULL,	NULL,	'admin_swap_order',	181,	182),
+(79,	1,	NULL,	NULL,	'ProductImages',	162,	185),
+(80,	79,	NULL,	NULL,	'index',	163,	164),
+(81,	79,	NULL,	NULL,	'view',	165,	166),
+(82,	79,	NULL,	NULL,	'add',	167,	168),
+(83,	79,	NULL,	NULL,	'edit',	169,	170),
+(84,	79,	NULL,	NULL,	'delete',	171,	172),
+(85,	79,	NULL,	NULL,	'admin_add_by_product',	173,	174),
+(86,	1,	NULL,	NULL,	'Upload',	186,	187),
+(87,	1,	NULL,	NULL,	'UtilityBehaviors',	188,	189),
+(88,	79,	NULL,	NULL,	'admin_index_by_product',	175,	176),
+(89,	79,	NULL,	NULL,	'admin_delete_by_product',	177,	178),
+(90,	79,	NULL,	NULL,	'admin_edit_by_product',	179,	180),
+(91,	79,	NULL,	NULL,	'admin_view_by_product',	181,	182),
+(92,	79,	NULL,	NULL,	'admin_swap_order',	183,	184),
 (93,	21,	NULL,	NULL,	'admin_swap_order',	55,	56),
-(94,	1,	NULL,	NULL,	'Carts',	188,	203),
-(95,	94,	NULL,	NULL,	'index',	189,	190),
-(96,	94,	NULL,	NULL,	'view',	191,	192),
-(97,	94,	NULL,	NULL,	'add',	193,	194),
-(98,	94,	NULL,	NULL,	'edit',	195,	196),
-(99,	94,	NULL,	NULL,	'delete',	197,	198),
-(100,	94,	NULL,	NULL,	'add_item',	199,	200),
-(101,	94,	NULL,	NULL,	'remove_item',	201,	202),
-(102,	1,	NULL,	NULL,	'Cart',	204,	269),
-(103,	102,	NULL,	NULL,	'CartRules',	205,	212),
-(104,	103,	NULL,	NULL,	'admin_index',	206,	207),
-(105,	103,	NULL,	NULL,	'admin_add',	208,	209),
-(106,	103,	NULL,	NULL,	'admin_edit',	210,	211),
-(107,	102,	NULL,	NULL,	'Carts',	213,	228),
-(108,	107,	NULL,	NULL,	'index',	214,	215),
-(109,	107,	NULL,	NULL,	'view',	216,	217),
-(110,	107,	NULL,	NULL,	'add',	218,	219),
-(111,	107,	NULL,	NULL,	'edit',	220,	221),
-(112,	107,	NULL,	NULL,	'delete',	222,	223),
-(113,	107,	NULL,	NULL,	'add_item',	224,	225),
-(114,	107,	NULL,	NULL,	'remove_item',	226,	227),
-(115,	102,	NULL,	NULL,	'OrderAddresses',	229,	230),
-(116,	102,	NULL,	NULL,	'Orders',	231,	244),
-(117,	116,	NULL,	NULL,	'index',	232,	233),
-(118,	116,	NULL,	NULL,	'view',	234,	235),
-(119,	116,	NULL,	NULL,	'cancel',	236,	237),
-(120,	116,	NULL,	NULL,	'admin_index',	238,	239),
-(121,	116,	NULL,	NULL,	'admin_view',	240,	241),
-(122,	116,	NULL,	NULL,	'admin_refund',	242,	243),
-(123,	102,	NULL,	NULL,	'PaymentMethods',	245,	252),
-(124,	123,	NULL,	NULL,	'index',	246,	247),
-(125,	123,	NULL,	NULL,	'admin_index',	248,	249),
-(126,	123,	NULL,	NULL,	'admin_edit',	250,	251),
-(127,	102,	NULL,	NULL,	'ShippingMethods',	253,	268),
-(128,	127,	NULL,	NULL,	'index',	254,	255),
-(129,	127,	NULL,	NULL,	'view',	256,	257),
-(130,	127,	NULL,	NULL,	'admin_index',	258,	259),
-(131,	127,	NULL,	NULL,	'admin_view',	260,	261),
-(132,	127,	NULL,	NULL,	'admin_add',	262,	263),
-(133,	127,	NULL,	NULL,	'admin_edit',	264,	265),
-(134,	127,	NULL,	NULL,	'admin_delete',	266,	267),
-(135,	1,	NULL,	NULL,	'Search',	270,	271),
+(94,	1,	NULL,	NULL,	'Carts',	190,	219),
+(95,	94,	NULL,	NULL,	'index',	191,	192),
+(96,	94,	NULL,	NULL,	'view',	193,	194),
+(97,	94,	NULL,	NULL,	'add',	195,	196),
+(98,	94,	NULL,	NULL,	'edit',	197,	198),
+(99,	94,	NULL,	NULL,	'delete',	199,	200),
+(100,	94,	NULL,	NULL,	'add_item',	201,	202),
+(101,	94,	NULL,	NULL,	'remove_item',	203,	204),
+(102,	1,	NULL,	NULL,	'Cart',	220,	299),
+(103,	102,	NULL,	NULL,	'CartRules',	221,	228),
+(104,	103,	NULL,	NULL,	'admin_index',	222,	223),
+(105,	103,	NULL,	NULL,	'admin_add',	224,	225),
+(106,	103,	NULL,	NULL,	'admin_edit',	226,	227),
+(107,	102,	NULL,	NULL,	'Carts',	229,	258),
+(108,	107,	NULL,	NULL,	'index',	230,	231),
+(109,	107,	NULL,	NULL,	'view',	232,	233),
+(110,	107,	NULL,	NULL,	'add',	234,	235),
+(111,	107,	NULL,	NULL,	'edit',	236,	237),
+(112,	107,	NULL,	NULL,	'delete',	238,	239),
+(113,	107,	NULL,	NULL,	'add_item',	240,	241),
+(114,	107,	NULL,	NULL,	'remove_item',	242,	243),
+(115,	102,	NULL,	NULL,	'OrderAddresses',	259,	260),
+(116,	102,	NULL,	NULL,	'Orders',	261,	274),
+(117,	116,	NULL,	NULL,	'index',	262,	263),
+(118,	116,	NULL,	NULL,	'view',	264,	265),
+(119,	116,	NULL,	NULL,	'cancel',	266,	267),
+(120,	116,	NULL,	NULL,	'admin_index',	268,	269),
+(121,	116,	NULL,	NULL,	'admin_view',	270,	271),
+(122,	116,	NULL,	NULL,	'admin_refund',	272,	273),
+(123,	102,	NULL,	NULL,	'PaymentMethods',	275,	282),
+(124,	123,	NULL,	NULL,	'index',	276,	277),
+(125,	123,	NULL,	NULL,	'admin_index',	278,	279),
+(126,	123,	NULL,	NULL,	'admin_edit',	280,	281),
+(127,	102,	NULL,	NULL,	'ShippingMethods',	283,	298),
+(128,	127,	NULL,	NULL,	'index',	284,	285),
+(129,	127,	NULL,	NULL,	'view',	286,	287),
+(130,	127,	NULL,	NULL,	'admin_index',	288,	289),
+(131,	127,	NULL,	NULL,	'admin_view',	290,	291),
+(132,	127,	NULL,	NULL,	'admin_add',	292,	293),
+(133,	127,	NULL,	NULL,	'admin_edit',	294,	295),
+(134,	127,	NULL,	NULL,	'admin_delete',	296,	297),
+(135,	1,	NULL,	NULL,	'Search',	300,	301),
 (136,	21,	NULL,	NULL,	'admin_rename',	57,	58),
-(137,	1,	NULL,	NULL,	'ShippingOptions',	272,	283),
-(138,	137,	NULL,	NULL,	'admin_index',	273,	274),
-(139,	137,	NULL,	NULL,	'admin_view',	275,	276),
-(140,	137,	NULL,	NULL,	'admin_add',	277,	278),
-(141,	137,	NULL,	NULL,	'admin_edit',	279,	280),
-(142,	137,	NULL,	NULL,	'admin_delete',	281,	282);
+(137,	1,	NULL,	NULL,	'ShippingOptions',	302,	313),
+(138,	137,	NULL,	NULL,	'admin_index',	303,	304),
+(139,	137,	NULL,	NULL,	'admin_view',	305,	306),
+(140,	137,	NULL,	NULL,	'admin_add',	307,	308),
+(141,	137,	NULL,	NULL,	'admin_edit',	309,	310),
+(142,	137,	NULL,	NULL,	'admin_delete',	311,	312),
+(143,	94,	NULL,	NULL,	'cart_unfilled',	205,	206),
+(144,	94,	NULL,	NULL,	'save_address',	207,	208),
+(145,	94,	NULL,	NULL,	'pay',	209,	210),
+(146,	94,	NULL,	NULL,	'complete_purchase',	211,	212),
+(147,	94,	NULL,	NULL,	'successful',	213,	214),
+(148,	94,	NULL,	NULL,	'successful_ib',	215,	216),
+(149,	94,	NULL,	NULL,	'update',	217,	218),
+(150,	107,	NULL,	NULL,	'cart_unfilled',	244,	245),
+(151,	107,	NULL,	NULL,	'save_address',	246,	247),
+(152,	107,	NULL,	NULL,	'pay',	248,	249),
+(153,	107,	NULL,	NULL,	'complete_purchase',	250,	251),
+(154,	107,	NULL,	NULL,	'successful',	252,	253),
+(155,	107,	NULL,	NULL,	'successful_ib',	254,	255),
+(156,	107,	NULL,	NULL,	'update',	256,	257),
+(157,	47,	NULL,	NULL,	'view_my_own_profile',	139,	140);
 
 DROP TABLE IF EXISTS `addresses`;
 CREATE TABLE `addresses` (
@@ -191,7 +206,9 @@ INSERT INTO `addresses` (`id`, `order_address_id`, `user_id`) VALUES
 (19,	'520db49f-1564-4f38-b7ba-06d1d87f8d82',	3),
 (20,	'520db51d-0328-4fc1-9710-06d6d87f8d82',	3),
 (21,	'520db51d-4ed4-4890-95ab-06d6d87f8d82',	3),
-(22,	'520db70c-f288-44fe-8eef-06e5d87f8d82',	3);
+(22,	'520db70c-f288-44fe-8eef-06e5d87f8d82',	3),
+(23,	'523bf893-52c0-43db-ab67-0761d87f8d82',	5),
+(24,	'523bf893-56bc-40ff-8b1a-0761d87f8d82',	5);
 
 DROP TABLE IF EXISTS `aros`;
 CREATE TABLE `aros` (
@@ -260,7 +277,7 @@ CREATE TABLE `carts` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 INSERT INTO `carts` (`id`, `user_id`, `name`, `total`, `active`, `item_count`, `created`, `modified`) VALUES
-('5232bec8-2e88-4bf8-8239-0770d87f8d82',	'3',	'My cart',	0,	1,	0,	'2013-09-13 15:29:12',	'2013-09-13 15:29:12');
+('523d8043-2e90-49a9-9072-0753d87f8d82',	'3',	'My cart',	NULL,	1,	1,	'2013-09-21 19:17:23',	'2013-09-21 19:17:23');
 
 DROP TABLE IF EXISTS `carts_items`;
 CREATE TABLE `carts_items` (
@@ -281,7 +298,20 @@ CREATE TABLE `carts_items` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 INSERT INTO `carts_items` (`id`, `cart_id`, `short_name`, `foreign_key`, `model`, `quantity`, `name`, `price`, `virtual`, `status`, `created`, `modified`, `quantity_limit`) VALUES
-('5232bd51-455c-4ebb-967d-075bd87f8d82',	'5232bd51-fd8c-4283-8312-075bd87f8d82',	'Circle (Sticker)',	'6',	'ProductVariant',	1,	'Circle Sticker Labels',	20,	0,	NULL,	'2013-09-13 15:22:57',	'2013-09-13 15:22:57',	2147483647);
+('5232bd51-455c-4ebb-967d-075bd87f8d82',	'5232bd51-fd8c-4283-8312-075bd87f8d82',	'Circle (Sticker)',	'6',	'ProductVariant',	1,	'Circle Sticker Labels',	20,	0,	NULL,	'2013-09-13 15:22:57',	'2013-09-13 15:22:57',	2147483647),
+('5232cc08-8fa0-4e9a-ab22-075cd87f8d82',	'5232bec8-2e88-4bf8-8239-0770d87f8d82',	'Rectangle (Sticker)',	'5',	'ProductVariant',	4,	'Rectangle Sticker Labels',	19.95,	0,	NULL,	'2013-09-13 16:25:44',	'2013-09-13 16:25:44',	2147483647),
+('5234adc1-b944-4453-84f5-074cd87f8d82',	'5232bec8-2e88-4bf8-8239-0770d87f8d82',	'Circle (Sticker)',	'6',	'ProductVariant',	1,	'Circle Sticker Labels',	20,	0,	NULL,	'2013-09-15 02:41:05',	'2013-09-15 02:41:05',	2147483647),
+('52352db1-c10c-4bf8-9362-0747d87f8d82',	'52352db1-c8d0-4445-bbf0-0747d87f8d82',	'Circle (Sticker)',	'6',	'ProductVariant',	1,	'Circle Sticker Labels',	20,	0,	NULL,	'2013-09-15 11:46:57',	'2013-09-15 11:46:57',	2147483647),
+('52353d9f-0508-4d87-b359-0740d87f8d82',	'52353d98-1288-4724-8dc0-0758d87f8d82',	'Rectangle (Sticker)',	'5',	'ProductVariant',	1,	'Rectangle Sticker Labels',	19.95,	0,	NULL,	'2013-09-15 12:54:55',	'2013-09-15 12:54:55',	2147483647),
+('523beddf-3bc8-4e2b-ad0a-076bd87f8d82',	'523bedbe-963c-42e9-85a1-0775d87f8d82',	'Rectangle (Sticker)',	'5',	'ProductVariant',	1,	'Rectangle Sticker Labels',	19.95,	0,	NULL,	'2013-09-20 14:40:31',	'2013-09-20 14:40:31',	2147483647),
+('523bfa00-7c74-4d69-82fe-076bd87f8d82',	'523bf9fa-faec-4601-80e0-0766d87f8d82',	'Rectangle (Sticker)',	'5',	'ProductVariant',	1,	'Rectangle Sticker Labels',	19.95,	0,	NULL,	'2013-09-20 15:32:16',	'2013-09-20 15:32:16',	2147483647),
+('523bfcb7-cfc0-4ce1-bb46-0776d87f8d82',	'523bfcb2-08a8-47cc-9478-076ed87f8d82',	'Rectangle (Sticker)',	'5',	'ProductVariant',	1,	'Rectangle Sticker Labels',	19.95,	0,	NULL,	'2013-09-20 15:43:51',	'2013-09-20 15:43:51',	2147483647),
+('523bfd0f-80c4-47b1-8015-0775d87f8d82',	'523bfd05-2c38-4810-9532-0771d87f8d82',	'Circle (Sticker)',	'6',	'ProductVariant',	1,	'Circle Sticker Labels',	20,	0,	NULL,	'2013-09-20 15:45:19',	'2013-09-20 15:45:19',	2147483647),
+('523c083b-2c70-48f6-8295-0776d87f8d82',	'523bfd3a-d5dc-449f-a1ea-0761d87f8d82',	'Circle (Sticker)',	'6',	'ProductVariant',	1,	'Circle Sticker Labels',	20,	0,	NULL,	'2013-09-20 16:32:59',	'2013-09-20 16:32:59',	2147483647),
+('523d7c15-75c4-48f5-b36b-0741d87f8d82',	'523d564e-4040-4311-a0a4-0753d87f8d82',	'Circle (Sticker)',	'6',	'ProductVariant',	1,	'Circle Sticker Labels',	20,	0,	NULL,	'2013-09-21 18:59:33',	'2013-09-21 18:59:33',	2147483647),
+('523d7dc7-e130-48e1-b224-0752d87f8d82',	'523d7c65-7714-48d8-8445-0752d87f8d82',	'Rectangle (Sticker)',	'5',	'ProductVariant',	1,	'Rectangle Sticker Labels',	19.95,	0,	NULL,	'2013-09-21 19:06:47',	'2013-09-21 19:06:47',	2147483647),
+('523d7ffc-8358-4c9c-bb60-0751d87f8d82',	'523d7ffc-4858-414e-aeff-0751d87f8d82',	'Rectangle (Sticker)',	'5',	'ProductVariant',	1,	'Rectangle Sticker Labels',	19.95,	0,	NULL,	'2013-09-21 19:16:12',	'2013-09-21 19:16:12',	2147483647),
+('523d8043-6df8-4579-8aaf-0753d87f8d82',	'523d8043-2e90-49a9-9072-0753d87f8d82',	'Rectangle (Sticker)',	'5',	'ProductVariant',	1,	'Rectangle Sticker Labels',	19.95,	0,	NULL,	'2013-09-21 19:17:23',	'2013-09-21 19:17:23',	2147483647);
 
 DROP TABLE IF EXISTS `cart_rules`;
 CREATE TABLE `cart_rules` (
@@ -353,7 +383,9 @@ CREATE TABLE `orders` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 INSERT INTO `orders` (`id`, `user_id`, `cart_id`, `cart_snapshop`, `token`, `processor`, `status`, `payment_reference`, `payment_status`, `transaction_fee`, `invoice_number`, `billing_address`, `shipping_address`, `total`, `currency`, `created`, `modified`, `order_item_count`, `order_number`) VALUES
-('5232bd5e-c420-4b13-9689-075ed87f8d82',	'3',	'5232bd51-fd8c-4283-8312-075bd87f8d82',	'a:5:{s:4:\"Cart\";a:9:{s:6:\"active\";i:1;s:10:\"item_count\";i:1;s:7:\"user_id\";s:1:\"3\";s:4:\"name\";s:7:\"My cart\";s:8:\"modified\";s:19:\"2013-09-13 15:22:57\";s:7:\"created\";s:19:\"2013-09-13 15:22:57\";s:2:\"id\";s:36:\"5232bd51-fd8c-4283-8312-075bd87f8d82\";s:5:\"total\";d:20;s:11:\"total_price\";d:20;}s:9:\"CartsItem\";a:1:{i:0;a:13:{s:8:\"quantity\";s:1:\"1\";s:11:\"foreign_key\";s:1:\"6\";s:5:\"model\";s:14:\"ProductVariant\";s:7:\"user_id\";N;s:7:\"cart_id\";N;s:14:\"quantity_limit\";i:9223372036854775807;s:10:\"is_virtual\";b:0;s:4:\"name\";s:21:\"Circle Sticker Labels\";s:5:\"price\";s:5:\"20.00\";s:10:\"short_name\";s:16:\"Circle (Sticker)\";s:15:\"additional_data\";s:6:\"a:0:{}\";s:5:\"total\";d:20;s:5:\"image\";s:39:\"/theme/V1/img/cart_step_1/u9_normal.png\";}}s:15:\"ShippingAddress\";a:14:{s:2:\"id\";s:36:\"520a4e0c-8978-4ee4-a4ca-0778d87f8d82\";s:8:\"order_id\";s:36:\"5222f13a-9290-44f5-b644-0828d87f8d82\";s:7:\"user_id\";s:1:\"3\";s:10:\"first_name\";s:3:\"aik\";s:9:\"last_name\";N;s:7:\"company\";N;s:6:\"street\";s:12:\"ubi avenue 1\";s:7:\"street2\";s:4:\"3118\";s:4:\"city\";s:9:\"Singapore\";s:3:\"zip\";s:6:\"400400\";s:7:\"country\";s:2:\"SG\";s:4:\"type\";s:2:\"sh\";s:7:\"created\";s:19:\"2013-08-13 08:17:32\";s:8:\"modified\";s:19:\"2013-08-13 08:17:32\";}s:14:\"BillingAddress\";a:14:{s:2:\"id\";s:36:\"520d7721-61e0-4697-88a2-06d3d87f8d82\";s:8:\"order_id\";s:36:\"5222f13a-9290-44f5-b644-0828d87f8d82\";s:7:\"user_id\";s:1:\"3\";s:10:\"first_name\";s:12:\"Sim Aik Chun\";s:9:\"last_name\";N;s:7:\"company\";N;s:6:\"street\";s:9:\"Block 100\";s:7:\"street2\";s:10:\"street 222\";s:4:\"city\";s:9:\"singapore\";s:3:\"zip\";s:3:\"222\";s:7:\"country\";s:2:\"SG\";s:4:\"type\";s:2:\"bi\";s:7:\"created\";s:19:\"2013-08-15 17:49:37\";s:8:\"modified\";s:19:\"2013-08-15 17:49:37\";}s:14:\"ShippingOption\";a:1:{s:2:\"id\";s:1:\"1\";}}',	NULL,	'PAYPAL_EXPRESS',	NULL,	NULL,	'completed',	NULL,	'20130913-1',	'BillingAddress:\nfirst_name : Sim Aik Chun\nlast_name : \ncompany : \nstreet : Block 100\nstreet2 : street 222\ncity : singapore\nzip : 222\ncountry : SG\n',	'ShippingAddress:\nfirst_name : aik\nlast_name : \ncompany : \nstreet : ubi avenue 1\nstreet2 : 3118\ncity : Singapore\nzip : 400400\ncountry : SG\n',	20,	NULL,	'2013-09-13 15:23:10',	'2013-09-13 15:23:10',	1,	'1');
+('5232bd5e-c420-4b13-9689-075ed87f8d82',	'3',	'5232bd51-fd8c-4283-8312-075bd87f8d82',	'a:5:{s:4:\"Cart\";a:9:{s:6:\"active\";i:1;s:10:\"item_count\";i:1;s:7:\"user_id\";s:1:\"3\";s:4:\"name\";s:7:\"My cart\";s:8:\"modified\";s:19:\"2013-09-13 15:22:57\";s:7:\"created\";s:19:\"2013-09-13 15:22:57\";s:2:\"id\";s:36:\"5232bd51-fd8c-4283-8312-075bd87f8d82\";s:5:\"total\";d:20;s:11:\"total_price\";d:20;}s:9:\"CartsItem\";a:1:{i:0;a:13:{s:8:\"quantity\";s:1:\"1\";s:11:\"foreign_key\";s:1:\"6\";s:5:\"model\";s:14:\"ProductVariant\";s:7:\"user_id\";N;s:7:\"cart_id\";N;s:14:\"quantity_limit\";i:9223372036854775807;s:10:\"is_virtual\";b:0;s:4:\"name\";s:21:\"Circle Sticker Labels\";s:5:\"price\";s:5:\"20.00\";s:10:\"short_name\";s:16:\"Circle (Sticker)\";s:15:\"additional_data\";s:6:\"a:0:{}\";s:5:\"total\";d:20;s:5:\"image\";s:39:\"/theme/V1/img/cart_step_1/u9_normal.png\";}}s:15:\"ShippingAddress\";a:14:{s:2:\"id\";s:36:\"520a4e0c-8978-4ee4-a4ca-0778d87f8d82\";s:8:\"order_id\";s:36:\"5222f13a-9290-44f5-b644-0828d87f8d82\";s:7:\"user_id\";s:1:\"3\";s:10:\"first_name\";s:3:\"aik\";s:9:\"last_name\";N;s:7:\"company\";N;s:6:\"street\";s:12:\"ubi avenue 1\";s:7:\"street2\";s:4:\"3118\";s:4:\"city\";s:9:\"Singapore\";s:3:\"zip\";s:6:\"400400\";s:7:\"country\";s:2:\"SG\";s:4:\"type\";s:2:\"sh\";s:7:\"created\";s:19:\"2013-08-13 08:17:32\";s:8:\"modified\";s:19:\"2013-08-13 08:17:32\";}s:14:\"BillingAddress\";a:14:{s:2:\"id\";s:36:\"520d7721-61e0-4697-88a2-06d3d87f8d82\";s:8:\"order_id\";s:36:\"5222f13a-9290-44f5-b644-0828d87f8d82\";s:7:\"user_id\";s:1:\"3\";s:10:\"first_name\";s:12:\"Sim Aik Chun\";s:9:\"last_name\";N;s:7:\"company\";N;s:6:\"street\";s:9:\"Block 100\";s:7:\"street2\";s:10:\"street 222\";s:4:\"city\";s:9:\"singapore\";s:3:\"zip\";s:3:\"222\";s:7:\"country\";s:2:\"SG\";s:4:\"type\";s:2:\"bi\";s:7:\"created\";s:19:\"2013-08-15 17:49:37\";s:8:\"modified\";s:19:\"2013-08-15 17:49:37\";}s:14:\"ShippingOption\";a:1:{s:2:\"id\";s:1:\"1\";}}',	NULL,	'PAYPAL_EXPRESS',	NULL,	NULL,	'completed',	NULL,	'20130913-1',	'BillingAddress:\nfirst_name : Sim Aik Chun\nlast_name : \ncompany : \nstreet : Block 100\nstreet2 : street 222\ncity : singapore\nzip : 222\ncountry : SG\n',	'ShippingAddress:\nfirst_name : aik\nlast_name : \ncompany : \nstreet : ubi avenue 1\nstreet2 : 3118\ncity : Singapore\nzip : 400400\ncountry : SG\n',	20,	NULL,	'2013-09-13 15:23:10',	'2013-09-13 15:23:10',	1,	'1'),
+('523bfd1b-34ec-40b6-bf01-0764d87f8d82',	'5',	'523bfd05-2c38-4810-9532-0771d87f8d82',	'a:5:{s:4:\"Cart\";a:9:{s:6:\"active\";i:1;s:10:\"item_count\";i:1;s:7:\"user_id\";s:1:\"5\";s:4:\"name\";s:7:\"My cart\";s:8:\"modified\";s:19:\"2013-09-20 15:45:09\";s:7:\"created\";s:19:\"2013-09-20 15:45:09\";s:2:\"id\";s:36:\"523bfd05-2c38-4810-9532-0771d87f8d82\";s:5:\"total\";d:20;s:11:\"total_price\";d:20;}s:9:\"CartsItem\";a:1:{i:0;a:17:{s:7:\"virtual\";s:1:\"0\";s:14:\"quantity_limit\";i:9223372036854775807;s:8:\"quantity\";s:1:\"1\";s:11:\"foreign_key\";s:1:\"6\";s:5:\"model\";s:14:\"ProductVariant\";s:7:\"user_id\";s:1:\"5\";s:7:\"cart_id\";s:36:\"523bfd05-2c38-4810-9532-0771d87f8d82\";s:10:\"is_virtual\";b:0;s:4:\"name\";s:21:\"Circle Sticker Labels\";s:5:\"price\";s:5:\"20.00\";s:10:\"short_name\";s:16:\"Circle (Sticker)\";s:15:\"additional_data\";s:6:\"a:0:{}\";s:8:\"modified\";s:19:\"2013-09-20 15:45:19\";s:7:\"created\";s:19:\"2013-09-20 15:45:19\";s:2:\"id\";s:36:\"523bfd0f-80c4-47b1-8015-0775d87f8d82\";s:5:\"total\";d:20;s:5:\"image\";s:39:\"/theme/V1/img/cart_step_1/u9_normal.png\";}}s:15:\"ShippingAddress\";a:14:{s:2:\"id\";s:36:\"523bf893-52c0-43db-ab67-0761d87f8d82\";s:8:\"order_id\";N;s:7:\"user_id\";s:1:\"5\";s:10:\"first_name\";s:8:\"aik_chun\";s:9:\"last_name\";s:8:\"customer\";s:7:\"company\";N;s:6:\"street\";s:16:\"318 gaudy salami\";s:7:\"street2\";s:6:\"300318\";s:4:\"city\";s:9:\"Singapore\";s:3:\"zip\";s:6:\"400318\";s:7:\"country\";s:2:\"SG\";s:4:\"type\";s:2:\"sh\";s:7:\"created\";s:19:\"2013-09-20 15:26:11\";s:8:\"modified\";s:19:\"2013-09-20 15:26:11\";}s:14:\"BillingAddress\";a:14:{s:2:\"id\";s:36:\"523bf893-56bc-40ff-8b1a-0761d87f8d82\";s:8:\"order_id\";N;s:7:\"user_id\";s:1:\"5\";s:10:\"first_name\";s:8:\"aik_chun\";s:9:\"last_name\";s:8:\"customer\";s:7:\"company\";N;s:6:\"street\";s:16:\"318 gaudy salami\";s:7:\"street2\";s:6:\"300318\";s:4:\"city\";s:9:\"Singapore\";s:3:\"zip\";s:6:\"400318\";s:7:\"country\";s:2:\"SG\";s:4:\"type\";s:2:\"bi\";s:7:\"created\";s:19:\"2013-09-20 15:26:11\";s:8:\"modified\";s:19:\"2013-09-20 15:26:11\";}s:14:\"ShippingOption\";a:1:{s:2:\"id\";s:1:\"1\";}}',	NULL,	'PAYPAL_EXPRESS',	NULL,	NULL,	'completed',	NULL,	'20130920-6',	'BillingAddress:\nfirst_name : aik_chun\nlast_name : customer\ncompany : \nstreet : 318 gaudy salami\nstreet2 : 300318\ncity : Singapore\nzip : 400318\ncountry : SG\n',	'ShippingAddress:\nfirst_name : aik_chun\nlast_name : customer\ncompany : \nstreet : 318 gaudy salami\nstreet2 : 300318\ncity : Singapore\nzip : 400318\ncountry : SG\n',	20,	NULL,	'2013-09-20 15:45:31',	'2013-09-20 15:45:31',	1,	'5'),
+('523d7c23-d9c4-40ca-970d-073dd87f8d82',	'3',	'523d564e-4040-4311-a0a4-0753d87f8d82',	'a:5:{s:4:\"Cart\";a:9:{s:6:\"active\";i:1;s:10:\"item_count\";i:1;s:7:\"user_id\";s:1:\"3\";s:4:\"name\";s:7:\"My cart\";s:8:\"modified\";s:19:\"2013-09-21 16:18:22\";s:7:\"created\";s:19:\"2013-09-21 16:18:22\";s:2:\"id\";s:36:\"523d564e-4040-4311-a0a4-0753d87f8d82\";s:5:\"total\";d:20;s:11:\"total_price\";d:20;}s:9:\"CartsItem\";a:1:{i:0;a:17:{s:7:\"virtual\";s:1:\"0\";s:14:\"quantity_limit\";i:9223372036854775807;s:8:\"quantity\";s:1:\"1\";s:11:\"foreign_key\";s:1:\"6\";s:5:\"model\";s:14:\"ProductVariant\";s:7:\"user_id\";s:1:\"3\";s:7:\"cart_id\";s:36:\"523d564e-4040-4311-a0a4-0753d87f8d82\";s:10:\"is_virtual\";b:0;s:4:\"name\";s:21:\"Circle Sticker Labels\";s:5:\"price\";s:5:\"20.00\";s:10:\"short_name\";s:16:\"Circle (Sticker)\";s:15:\"additional_data\";s:6:\"a:0:{}\";s:8:\"modified\";s:19:\"2013-09-21 18:59:33\";s:7:\"created\";s:19:\"2013-09-21 18:59:33\";s:2:\"id\";s:36:\"523d7c15-75c4-48f5-b36b-0741d87f8d82\";s:5:\"total\";d:20;s:5:\"image\";s:39:\"/theme/V1/img/cart_step_1/u9_normal.png\";}}s:15:\"ShippingAddress\";a:14:{s:2:\"id\";s:36:\"520a4e0c-8978-4ee4-a4ca-0778d87f8d82\";s:8:\"order_id\";s:36:\"5222f13a-9290-44f5-b644-0828d87f8d82\";s:7:\"user_id\";s:1:\"3\";s:10:\"first_name\";s:3:\"aik\";s:9:\"last_name\";s:3:\"sim\";s:7:\"company\";N;s:6:\"street\";s:12:\"ubi avenue 1\";s:7:\"street2\";s:4:\"3118\";s:4:\"city\";s:9:\"Singapore\";s:3:\"zip\";s:6:\"400400\";s:7:\"country\";s:2:\"SG\";s:4:\"type\";s:2:\"sh\";s:7:\"created\";s:19:\"2013-08-13 08:17:32\";s:8:\"modified\";s:19:\"2013-08-13 08:17:32\";}s:14:\"BillingAddress\";a:14:{s:2:\"id\";s:36:\"520d7721-61e0-4697-88a2-06d3d87f8d82\";s:8:\"order_id\";s:36:\"5222f13a-9290-44f5-b644-0828d87f8d82\";s:7:\"user_id\";s:1:\"3\";s:10:\"first_name\";s:8:\"Aik Chun\";s:9:\"last_name\";s:3:\"sim\";s:7:\"company\";N;s:6:\"street\";s:9:\"Block 100\";s:7:\"street2\";s:10:\"street 222\";s:4:\"city\";s:9:\"singapore\";s:3:\"zip\";s:3:\"222\";s:7:\"country\";s:2:\"SG\";s:4:\"type\";s:2:\"bi\";s:7:\"created\";s:19:\"2013-08-15 17:49:37\";s:8:\"modified\";s:19:\"2013-08-15 17:49:37\";}s:14:\"ShippingOption\";a:1:{s:2:\"id\";s:1:\"1\";}}',	NULL,	'PAYPAL_EXPRESS',	NULL,	NULL,	'completed',	NULL,	'20130921-4',	'BillingAddress:\nfirst_name : Aik Chun\nlast_name : sim\ncompany : \nstreet : Block 100\nstreet2 : street 222\ncity : singapore\nzip : 222\ncountry : SG\n',	'ShippingAddress:\nfirst_name : aik\nlast_name : sim\ncompany : \nstreet : ubi avenue 1\nstreet2 : 3118\ncity : Singapore\nzip : 400400\ncountry : SG\n',	20,	NULL,	'2013-09-21 18:59:47',	'2013-09-21 18:59:47',	1,	'3');
 
 DROP TABLE IF EXISTS `order_addresses`;
 CREATE TABLE `order_addresses` (
@@ -379,9 +411,9 @@ CREATE TABLE `order_addresses` (
 INSERT INTO `order_addresses` (`id`, `order_id`, `user_id`, `first_name`, `last_name`, `company`, `street`, `street2`, `city`, `zip`, `country`, `type`, `created`, `modified`) VALUES
 ('5209cea6-62fc-4f6c-b584-074cd87f8d82',	NULL,	'3',	'sim',	NULL,	NULL,	'asd',	NULL,	'asd',	'123',	'SG',	'sh',	'2013-08-12 23:13:58',	'2013-08-12 23:13:58'),
 ('5209d6bd-c3c8-45b8-9418-075dd87f8d82',	NULL,	'3',	'qwe',	NULL,	NULL,	'asxd',	NULL,	'zxc',	'800',	'SG',	'bi',	'2013-08-12 23:48:29',	'2013-08-12 23:48:29'),
-('520a4e0c-66e0-484a-a4d3-0778d87f8d82',	NULL,	'3',	'aik',	NULL,	NULL,	'ubi avenue 1',	'3118',	'Singapore',	'400400',	'SG',	'bi',	'2013-08-13 08:17:32',	'2013-08-13 08:17:32'),
-('520a4e0c-8978-4ee4-a4ca-0778d87f8d82',	'5222f13a-9290-44f5-b644-0828d87f8d82',	'3',	'aik',	NULL,	NULL,	'ubi avenue 1',	'3118',	'Singapore',	'400400',	'SG',	'sh',	'2013-08-13 08:17:32',	'2013-08-13 08:17:32'),
-('520d7721-61e0-4697-88a2-06d3d87f8d82',	'5222f13a-9290-44f5-b644-0828d87f8d82',	'3',	'Sim Aik Chun',	NULL,	NULL,	'Block 100',	'street 222',	'singapore',	'222',	'SG',	'bi',	'2013-08-15 17:49:37',	'2013-08-15 17:49:37'),
+('520a4e0c-66e0-484a-a4d3-0778d87f8d82',	NULL,	'3',	'aik',	'sim',	NULL,	'ubi avenue 1',	'3118',	'Singapore',	'400400',	'SG',	'bi',	'2013-08-13 08:17:32',	'2013-08-13 08:17:32'),
+('520a4e0c-8978-4ee4-a4ca-0778d87f8d82',	'5222f13a-9290-44f5-b644-0828d87f8d82',	'3',	'aik',	'sim',	NULL,	'ubi avenue 1',	'3118',	'Singapore',	'400400',	'SG',	'sh',	'2013-08-13 08:17:32',	'2013-08-13 08:17:32'),
+('520d7721-61e0-4697-88a2-06d3d87f8d82',	'5222f13a-9290-44f5-b644-0828d87f8d82',	'3',	'Aik Chun',	'sim',	NULL,	'Block 100',	'street 222',	'singapore',	'222',	'SG',	'bi',	'2013-08-15 17:49:37',	'2013-08-15 17:49:37'),
 ('520d7721-9ddc-4ae8-95d0-06d3d87f8d82',	NULL,	'3',	'Sim Aik Chun',	NULL,	NULL,	'Block 100',	'street 222',	'singapore',	'222',	'SG',	'sh',	'2013-08-15 17:49:37',	'2013-08-15 17:49:37'),
 ('520d8856-bbb0-4a62-86f4-06e6d87f8d82',	NULL,	'3',	'rty',	NULL,	NULL,	'fgh',	'vbn',	'uio',	'900',	'SG',	'sh',	'2013-08-15 19:03:02',	'2013-08-15 19:03:02'),
 ('520d8856-dd80-4777-a5fa-06e6d87f8d82',	NULL,	'3',	'kim sia',	NULL,	NULL,	'eunos',	'link',	'sing',	'300',	'SG',	'bi',	'2013-08-15 19:03:02',	'2013-08-15 19:03:02'),
@@ -395,7 +427,9 @@ INSERT INTO `order_addresses` (`id`, `order_id`, `user_id`, `first_name`, `last_
 ('520db337-25a0-4a23-b0d8-06dfd87f8d82',	NULL,	'3',	'Sim Aik Chun',	NULL,	NULL,	'Block 100',	'street 222',	'singapore',	'222',	'SG',	'sh',	'2013-08-15 22:05:59',	'2013-08-15 22:05:59'),
 ('520db467-d560-451c-a97d-06e5d87f8d82',	NULL,	'3',	'Sim Aik Chun',	NULL,	NULL,	'Block 100',	'street 222',	'singapore',	'222',	'DE',	'bi',	'2013-08-15 22:11:03',	'2013-08-15 22:11:03'),
 ('520db49f-1564-4f38-b7ba-06d1d87f8d82',	NULL,	'3',	'Sim Aik Chun',	NULL,	NULL,	'Block 100',	'street 222',	'singapore',	'222',	'GB',	'bi',	'2013-08-15 22:11:59',	'2013-08-15 22:11:59'),
-('520db51d-4ed4-4890-95ab-06d6d87f8d82',	NULL,	'3',	'rty',	NULL,	NULL,	'fgh',	'vbn',	'uio',	'900',	'SG',	'bi',	'2013-08-15 22:14:05',	'2013-08-15 22:14:05');
+('520db51d-4ed4-4890-95ab-06d6d87f8d82',	NULL,	'3',	'rty',	NULL,	NULL,	'fgh',	'vbn',	'uio',	'900',	'SG',	'bi',	'2013-08-15 22:14:05',	'2013-08-15 22:14:05'),
+('523bf893-52c0-43db-ab67-0761d87f8d82',	NULL,	'5',	'aik_chun',	'customer',	NULL,	'318 gaudy salami',	'300318',	'Singapore',	'400318',	'SG',	'sh',	'2013-09-20 15:26:11',	'2013-09-20 15:26:11'),
+('523bf893-56bc-40ff-8b1a-0761d87f8d82',	NULL,	'5',	'aik_chun',	'customer',	NULL,	'318 gaudy salami',	'300318',	'Singapore',	'400318',	'SG',	'bi',	'2013-09-20 15:26:11',	'2013-09-20 15:26:11');
 
 DROP TABLE IF EXISTS `order_items`;
 CREATE TABLE `order_items` (
@@ -431,7 +465,14 @@ INSERT INTO `order_items` (`id`, `order_id`, `foreign_key`, `model`, `quantity`,
 ('52292fbf-0350-4410-bef3-0760d87f8d82',	'52292fbf-0780-44ab-9f55-0760d87f8d82',	'5',	'ProductVariant',	1,	'Rectangle Sticker Labels',	19.95,	0,	NULL,	0,	NULL,	'2013-09-06 09:28:31',	'2013-09-06 09:28:31',	19.95),
 ('52293095-f190-4f53-8f3b-0762d87f8d82',	'5229312f-9394-4ca5-b70c-0760d87f8d82',	'5',	'ProductVariant',	1,	'Rectangle Sticker Labels',	19.95,	0,	NULL,	0,	NULL,	'2013-09-06 09:32:05',	'2013-09-06 09:32:05',	19.95),
 ('52293258-7714-458f-a208-076ad87f8d82',	'52293264-1dd8-4c75-bd3e-0767d87f8d82',	'6',	'ProductVariant',	1,	'Circle Sticker Labels',	20,	0,	NULL,	0,	NULL,	'2013-09-06 09:39:36',	'2013-09-06 09:39:36',	20),
-('5232bd5e-656c-461b-a0a9-075ed87f8d82',	'5232bd5e-c420-4b13-9689-075ed87f8d82',	'6',	'ProductVariant',	1,	'Circle Sticker Labels',	20,	0,	NULL,	0,	NULL,	'2013-09-13 15:23:10',	'2013-09-13 15:23:10',	20);
+('5232bd5e-656c-461b-a0a9-075ed87f8d82',	'5232bd5e-c420-4b13-9689-075ed87f8d82',	'6',	'ProductVariant',	1,	'Circle Sticker Labels',	20,	0,	NULL,	0,	NULL,	'2013-09-13 15:23:10',	'2013-09-13 15:23:10',	20),
+('523beddf-3bc8-4e2b-ad0a-076bd87f8d82',	'523bf899-2c6c-4d8f-a3d1-0765d87f8d82',	'5',	'ProductVariant',	1,	'Rectangle Sticker Labels',	19.95,	0,	NULL,	0,	NULL,	'2013-09-20 14:40:31',	'2013-09-20 14:40:31',	19.95),
+('523bfa00-7c74-4d69-82fe-076bd87f8d82',	'523bfa0e-67d8-4d44-a9f7-076ad87f8d82',	'5',	'ProductVariant',	1,	'Rectangle Sticker Labels',	19.95,	0,	NULL,	0,	NULL,	'2013-09-20 15:32:16',	'2013-09-20 15:32:16',	19.95),
+('523bfcb7-cfc0-4ce1-bb46-0776d87f8d82',	'523bfcc5-53b4-4cc4-bafd-0768d87f8d82',	'5',	'ProductVariant',	1,	'Rectangle Sticker Labels',	19.95,	0,	NULL,	0,	NULL,	'2013-09-20 15:43:51',	'2013-09-20 15:43:51',	19.95),
+('523bfd0f-80c4-47b1-8015-0775d87f8d82',	'523bfd1b-34ec-40b6-bf01-0764d87f8d82',	'6',	'ProductVariant',	1,	'Circle Sticker Labels',	20,	0,	NULL,	0,	NULL,	'2013-09-20 15:45:19',	'2013-09-20 15:45:19',	20),
+('523d7c15-75c4-48f5-b36b-0741d87f8d82',	'523d7c23-d9c4-40ca-970d-073dd87f8d82',	'6',	'ProductVariant',	1,	'Circle Sticker Labels',	20,	0,	NULL,	0,	NULL,	'2013-09-21 18:59:33',	'2013-09-21 18:59:33',	20),
+('523d7dc7-e130-48e1-b224-0752d87f8d82',	'523d7e4f-57a8-4739-8877-073ed87f8d82',	'5',	'ProductVariant',	1,	'Rectangle Sticker Labels',	19.95,	0,	NULL,	0,	NULL,	'2013-09-21 19:06:47',	'2013-09-21 19:06:47',	19.95),
+('523d804c-2de4-40f9-82ab-0749d87f8d82',	'523d804c-bd34-40ed-a6d5-0749d87f8d82',	'5',	'ProductVariant',	1,	'Rectangle Sticker Labels',	19.95,	0,	NULL,	0,	NULL,	'2013-09-21 19:17:32',	'2013-09-21 19:17:32',	19.95);
 
 DROP TABLE IF EXISTS `payment_api_transactions`;
 CREATE TABLE `payment_api_transactions` (
@@ -659,6 +700,7 @@ INSERT INTO `users` (`id`, `full_name`, `email`, `password`, `short_name`, `toke
 (1,	'ks',	'kimcity@gmail.com',	NULL,	NULL,	NULL,	0,	'2013-06-22 18:51:26',	'2013-06-22 18:51:26'),
 (2,	'KimSia',	'kimsia@oppoin.com',	'9c1a57615fd9c4fd9361b8264c0c4ad06aaf9ad9',	'KimSia',	'',	1,	'2013-06-28 13:51:12',	'2013-06-28 13:51:12'),
 (3,	'AikChun1',	'aikchun616@gmail.com',	'275108ab67a27356dab9dcff38275c044766397f',	'AikChun1',	NULL,	1,	'2013-06-28 13:51:57',	'2013-06-30 09:04:43'),
-(4,	'Daphne Ling',	'daphne@motherinc.org',	'275108ab67a27356dab9dcff38275c044766397f',	'Daphne',	'NULL',	3,	'2013-07-02 09:30:20',	'2013-07-02 09:30:20');
+(4,	'Daphne Ling',	'daphne@motherinc.org',	'275108ab67a27356dab9dcff38275c044766397f',	'Daphne',	'NULL',	3,	'2013-07-02 09:30:20',	'2013-07-02 09:30:20'),
+(5,	'sim_aik_chun_customer',	'sac_89_1@hotmail.com',	'4f346956b16be16322f6c642072f615f68ba255d',	'aik_customer',	'NULL',	2,	'2013-09-20 14:39:28',	'2013-09-20 14:39:28');
 
--- 2013-09-13 15:35:28
+-- 2013-09-21 19:18:42
