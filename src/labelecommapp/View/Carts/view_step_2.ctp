@@ -47,7 +47,7 @@
 </DIV>
 <form action="/users/login" method="post" id="loginForm">
 	<DIV id="pd0u13" style="" data-label="Disabled">
-	<INPUT id="u15" name="data[User][email]" type=text placeholder="example@example.com" class="u15"     >
+	<INPUT id="u15" name="data[User][email]" type=text placeholder="example@example.com" class="u15 text_fields"     >
 
 	</DIV>
 	</DIV>
@@ -66,7 +66,7 @@
 
 	</DIV>
 	<DIV id="pd0u19" style="" data-label="Disabled">
-	<INPUT id="u21" name="data[User][password]" type="password" placeholder="enter password..." class="u21"     >
+	<INPUT id="u21" name="data[User][password]" type="password" placeholder="enter password..." class="u21 text_fields"     >
 
 	</DIV>
 	</DIV>
@@ -165,6 +165,15 @@
 <?php $this->append('scriptBottom'); ?>
 <script type="text/javascript">
 	$(document).ready(function() {
+
+
+		$(".text_fields").keyup(function(event){
+		    if(event.keyCode == 13){
+		        $(".submitForLogin").click();
+		    }
+		});
+
+	
 
 		$(".submitForLogin").click(function() {
 			console.log("oi!!");
