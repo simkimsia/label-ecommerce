@@ -105,6 +105,10 @@
          outputProperty="result" escape="false"/>
         <echo msg="${result}" />
 
+        <echo msg="update all the submodules after gitclone" />
+        <exec dir="${environment.sitedir}${build.time}" command="ssh -A ${host-used} 'git submodule update --init --recursive'" outputProperty="result" escape="false" />
+        <echo msg="${result}" />
+
     </target>
 
     <!-- ============================================  -->
