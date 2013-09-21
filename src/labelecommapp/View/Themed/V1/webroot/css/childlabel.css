@@ -5,7 +5,7 @@ body { padding: 0; margin: 0; background-image:url('../img/greybg.jpg'); backgro
 
 #childContainer .childHolder .topRightArea { float: right; margin-right: 20px; display: block; position: relative; z-index: 101; }
 #childContainer .childHolder .topRightArea .topBtn { display: block;}
-#childContainer .childHolder .topRightArea .topBtn .circleBtn { background: url(../img/menucircle.png) no-repeat; float: left; margin-right: 15px; display: inline-block; width: 86px; height: 87px; color: #fff; text-align: center; line-height: 15px; padding-top: 20px; } 
+#childContainer .childHolder .topRightArea .topBtn .circleBtn { background: url(../img/menucircle.png) no-repeat; float: left; margin-right: 15px; display: inline-block; width: 86px; height: 73px; color: #fff; text-align: center; line-height: 15px; padding-top: 20px; } 
 #childContainer .childHolder .topRightArea .topBtn .circleBtn a:link { color: #fff; text-decoration: none; font-size: 14px; }
 #childContainer .childHolder .topRightArea .topBtn .circleBtn a:visited { color: #fff; text-decoration: none; font-size: 14px; }
 #childContainer .childHolder .topRightArea .topBtn .circleBtn a:hover { color: #000; text-decoration: none; }
@@ -317,4 +317,16 @@ table td.actions a {
 .paging .current {
 	background: #efefef;
 	color: #c73e14;
+}
+
+/*log out*/
+
+.logout_link{
+	top:-20px;
+	margin-left:20px;
+	height:107px;
+	font-size:12px;
+	text-decoration:underline;
+	font-weight:bold;
+	color:#003d4c;
 }
