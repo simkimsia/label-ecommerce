@@ -35,7 +35,7 @@
 </div>
 </div>
 <div id="u10" class="u10"  >
-<div id="u10_rtf"><p style="text-align:left;"><span style="font-family:Helvetica;font-size:14px;font-weight:bold;font-style:normal;text-decoration:none;color:#404040;">Henri</span><span style="font-family:Helvetica;font-size:14px;font-weight:normal;font-style:normal;text-decoration:none;color:#404040;">, your order will be shipped as soon as you complete your order.</span></p></div>
+<div id="u10_rtf"><p style="text-align:left;"><span style="font-family:Helvetica;font-size:14px;font-weight:bold;font-style:normal;text-decoration:none;color:#404040;"><?php echo $authUser['full_name'];?></span><span style="font-family:Helvetica;font-size:14px;font-weight:normal;font-style:normal;text-decoration:none;color:#404040;">, your order will be shipped as soon as you complete your order.</span></p></div>
 </div>
 <div id="u11" class="u11"  >
 <div id="u11_rtf"><p style="text-align:left;"><span style="font-family:Helvetica;font-size:14px;font-weight:bold;font-style:normal;text-decoration:none;color:#404040;">Estimate shipping date</span><span style="font-family:Helvetica;font-size:14px;font-weight:normal;font-style:normal;text-decoration:none;color:#404040;">: <?php echo $shipping_options['period'];?></span></p></div>
