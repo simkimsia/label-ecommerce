@@ -93,7 +93,7 @@
 
     </target>
 
-	<target name="deploy-stage" depends="predeploy-stage,setup-environments,gitclone,update-symlink-current,symlink-server-configs,removefiles-from-cloned,symlink-ugc,reboot-services,chmod-tmp,run-composer,remove-buildtime-folders,run-migrations,run-assetcompress,run-clearcache,run-acosync">
+	<target name="deploy-stage" depends="predeploy-stage,setup-environments,gitclone,gitsubmodule-plugins,update-symlink-current,symlink-server-configs,removefiles-from-cloned,symlink-ugc,reboot-services,chmod-tmp,run-composer,remove-buildtime-folders,run-migrations,run-assetcompress,run-clearcache,run-acosync">
 		<echo msg="Finished deploying on rackspace server for stage environment!" />
 	</target>
 
@@ -105,8 +105,13 @@
          outputProperty="result" escape="false"/>
         <echo msg="${result}" />
 
-        <echo msg="update all the submodules after gitclone" />
-        <exec dir="${environment.sitedir}${build.time}" command="ssh -A ${host-used} 'git submodule update --init --recursive'" outputProperty="result" escape="false" />
+    </target>
+
+    <target name="gitsubmodule-plugins">
+        <echo msg="Git submodule plugins in ${appdirname}" />
+
+        <exec command="ssh -A ${host-used} '${cd.current} &amp;&amp; git submodule update --init --recursive'"
+         outputProperty="result" escape="false"/>
         <echo msg="${result}" />
 
     </target>
