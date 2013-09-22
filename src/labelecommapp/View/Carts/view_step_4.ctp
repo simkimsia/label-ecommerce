@@ -212,7 +212,7 @@
  <img src="https://www.paypal.com/en_US/i/logo/PayPal_mark_37x23.gif" class="paypal_image" align="left"><span class="payment_text" style ="
 margin-left: 45px;">The safer, easier way to pay.</span>  </br>
 
- <input type="radio" name="data[payments]" id="internet_banking" value="internet_banking" ><span class="payment_text">Internal Banking </span> </input/>
+ <input type="radio" name="data[payments]" id="bank_transfer" value="bank_transfer" ><span class="payment_text">Bank Transfer</span> </input/>
 </div>
 </form>
 

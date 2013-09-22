@@ -217,7 +217,7 @@ class CartsController extends AppController {
 			}
 			
 
-		} else if ($payments_selected == 'internet_banking') {
+		} else if ($payments_selected == 'bank_transfer') {
 			$order_model                          = ClassRegistry::init('Cart.Order');
 			$cart_data                            = $this->Session->read('Cart');
 
@@ -225,7 +225,7 @@ class CartsController extends AppController {
 			$shipping_address_text                = $address_model->prepareAddressAsText($cart_data['ShippingAddress']);
 			$billing_address_text                 = $address_model->prepareAddressAsText($cart_data['BillingAddress']);
 
-			$order_data  = $order_model->createOrder($cart_data, 'INTERNET_BANKING' );
+			$order_data  = $order_model->createOrder($cart_data, 'BANK_TRANSFER' );
 			if ($order_data) {
 				$orderId = $order_data['Order']['id'];
 				$order_model->id = $orderId;

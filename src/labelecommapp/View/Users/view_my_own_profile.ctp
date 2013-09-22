@@ -6,7 +6,9 @@
 		<div class="mainContent">
 
 			<div class="" style="text-align:center;" > 
+				<div style="margin-left:-87px">
 				<?php echo $this->element('customer_link_bar'); ?>
+			</div>
 				<h2 class="titleFont"><?php echo h($authUser['full_name']); ?></h2>
 			</div>
 		<table id="results_list" class="" style="width:440px;margin-left:290px;">
