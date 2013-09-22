@@ -248,7 +248,9 @@ class User extends AppModel {
 
 		if ($old && $confirm) {
 			//save the pwd if successful
-			$data['User']['password'] = $data['User']['new_password'];
+			// $data['User']['password'] = $data['User']['new_password'];
+			$this->id = $data['User']['id'];
+			$this->saveField('password', $data['User']['new_password']);
 			$this->save($data);
 			return 'Password successfully changed!';
 		} else {

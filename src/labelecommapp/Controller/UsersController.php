@@ -25,7 +25,7 @@ class UsersController extends AppController {
 		parent::beforeFilter();
 		$this->Auth->allow('send_enquiry_email',
 			'admin_forget_password',
-			'reset_password', 'view_my_own_profile', 'register'); 
+			'reset_password', 'view_my_own_profile', 'register', 'change_my_own_password'); 
 	}
 
 /**
@@ -311,13 +311,33 @@ class UsersController extends AppController {
 		if ($this->request->is('post') || $this->request->is('put')) {
 			$message = $this->User->changePassword($this->request->data);
 			$this->Session->setFlash($message);
-			$this->redirect(array('action' => 'admin_view_my_own_profile'));
+			$this->redirect(array('action' => 'index'));
 		} else {
 			$options = array('conditions' => array('User.' . $this->User->primaryKey => $this->Auth->user('id')));
 			$this->request->data = $this->User->find('first', $options);
 		}
 		$this->render('change_my_own_password');
 	}
+
+/**
+ * change_my_own_password method for user
+ *
+ * @throws NotFoundException
+ * @param string $id
+ * @return void
+ */
+	public function change_my_own_password() {
+		if ($this->request->is('post') || $this->request->is('put')) {
+			$message = $this->User->changePassword($this->request->data);
+			$this->Session->setFlash($message);
+			$this->redirect(array('action' => 'view_my_own_profile'));
+		} else {
+			$options = array('conditions' => array('User.' . $this->User->primaryKey => $this->Auth->user('id')));
+			$this->request->data = $this->User->find('first', $options);
+		}
+		$this->render('change_my_own_password');
+	}
+
 
 
 /**

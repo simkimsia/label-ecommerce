@@ -1,4 +1,4 @@
-<div class="users container_16">
+<div class="users container_16" style="margin-top:77px">
 	<div class="grid_16" style="text-align: center">
 		<?php echo $this->element('users_link_bar'); ?>
 		<h2 class="titleFont"><?php echo __('Change Password'); ?></h2>
