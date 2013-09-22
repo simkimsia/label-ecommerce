@@ -93,10 +93,13 @@
               <?php }?>
               <div class="circleBtn"><a href="/carts/view">My<br />Cart <span>Item <?php echo $cartItemCount;?></span></a></div>
             </div>
-            <div class="logout_link">
+            <div class="register_logout_link">
               <?php if($authUser){?>
-                <a href="/users/logout"><?php echo 'Log Out'?>
-              </a><?php }?>
+                <a href="/users/logout"><?php echo 'Log Out';?>
+              </a><?php } else {?>
+               <a href="/users/register"><?php echo 'Register!';?>
+              </a>
+              <?php }?>
             </div>
             <div class="btmBtn">
               <a href="https://www.facebook.com/childlabel"><div class="FBtn">Love</div></a>

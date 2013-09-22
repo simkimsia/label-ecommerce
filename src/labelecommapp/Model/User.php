@@ -12,6 +12,29 @@ App::uses('PasswordEmail', 'Lib/Email');
  */
 class User extends AppModel {
 
+	 public $validate = array(
+	    	'full_name' => array(
+	    		'rule' => 'notEmpty',
+	    		'required' => true
+
+    		),
+	    	'short_name' => array(
+	    		'rule' => 'notEmpty',
+	    		'required' => true
+    		),
+	    	'email' => array(
+	    		'rule' => 'notEmpty',
+	    		'required' => true
+
+    		),
+	    	'password' => array(
+	    		'rule' => 'notEmpty',
+	    		'required' => true
+    		)
+
+	);
+
+
 /**
  * Display field
  *

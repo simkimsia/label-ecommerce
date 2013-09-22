@@ -321,7 +321,7 @@ table td.actions a {
 
 /*log out*/
 
-.logout_link{
+.register_logout_link{
 	top:-20px;
 	margin-left:20px;
 	height:107px;
@@ -330,3 +330,4 @@ table td.actions a {
 	font-weight:bold;
 	color:#003d4c;
 }
+

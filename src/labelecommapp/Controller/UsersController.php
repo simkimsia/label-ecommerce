@@ -25,7 +25,7 @@ class UsersController extends AppController {
 		parent::beforeFilter();
 		$this->Auth->allow('send_enquiry_email',
 			'admin_forget_password',
-			'reset_password', 'view_my_own_profile'); 
+			'reset_password', 'view_my_own_profile', 'register'); 
 	}
 
 /**
@@ -57,7 +57,7 @@ class UsersController extends AppController {
 	}
 
 /**
- * add method
+ * add method for admin
  *
  * @return void
  */
@@ -74,6 +74,29 @@ class UsersController extends AppController {
 		$groups = $this->User->Group->find('list');
 		$this->set(compact('groups'));
 		$this->render('add');
+	}
+
+/**
+ * User register method
+ *
+ * @return void
+ */
+	public function register() {
+		if ($this->request->is('post')) {
+			$this->User->create();
+				if($this->request->data['User']['password'] == $this->request->data['User']['confirm_password']){
+
+				if ($this->User->save($this->request->data)) {
+					$this->Session->setFlash(__('The user has been saved'));
+					$this->redirect(array('action' => 'index'));
+				} else {
+					$this->Session->setFlash(__('The user could not be saved. Please, try again.'));
+				}
+			}else {
+				$this->Session->setFlash(__('Your passwords do not match'));
+			}
+		}
+		
 	}
 
 /**
