@@ -3,7 +3,7 @@
 		<div class="topContent">
 		</div>
 		<div class="mainContent">
-<?php echo $this->Form->create('User', array('style' => 'height:369px;width:845px;margin-left:62px;', 'onsubmit' => "return validateForm();")); ?>
+<?php echo $this->Form->create('User', array('style' => 'height:375px;width:845px;margin-left:62px;', 'onsubmit' => "return validateForm();")); ?>
 	
 		<div style="color:#0099CC">Registration!</div>
 		<br>
