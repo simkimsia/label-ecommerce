@@ -1,7 +1,12 @@
 <div class="users form">
-<?php echo $this->Form->create('User', array('style' => 'margin-top:60px;', 'onsubmit' => "return validateForm();")); ?>
-	<fieldset>
-		<legend><?php echo __('Add User'); ?></legend>
+	<div class="contentArea">
+		<div class="topContent">
+		</div>
+		<div class="mainContent">
+<?php echo $this->Form->create('User', array('style' => 'height:369px;width:845px;margin-left:62px;', 'onsubmit' => "return validateForm();")); ?>
+	
+		<div style="color:#0099CC">Registration!</div>
+		<br>
 	<?php
 		echo $this->Form->input('full_name');
 		echo $this->Form->input('short_name');
@@ -11,7 +16,11 @@
 		echo $this->Form->input('token', array('type'=>'hidden', 'value' => 'NULL'));
 		echo $this->Form->input('group_id', array('type' => 'hidden', 'value' => '2'));
 	?>
-	</fieldset>
+	
 <?php echo $this->Form->end(__('Submit')); ?>
 
+		</div>
+	<div class="footerContent"></div>
+	</div>
 </div>
+
