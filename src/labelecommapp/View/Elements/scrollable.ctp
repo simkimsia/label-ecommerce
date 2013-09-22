@@ -9,7 +9,7 @@
   
 ?>
 
-                    <div id="variant_<?php echo $variant['id'];?>_images" class="variant_images_scrollable <?php echo $hidden_class; ?>" style="margin:0 auto; width: 600px; height:250px; text-align: center;">
+                    <div id="variant_<?php echo $variant['id'];?>_images" class="variant_images_scrollable <?php echo $hidden_class; ?>" style="margin:0 auto;margin-top:60px; width: 600px; height:250px; text-align: center;">
                         <!-- "previous page" action -->
                         <a class="prev browse left leftArrow"></a>
                         <!-- root element for scrollable -->
