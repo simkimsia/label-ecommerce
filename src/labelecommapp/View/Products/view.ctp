@@ -47,18 +47,18 @@
                 </div>
                 <div class="clearBoth"></div>
                 <div class="productsDescription">
-                    <div class="left">
+                   <!-- <div class="left">
                         <?php echo $this->Html->image('bigleft.png');?>
 
                         
                     </div>
                     <div class="right">
                         <?php echo $this->Html->image('bigright.png');?>
-                    </div>
+                    </div>-->
                 </div>
                 <div class="clearBoth"></div>
-                <a href="#"><div class="clicktocustomize"></div></a>
-                <div class="rocketScience"></div>
+               <!-- <a href="#"><div class="clicktocustomize"></div></a>
+                <div class="rocketScience"></div>-->
                 
             </div>
           </div>
