@@ -42,6 +42,91 @@
                     ?>
                    <br /></span></div>
                 <div class="clearBoth"></div>
+
+                <div>
+                    <table cellpadding="0" cellspacing="0" border="0" class="extra_details">
+                            <?php
+                                echo $this->Form->create('Cart', array(
+                                    'action' => 'buy'));
+                                echo $this->Form->input('CartsItem.quantity', array(
+                                    'type' => 'hidden',
+                                    'label' => false,
+                                    'div' => false,
+                                    'style' => 'width: 50px;',
+                                    'value' => 1));
+                                echo $this->Form->hidden('CartsItem.foreign_key', array(
+                                    'value' => $product['Product']['variants'][0]['id']));
+                                echo $this->Form->hidden('CartsItem.model', array(
+                                    'value' => 'ProductVariant'));
+                                    ?>
+
+                        <tr>
+                            <td>
+                                <div class="extra_details_labels">First Line</div>
+                                <br>
+                                <div class="first_line_field">
+                                   <?php echo $this->Form->input('CartsItem.first_line', array(
+                                    'label' => false,
+                                    'div' => false,
+                                    'placeholder' => "e.g. Nathan"
+                                   ));?>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="extra_details_labels">Font</div>
+                                <br>
+                                <div class="select_font_field">
+                                    <?php echo $this->Form->input('CartsItem.font', array(
+                                        'options' => array('Arial', 'Helvetica', 'New Times', 'Calibri' ),
+                                        'label' => false,
+                                        'div' => false,
+                                        'empty' => '(choose one)',
+                                        'style' => 'display: block;
+                                        border: 1px solid #44c8f5;
+                                        color: #000000;
+                                        padding: 5px;
+                                        position:relative;
+                                        top: -6px;
+                                        margin-left:10px;
+                                        margin-bottom: 10px;
+                                        width: 260px;
+                                        '
+                                    ));
+                                    ?>
+                                </div>
+                            </td>
+                            
+                        </tr>
+                        
+                        <tr>
+                            <td>
+                                <div class="extra_details_labels">
+                                    Second Line
+                                </div>
+                                <br>
+                                <div class="second_line_field">
+                                    <?php echo $this->Form->input('CartsItem.last_line', array(
+                                    'label' => false,
+                                    'div' => false,
+                                    'placeholder' => "e.g. Summers"
+                                   ));?>
+                                </div>
+                            </td>
+                            <td>
+                                <div>
+                               <?php
+                                echo $this->Form->submit(__('Add to Cart!'), array(
+                                    'div' => false,
+                                    'style' => 'width:262px;height:70px;font-size:30px;background-color:#44c8f5;color:#FFFFFF;'));
+                                    ?>
+                                   
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
+                    <?php echo $this->Form->end();
+                            ?>
+                </div>
                 <!--<div class="searchBox">
                     <form method="post" action="#" class="labelsearch">
                         <input type="text" name="" placeholder="Search Child Label" class="searchLabel" />
@@ -66,27 +151,9 @@
           </div>
           <div class="footerContent" ></div>
           
-          <div class="addtocart">
+          <!-- <div class="addtocart">
            
-                <?php
-                    echo $this->Form->create('Cart', array(
-                        'action' => 'buy'));
-                    echo $this->Form->input('CartsItem.quantity', array(
-                        'label' => false,
-                        'div' => false,
-                        'style' => 'width: 50px;',
-                        'default' => 1));
-                    echo $this->Form->submit(__('buy'), array(
-                        'div' => false,
-                        'style' => 'margin-left: 120px;width: 80px; position:relative; top:-36px;'));
-                    echo $this->Form->hidden('CartsItem.foreign_key', array(
-                        'value' => $product['Product']['variants'][0]['id']));
-                    echo $this->Form->hidden('CartsItem.model', array(
-                        'value' => 'ProductVariant'));
-
-                    echo $this->Form->end();
-                ?>
-          </div>
+          </div> -->
 
           <div style="height:40px;"></div>
           

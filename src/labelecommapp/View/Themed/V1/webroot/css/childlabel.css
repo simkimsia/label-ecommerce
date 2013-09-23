@@ -275,6 +275,19 @@ table td.actions a {
 }
 
 
+/* table for extra detail in sticker*/
+
+table.extra_details tr td {
+	border-bottom: 0px;
+	background-color: #FFFFFF;
+}
+
+.extra_details_labels {
+	margin-left: 10px;
+}
+
+
+
 /* Paging */
 .paging {
 	background:#fff;
@@ -330,4 +343,6 @@ table td.actions a {
 	font-weight:bold;
 	color:#003d4c;
 }
+
+
 
