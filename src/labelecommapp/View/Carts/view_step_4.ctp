@@ -176,14 +176,14 @@
 <div id="u53" class="u53"  style=<?php echo '"top:'.(333+$key*149).'px"';?>>
 <div id="u53_rtf"><p style="text-align:left;"><span style="font-family:Helvetica;font-size:18px;font-weight:bold;font-style:normal;text-decoration:none;color:#404040;"><?php echo $cartItems['short_name'];?></span></p></div>
 </div>
-<div id="u54" class="u54"  style=<?php echo '"top:'.(363+$key*149).'px"';?>>
-<div id="u54_rtf"><p style="text-align:left;"><span style="font-family:Helvetica;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">Product Description</span></p></div>
+<div id="u54" class="u54 metadata"  style="<?php echo 'top:'.(363+$key*149).'px';?>">
+<span style="margin-left:20px;">First Line:</span><?php echo $cartItems['first_line'];?>
 </div>
-<div id="u55" class="u55"  style=<?php echo '"top:'.(387+$key*149).'px"';?>>
-<div id="u55_rtf"><p style="text-align:left;"><span style="font-family:Helvetica;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">SKU: #3439913975</span></p></div>
+<div id="u55" class="u55 metadata"  style="<?php echo 'top:'.(387+$key*149).'px';?>">
+<span >Second Line:</span><?php echo $cartItems['second_line'];?>
 </div>
-<div id="u56" class="u56"  style=<?php echo '"top:'.(411+$key*149).'px"';?>>
-<div id="u56_rtf"><p style="text-align:left;"><span style="font-family:Helvetica;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">Size: M</span></p></div>
+<div id="u56" class="u56 metadata"  style="<?php echo 'top:'.(411+$key*149).'px';?>">
+<span style="margin-left:50px;">Font:</span> <?php echo $cartItems['font'];?>
 </div>
 <div id="u57" class="u57"  style=<?php echo '"top:'.(336+$key*149).'px"';?>>
 <div id="u57_rtf"><p style="text-align:left;"><span style="font-family:Helvetica;font-size:15px;font-weight:bold;font-style:normal;text-decoration:none;color:#333333;"><?php echo money_format("$%i",$cartItems['price']); ?></span></p></div>

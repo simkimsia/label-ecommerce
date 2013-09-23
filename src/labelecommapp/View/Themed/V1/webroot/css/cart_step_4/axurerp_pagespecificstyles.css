@@ -1377,3 +1377,19 @@ div {
     display: inline-block;
 }
 
+/* metadata */
+.metadata {
+    width:500px;
+    text-align:left;
+    font-family:Helvetica;
+    font-size:14px;
+    font-weight:bold;
+    font-style:normal;
+    text-decoration:none;
+    color:#333333;
+}
+
+.metadata span{
+    font-weight:normal;
+    margin-right:5px;
+}
