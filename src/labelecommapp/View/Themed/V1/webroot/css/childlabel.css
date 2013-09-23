@@ -90,7 +90,7 @@ ul.internalLinks li { font-size: 12px!important; display: block; margin-left: 10
 #childContainer .childHolder .contentArea .mainContent .theContents h3 { font-size:18px; }
 #childContainer .childHolder .contentArea .mainContent .theContents h2.price { margin:0; padding:0; color:#000000; font-size:35px; font-family:Arial, Helvetica, sans-serif; font-weight:normal; }
 #childContainer .childHolder .contentArea .mainContent .theContents div.desc { color:#000000; font-family:Arial, Helvetica, sans-serif; font-size:12px; font-weight:bold; } 
-#childContainer .childHolder .contentArea .mainContent .theContents div.productdetails { font-family:"century gothic",verdana,arial,helvetica,sans-serif;; font-size:13px; margin-top:5px; width:345px; }
+#childContainer .childHolder .contentArea .mainContent .theContents div.productdetails { font-family:"century gothic",verdana,arial,helvetica,sans-serif;; font-size:15px; margin-top:5px; width:345px; }
 #childContainer .childHolder .contentArea .mainContent .theContents div.productdetails span.detail { float:left; width:45px; font-weight:bold;}
 #childContainer .childHolder .contentArea .mainContent .theContents div.productdetails span.thewords { float:left; width:300px; }
 

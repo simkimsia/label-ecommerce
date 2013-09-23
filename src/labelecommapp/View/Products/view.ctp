@@ -9,9 +9,11 @@
                 <div class="productCircleHolder clearfix">
                     <?php echo $this->element('scrollable', array('product' => $product)); ?>
                 </div>
-                <h2 class="price">$<?php echo h($product['Product']['price']); ?></h2>
-                <div class="desc"><?php echo h($product['Product']['name']); ?></div>
+                <div class="desc" style="font-size:24px;"><?php echo h($product['Product']['name']); ?></div>
                 <ul class="productlabels">
+                <h2 class="price" style="font-size:69px;font-weight:bold;"><?php
+                     $options = array('places' => 0);
+                     echo $this->Number->currency($product['Product']['price'], '$', $options); ?></h2>
 
                     <?php 
                         if(count($product['Product']['variants']) != 1){
@@ -30,7 +32,7 @@
                     <?php } }?>
 
                 </ul>
-                <div class="productdetails"><span class="detail"><br/>Details:</span><span class="thewords"><br/><br/><br/>
+                <div class="productdetails"><!-- <span class="detail"><br/>Details:</span> --><span class="thewords"><br/><br/><br/>
                     <?php 
                         $desc_line = preg_split('/(?<=[.?!;:])\s+/', h($product['Product']['description']), -1, PREG_SPLIT_NO_EMPTY);
                         foreach ($desc_line as $line){
@@ -40,11 +42,11 @@
                     ?>
                    <br /></span></div>
                 <div class="clearBoth"></div>
-                <div class="searchBox">
+                <!--<div class="searchBox">
                     <form method="post" action="#" class="labelsearch">
                         <input type="text" name="" placeholder="Search Child Label" class="searchLabel" />
                     </form>
-                </div>
+                </div> -->
                 <div class="clearBoth"></div>
                 <div class="productsDescription">
                    <!-- <div class="left">

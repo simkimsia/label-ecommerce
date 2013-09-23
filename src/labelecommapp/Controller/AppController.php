@@ -55,7 +55,7 @@ class AppController extends Controller {
 	public $helpers = array(
 		'Html', 'Form', 'Session',
 		'AssetCompress.AssetCompress',
-		'Cart.Cart'
+		'Cart.Cart', 'Number'
 	);
 
 	public $authUser = null;
