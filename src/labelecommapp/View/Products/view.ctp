@@ -105,7 +105,7 @@
                                 </div>
                                 <br>
                                 <div class="second_line_field">
-                                    <?php echo $this->Form->input('CartsItem.last_line', array(
+                                    <?php echo $this->Form->input('CartsItem.second_line', array(
                                     'label' => false,
                                     'div' => false,
                                     'placeholder' => "e.g. Summers"
@@ -113,11 +113,13 @@
                                 </div>
                             </td>
                             <td>
-                                <div>
+                                <div style= "border-radius:15px;width:262px;height:70px;padding:5px;  font-size:30px;background-color:#44c8f5;color:#FFFFFF;">
                                <?php
                                 echo $this->Form->submit(__('Add to Cart!'), array(
                                     'div' => false,
-                                    'style' => 'width:262px;height:70px;font-size:30px;background-color:#44c8f5;color:#FFFFFF;'));
+                                    'style' => 'border:2px dashed white;border-radius:15px;width:262px;height:70px;font-size:30px;background-color:#44c8f5;color:#FFFFFF;margin:0px;'
+
+                                    ));
                                     ?>
                                    
                                 </div>
