@@ -78,10 +78,14 @@
                                 <br>
                                 <div class="select_font_field">
                                     <?php echo $this->Form->input('CartsItem.font', array(
-                                        'options' => array('Arial', 'Helvetica', 'New Times', 'Calibri' ),
+                                        'options' => array(
+                                            'American Typewriter' => 'American Typewriter',
+                                             'Helvetica' => 'Helvetica',
+                                              'New Times' => 'New Times'
+                                        ),
                                         'label' => false,
                                         'div' => false,
-                                        'empty' => '(choose one)',
+                                        'empty' => false,
                                         'style' => 'display: block;
                                         border: 1px solid #44c8f5;
                                         color: #000000;
@@ -92,7 +96,8 @@
                                         margin-bottom: 10px;
                                         width: 260px;
                                         ',
-                                        'required'
+                                        'required',
+                                        'id' => 'font_dropdown'
                                     ));
                                     ?>
                                 </div>
@@ -195,7 +200,11 @@
             $("#CartsItemForeignKey").val(variant_id);
         });
 
-        
+        $('#font_dropdown option').each(function() {
+        $(this).css('font', $(this).val());
+           console.log($(this).val());
+    // add $(this).val() to your list
+        });
     });
 </script>
 <?php $this->end('scriptBottom'); ?>
