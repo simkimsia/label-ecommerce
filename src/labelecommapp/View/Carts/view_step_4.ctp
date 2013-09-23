@@ -81,25 +81,25 @@
 <div id="u25" class="u25"  >
 <div id="u25_rtf"><p style="text-align:left;"><span style="font-family:Helvetica;font-size:13px;font-weight:bold;font-style:normal;text-decoration:none;color:#333333;">Payment confirmation</span></p></div>
 </div>
-<div id="u26" class="u26_container"  style=<?php echo '"top:'.(698+(($number_of_items-1)*149)).'px"';?> >
+<div id="u26" class="u26_container"  style=<?php echo '"top:'.(718+(($number_of_items-1)*149)).'px"';?> >
 <div id="u26_img" class="u26_normal detectCanvas"></div>
 <div id="u27" class="u27" style="visibility:hidden;"  >
 <div id="u27_rtf"></div>
 </div>
 </div>
-<div id="u28" class="u28_container payment_submit"   style=<?php echo '"top:'.(718+(($number_of_items-1)*149)).'px"';?>>
+<div id="u28" class="u28_container payment_submit"   style=<?php echo '"top:'.(738+(($number_of_items-1)*149)).'px"';?>>
 <div id="u28_img" class="u28_normal detectCanvas"></div>
 <div id="u29" class="u29" style="visibility:hidden;"  >
 <div id="u29_rtf"></div>
 </div>
 </div>
-<div id="u30" class="u30" style=<?php echo '"top:'.(724+(($number_of_items-1)*149)).'px"';?> >
+<div id="u30" class="u30" style=<?php echo '"top:'.(744+(($number_of_items-1)*149)).'px"';?> >
 <div id="u30_rtf"><p style="text-align:left;"><span style="font-family:Helvetica;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">I have read the terms and conditions and clicking Place my order will constitute my acceptance of these </span><span style="font-family:Helvetica;font-size:13px;font-weight:normal;font-style:normal;text-decoration:underline;color:#333333;">terms</span><span style="font-family:Helvetica;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;"> for this order.</span></p></div>
 </div>
-<div id="u31" class="u31 payment_submit"  style=<?php echo '"top:'.(724+(($number_of_items-1)*149)).'px"';?>>
+<div id="u31" class="u31 payment_submit"  style=<?php echo '"top:'.(744+(($number_of_items-1)*149)).'px"';?>>
 <div id="u31_rtf"><p style="text-align:center;"><span style="font-family:Helvetica;font-size:13px;font-weight:bold;font-style:normal;text-decoration:none;color:#FFFFFF;">Place order</span></p></div>
 </div>
-<DIV id="u32" style=<?php echo '"border-style:dotted; border-color:red; visibility:hidden; position:absolute; left:9px; top:'.(698+(($number_of_items-1)*149)).'px; width:940px; height:67px;;"';?>  ></div>
+<DIV id="u32" style=<?php echo '"border-style:dotted; border-color:red; visibility:hidden; position:absolute; left:9px; top:'.(718+(($number_of_items-1)*149)).'px; width:940px; height:67px;;"';?>  ></div>
 	<!-- footer starts here -->
 <div id="u33" class="u33_container"  style=<?php echo '"top:'.(459+(($number_of_items-1)*149)).'px"';?> >
 <div id="u33_img" class="u33_normal detectCanvas"></div>
@@ -206,13 +206,13 @@
 </div>
 
 <form action="/carts/pay" method="post" name="payment_form" id="payment_form"> 
-<div id="radio_buttons" class="radio_buttons" style="top:<?php echo $total_price_top_position + 55;?>px;">
- <input type="radio" name="data[payments]" id="paypal" value="paypal" >
+<div id="radio_buttons" class="radio_buttons" style=";top:<?php echo $total_price_top_position + 60;?>px;">
+ <input type="radio" name="data[payments]" id="paypal" value="paypal" style="margin-left:-13px" >
 
  <img src="https://www.paypal.com/en_US/i/logo/PayPal_mark_37x23.gif" class="paypal_image" align="left"><span class="payment_text" style ="
-margin-left: 45px;">The safer, easier way to pay.</span>  </br>
+font-size:20px;margin-left:42px;">The safer, easier way to pay.</span></img> </br>
 
- <input type="radio" name="data[payments]" id="bank_transfer" value="bank_transfer" ><span class="payment_text">Bank Transfer</span> </input/>
+ <input type="radio" name="data[payments]" id="bank_transfer" value="bank_transfer" ><span class="payment_text" style="font-size:20px;">Bank Transfer</span> </input/>
 </div>
 </form>
 

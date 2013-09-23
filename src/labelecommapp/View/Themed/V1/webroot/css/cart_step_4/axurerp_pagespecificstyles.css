@@ -1353,8 +1353,8 @@ div {
 
 .radio_buttons {
     position: relative;
-    left: -300px;
-    width: 300px;
+    left: -285px;
+    width: 368px;
     margin-left: auto;
     margin-right: auto;
     text-align: left;
@@ -1362,9 +1362,9 @@ div {
 
 .paypal_image {
     margin-right: -19px;
-position: relative;
-left: 44px;
-display: inline-block;
+    position: relative;
+    left: 24px;
+    display: inline-block;
 }
 
 .payment_text {
