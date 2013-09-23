@@ -68,7 +68,8 @@
                                    <?php echo $this->Form->input('CartsItem.first_line', array(
                                     'label' => false,
                                     'div' => false,
-                                    'placeholder' => "e.g. Nathan"
+                                    'placeholder' => "e.g. Nathan",
+                                    'required'
                                    ));?>
                                 </div>
                             </td>
@@ -90,7 +91,8 @@
                                         margin-left:10px;
                                         margin-bottom: 10px;
                                         width: 260px;
-                                        '
+                                        ',
+                                        'required'
                                     ));
                                     ?>
                                 </div>
@@ -108,7 +110,8 @@
                                     <?php echo $this->Form->input('CartsItem.second_line', array(
                                     'label' => false,
                                     'div' => false,
-                                    'placeholder' => "e.g. Summers"
+                                    'placeholder' => "e.g. Summers",
+                                    'required'
                                    ));?>
                                 </div>
                             </td>
