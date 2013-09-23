@@ -98,7 +98,7 @@
 </div><div id="u65" class="u65" style=<?php echo '"top:'.(160+$key*149).'px"';?>>
 <DIV id="u65_line" class="u65_line" ></DIV>
 </div>
-<INPUT  type=text value=<?php echo '"'.$cartItems['quantity'].'"'?> class="u21" ref="<?php echo $cartItems['foreign_key']?>" style=<?php echo '"top:'.(178+$key*149).'px"';?>     >
+<INPUT  type="text" value=<?php echo '"'.$cartItems['quantity'].'"'?> class="u21" ref="<?php echo $cartItems['foreign_key']?>" style=<?php echo '"top:'.(178+$key*149).'px"';?> disabled >
 
 <!--<div  class="u22"  style=<?php echo '"top:'.(213+$key*149).'px"';?> >
 <div ><p style="text-align:center;"><a class ="update" href="#"><span style="font-family:Helvetica;font-size:13px;font-weight:normal;font-style:normal;text-decoration:underline;color:#00438A;">Update</span></a></p></div>
