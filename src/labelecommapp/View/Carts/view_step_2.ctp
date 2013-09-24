@@ -34,61 +34,31 @@
 <div id="u10" class="u10"  >
 <div id="u10_rtf"><p style="text-align:left;"><span style="font-family:Helvetica;font-size:17px;font-weight:bold;font-style:normal;text-decoration:none;color:#404040;">Login to your account</span></p></div>
 </div>
-<div id="u11" class="u11_container"   >
-<div id="u11_img" class="u11_normal detectCanvas"></div>
-<div id="u12" class="u12" style="visibility:hidden;"  >
-<div id="u12_rtf"></div>
-</div>
-</div>
-<DIV id="u13" style="" >
-<DIV id="pd1u13" style="visibility:hidden;" data-label="Enabled">
-<INPUT id="u14" type=text value="" class="u14" data-label="Text"    >
 
-</DIV>
+
+
 <form action="/users/login" method="post" id="loginForm">
-	<DIV id="pd0u13" style="" data-label="Disabled">
-	<INPUT id="u15" name="data[User][email]" type=text placeholder="example@example.com" class="u15 text_fields"     >
+	
+	<INPUT id="login_username" name="data[User][email]" type=text placeholder=" example@example.com" class="login_form text_fields" style=""     >
+	
+	<div id="u16" class="u16 form_labels"  >Your email address</div>
+	
+	<INPUT id="login_password" name="data[User][password]" type="password" placeholder=" enter password..." class="login_form text_fields" style="" >
 
-	</DIV>
-	</DIV>
-	<div id="u16" class="u16"  >
-	<div id="u16_rtf"><p style="text-align:left;"><span style="font-family:Helvetica;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">Your email address</span></p></div>
-	</div>
-	<div id="u17" class="u17_container"   >
-	<div id="u17_img" class="u17_normal detectCanvas"></div>
-	<div id="u18" class="u18" style="visibility:hidden;"  >
-	<div id="u18_rtf"></div>
-	</div>
-	</div>
-	<DIV id="u19" style="" >
-	<DIV id="pd1u19" style="visibility:hidden;" data-label="Enabled">
-	<INPUT id="u20" type=text value="" class="u20" data-label="Text"    >
-
-	</DIV>
-	<DIV id="pd0u19" style="" data-label="Disabled">
-	<INPUT id="u21" name="data[User][password]" type="password" placeholder="enter password..." class="u21 text_fields"     >
-
-	</DIV>
-	</DIV>
-
-	<div id="u22" class="u22"  >
-	<div id="u22_rtf"><p style="text-align:left;"><span style="font-family:Helvetica;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">Your password</span></p></div>
-	</div>
+	<div id="u22" class="u22 form_labels"  >Your password</div>
+	<!-- Login button -->
 	<div id="u23" class="u23_container submitForLogin"   >
 		<div id="u23_img" class="u23_normal detectCanvas"></div>
 		<div id="u24" class="u24" style="visibility:hidden;"  >
 			<div id="u24_rtf"></div>
 		</div>
 	</div>
-	<!-- Login button -->
+	
 	<div id="u25" class="u25 submitForLogin"  >
 		<div id="u25_rtf"><p style="text-align:center;"><span style="font-family:Helvetica;font-size:13px;font-weight:bold;font-style:normal;text-decoration:none;color:#FFFFFF;">Login</span></p></div>
 	</div>
 </form>
 
-<div id="u26" class="u26 submitForLogin" >
-<DIV id="u26_line" class="u26_line" ></DIV>
-</div>
 <div id="u27" class="u27"  >
 <div id="u27_rtf"><p style="text-align:left;"><span style="font-family:Helvetica;font-size:13px;font-weight:normal;font-style:normal;text-decoration:underline;color:#00438A;">Forget your password?</span></p></div>
 </div>
@@ -101,26 +71,30 @@
 <div id="u30" class="u30"  >
 <div id="u30_rtf"><p style="text-align:left;"><span style="font-family:Helvetica;font-size:17px;font-weight:bold;font-style:normal;text-decoration:none;color:#404040;">Create an account</span></p></div>
 </div>
-<div id="u31" class="u31_container"   >
+<div id="u31" class="u31_container submitForRegister"   >
 <div id="u31_img" class="u31_normal detectCanvas"></div>
 <div id="u32" class="u32" style="visibility:hidden;"  >
 <div id="u32_rtf"></div>
 </div>
 </div>
-<div id="u33" class="u33"  >
+<div id="u33" class="u33 submitForRegister"  >
 <div id="u33_rtf"><p style="text-align:center;"><span style="font-family:Helvetica;font-size:13px;font-weight:bold;font-style:normal;text-decoration:none;color:#FFFFFF;">Create your account</span></p></div>
-</div><div id="u34" class="u34" >
-<DIV id="u34_line" class="u34_line" ></DIV>
 </div>
-<div id="u35" class="u35"  >
-<div id="u35_rtf"><p style="text-align:left;"><span style="font-family:Helvetica;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">- First awesome advantage</span></p></div>
-</div>
-<div id="u36" class="u36"  >
-<div id="u36_rtf"><p style="text-align:left;"><span style="font-family:Helvetica;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">- Second awesome advantage</span></p></div>
-</div>
-<div id="u37" class="u37"  >
-<div id="u37_rtf"><p style="text-align:left;"><span style="font-family:Helvetica;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">- Third awesome advantage</span></p></div>
-</div>
+
+<form action="/users/register" id="registerForm" method="post">
+		<div style="position:absolute;top:195px;left:520px" class="form_labels">Full Name</div>
+		<input name="data[User][full_name]" class="register_form text_fields" type="text" placeholder="Ivanna Humppalott"/ size="20" style="position:absolute;top:218px;left:515px;"/>
+		<div style="position:absolute;top:195px;left:710px" class="form_labels">Short Name</div>
+		<input name="data[User][short_name]" class="register_form text_fields" type="text" placeholder="IHumppalott"/ size="20" style="position:absolute;top:218px;left:700px;"/>
+		<div style="position:absolute;top:258px;left:520px" class="form_labels">Email</div>
+		<input  name="data[User][email]" class="register_form text_fields" type="text" placeholder="example@example.com"/ size="45" style="position:absolute;top:278px;left:515px;"/>
+		<div style="position:absolute;top:318px;left:520px" class="form_labels">Password</div>
+		<input  name="data[User][password]" class="register_form text_fields" type="password" placeholder="enter password"/ size="20" style="position:absolute;top:338px;left:515px;"/>
+		<div style="position:absolute;top:318px;left:710px"  class="form_labels">Confirm Password</div>
+		<input name="data[User][confirm_password]" class="register_form text_fields" type="password" placeholder="enter password"/ size="20" style="position:absolute;top:338px;left:700px;"/>
+		<input name="data[User][group_id]" value="2" hidden/>
+</form>
+
 <div id="u38" class="u38"  >
 <div id="u38_rtf"><p style="text-align:left;"><span style="font-family:Helvetica;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">Shopping cart</span></p></div>
 </div><div id="u39" class="u39" >
@@ -167,7 +141,7 @@
 	$(document).ready(function() {
 
 
-		$(".text_fields").keyup(function(event){
+		$(".login_form").keyup(function(event){
 		    if(event.keyCode == 13){
 		        $(".submitForLogin").click();
 		    }
@@ -179,6 +153,18 @@
 			console.log("oi!!");
 			// what happens when cliock on u23
 			$("#loginForm").submit();
+		});
+
+		$(".register_form").keyup(function(event){
+		    if(event.keyCode == 13){
+		        $(".submitForRegister").click();
+		    }
+		});
+
+		$(".submitForRegister").click(function() {
+			console.log("oi!!");
+			// what happens when cliock on u23
+			$("#registerForm").submit();
 		});
 
 	});

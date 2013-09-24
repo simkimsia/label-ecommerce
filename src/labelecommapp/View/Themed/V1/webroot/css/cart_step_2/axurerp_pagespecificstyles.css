@@ -247,12 +247,11 @@ div {
     word-wrap:break-word;
 }
 
-#u13 {
+#login_username {
     position:absolute;
     left:36px;
     top:221px;
     width:374px;
-    height:27px;
     overflow:hidden;
 }
 
@@ -293,23 +292,34 @@ div {
     
 }
 
-.u15 {
-    position:absolute;
-    left:0px;
-    top:1px;
-    width:270px;
-    height:25px;
-    ;
-    ;
-    text-align: left;;
+.form_labels{
+    text-align:left;
+    font-family: Helvetica;
+    font-size: 13px;
+    font-weight: normal;
+    font-style: normal;
+    text-decoration: none;
+    color: #333333;
+}
+
+.text_fields {
+    text-align: left;
     font-family:'Arial';
     font-size: 13px;
-    color:#999999;
     font-style:italic;
     font-weight:normal;
     text-decoration:none;
     border-color:transparent;
     outline-style:none;
+    border-width:1px;
+    border-color:#F0F0F0;
+    border-radius:5px;
+    height:30px;
+    padding-left:10px;
+}
+
+.submitForRegister{
+    cursor: pointer;
 }
 
 .u16 {
@@ -360,12 +370,12 @@ div {
     word-wrap:break-word;
 }
 
-#u19 {
+#login_password {
     position:absolute;
     left:36px;
     top:301px;
     width:374px;
-    height:27px;
+    
     overflow:hidden;
 }
 
@@ -406,24 +416,6 @@ div {
     
 }
 
-.u21 {
-    position:absolute;
-    left:0px;
-    top:1px;
-    width:270px;
-    height:25px;
-    ;
-    ;
-    text-align: left;;
-    font-family:'Arial';
-    font-size: 13px;
-    color:#999999;
-    font-style:italic;
-    font-weight:normal;
-    text-decoration:none;
-    border-color:transparent;
-    outline-style:none;
-}
 
 .u22 {
     position:absolute;
@@ -446,7 +438,7 @@ div {
 .u23_container {
     position:absolute;
     left:33px;
-    top:356px;
+    top:386px;
     width:73px;
     height:28px;
     cursor: pointer;
@@ -477,7 +469,7 @@ div {
 .u25 {
     position:absolute;
     left:33px;
-    top:362px;
+    top:393px;
     width:73px;
     height:16px;
     cursor: pointer;
@@ -488,18 +480,6 @@ div {
     word-wrap:break-word;
 }
 
-.u26_line {
-    background-image: url('../../img/cart_step_2/u26_line.png');
-}
-
-.u26_line {
-    position:absolute;
-    left:0px;
-    top:4px;
-    width:66px;
-    height:3px;
-
-}
 
 .u26 {
     position:absolute;
@@ -514,7 +494,7 @@ div {
 .u27 {
     position:absolute;
     left:128px;
-    top:362px;
+    top:396px;
     width:153px;
     height:16px;
     ;
@@ -573,14 +553,87 @@ div {
     word-wrap:break-word;
 }
 
+/*create account form*/
+
+#create_textbox {
+    background-image: url('../../img/cart_step_2/u11_normal.png');
+}
+
+.u110_container {
+    position:absolute;
+    left:509px;
+    top:219px;
+    width:380px;
+    height:30px;
+}
+
+#u110_img {
+    position:absolute;
+    left:-3px;
+    top:-3px;
+    width:386px;
+    height:36px;
+}
+
+.u120 {
+    position:absolute;
+    left:2px;
+    top:7px;
+    width:376px;
+    height:16px;
+    ;
+    ;
+    ;
+    font-family:Arial;
+    text-align:left;
+    word-wrap:break-word;
+}
+
+#u130 {
+    position:absolute;
+    left:509px;
+    top:221px;
+    width:374px;
+    height:27px;
+    overflow:hidden;
+}
+
+.u140 {
+    position:absolute;
+    left:0px;
+    top:1px;
+    width:270px;
+    height:25px;
+    ;
+    ;
+    text-align: left;;
+    font-family:'Arial';
+    font-size: 13px;
+    color:#333333;
+    font-style:normal;
+    font-weight:normal;
+    text-decoration:none;
+    border-color:transparent;
+    outline-style:none;
+}
+
+#pd1u130 {
+    position:absolute;
+    left:0px;
+    top:0px;
+    width:374px;
+    height:27px;
+    
+}
+
 .u31_normal {
     background-image: url('../../img/cart_step_2/u31_normal.png');
 }
 
 .u31_container {
     position:absolute;
-    left:635px;
-    top:199px;
+    left:513px;
+    top:386px;
     width:174px;
     height:28px;
 }
@@ -609,8 +662,8 @@ div {
 
 .u33 {
     position:absolute;
-    left:635px;
-    top:205px;
+    left:513px;
+    top:393px;
     width:174px;
     height:16px;
     ;
@@ -642,47 +695,7 @@ div {
     
 }
 
-.u35 {
-    position:absolute;
-    left:529px;
-    top:261px;
-    width:214px;
-    height:16px;
-    ;
-    ;
-    ;
-    font-family:Arial;
-    text-align:left;
-    word-wrap:break-word;
-}
 
-.u36 {
-    position:absolute;
-    left:529px;
-    top:291px;
-    width:214px;
-    height:16px;
-    ;
-    ;
-    ;
-    font-family:Arial;
-    text-align:left;
-    word-wrap:break-word;
-}
-
-.u37 {
-    position:absolute;
-    left:529px;
-    top:322px;
-    width:214px;
-    height:16px;
-    ;
-    ;
-    ;
-    font-family:Arial;
-    text-align:left;
-    word-wrap:break-word;
-}
 
 .u38 {
     position:absolute;
