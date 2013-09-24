@@ -77,30 +77,25 @@
                                 <div class="extra_details_labels">Font</div>
                                 <br>
                                 <div class="select_font_field">
-                                    <?php echo $this->Form->input('CartsItem.font', array(
+
+                                 
+                                  <?php echo $this->Form->input('CartsItem.font', array(
                                         'options' => array(
-                                            'American Typewriter' => 'American Typewriter',
-                                             'Helvetica' => 'Helvetica',
-                                              'New Times' => 'New Times'
+                                            'AmericanTypewriter' => 'American Typewriter',
+                                             'Bebas' => 'Bebas',
+                                              'BurstMyBubble' => 'Burst My Bubble',
+                                              'Chowderhead' => 'Chowderhead',
+                                              'FuturaBook' => 'Futura Book'
                                         ),
                                         'label' => false,
                                         'div' => false,
                                         'empty' => false,
-                                        'style' => 'display: block;
-                                        border: 1px solid #44c8f5;
-                                        color: #000000;
-                                        padding: 5px;
-                                        position:relative;
-                                        top: -6px;
-                                        margin-left:10px;
-                                        margin-bottom: 10px;
-                                        width: 260px;
-                                        ',
                                         'required',
                                         'id' => 'font_dropdown'
                                     ));
                                     ?>
                                 </div>
+                                <div class="font_example" style="margin-left:10px;">e.g. <span id="name_example"><span id="font_first_line">Nathan</span> <span id="font_second_line">Summers</span></span></div>
                             </td>
                             
                         </tr>
@@ -205,6 +200,33 @@
            console.log($(this).val());
     // add $(this).val() to your list
         });
+        $('#name_example').css("font-family", $('#font_dropdown').val());
+        $('#font_dropdown').change(function(){
+            
+            // $('#font_dropdown option:selected').each(function(){
+            //     str = $(this).val();
+            // });
+            $('#name_example').css("font-family", $(this).val());
+        });
+        $('#CartsItemFirstLine').on('input',function(){
+           var str = $(this).val();
+            if(str == ''){
+                str = 'Nathan';
+                $(this).attr("placeholder", "e.g. Nathan");
+            }
+            $('#font_first_line').text(str);
+        });
+
+        $('#CartsItemSecondLine').on('input', function(){
+            var str = $(this).val();
+            if(str == ''){
+                str = 'Summers';
+                $(this).attr("placeholder", "e.g. Summers");
+            }
+            $('#font_second_line').text(str);
+        });
+        
+
     });
 </script>
 <?php $this->end('scriptBottom'); ?>

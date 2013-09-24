@@ -26,6 +26,7 @@
 <?php echo $this->Html->css('alertify/0.3.10/themes/alertify.core'); ?>
 <?php echo $this->Html->css('alertify/0.3.10/themes/alertify.default'); ?>
 <?php echo $this->Html->css('960');?>
+
 </head>
 <body>
   <?php $session = $this->Session->flash('flash', array('element' => 'flash_blank')); ?>

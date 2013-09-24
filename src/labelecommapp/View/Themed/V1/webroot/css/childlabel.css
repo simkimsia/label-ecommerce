@@ -344,5 +344,42 @@ table.extra_details tr td {
 	color:#003d4c;
 }
 
+/*font dropdown list*/
+#font_dropdown{
 
+	display: block;
+    border: 1px solid #44c8f5;
+    color: #000000;
+    padding: 5px;
+    position:relative;
+    top: -6px;
+    margin-left:10px;
+    margin-bottom: 10px;
+    width: 260px;
+}
+
+.font_example {
+	font-size:20px;
+}
+
+ @font-face {
+    font-family:"AmericanTypewriter";
+    src:url(../font/AmericanTypewriter.ttc);
+  }
+  @font-face {
+    font-family:"Bebas";
+    src:url(../font/BEBAS.TTF);
+  }
+  @font-face {
+    font-family:"BurstMyBubble";
+    src:url(../font/BurstMyBubble.ttf);
+  }
+  @font-face {
+  font-family:"Chowderhead";
+  src:url(../font/Chowderhead.ttf);
+  }
+  @font-face {
+  font-family:"FuturaBook";
+  src:url(../font/FuturaBook.ttf);
+  }
 
