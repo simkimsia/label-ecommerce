@@ -8,14 +8,16 @@
                     <?php 
 
                     foreach($products as $key => $product):?>
-                         <?php if ($key % 3 == 0):?>
+                         <?php 
+                         $name = $product['Product']['name'];
+                         $id   = $product['Product']['id'];
+                         $link = $this->Html->link($name, array('action' => 'view', $id));
+
+                         if ($key % 3 == 0):?>
                               <tr>
                          <?php endif; ?>
                                    <td style="vertical-align:bottom;">
-                                        <span>
-                                        <a href="/products/view/<?php echo $product['Product']['id']?>"><?php echo $product['Product']['name'];?>
-                                        </a>
-                                        </span>
+                                        <span><?php echo $link; ?></span>
                                    </td>
                          <?php if ($key % 3 == 2):?>
                               </tr>
