@@ -130,5 +130,16 @@ class ProductsController extends AppController {
 		$this->redirect(array('action' => 'index'));
 	}
 
+/**
+ *
+ * Summary method
+ *
+ */
+	public function summary() {
+		$products = $this->Product->find('all');
+		$this->set('products', $products);
+		
+
+	}
 
 }
