@@ -8,16 +8,17 @@
                     <?php 
 
                     foreach($products as $key => $product):?>
-                         <?php if($key%3 == 0):?>
+                         <?php if ($key % 3 == 0):?>
                               <tr>
                          <?php endif; ?>
-                                   <td>
-                                        <a href="/products/view/<?php echo $product['Product']['id']?>">
-                                             <?php echo $product['Product']['name'];?>
+                                   <td style="vertical-align:bottom;">
+                                        <span>
+                                        <a href="/products/view/<?php echo $product['Product']['id']?>"><?php echo $product['Product']['name'];?>
                                         </a>
+                                        </span>
                                    </td>
-                         <?php if($key%3 == 2):?>
-                                   </tr>
+                         <?php if ($key % 3 == 2):?>
+                              </tr>
                          <?php endif; ?>
                     <?php endforeach;?>
                </table>
