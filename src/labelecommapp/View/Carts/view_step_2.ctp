@@ -125,7 +125,7 @@
 				echo $this->Form->input('User.password', array(
 														'type' => 'password',
 														'class' => 'register_form text_fields',
-														'placeholder' => 'Ivanna Humppalott',
+														'placeholder' => 'enter password..',
 														'size' => '20',
 														'style' => 'position:absolute;top:338px;left:515px;',
 														'div' => false,
@@ -133,9 +133,9 @@
  			));
 
 				echo $this->Form->input('User.confirm_password', array(
-														'type' => '',
+														'type' => 'password',
 														'class' => 'register_form text_fields',
-														'placeholder' => 'Ivanna Humppalott',
+														'placeholder' => 'enter password..',
 														'size' => '20',
 														'style' => 'position:absolute;top:338px;left:700px;',
 														'div' => false,
