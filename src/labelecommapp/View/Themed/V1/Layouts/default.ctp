@@ -27,6 +27,29 @@
 <?php echo $this->Html->css('alertify/0.3.10/themes/alertify.default'); ?>
 <?php echo $this->Html->css('960');?>
 
+<style>
+ @font-face {
+    font-family:"AmericanTypewriter";
+    src:url(../font/AmericanTypewriter.ttc);
+  }
+  @font-face {
+    font-family:"Bebas";
+    src:url(../font/BEBAS.TTF);
+  }
+  @font-face {
+    font-family:"BurstMyBubble";
+    src:url(../font/BurstMyBubble.ttf);
+  }
+  @font-face {
+  font-family:"Chowderhead";
+  src:url(../font/Chowderhead.ttf);
+  }
+  @font-face {
+  font-family:"FuturaBook";
+  src:url(../font/FuturaBook.ttf);
+  }
+</style>
+
 </head>
 <body>
   <?php $session = $this->Session->flash('flash', array('element' => 'flash_blank')); ?>
@@ -37,7 +60,7 @@
 
         <ul id="menuBar">
           <li>
-            <a href="/products/view/1"><div class="shop">shop</div></a>
+            <a href="/products/summary"><div class="shop">shop</div></a>
             <div id="dropDownMenu" class="menu_items">
               <div class="arrowHolder">
                 <?php echo $this->Html->image('arrow.png'); ?>

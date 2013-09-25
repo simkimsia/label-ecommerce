@@ -9,7 +9,7 @@ class ProductsController extends AppController {
 
 	public function beforeFilter() {
 		parent::beforeFilter();
-		$this->Auth->allow('index', 'view'); // allow for anonymous 
+		$this->Auth->allow('index', 'view', 'summary'); // allow for anonymous 
 	}
 
 /**

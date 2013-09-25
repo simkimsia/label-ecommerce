@@ -274,6 +274,33 @@ table td.actions a {
 	padding:2px 5px;
 }
 
+.product_grid {
+	width:860px;
+	margin-left:58px;
+	table-layout:fixed;
+}
+
+.product_grid a{
+	display:block;
+	text-decoration: none;
+	width:100%;	
+	height:100%;
+
+}
+
+.product_grid tr td{
+	padding:0px;
+	border-bottom:0px solid;
+
+}
+
+.product_grid td{
+	background-color: Grey;
+	height:328px;
+	width:284px;
+	overflow:hidden;
+}
+
 
 /* table for extra detail in sticker*/
 
