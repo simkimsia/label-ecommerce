@@ -83,11 +83,11 @@
 
 <form action="/users/register" id="registerForm" method="post">
 		<div style="position:absolute;top:195px;left:520px" class="form_labels">Full Name</div>
-		<input name="data[User][full_name]" class="register_form text_fields" type="text" placeholder="Ivanna Humppalott"/ size="20" style="position:absolute;top:218px;left:515px;"/>
+		<input name="data[User][full_name]" class="register_form text_fields" type="text" placeholder="Ivanna Humppalott"/ size="20" style="position:absolute;top:218px;left:515px;" value="<?php echo $registerData['User']['full_name']; ?>"/>
 		<div style="position:absolute;top:195px;left:710px" class="form_labels">Short Name</div>
-		<input name="data[User][short_name]" class="register_form text_fields" type="text" placeholder="IHumppalott"/ size="20" style="position:absolute;top:218px;left:700px;"/>
+		<input name="data[User][short_name]" value="<?php echo $registerData['User']['short_name']; ?>" class="register_form text_fields" type="text" placeholder="IHumppalott"/ size="20" style="position:absolute;top:218px;left:700px;"/>
 		<div style="position:absolute;top:258px;left:520px" class="form_labels">Email</div>
-		<input  name="data[User][email]" class="register_form text_fields" type="text" placeholder="example@example.com"/ size="45" style="position:absolute;top:278px;left:515px;"/>
+		<input  name="data[User][email]" value="<?php echo $registerData['User']['email']; ?>" class="register_form text_fields" type="text" placeholder="example@example.com"/ size="45" style="position:absolute;top:278px;left:515px;"/>
 		<div style="position:absolute;top:318px;left:520px" class="form_labels">Password</div>
 		<input  name="data[User][password]" class="register_form text_fields" type="password" placeholder="enter password"/ size="20" style="position:absolute;top:338px;left:515px;"/>
 		<div style="position:absolute;top:318px;left:710px"  class="form_labels">Confirm Password</div>
