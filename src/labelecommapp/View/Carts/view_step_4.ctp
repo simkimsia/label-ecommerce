@@ -123,7 +123,7 @@
 <div id="u39_rtf"><p style="text-align:right;"><span style="font-family:Helvetica;font-size:15px;font-weight:normal;font-style:normal;text-decoration:none;color:#666666;">Taxes</span></p></div>
 </div>
 <div id="u40" class="u40" style=<?php echo '"top:'.(538+(($number_of_items-1)*149)).'px"';?> >
-<div id="u40_rtf"><p style="text-align:left;"><span style="font-family:Helvetica;font-size:15px;font-weight:bold;font-style:normal;text-decoration:none;color:#333333;">$4.00</span></p></div>
+<div id="u40_rtf"><p style="text-align:left;"><span style="font-family:Helvetica;font-size:15px;font-weight:bold;font-style:normal;text-decoration:none;color:#333333;">$0.00</span></p></div>
 </div>
 <div id="u41" class="u41_container"   style=<?php echo '"top:'.(573+(($number_of_items-1)*149)).'px"';?>>
 <div id="u41_img" class="u41_normal detectCanvas"></div>
