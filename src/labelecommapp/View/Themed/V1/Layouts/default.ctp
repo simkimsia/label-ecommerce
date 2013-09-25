@@ -27,28 +27,7 @@
 <?php echo $this->Html->css('alertify/0.3.10/themes/alertify.default'); ?>
 <?php echo $this->Html->css('960');?>
 
-<style>
- @font-face {
-    font-family:"AmericanTypewriter";
-    src:url(../font/AmericanTypewriter.ttc);
-  }
-  @font-face {
-    font-family:"Bebas";
-    src:url(../font/BEBAS.TTF);
-  }
-  @font-face {
-    font-family:"BurstMyBubble";
-    src:url(../font/BurstMyBubble.ttf);
-  }
-  @font-face {
-  font-family:"Chowderhead";
-  src:url(../font/Chowderhead.ttf);
-  }
-  @font-face {
-  font-family:"FuturaBook";
-  src:url(../font/FuturaBook.ttf);
-  }
-</style>
+
 
 </head>
 <body>
