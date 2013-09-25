@@ -97,7 +97,6 @@ class CartsController extends AppController {
 					'User' => array(
 						'full_name' => '',
 						'short_name' => '',
-						'full_name' => '',
 						'email' => '',
 					)
 				));

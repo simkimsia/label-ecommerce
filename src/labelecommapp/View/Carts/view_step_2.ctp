@@ -83,22 +83,73 @@
 
 <form action="/users/register" id="registerForm" method="post">
 
-		<input name="data[User][full_name]" value="<?php $sticky_full_name;?>" class="register_form text_fields" type="text" placeholder="Ivanna Humppalott" size="20" style="position:absolute;top:218px;left:515px;"/>
-		<div style="position:absolute;top:195px;left:710px" class="form_labels">Short Name</div>
-		<input name="data[User][short_name]" class="register_form text_fields" type="text" placeholder="IHumppalott"/ size="20" style="position:absolute;top:218px;left:700px;"/>
-		<div style="position:absolute;top:258px;left:520px" class="form_labels">Email</div>
-		<input  name="data[User][email]" class="register_form text_fields" type="text" placeholder="example@example.com"/ size="45" style="position:absolute;top:278px;left:515px;"/>
 		<div style="position:absolute;top:195px;left:520px" class="form_labels">Full Name</div>
-		<input name="data[User][full_name]" class="register_form text_fields" type="text" placeholder="Ivanna Humppalott"/ size="20" style="position:absolute;top:218px;left:515px;" value="<?php echo $registerData['User']['full_name']; ?>"/>
 		<div style="position:absolute;top:195px;left:710px" class="form_labels">Short Name</div>
-		<input name="data[User][short_name]" value="<?php echo $registerData['User']['short_name']; ?>" class="register_form text_fields" type="text" placeholder="IHumppalott"/ size="20" style="position:absolute;top:218px;left:700px;"/>
 		<div style="position:absolute;top:258px;left:520px" class="form_labels">Email</div>
-		<input  name="data[User][email]" value="<?php echo $registerData['User']['email']; ?>" class="register_form text_fields" type="text" placeholder="example@example.com"/ size="45" style="position:absolute;top:278px;left:515px;"/>
 		<div style="position:absolute;top:318px;left:520px" class="form_labels">Password</div>
-		<input  name="data[User][password]" class="register_form text_fields" type="password" placeholder="enter password"/ size="20" style="position:absolute;top:338px;left:515px;"/>-->
 		<div style="position:absolute;top:318px;left:710px"  class="form_labels">Confirm Password</div>
-		<input name="data[User][confirm_password]" class="register_form text_fields" type="password" placeholder="enter password"/ size="20" style="position:absolute;top:338px;left:700px;"/>
-		<input name="data[User][group_id]" value="2" hidden/>
+		
+		<?php echo $this->Form->input('User.full_name', array(
+														'type' => 'text',
+														'class' => 'register_form text_fields',
+														'placeholder' => 'Ivanna Humppalott',
+														'size' => '20',
+														'style' => 'position:absolute;top:218px;left:515px;',
+														'div' => false,
+														'label' => false,
+														'value' => $registerData['User']['full_name']
+ 			));
+
+				echo $this->Form->input('User.short_name', array(
+														'type' => 'text',
+														'class' => 'register_form text_fields',
+														'placeholder' => 'IHumppalott',
+														'size' => '20',
+														'style' => 'position:absolute;top:218px;left:700px;',
+														'div' => false,
+														'label' => false,
+														'value' => $registerData['User']['short_name']
+ 			));
+
+				echo $this->Form->input('User.email', array(
+														'type' => 'text',
+														'class' => 'register_form text_fields',
+														'placeholder' => 'example@example.com',
+														'size' => '43',
+														'style' => 'position:absolute;top:278px;left:515px;',
+														'div' => false,
+														'label' => false,
+														'value' => $registerData['User']['email']
+ 			));
+
+				echo $this->Form->input('User.password', array(
+														'type' => 'password',
+														'class' => 'register_form text_fields',
+														'placeholder' => 'Ivanna Humppalott',
+														'size' => '20',
+														'style' => 'position:absolute;top:338px;left:515px;',
+														'div' => false,
+														'label' => false
+ 			));
+
+				echo $this->Form->input('User.confirm_password', array(
+														'type' => '',
+														'class' => 'register_form text_fields',
+														'placeholder' => 'Ivanna Humppalott',
+														'size' => '20',
+														'style' => 'position:absolute;top:338px;left:700px;',
+														'div' => false,
+														'label' => false
+ 			));
+
+				echo $this->Form->input('User.group_id', array(
+														'hidden',
+														'value' => '2'
+				));
+
+
+		?>
+
 </form>
 
 <div id="u38" class="u38"  >
