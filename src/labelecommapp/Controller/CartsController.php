@@ -58,6 +58,7 @@ class CartsController extends AppController {
 			$step = 1;
 		}
 
+
 		
 		$this->_checkLoginAtStep2($step);
 		$this->_checkLoginAtStep3And4($step);
@@ -87,6 +88,23 @@ class CartsController extends AppController {
 				$theCart['CartsItem'][$index]['image']	= $url;
 				$this->Session->write("Cart.CartsItem.$index.image", $url);
 			}
+		}
+
+		if ($step == 2) {
+			$possibleRegisterData = $this->Session->read('CartStep2RegisterData');
+			if (empty($possibleRegisterData)) {
+				$this->set('registerData', array(
+					'User' => array(
+						'full_name' => '',
+						'short_name' => '',
+						'full_name' => '',
+						'email' => '',
+					)
+				));
+			} else {
+				$this->set('registerData', $possibleRegisterData);
+				$this->Session->write('CartStep2RegisterData', array());
+			}	
 		}
 
 		if ($step == 3) {
