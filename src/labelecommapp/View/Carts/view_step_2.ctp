@@ -88,11 +88,11 @@
 		<div style="position:absolute;top:258px;left:520px" class="form_labels">Email</div>
 		<div style="position:absolute;top:318px;left:520px" class="form_labels">Password</div>
 		<div style="position:absolute;top:318px;left:710px"  class="form_labels">Confirm Password</div>
-		
+
 		<?php echo $this->Form->input('User.full_name', array(
 														'type' => 'text',
 														'class' => 'register_form text_fields',
-														'placeholder' => 'Ivanna Humppalott',
+														'placeholder' => 'John Doe',
 														'size' => '20',
 														'style' => 'position:absolute;top:218px;left:515px;',
 														'div' => false,
@@ -103,7 +103,7 @@
 				echo $this->Form->input('User.short_name', array(
 														'type' => 'text',
 														'class' => 'register_form text_fields',
-														'placeholder' => 'IHumppalott',
+														'placeholder' => 'John',
 														'size' => '20',
 														'style' => 'position:absolute;top:218px;left:700px;',
 														'div' => false,
