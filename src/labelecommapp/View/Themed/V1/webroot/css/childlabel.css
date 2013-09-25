@@ -295,10 +295,10 @@ table td.actions a {
 }
 
 .product_grid td{
-	background-color: Grey;
 	height:328px;
 	width:284px;
 	overflow:hidden;
+	border: 0px solid red;
 }
 
 

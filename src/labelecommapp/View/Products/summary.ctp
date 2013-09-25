@@ -4,7 +4,7 @@
           </div>
           <div class="mainContent">
                <div class="product_grid" style="position:relative;">
-          	<table>
+               <table>
                     <?php 
 
                     foreach($products as $key => $product):?>
@@ -16,7 +16,8 @@
                          if ($key % 3 == 0):?>
                               <tr>
                          <?php endif; ?>
-                                   <td style="vertical-align:bottom;">
+                                   <td style="vertical-align:bottom; padding: 10px;">
+                                        <div style="background-color:grey; width:250px;height:250px;">this should be the picture</div>
                                         <span><?php echo $link; ?></span>
                                    </td>
                          <?php if ($key % 3 == 2):?>
