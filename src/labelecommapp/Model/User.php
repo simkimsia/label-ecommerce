@@ -4,6 +4,7 @@ App::uses('AuthComponent', 'Controller/Component');
 App::uses('CakeSession', 'Model/Datasource');
 App::uses('StringLib', 'UtilityLib.Lib');
 App::uses('PasswordEmail', 'Lib/Email');
+App::uses('RegistrationEmail', 'Lib/Email');
 
 /**
  * User Model
@@ -129,17 +130,19 @@ class User extends AppModel {
  * @link http://book.cakephp.org/2.0/en/models/callback-methods.html#aftersave
  */
 	 public function afterSave($created) {
-	 	// @TODO send a welcome new user 
-	 	if ($created) {
+	 	// Send 'Welcome' message email to new user. 
+	 	if ($created) { 
 	 		$recipient = array(
 		 	 'full_name' => $this->data['User']['full_name'],
 		 	 'email' => $this->data['User']['email']
 		 	 );
-	 		// chnage to whatever email class u write
-		 	 // $email = new PasswordEmail($recipient);
-		 	 // $email->sendNewPassword($newPassword);
+
+	 		$email = new RegistrationEmail($recipient);
+	 		$welcomeMessage = 'Welcome!'.$recipient['full_name']."\n\n".' You have successfully registered as a user at Childlabel!';
+	 		$email->sendWelcomeNewUserEmail($welcomeMessage);
+
 	 	}
-	 	// end @TODO
+	 	
 
 	 	if ($created && $this->data['User']['email_to_user']) {
 	 	 $newPassword = $this->data['User']['original_password'];
