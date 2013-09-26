@@ -292,6 +292,26 @@ class User extends AppModel {
 
 /**
  *
+ * Checks the database to see if the email provided exists. If there is, return true.
+ *
+ * @param String $email Email Provided
+ * @return Boolean True if email exists, else return false
+ */
+	public function checkEmailPasswordWorks($data) {
+		$passwordHash = AuthComponent::password($data['User']['password']);
+		$email = $data['User']['email'];
+		$emailPasswordWorks = $this->find('count', array(
+			'conditions' => array(
+				'email' => $email,
+				'password' => $passwordHash
+			)
+		));
+
+		return ($emailPasswordWorks === 1);
+	}
+
+/**
+ *
  * Makes a token using the email given and the current dateTime
  *
  * @param String $email Email Provided

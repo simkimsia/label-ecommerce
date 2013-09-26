@@ -84,9 +84,29 @@ class UsersController extends AppController {
 	public function register() {
 		if ($this->request->is('post')) {
 			$referer = $this->referer();
-			$this->User->create();
-			if($this->request->data['User']['password'] == $this->request->data['User']['confirm_password']){
 
+			// check password match 
+			$passwordMatch = ($this->request->data['User']['password'] == $this->request->data['User']['confirm_password']);
+			// check for duplicate email
+			$duplicateEmail = $this->User->checkEmailExists($this->request->data['User']['email']);
+
+			$canImmediatelyLogin = false;
+			// check for existing email and password
+			if ($duplicateEmail && $passwordMatch) {
+				$canImmediatelyLogin = $this->User->checkEmailPasswordWorks($this->request->data); 
+			}
+
+			$registerUser = (!$duplicateEmail && $passwordMatch && !$canImmediatelyLogin);
+
+			$errorMessages = array();
+			// only 3 options: login immediately, register, or don't register
+			if ($canImmediatelyLogin) {
+				$this->Auth->login();
+				if ($this->_comeFromCartStep2($referer)) {
+					$this->redirect('/carts/view?step=3');
+				}
+			} else if ($registerUser) {
+				$this->User->create();
 				if ($this->User->save($this->request->data)) {
 					$this->Session->setFlash(__('The user has been saved'));
 					$this->Session->delete('CartStep2RegisterData');
@@ -94,18 +114,23 @@ class UsersController extends AppController {
 					
 					if ($this->_comeFromCartStep2($referer)) {
 						$this->redirect('/carts/view?step=3');
-					}	
+					}
 				} else {
 					$this->Session->write('CartStep2RegisterData', $this->request->data);
 					$this->Session->setFlash(__('The user could not be saved. Please, try again.'));
-					
 				}
-			}else {
-				$this->Session->setFlash(__('Your passwords do not match'));
+			} else {
+				$errorMessage = '';
+				if ($duplicateEmail) {
+					$errorMessage .= 'Your email is already used.<br />';
+				}
+				if (!$passwordMatch) {
+					$errorMessage .= 'Your passwords do not match.';
+				}
+				$this->Session->setFlash($errorMessage);
 			}
 			$this->redirect($referer);
 		}
-		
 	}
 
 /**
