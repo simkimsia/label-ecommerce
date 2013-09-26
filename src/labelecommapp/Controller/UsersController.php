@@ -89,19 +89,20 @@ class UsersController extends AppController {
 
 				if ($this->User->save($this->request->data)) {
 					$this->Session->setFlash(__('The user has been saved'));
+					$this->Session->delete('CartStep2RegisterData');
 					$this->Auth->login();
 					
 					if ($this->_comeFromCartStep2($referer)) {
 						$this->redirect('/carts/view?step=3');
 					}	
 				} else {
+					$this->Session->write('CartStep2RegisterData', $this->request->data);
 					$this->Session->setFlash(__('The user could not be saved. Please, try again.'));
 					
 				}
 			}else {
 				$this->Session->setFlash(__('Your passwords do not match'));
 			}
-			$this->Session->write('CartStep2RegisterData', $this->request->data);
 			$this->redirect($referer);
 		}
 		
