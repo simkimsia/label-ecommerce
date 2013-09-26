@@ -99,9 +99,11 @@ class UsersController extends AppController {
 			$registerUser = (!$duplicateEmail && $passwordMatch && !$canImmediatelyLogin);
 
 			$errorMessages = array();
+			$this->Session->write('CartStep2RegisterData', $this->request->data);
 			// only 3 options: login immediately, register, or don't register
 			if ($canImmediatelyLogin) {
 				$this->Auth->login();
+				$this->Session->delete('CartStep2RegisterData');
 				if ($this->_comeFromCartStep2($referer)) {
 					$this->redirect('/carts/view?step=3');
 				}
@@ -116,7 +118,6 @@ class UsersController extends AppController {
 						$this->redirect('/carts/view?step=3');
 					}
 				} else {
-					$this->Session->write('CartStep2RegisterData', $this->request->data);
 					$this->Session->setFlash(__('The user could not be saved. Please, try again.'));
 				}
 			} else {
