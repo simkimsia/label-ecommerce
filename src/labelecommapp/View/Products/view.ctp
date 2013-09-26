@@ -68,7 +68,6 @@
                                    <?php echo $this->Form->input('CartsItem.first_line', array(
                                     'label' => false,
                                     'div' => false,
-                                    'placeholder' => "e.g. Nathan",
                                     'required'
                                    ));?>
                                 </div>
@@ -95,7 +94,7 @@
                                     ));
                                     ?>
                                 </div>
-                                <div class="font_example" style="margin-left:10px;">e.g. <span id="name_example"><span id="font_first_line">Nathan</span> <span id="font_second_line">Summers</span></span></div>
+                                <div class="font_example" style="margin-left:10px;width: 262px;overflow:hidden;">Preview: <div id="name_example" style="display:inline;" ><div id="font_first_line" style="display:inline">Nathan</div> <div id="font_second_line" style="display:inline">Summers</div></div></div>
                             </td>
                             
                         </tr>
@@ -110,7 +109,6 @@
                                     <?php echo $this->Form->input('CartsItem.second_line', array(
                                     'label' => false,
                                     'div' => false,
-                                    'placeholder' => "e.g. Summers",
                                     'required'
                                    ));?>
                                 </div>
@@ -212,7 +210,7 @@
            var str = $(this).val();
             if(str == ''){
                 str = 'Nathan';
-                $(this).attr("placeholder", "e.g. Nathan");
+                
             }
             $('#font_first_line').text(str);
         });
@@ -221,7 +219,7 @@
             var str = $(this).val();
             if(str == ''){
                 str = 'Summers';
-                $(this).attr("placeholder", "e.g. Summers");
+               
             }
             $('#font_second_line').text(str);
         });
