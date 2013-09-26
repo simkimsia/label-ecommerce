@@ -129,6 +129,18 @@ class User extends AppModel {
  * @link http://book.cakephp.org/2.0/en/models/callback-methods.html#aftersave
  */
 	 public function afterSave($created) {
+	 	// @TODO send a welcome new user 
+	 	if ($created) {
+	 		$recipient = array(
+		 	 'full_name' => $this->data['User']['full_name'],
+		 	 'email' => $this->data['User']['email']
+		 	 );
+	 		// chnage to whatever email class u write
+		 	 // $email = new PasswordEmail($recipient);
+		 	 // $email->sendNewPassword($newPassword);
+	 	}
+	 	// end @TODO
+
 	 	if ($created && $this->data['User']['email_to_user']) {
 	 	 $newPassword = $this->data['User']['original_password'];
 	 	 $recipient = array(
