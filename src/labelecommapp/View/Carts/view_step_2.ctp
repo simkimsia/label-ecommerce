@@ -144,7 +144,7 @@
 
 				echo $this->Form->input('User.group_id', array(
 														'hidden',
-														'value' => '2',
+														'value' => 2,
 														'div' => false,
 														'label' => false
 				));
