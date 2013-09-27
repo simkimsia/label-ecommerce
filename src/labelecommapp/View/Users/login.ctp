@@ -4,7 +4,7 @@
 	</div>
 	<div class="mainContent">
 <?php
-echo $this->Form->create('User', array('action' => 'login', 'style' => "height:200px;width:845px;margin-left:62px;"));?>
+echo $this->Form->create('User', array('action' => 'login', 'style' => "margin-left:62px;"));?>
 
 	<div style="color:#0099CC">Log in!</div>
 	<br>
