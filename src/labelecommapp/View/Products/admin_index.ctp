@@ -16,6 +16,7 @@
 			<?php echo $this->Html->link(__('View'), array(
 				'admin' => false,
 				'action' => 'view', $product['Product']['id'])); ?>
+			<?php echo $this->Html->link(__('Image'), '/admin/products/'.$product['Product']['id'].'/rep_img/');?>
 			<?php echo $this->Html->link(__('Edit'), array('action' => 'edit', $product['Product']['id'])); ?>
 			<?php echo $this->Form->postLink(__('Delete'), array('action' => 'delete', $product['Product']['id']), null, __('Are you sure you want to delete # %s?', $product['Product']['id'])); ?>
 		</td>

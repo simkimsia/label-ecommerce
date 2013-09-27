@@ -22,6 +22,8 @@ class Product extends AppModel {
     	)
     );
 
+    public $hasOne = 'ProductRepresentativeImage';
+
 /**
  * insert into product_variant ('name') VALUES 'DEFAULT' for new product
  * @param $data expect Post 

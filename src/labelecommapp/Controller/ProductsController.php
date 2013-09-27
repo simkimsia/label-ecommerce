@@ -137,6 +137,7 @@ class ProductsController extends AppController {
  */
 	public function summary() {
 		$products = $this->Product->find('all');
+		$this->log($products);
 		$this->set('products', $products);
 		
 

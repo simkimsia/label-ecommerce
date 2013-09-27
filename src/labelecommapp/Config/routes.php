@@ -220,6 +220,41 @@
 			)
 
 	);
+
+	Router::connect('/admin/products/:product_id/rep_img/',
+	array(
+			'controller' => 'product_representative_images',
+			'action' => 'add',
+			'product_id' => '[0-9]+',
+			'admin' => true,
+			'prefix' => 'admin'
+		),
+	array(
+			'pass'               => array('product_id'),
+			'product_id'         => '[0-9]+',
+
+		)
+
+	);
+
+	Router::connect('/admin/products/:product_id/rep_img/add/:id', 
+	array(
+			'controller' => 'product_representative_images',
+			'action' => 'add',
+			'id' => '[0-9]+',
+			'admin' => true,
+			'prefix' => 'admin'
+		),
+	array(
+			'pass'               => array('product_id'),
+			'product_id'         => '[0-9]+',
+
+		)
+
+
+
+
+	);
 	
 
 /**
