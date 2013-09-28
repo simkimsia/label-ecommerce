@@ -17,8 +17,8 @@
                               <tr>
                          <?php endif; ?>
                                    <td style="vertical-align:bottom; padding: 10px;">
-                                        <div style="background-color:grey; width:250px;height:250px;">this should be the picture</div>
-                                        <span><?php echo $link; ?></span>
+                                        <div style=" width:250px;height:250px;"><?php $src = $product['ProductRepresentativeImage']['view_url']; ?><a href="/products/view/<?php echo $product['Product']['id'];?>"><img src="<?php echo $src;?>" height="250" width="250"/></a></div>
+                                        <span style="font-size:13px"><?php echo $link; ?></span>
                                    </td>
                          <?php if ($key % 3 == 2):?>
                               </tr>

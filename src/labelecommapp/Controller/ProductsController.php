@@ -137,6 +137,14 @@ class ProductsController extends AppController {
  */
 	public function summary() {
 		$products = $this->Product->find('all');
+		
+		$rep_img_model = ClassRegistry::init('ProductRepresentativeImage');
+		foreach($products as $key => $product){
+			$conditions = array('conditions' => array('ProductRepresentativeImage.product_id' => $product['Product']['id']));
+			$rep_img_array = $rep_img_model->find('first', $conditions);
+			$products[$key] = $products[$key] + $rep_img_array;
+		
+		}	
 		$this->log($products);
 		$this->set('products', $products);
 		
