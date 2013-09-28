@@ -49,6 +49,7 @@ class ProductRepresentativeImagesController extends AppController {
 		$rep_img = array('ProductRepresentativeImage' => array('thumb_url' => ''));
 		$conditions = array('conditions' => array('ProductRepresentativeImage.product_id' => $product_id));
 		$result = $this->ProductRepresentativeImage->find('first', $conditions);
+		$this->set('id', $result['ProductRepresentativeImage']['id']);
 		if(empty($result)){
 			$this->set('rep_img', $rep_img );
 		}else {
@@ -109,7 +110,7 @@ class ProductRepresentativeImagesController extends AppController {
  * @param string $id
  * @return void
  */
-	public function admin_delete($id = null) {
+	public function admin_delete($product_id=null,$id = null) {
 		$this->ProductRepresentativeImage->id = $id;
 		if (!$this->ProductRepresentativeImage->exists()) {
 			throw new NotFoundException(__('Invalid product representative image'));
@@ -117,10 +118,10 @@ class ProductRepresentativeImagesController extends AppController {
 		$this->request->onlyAllow('post', 'delete');
 		if ($this->ProductRepresentativeImage->delete()) {
 			$this->Session->setFlash(__('Product representative image deleted'));
-			$this->redirect(array('action' => 'index'));
+		}else {
+			$this->Session->setFlash(__('Product representative image was not deleted'));
 		}
-		$this->Session->setFlash(__('Product representative image was not deleted'));
-		$this->redirect(array('action' => 'index'));
+		$this->redirect('/admin/products'.$product_id.'/rep_img/');
 	}
 
 }

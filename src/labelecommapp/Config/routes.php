@@ -225,7 +225,6 @@
 	array(
 			'controller' => 'product_representative_images',
 			'action' => 'add',
-			'product_id' => '[0-9]+',
 			'admin' => true,
 			'prefix' => 'admin'
 		),
@@ -236,6 +235,24 @@
 		)
 
 	);
+
+	Router::connect('/admin/products/:product_id/rep_img/:id/delete',
+	array(
+			'controller' => 'product_representative_images',
+			'action' => 'delete',
+
+			'admin' => true,
+			'prefix' => 'admin'
+		),
+	array(
+			'pass'               => array('product_id'),
+			'product_id'         => '[0-9]+',
+			'id'				 => '[0-9]+'
+
+		)
+
+	);
+
 
 
 	
