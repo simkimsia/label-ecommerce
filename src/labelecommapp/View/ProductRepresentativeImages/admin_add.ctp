@@ -14,16 +14,6 @@
 	<ul>
 
 		<li><?php echo $this->Html->link(__('Back to Products'), array('controller' => 'products', 'action' => 'index')); ?> </li>
-		<li><?php echo $this->Form->postLink(__('Delete'),array(
-				'action'             => 'delete', 
-				'product_id'         => $product_id,
-				'id'                 => $id,
-
-				 ),
-			  null,
-			   __('Are you sure you want to delete # %s?',
-			    $id)); 
-		   ?>
-		  </li>
+		
 	</ul>
 </div>
