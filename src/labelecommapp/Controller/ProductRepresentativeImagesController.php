@@ -46,7 +46,7 @@ class ProductRepresentativeImagesController extends AppController {
 		$this->set('product_id', $product_id);
 		$product_name = $this->ProductRepresentativeImage->getProductName($product_id);
 		$this->set('product_name', $product_name);
-		$rep_img = array('ProductRepresentativeImage' => array('thumb_url' => ''));
+		$rep_img = array('ProductRepresentativeImage' => array('view_url' => ''));
 		$conditions = array('conditions' => array('ProductRepresentativeImage.product_id' => $product_id));
 		$result = $this->ProductRepresentativeImage->find('first', $conditions);
 		if(empty($result)){
