@@ -113,7 +113,6 @@ class UsersController extends AppController {
 					$this->Session->setFlash(__('The user has been saved'));
 					$this->Session->delete('CartStep2RegisterData');
 					$this->Auth->login();
-					
 					if ($this->_comeFromCartStep2($referer)) {
 						$this->redirect('/carts/view?step=3');
 					}

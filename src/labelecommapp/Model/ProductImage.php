@@ -35,10 +35,10 @@ class ProductImage extends AppModel {
     );
 
 /**
- *@param $data Array is expected in the form of ProductImage.{n}.field
- *@param $options Array is expected product_id and product_variant_id
  *
- */    
+ * @param $data Array is expected in the form of ProductImage.{n}.field
+ * @param $options Array is expected product_id and product_variant_id
+ */
 
     public function prepareSaveManyWithAttachment($data, $options = array()){
         $defaultOptions     = array('product_id' => null, 'product_variant_id' => null);
