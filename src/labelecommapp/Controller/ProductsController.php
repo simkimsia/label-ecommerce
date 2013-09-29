@@ -35,6 +35,8 @@ class ProductsController extends AppController {
 		}
 
 		$data = $this->Product->getViewVars($id);
+		$result = $this->Product->ProductRepresentativeImage->find('first', array('conditions' => array('ProductRepresentativeImage.product_id' => $id)));
+		$this->set('rep_img', $result['ProductRepresentativeImage']['view_url']);
 		$this->set('product', $data);
 	}
 
