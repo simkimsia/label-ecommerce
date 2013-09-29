@@ -6,7 +6,7 @@
           <div class="mainContent">
             
             <div class="theContents clearfix">
-                <div class="productCircleHolder clearfix">
+                <div class="productCircleHolder clearfix" style="width: 900px;margin-left:0px;margin-top:50px;">
                     <?php echo $this->element('scrollable', array('product' => $product)); ?>
                 </div>
                 <div class="desc" style="font-size:24px;"><?php echo h($product['Product']['name']); ?></div>
@@ -15,24 +15,22 @@
                      $options = array('places' => 0);
                      echo $this->Number->currency($product['Product']['price'], '$', $options); ?></h2>
 
-                    <?php 
-                        if(count($product['Product']['variants']) != 1){
-
-                            foreach($product['Product']['variants'] as $index => $variant) {
+                    <?php
+                        if (count($product['Product']['variants']) != 1) :
+                            foreach($product['Product']['variants'] as $index => $variant) :
                                 $bold_class = '';
                                 if($index == 0) {
-
                                     $bold_class = 'bold';
+                                }
 
-                                } 
-                              
                                 ?><li><?php echo $this->Html->link($variant['name'],'/products/view/'.$product['Product']['id'].'#'.$variant['id'], array('class' => 'variant_links ' .$bold_class, 'ref' => '#variant_'.$variant['id'].'_images','id' => 'variant_'.$variant['id']))?></a></li>
-                            
-                       
-                    <?php } }?>
+                    <?php 
+                            endforeach; 
+                        endif;
+                    ?>
 
                 </ul>
-                <div class="productdetails"><!-- <span class="detail"><br/>Details:</span> --><span class="thewords"><br/><br/><br/>
+                <div class="productdetails" style="margin-top:100px;"><!-- <span class="detail"><br/>Details:</span> --><span class="thewords"><br/><br/><br/>
                     <?php 
                         $desc_line = preg_split('/(?<=[.?!;:])\s+/', h($product['Product']['description']), -1, PREG_SPLIT_NO_EMPTY);
                         foreach ($desc_line as $line){

@@ -2,10 +2,10 @@
   /* required settings */
   position:relative;
   overflow:hidden;
-  width: 200px;
+  width: 800px;
   height:200px;
   padding-top: 10px;
-  left: 45%;
+  left: 100px;
   margin-left: -100px;
 }
  
@@ -23,7 +23,6 @@ and not for this element.
 }
 .items div {
   float:left;
-  width: 200px;
 }
 .rightArrow1 {
 	float: left;
@@ -31,7 +30,7 @@ and not for this element.
 	width: 30px;
 	height: 30px;
 	margin-top: -107px;
-	margin-left: 600px;
+	margin-left: 800px;
 }
 .disabled {
   visibility:hidden !important;
