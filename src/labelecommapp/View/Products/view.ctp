@@ -165,6 +165,14 @@
 <script>
     $(document).ready(function() {
         $(".scrollable").scrollable();
+        <?php $gotMultipleVariants = (count($product['Product']['variants']) > 1);?>
+        var multipleVariants = <?php if ($gotMultipleVariants) {echo "true";} else {echo "false"; } ?>;
+        if (multipleVariants) {
+            $(".productCircleHolder").css("width", 700);
+            $(".productCircleHolder").css("margin-left", 200);
+            $(".scrollable").css("width", 600);
+            $(".rightArrow1").css("margin-left", 600);
+        }
         if(window.location.hash) {
 
             var hash = window.location.hash;
