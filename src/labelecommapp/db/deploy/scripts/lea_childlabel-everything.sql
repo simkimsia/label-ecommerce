@@ -684,7 +684,9 @@ INSERT INTO `product_representative_images` (`id`, `product_id`, `filename`, `di
 (8,	8,	'Iron-ons (rectangle).png',	'8',	'',	0,	'2013-09-28 00:41:14',	'2013-09-28 00:41:14'),
 (9,	9,	'Iron-ons (circles).png',	'9',	'',	0,	'2013-09-28 00:53:12',	'2013-09-28 00:53:12'),
 (10,	12,	'get me started.png',	'10',	'',	0,	'2013-09-28 00:54:17',	'2013-09-28 00:54:17'),
-(11,	14,	'variety pack.png',	'11',	'',	0,	'2013-09-28 02:02:37',	'2013-09-28 02:02:37');
+(11,	14,	'variety pack.png',	'11',	'',	0,	'2013-09-28 02:02:37',	'2013-09-28 02:02:37'),
+(12,	10,	'Iron-ons (dual name).png',	'12',	'',	0,	'2013-09-29 06:09:33',	'2013-09-29 06:09:33'),
+(13,	11,	'Iron-ons (dual Eng-Chi).png',	'13',	'',	0,	'2013-09-29 06:09:45',	'2013-09-29 06:09:45');
 
 DROP TABLE IF EXISTS `product_variants`;
 CREATE TABLE `product_variants` (
@@ -795,4 +797,4 @@ INSERT INTO `users` (`id`, `full_name`, `email`, `password`, `short_name`, `toke
 (4,	'Daphne Ling',	'daphne@motherinc.org',	'275108ab67a27356dab9dcff38275c044766397f',	'Daphne',	'NULL',	3,	'2013-07-02 09:30:20',	'2013-07-02 09:30:20'),
 (12,	'aikchun',	'sac_89_1@hotmail.com',	'275108ab67a27356dab9dcff38275c044766397f',	'Simac',	NULL,	2,	'2013-09-27 03:24:47',	'2013-09-27 03:24:47');
 
--- 2013-09-28 11:30:45
+-- 2013-09-30 04:18:49
