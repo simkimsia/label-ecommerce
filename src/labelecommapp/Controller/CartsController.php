@@ -264,6 +264,7 @@ class CartsController extends AppController {
 
 	public function complete_purchase() {
 			App::uses('Paypal', 'Lib/Paypal');
+			App::uses('CheckoutEmail', 'Lib/Email');
 			Paypal::$returnUrl = Router::url('/carts/view?step=4', true);
 			Paypal::$cancelUrl = Router::url('/carts/view?step=4', true);
 			$cart_data = $this->Session->read('Cart');
@@ -274,7 +275,13 @@ class CartsController extends AppController {
 				$order_data = $this->Session->read('Cart.Order');
 				$order_model->updatePaymentStatus($order_data['id'], 'completed');
 
-				
+				$recipient = array(
+					'full_name' => $this->Auth->user('full_name'),
+					'email' => $this->Auth->user('email')
+				);
+				$checkoutMessage = 'Dear '.$recipient['full_name']."\n\n".'Thank you for your interest in Child Label products. Your order has been received and will be processed once payment has been confirmed. Below is a confirmation of your order and information on the product(s) you have ordered.';
+				$email = new CheckoutEmail($recipient);
+				$email->sendCheckoutEmail($checkoutMessage);
 				// empty cart before showing success page.
 				$this->CartManager->emptyCart();
 				$this->redirect('/carts/successful');
