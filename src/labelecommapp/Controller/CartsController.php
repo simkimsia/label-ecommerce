@@ -279,9 +279,9 @@ class CartsController extends AppController {
 					'full_name' => $this->Auth->user('full_name'),
 					'email' => $this->Auth->user('email')
 				);
-				$checkoutMessage = 'Dear '.$recipient['full_name']."\n\n".'Thank you for your interest in Child Label products. Your order has been received and will be processed once payment has been confirmed. Below is a confirmation of your order and information on the product(s) you have ordered.';
+				$cart_data['payment_options'] = 'Paypal Transactions';
 				$email = new CheckoutEmail($recipient);
-				$email->sendCheckoutEmail($checkoutMessage);
+				$email->sendCheckoutEmail($cart_data);
 				// empty cart before showing success page.
 				$this->CartManager->emptyCart();
 				$this->redirect('/carts/successful');
@@ -306,15 +306,16 @@ class CartsController extends AppController {
 		// account number
 		// give the order invoice number also
 		$order_data = $this->Session->read('Cart.Order');
+		$cart_data = $this->Session->read('Cart');
 		$this->set('invoice_number', $order_data['invoice_number']);
 		// @TODO once again you need to empty the cart
 		$recipient = array(
 					'full_name' => $this->Auth->user('full_name'),
 					'email' => $this->Auth->user('email')
 					);
-		$checkoutMessage = 'Dear '.$recipient['full_name']."\n\n".'Thank you for your interest in Child Label products. Your order has been received and will be processed once payment has been confirmed. Below is a confirmation of your order and information on the product(s) you have ordered.';
+		$cart_data['payment_options'] = 'Internet Bank Transfer';
 		$email = new CheckoutEmail($recipient);
-		$email->sendCheckoutEmail($checkoutMessage);
+		$email->sendCheckoutEmail($cart_data);
 		$this->CartManager->emptyCart();
 	}
 
