@@ -93,7 +93,7 @@
                                     ));
                                     ?>
                                 </div>
-                                <div class="font_example" style="margin-left:10px;width: 262px;overflow:hidden;">Preview: <div id="name_example" style="display:inline;" ><div id="font_first_line" style="display:inline">Nathan</div> <div id="font_second_line" style="display:inline">Summers</div></div></div>
+                                <div class="font_example" style="margin-left:10px;width: 262px;overflow:hidden;">Preview: <div id="name_example" style="display:inline;" ><div id="font_first_line" style="display:inline">Child</div> <div id="font_second_line" style="display:inline">Label</div></div></div>
                             </td>
                             
                         </tr>
@@ -216,7 +216,7 @@
         $('#CartsItemFirstLine').on('input',function(){
            var str = $(this).val();
             if(str == ''){
-                str = 'Nathan';
+                str = 'Child';
                 
             }
             $('#font_first_line').text(str);
@@ -225,7 +225,7 @@
         $('#CartsItemSecondLine').on('input', function(){
             var str = $(this).val();
             if(str == ''){
-                str = 'Summers';
+                str = 'Label';
                
             }
             $('#font_second_line').text(str);
