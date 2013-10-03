@@ -37,11 +37,12 @@ class CheckoutEmail {
 
 	public function sendCheckoutEmail($cartData) {
 		$email = $this->email;
-		$email->subject('Thank you for purchasing from ChildLabel!' . $cartData['payment_options']);
+		$email->subject('Thank you for purchasing from ChildLabel! ' . $cartData['payment_options']);
 		$email->template('successful_done');
 		$email->emailFormat('html');
 		$email->viewVars(array('cartData'=>$cartData,
-						'fullName' => $this->to['full_name']));
+						'fullName' => $this->to['full_name'],
+						'email' => $this->to['email']));
 		if (EMAIL_ON) {
 			$result = $email->send();
 		} else {

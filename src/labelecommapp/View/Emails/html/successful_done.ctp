@@ -19,8 +19,8 @@
 			<b>Shipping Method: </b><?php echo $cartData['ShippingOption']['name'];?>
 		</td>
 		<td style="font-size: 12px;padding: 7px;border-right-width: 1px;border-right-style: solid;border-right-color: rgb(221,221,221);border-bottom-width: 1px;border-bottom-style: solid;border-bottom-color: rgb(221,221,221);color: rgb(102,102,102);width: 325px;">
-			<span style="background-color: rgb(255,255,204);color: rgb(34,34,34);">Email:</span>daphne@motherinc.org<br>
-			<b>Telephone: </b>90233755
+			<span style="background-color: rgb(255,255,204);color: rgb(34,34,34);">Email:</span><?php echo $email;?><br>
+			
 		</td>
 	</tr>
 </table>
@@ -131,7 +131,7 @@
 			</td>
 			<td  style="font-size: 12px;text-align: right;padding: 7px;border-right-width: 1px;border-right-style: solid;border-right-color: rgb(221,221,221);border-bottom-width: 1px;border-bottom-style: solid;border-bottom-color: rgb(221,221,221);color: rgb(102,102,102);">
 
-				<?php echo $this->Number->currency($cartData['ShippingOption']['fees'], 'S$', $options);?>
+				<?php echo $this->Number->currency($cartData['ShippingOption']['fees'], 'S$', array('places' => 2));?>
 			</td>
 		</tr>
 		<tr>
@@ -140,7 +140,7 @@
 			</td>
 			<td style="font-size: 12px;text-align: right;padding: 7px;border-right-width: 1px;border-right-style: solid;border-right-color: rgb(221,221,221);border-bottom-width: 1px;border-bottom-style: solid;border-bottom-color: rgb(221,221,221);color: rgb(102,102,102);">
 				<!-- Grand total -->
-				<?php echo $this->Number->currency($cartData['Cart']['total'], 'S$', $options);?>
+				<?php echo $this->Number->currency($cartData['Cart']['total'], 'S$', array('places' => 2));?>
 			</td>
 		</tr>
 		<!-- End of footer-->
