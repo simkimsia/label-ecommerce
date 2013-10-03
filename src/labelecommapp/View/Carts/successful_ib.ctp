@@ -21,6 +21,9 @@
 
 		</div>
 		<div>
+			Congrats! Your order has been captured. <br/> Remember to make payment via Bank Transfer to DBS Account within 24 hours for your order to be processed.
+		</div>
+		<div>
 		<?php 
 			echo 'Invoice number: '.$invoice_number;
 		?>
