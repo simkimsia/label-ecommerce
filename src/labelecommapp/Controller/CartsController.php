@@ -132,7 +132,11 @@ class CartsController extends AppController {
 			$shipping_details = $shippingOptionModel->find('first', array(
 		        'conditions' => array('ShippingOption.id' => $shipping_option_from_session['id'])
 		    ));
+		    // update the total price according to the shipping option selected.
 		    $shipping_options = Hash::extract($shipping_details, 'ShippingOption');
+		    $updated_total = $cart_in_session['Cart']['total_price'] + $shipping_options['fees'];
+		    $this->Session->write('Cart.Cart.total', $updated_total);
+		    $this->Session->write('Cart.ShippingOption', $shipping_options);
 		    $this->set('shipping_options', $shipping_options);
 
 		}
@@ -268,6 +272,8 @@ class CartsController extends AppController {
 			Paypal::$returnUrl = Router::url('/carts/view?step=4', true);
 			Paypal::$cancelUrl = Router::url('/carts/view?step=4', true);
 			$cart_data = $this->Session->read('Cart');
+			// Need to update the total price with the shipping fees
+			$this->log($cart_data);
 			$response = Paypal::completePurchase($cart_data);
 			if($response->isSuccessful()) {
 				// update the Order payment_status to completed

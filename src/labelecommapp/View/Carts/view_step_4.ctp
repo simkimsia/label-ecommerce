@@ -111,7 +111,7 @@
 <div id="u35_rtf"><p style="text-align:right;"><span style="font-family:Helvetica;font-size:15px;font-weight:normal;font-style:normal;text-decoration:none;color:#666666;">Subtotal</span></p></div>
 </div>
 <div id="u36" class="u36"  style=<?php echo '"top:'.(478+(($number_of_items-1)*149)).'px"';?>>
-<div id="u36_rtf"><p style="text-align:left;"><span style="font-family:Helvetica;font-size:15px;font-weight:bold;font-style:normal;text-decoration:none;color:#333333;"><?php echo money_format("$%i",$carts['Cart']['total']);?></span></p></div>
+<div id="u36_rtf"><p style="text-align:left;"><span style="font-family:Helvetica;font-size:15px;font-weight:bold;font-style:normal;text-decoration:none;color:#333333;"><?php echo money_format("$%i",$carts['Cart']['total_price']);?></span></p></div>
 </div>
 <div id="u37" class="u37"  style=<?php echo '"top:'.(508+(($number_of_items-1)*149)).'px"';?>>
 <div id="u37_rtf"><p style="text-align:right;"><span style="font-family:Helvetica;font-size:15px;font-weight:normal;font-style:normal;text-decoration:none;color:#666666;">Shipping</span></p></div>
@@ -135,7 +135,7 @@
 <div id="u43_rtf"><p style="text-align:right;"><span style="font-family:Helvetica;font-size:18px;font-weight:bold;font-style:normal;text-decoration:none;color:#404040;">TOTAL</span></p></div>
 </div>
 <div id="u44" class="u44"  style=<?php $total_price_top_position = (598+(($number_of_items-1)*149)); echo '"top:'.$total_price_top_position.'px"';?>>
-<div id="u44_rtf"><p style="text-align:left;"><span style="font-family:Helvetica;font-size:20px;font-weight:bold;font-style:normal;text-decoration:none;color:#FFFFFF;"><?php $grand_total = $carts['Cart']['total_price']+$shipping_options['fees']; echo money_format("$%i", $grand_total);?></span></p></div>
+<div id="u44_rtf"><p style="text-align:left;"><span style="font-family:Helvetica;font-size:20px;font-weight:bold;font-style:normal;text-decoration:none;color:#FFFFFF;"><?php  echo money_format("$%i", $carts['Cart']['total'] + $shipping_options['fees']);?></span></p></div>
 </div>
 <DIV id="u45"  style=<?php echo '"border-style:dotted; border-color:red; visibility:hidden; position:absolute; left:9px; top:'.(459+(($number_of_items-1)*149)).'px; width:940px; height:188px;;"';?>></div>
 	<!-- footer ends -->
