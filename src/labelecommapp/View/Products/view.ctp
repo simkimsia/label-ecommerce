@@ -39,7 +39,7 @@
                         }
                     ?>
                    <br /></span></div>
-                   <img src="<?php echo $rep_img;?>" height="200" width="200" style="margin-left:190px;margin-top:30px;"></img>
+                   <img src="<?php echo $rep_img;?>" height="314" width="435" style="margin-left:90px;margin-top:30px;"></img>
                 <div class="clearBoth"></div>
 
                 <div>
