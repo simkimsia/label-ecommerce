@@ -37,7 +37,7 @@ foreach($product['Product']['variants'] as $index => $variant) {
                             ?>
                             <?php 
                             if (($key % $itemsPerRow) == 0) {
-                              echo "<div>";
+                              echo "<div class='item_page'>";
                             }
                             echo $this->Html->image($array['view_url'], array('width'=>'200'));
                             if (checkLast($key, $itemsPerRow, $count)) {

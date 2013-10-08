@@ -113,7 +113,14 @@
                                 </div>
                             </td>
                             <td>
+                                 <?php echo $this->Form->input('CartsItem.image', array(
+                                    'type' => 'hidden',
+                                    'label' => false,
+                                    'div' => false,
+
+                                ))?>
                                 <div style= "border-radius:15px;width:262px;height:70px;padding:5px;  font-size:30px;background-color:#44c8f5;color:#FFFFFF;">
+                               
                                <?php
                                 echo $this->Form->submit(__('Add to Cart!'), array(
                                     'div' => false,
@@ -229,6 +236,14 @@
                
             }
             $('#font_second_line').text(str);
+        });
+
+        // @TODO 
+        // implement function to select image on click.
+        $('.item_page').on("click", "img", function(){
+            var source = $(this).attr('src');
+            var filename = source.split("/");
+            $('#CartsItemImage').val(filename[5]);
         });
         
 
