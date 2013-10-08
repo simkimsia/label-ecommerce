@@ -241,11 +241,31 @@
         // @TODO 
         // implement function to select image on click.
         $('.item_page').on("click", "img", function(){
-            var source = $(this).attr('src');
-            var filename = source.split("/");
-            $('#CartsItemImage').val(filename[5]);
+            
+            var cleanedSource = cleanFilename($(this).attr('src'));
+
+            $('#CartsItemImage').val(cleanedSource);
         });
         
+        function basename(str) {
+            var base = new String(str).substring(str.lastIndexOf('/') + 1); 
+            if(base.lastIndexOf(".") != -1)       
+               base = base.substring(0, base.lastIndexOf("."));
+           return base;
+        }
+
+        function cleanFilename(str) {
+           var decodedStr = decodeURI(str);
+           var filename = basename(decodedStr);
+           if(filename.indexOf(".") > -1){
+               var cleaned = filename.split(".");
+               return cleaned[0];
+           }
+
+           return filename;
+
+        }
+
 
     });
 </script>
