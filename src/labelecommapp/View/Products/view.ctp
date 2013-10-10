@@ -238,15 +238,28 @@
             $('#font_second_line').text(str);
         });
 
-        // @TODO 
         // implement function to select image on click.
         $('.item_page').on("click", "img", function(){
-            
+            resetSelectedLabel();
+            highlightLabel($(this));
             var cleanedSource = cleanFilename($(this).attr('src'));
 
             $('#CartsItemImage').val(cleanedSource);
         });
         
+
+        // function to highlight selected label.
+        function highlightLabel(obj){
+            obj.css('border-style','solid');
+            obj.css('border-color', '#44c8f5');
+        }
+
+        //function to reset the all the border highlight
+        function resetSelectedLabel(){
+            $('.item_page').children().css('border-color', 'white');
+
+        }
+
         function basename(str) {
             var base = new String(str).substring(str.lastIndexOf('/') + 1); 
             if(base.lastIndexOf(".") != -1)       
