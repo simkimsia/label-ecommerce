@@ -247,7 +247,15 @@
             $('#CartsItemImage').val(cleanedSource);
         });
         
+        defaultSelectLabel();
 
+
+
+        function defaultSelectLabel(){
+            highlightLabel($('.item_page img:first-child'));
+            var defaultSelection = cleanFilename($('.item_page img:first-child').attr('src'));
+            $('#CartsItemImage').val(defaultSelection);
+        }
         // function to highlight selected label.
         function highlightLabel(obj){
             obj.css('border-style','solid');
