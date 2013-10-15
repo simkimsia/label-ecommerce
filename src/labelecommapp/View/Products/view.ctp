@@ -113,7 +113,7 @@
                                 </div>
                             </td>
                             <td>
-                                 <?php echo $this->Form->input('CartsItem.image', array(
+                                 <?php echo $this->Form->input('CartsItem.label_type', array(
                                     'type' => 'hidden',
                                     'label' => false,
                                     'div' => false,
@@ -244,7 +244,7 @@
             highlightLabel($(this));
             var cleanedSource = cleanFilename($(this).attr('src'));
 
-            $('#CartsItemImage').val(cleanedSource);
+            $('#CartsItemLabelType').val(cleanedSource);
         });
         
         defaultSelectLabel();
@@ -254,7 +254,7 @@
         function defaultSelectLabel(){
             highlightLabel($('.item_page img:first-child'));
             var defaultSelection = cleanFilename($('.item_page img:first-child').attr('src'));
-            $('#CartsItemImage').val(defaultSelection);
+            $('#CartsItemLabelType').val(defaultSelection);
         }
         // function to highlight selected label.
         function highlightLabel(obj){
@@ -276,7 +276,7 @@
         }
 
         function cleanFilename(str) {
-           var decodedStr = decodeURI(str);
+           var decodedStr = decodeURIComponent(str);
            var filename = basename(decodedStr);
            if(filename.indexOf(".") > -1){
                var cleaned = filename.split(".");
