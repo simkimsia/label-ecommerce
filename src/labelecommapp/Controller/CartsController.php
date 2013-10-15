@@ -273,7 +273,7 @@ class CartsController extends AppController {
 			Paypal::$cancelUrl = Router::url('/carts/view?step=4', true);
 			$cart_data = $this->Session->read('Cart');
 			// Need to update the total price with the shipping fees
-			$this->log($cart_data);
+
 			$response = Paypal::completePurchase($cart_data);
 			if($response->isSuccessful()) {
 				// update the Order payment_status to completed
@@ -397,11 +397,13 @@ class CartsController extends AppController {
 		
 	}
 
-	public function remove_item($product_variant_id){
+	public function remove_item($product_variant_id, $hashed){
 		$data = array(
 				'CartsItem' => array('remove' => true,
 					'model' => 'ProductVariant',
-					'foreign_key' => $product_variant_id),
+					'foreign_key' => $product_variant_id,
+					'hashed' => $hashed
+					)
 				);
 		$this->CartManager->updateItem($data);
 		$this->redirect($this->referer());

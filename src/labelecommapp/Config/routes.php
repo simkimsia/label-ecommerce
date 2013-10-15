@@ -207,7 +207,7 @@
 
 	);
 
-		Router::connect('/cart/remove/:product_variant_id',
+		Router::connect('/cart/remove/:product_variant_id/:hashed',
 		array(
 			'controller' => 'cart_items',
 			'action'     => 'remove_item'
@@ -216,7 +216,8 @@
 
 		array(
 			'pass'               => array('product_variant_id'),
-			'product_variant_id' => '[0-9]+'
+			'product_variant_id' => '[0-9]+',
+			'hashed'  => 'val-[\d]+'
 			)
 
 	);
