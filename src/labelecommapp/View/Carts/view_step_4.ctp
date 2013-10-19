@@ -154,7 +154,7 @@
 <div id="u50_rtf"></div>
 </div>
 </div>
-<div id="u51" class="u51_container"   style=<?php echo '"top:'.(336+$key*149).'px"';?>>
+<div id="u51" class="u51_container"   style=<?php echo '"top:'.(336+$key*149).'px;"';?>>
 
 	<?php // let's prepare the image
 
@@ -168,7 +168,7 @@
 	$style = '"' . $backgroundImage . '"';
 	?>
 	
-<div id="u51_img" class="u51_normal detectCanvas"></div>
+<div id="u51_img" class="u51_normal detectCanvas" style=<?php echo $style;?>></div>
 <div id="u52" class="u52" style="visibility:hidden;"  >
 <div id="u52_rtf"></div>
 </div>

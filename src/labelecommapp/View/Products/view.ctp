@@ -123,6 +123,7 @@
                                     'div' => false,
 
                                 ))?>
+
                                 <div style= "border-radius:15px;width:262px;height:70px;padding:5px;  font-size:30px;background-color:#44c8f5;color:#FFFFFF;">
                                
                                <?php

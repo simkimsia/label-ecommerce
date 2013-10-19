@@ -67,6 +67,7 @@ class CartsController extends AppController {
 		$this->layout = 'cart';
 		// need to collect images and store them if necessary
 		$theCart = $this->Session->read('Cart');
+		$this->log($theCart);
 		if($theCart['Cart']['item_count'] == 0){
 			$this->redirect('/carts/cart_unfilled');
 		}
@@ -74,20 +75,26 @@ class CartsController extends AppController {
 		// and put in the url to the item image
 		$imageModel = ClassRegistry::init('ProductImage');
 		foreach($theCart['CartsItem'] as $index => $item) {
-			if (empty($item['image'])) {
+			if(!isset($item['image'])){
+				
 				$variant_id = $item['foreign_key'];
-				$conditions = array('ProductImage.product_variant_id' => $variant_id);
+				$product_image = $item['label_type'] . '%';
+				$conditions = array('ProductImage.product_variant_id' => $variant_id,
+					'ProductImage.filename LIKE' => $product_image);
 				$defaultImage = array('thumb_url' => '');
 				$image = $imageModel->find('first', array(
 					'conditions' => $conditions
 				));
 
 				$image					= array_merge($defaultImage, $image);
-				$url					= $this->getImageForStep($image['thumb_url'], $step);
+				$this->log('$image is:');
+				$this->log($image);
+				$url					= $this->getImageForStep($image['ProductImage']['thumb_url'], $step);
 
 				$theCart['CartsItem'][$index]['image']	= $url;
 				$this->Session->write("Cart.CartsItem.$index.image", $url);
 			}
+			
 		}
 
 		if ($step == 2) {
