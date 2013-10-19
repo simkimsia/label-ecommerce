@@ -35,7 +35,7 @@ class AppModel extends Model {
 	public $actsAs = array(
 		'Containable', 
 		'UtilityBehaviors.FindXORCreatable',
-		'UtilityBehaviors.ModelDataExtractable',
+		'UtilityBehaviors.AgnosticDataArray',
 		'Queryable.Queryable'
 	);
 

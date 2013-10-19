@@ -185,7 +185,7 @@ class User extends AppModel {
  * retrieve user data by email
  */
 	public function getByEmail($data = array()) {
-		$loginData = $this->extractModelData($data);
+		$loginData = $this->extractByAlias($data);
 		if (isset($loginData['email'])) {
 			$user = $this->findByEmail($loginData['email']);
 			return $user;
