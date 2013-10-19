@@ -218,7 +218,6 @@
 
         $('#font_dropdown option').each(function() {
         $(this).css('font', $(this).val());
-           console.log($(this).val());
     // add $(this).val() to your list
         });
         $('#name_example').css("font-family", $('#font_dropdown').val());
