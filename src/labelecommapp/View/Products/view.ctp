@@ -81,7 +81,6 @@
                                 <br>
                                 <div class="select_font_field">
 
-                                 
                                   <?php echo $this->Form->input('CartsItem.font', array(
                                         'options' => array(
                                             'AmericanTypewriter' => 'American Typewriter',
