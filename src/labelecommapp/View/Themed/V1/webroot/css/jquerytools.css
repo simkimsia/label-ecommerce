@@ -2,11 +2,11 @@
   /* required settings */
   position:relative;
   overflow:hidden;
-  width: 800px;
+  width: 840px;
   height:207px;
   padding-top: 10px;
   left: 100px;
-  margin-left: -100px;
+  margin-left: -120px;
 }
  
 /*
@@ -30,7 +30,7 @@ and not for this element.
 	width: 30px;
 	height: 30px;
 	margin-top: -107px;
-	margin-left: 800px;
+	margin-left: 809px;
 }
 .disabled {
   visibility:hidden !important;

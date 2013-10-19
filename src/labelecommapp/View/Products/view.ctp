@@ -38,8 +38,13 @@
                              echo '<br/><br/>';
                         }
                     ?>
-                   <br /></span></div>
+                   <br />
+               </span>
+               </div>
                    <img src="<?php echo $rep_img;?>" height="314" width="435" style="margin-left:90px;margin-top:30px;"></img>
+
+                   <div class="selected_label_name"> You have not selected a label type. </div>
+                   
                 <div class="clearBoth"></div>
 
                 <div>
@@ -172,7 +177,12 @@
 <?php $this->append('scriptBottom'); ?>
 <script>
     $(document).ready(function() {
-        $(".scrollable").scrollable();
+        var scrollableObject = $(".scrollable").scrollable();
+        var instance = scrollableObject.eq(0).data("scrollable");
+        var notSelectedImage = true;
+        var rightArrow1TemporarilyHide = false;
+        var leftArrowTemporarilyHide = false;
+
         <?php $gotMultipleVariants = (count($product['Product']['variants']) > 1);?>
         var multipleVariants = <?php if ($gotMultipleVariants) {echo "true";} else {echo "false"; } ?>;
         if (multipleVariants) {
@@ -240,16 +250,48 @@
 
         // implement function to select image on click.
         $('.item_page').on("click", "img", function(){
-            resetSelectedLabel();
-            highlightLabel($(this));
-            var cleanedSource = cleanFilename($(this).attr('src'));
+            // disable scrollable by hiding the arrows
+            if (notSelectedImage && !$(this).hasClass('faded')) {
+                notSelectedImage = false;
+                // turn off keyboard to prevent scrolling via cursor keys
+                instance.getConf().keyboard = false;
+                // make the rest images permanent border white
+                makeOtherImagesBorderWhite($(this));
+                // make the rest images all faded away;
+                makeOtherImagesFaded($(this));
+                // make the selected image permanently border blue
+                highlightLabel($(this));
+                var cleanedSource = cleanFilename($(this).attr('src'));
+                $('#CartsItemLabelType').val(cleanedSource);
+                $('.selected_label_name').text('You have selected: ' + cleanedSource);
+                if ($('.rightArrow1').is(':visible')) {
+                    $('.rightArrow1').hide();
+                    rightArrow1TemporarilyHide = true;
+                }
+                // do same for left arrow
+                if ($('.leftArrow').is(':visible')) {
+                    $('.leftArrow').hide();
+                    leftArrowTemporarilyHide = true;
+                }
+            } else if (notSelectedImage == false && !$(this).hasClass('faded')) { // to de-select the image
+                notSelectedImage = true;
+                instance.getConf().keyboard = true;
+                resetSelectedLabel();
+                // need to remove the filename chosen
+                $('#CartsItemLabelType').val("");
+                $('.selected_label_name').text("You have not selected a label type.");
+                if (rightArrow1TemporarilyHide) {
+                    $('.rightArrow1').show();
+                    rightArrow1TemporarilyHide = false;
+                }    
+                // do same for left arrow
+                if (leftArrowTemporarilyHide) {
+                    $('.leftArrow').show();
+                    leftArrowTemporarilyHide = false;
+                }    
+            }
 
-            $('#CartsItemLabelType').val(cleanedSource);
         });
-        
-        defaultSelectLabel();
-
-
 
         function defaultSelectLabel(){
             highlightLabel($('.item_page img:first-child'));
@@ -264,8 +306,16 @@
 
         //function to reset the all the border highlight
         function resetSelectedLabel(){
-            $('.item_page').children().css('border-color', 'white');
+            $('.item_page').children().removeAttr('style');
+            $('.item_page').children().removeClass('faded');   
+        }
 
+        function makeOtherImagesFaded(exceptThis){
+            $('.item_page').children().not(exceptThis).addClass('faded');
+        }
+
+        function makeOtherImagesBorderWhite(exceptThis){
+            $('.item_page').children().not(exceptThis).css('border-color', 'white');
         }
 
         function basename(str) {

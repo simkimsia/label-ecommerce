@@ -95,7 +95,7 @@ ul.internalLinks li { font-size: 12px!important; display: block; margin-left: 10
 #childContainer .childHolder .contentArea .mainContent .theContents div.productdetails span.thewords { float:left; width:300px; }
 
 #childContainer .childHolder .contentArea .mainContent .theContents .productCircleHolder { position:absolute; margin-left:200px; width:700px; }
-#childContainer .childHolder .contentArea .mainContent .theContents .productCircleHolder .leftArrow { float:left; background:url(../img/arrows.png) 0 30px; width:30px; height:30px; margin-top:103px; margin-left: -30px;}
+#childContainer .childHolder .contentArea .mainContent .theContents .productCircleHolder .leftArrow { float:left; background:url(../img/arrows.png) 0 30px; width:30px; height:30px; margin-top:103px; margin-left: -45px;}
 #childContainer .childHolder .contentArea .mainContent .theContents .productCircleHolder .rightArrow { float:left; background:url(../img/arrows.png) 30px 30px; width:30px; height:30px; margin-top:103px; }
 
 #childContainer .childHolder .contentArea .mainContent .theContents .productCircleHolder .chooseColor { display:block; float:right; margin-right:30px; }
@@ -410,3 +410,35 @@ table.extra_details tr td {
   src:url(../font/FuturaBook.ttf);
   }
 
+/**
+ * Additional scrollable properties
+ *
+ */
+.item_page img {
+	border-style: solid;
+    border-color: white;
+}
+
+.item_page img:hover {
+    border-color: rgb(68, 200, 245);
+    cursor: pointer;
+}
+.item_page img.faded:hover {
+    cursor: default;
+}
+
+.faded {
+	opacity: 0.5;
+}
+
+/**
+ * Selected label 
+ */
+
+ .selected_label_name {
+ 	position:absolute;
+ 	top:905px;
+	width: 300px;
+	font-family: "century gothic",verdana,arial,helvetica,sans-serif;
+	font-size: 15px;
+}
