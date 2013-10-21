@@ -14,24 +14,24 @@ App::uses('RegistrationEmail', 'Lib/Email');
 class User extends AppModel {
 
 	 public $validate = array(
-	    	'full_name' => array(
-	    		'rule' => 'notEmpty',
-	    		'required' => true
+			'full_name' => array(
+				'rule' => 'notEmpty',
+				'required' => true
 
-    		),
-	    	'short_name' => array(
-	    		'rule' => 'notEmpty',
-	    		'required' => true
-    		),
-	    	'email' => array(
-	    		'rule' => 'notEmpty',
-	    		'required' => true
+			),
+			'short_name' => array(
+				'rule' => 'notEmpty',
+				'required' => true
+			),
+			'email' => array(
+				'rule' => 'notEmpty',
+				'required' => true
 
-    		),
-	    	'password' => array(
-	    		'rule' => 'notEmpty',
-	    		'required' => true
-    		)
+			),
+			'password' => array(
+				'rule' => 'notEmpty',
+				'required' => true
+			)
 
 	);
 
@@ -68,17 +68,17 @@ class User extends AppModel {
  */
 	public $hasMany = array(
 		'Order' => array(
-		    'className' => 'Cart.Order',
-		    'foreignKey' => 'user_id',
-		    'dependent' => false,
-		    'conditions' => '',
-		    'fields' => '',
-		    'order' => '',
-		    'limit' => '',
-		    'offset' => '',
-		    'exclusive' => '',
-		    'finderQuery' => '',
-		    'counterQuery' => ''
+			'className' => 'Cart.Order',
+			'foreignKey' => 'user_id',
+			'dependent' => false,
+			'conditions' => '',
+			'fields' => '',
+			'order' => '',
+			'limit' => '',
+			'offset' => '',
+			'exclusive' => '',
+			'finderQuery' => '',
+			'counterQuery' => ''
 		),
 	);
 
@@ -130,36 +130,36 @@ class User extends AppModel {
  * @link http://book.cakephp.org/2.0/en/models/callback-methods.html#aftersave
  */
 	 public function afterSave($created) {
-	 	// Send 'Welcome' message email to new user. 
-	 	if ($created) { 
-	 		$recipient = array(
-		 	 'full_name' => $this->data['User']['full_name'],
-		 	 'email' => $this->data['User']['email']
-		 	 );
+		// Send 'Welcome' message email to new user. 
+		if ($created) { 
+			$recipient = array(
+			 'full_name' => $this->data['User']['full_name'],
+			 'email' => $this->data['User']['email']
+			 );
 
-	 		$email = new RegistrationEmail($recipient);
-	 		$welcomeMessage = 'Welcome!'.$recipient['full_name']."\n\n".' You have successfully registered as a user at Childlabel!';
-	 		$email->sendWelcomeNewUserEmail($welcomeMessage);
+			$email = new RegistrationEmail($recipient);
+			$welcomeMessage = 'Welcome!'.$recipient['full_name']."\n\n".' You have successfully registered as a user at Childlabel!';
+			$email->sendWelcomeNewUserEmail($welcomeMessage);
 
-	 	}
-	 	
+		}
+		
 
-	 	if ($created && $this->data['User']['email_to_user']) {
-	 	 $newPassword = $this->data['User']['original_password'];
-	 	 $recipient = array(
-		 	 'full_name' => $this->data['User']['full_name'],
-		 	 'email' => $this->data['User']['email']
-	 	 );
-	 	 $email = new PasswordEmail($recipient);
-	 	 $email->sendNewPassword($newPassword);
-	 	}
-	 	$user_id	= AuthComponent::user('id');
-	 	if ($user_id > 0) {
-	 	 $user	 = $this->safeRead($user_id);
-	 	 CakeSession::write('Auth.User', $user);
-	 	}
-	 	$this->Behaviors->enable('Acl');
-	 	return true;
+		if ($created && $this->data['User']['email_to_user']) {
+		 $newPassword = $this->data['User']['original_password'];
+		 $recipient = array(
+			 'full_name' => $this->data['User']['full_name'],
+			 'email' => $this->data['User']['email']
+		 );
+		 $email = new PasswordEmail($recipient);
+		 $email->sendNewPassword($newPassword);
+		}
+		$user_id	= AuthComponent::user('id');
+		if ($user_id > 0) {
+		 $user	 = $this->safeRead($user_id);
+		 CakeSession::write('Auth.User', $user);
+		}
+		$this->Behaviors->enable('Acl');
+		return true;
 	 }
 
 /**
@@ -167,16 +167,16 @@ class User extends AppModel {
  * will remove the password and merge All the models that User belongsTo
  */
 	 public function safeRead($id) {
-	 	$this->recursive = 0;
-	 	$result = $this->find('first', array(
-	 	 'conditions' => array('User.id' => $id),
-	 	 'contain' => null
-	 	));
+		$this->recursive = 0;
+		$result = $this->find('first', array(
+		 'conditions' => array('User.id' => $id),
+		 'contain' => null
+		));
 
-	 	$user = $result['User'];
-	 	unset($user['password']);
-	 	unset($result['User']);
-	 	return array_merge($user, $result);
+		$user = $result['User'];
+		unset($user['password']);
+		unset($result['User']);
+		return array_merge($user, $result);
 	 }
 
 
