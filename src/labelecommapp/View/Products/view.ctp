@@ -250,7 +250,7 @@
         // implement function to select image on click.
         $('.item_page').on("click", "img", function(){
             // disable scrollable by hiding the arrows
-            if (notSelectedImage && !$(this).hasClass('faded')) {
+            if (notSelectedImage) {
                 notSelectedImage = false;
                 // turn off keyboard to prevent scrolling via cursor keys
                 instance.getConf().keyboard = false;
@@ -272,7 +272,7 @@
                     $('.leftArrow').hide();
                     leftArrowTemporarilyHide = true;
                 }
-            } else if (notSelectedImage == false && !$(this).hasClass('faded')) { // to de-select the image
+            } else if (notSelectedImage == false) { // to de-select the image
                 notSelectedImage = true;
                 instance.getConf().keyboard = true;
                 resetSelectedLabel();
