@@ -41,7 +41,10 @@
 <div id="u11_rtf"><p style="text-align:left;"><span style="font-family:Helvetica;font-size:14px;font-weight:bold;font-style:normal;text-decoration:none;color:#404040;">Estimate shipping date</span><span style="font-family:Helvetica;font-size:14px;font-weight:normal;font-style:normal;text-decoration:none;color:#404040;">: <?php echo $shipping_options['period'];?></span></p></div>
 </div>
 <div id="u12" class="u12"  >
-<div id="u12_rtf"><p style="text-align:left;"><span style="font-family:Helvetica;font-size:14px;font-weight:bold;font-style:normal;text-decoration:none;color:#404040;">Estimate delivery date</span><span style="font-family:Helvetica;font-size:14px;font-weight:normal;font-style:normal;text-decoration:none;color:#404040;">: Dec 14, 2012</span></p></div>
+<div id="u12_rtf"><p style="text-align:left;"><span style="font-family:Helvetica;font-size:14px;font-weight:bold;font-style:normal;text-decoration:none;color:#404040;">Estimate delivery date</span><span style="font-family:Helvetica;font-size:14px;font-weight:normal;font-style:normal;text-decoration:none;color:#404040;"> <?php date_default_timezone_set('Asia/Singapore'); 
+echo date('d-m-Y', strtotime('+1 Week'));
+?>
+</span></p></div>
 </div>
 <div id="u13" class="u13"  >
 <div id="u13_rtf"><p style="text-align:left;"><span style="font-family:Helvetica;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#333333;">Shopping cart</span></p></div>
