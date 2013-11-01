@@ -31,9 +31,6 @@ $number_of_items = $carts['Cart']['item_count'];?>
 <br><br>
 <?php }?>
  </div>
-<div id="u14" class="u14"  >
-<div id="u14_rtf"><p style="text-align:left;"><span style="font-family:Arial;font-size:13px;font-weight:normal;font-style:normal;text-decoration:none;color:#BFBFBF;">Note: This is a note that adds some details to the list.</span></p></div>
-</div>
 <div id="u15" class="u15_container"   >
 <div id="u15_img" class="u15_normal detectCanvas"></div>
 <div id="u16" class="u16" style="visibility:hidden;"  >
