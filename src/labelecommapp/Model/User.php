@@ -97,7 +97,6 @@ class User extends AppModel {
 			$this->data['User']['password'] = AuthComponent::password($this->data['User']['password']);
 		}
 		$this->Behaviors->disable('Acl');
-		$this->log('beforeSave');
 		return true;
 	}
 /**
@@ -361,9 +360,7 @@ class User extends AppModel {
 			//save the pwd if successful
 			$data['User']['password'] = $data['User']['new_password'];
 			$data['User']['token'] = null;
-			$this->log($data);
 			$result = $this->save($data);
-			$this->log($this->validationErrors);
 			return $result;
 		} else {
 			throw new CakeException ('Your new passwords do not match.');
