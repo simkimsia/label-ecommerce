@@ -24,8 +24,8 @@ class UsersController extends AppController {
 	public function beforeFilter() {
 		parent::beforeFilter();
 		$this->Auth->allow('send_enquiry_email',
-			'admin_forget_password',
-			'reset_password', 'view_my_own_profile', 'register', 'change_my_own_password'); 
+			'admin_forget_password', 'admin_reset_password',
+			'reset_password', 'view_my_own_profile', 'register', 'change_my_own_password');
 	}
 
 /**
@@ -85,7 +85,7 @@ class UsersController extends AppController {
 		if ($this->request->is('post')) {
 			$referer = $this->referer();
 
-			// check password match 
+			// check password match
 			$passwordMatch = ($this->request->data['User']['password'] == $this->request->data['User']['confirm_password']);
 			// check for duplicate email
 			$duplicateEmail = $this->User->checkEmailExists($this->request->data['User']['email']);
@@ -93,7 +93,7 @@ class UsersController extends AppController {
 			$canImmediatelyLogin = false;
 			// check for existing email and password
 			if ($duplicateEmail && $passwordMatch) {
-				$canImmediatelyLogin = $this->User->checkEmailPasswordWorks($this->request->data); 
+				$canImmediatelyLogin = $this->User->checkEmailPasswordWorks($this->request->data);
 			}
 
 			$registerUser = (!$duplicateEmail && $passwordMatch && !$canImmediatelyLogin);
@@ -196,7 +196,7 @@ class UsersController extends AppController {
 			$success = $email->send($this->data['User']['message']);
 
 			if ($success) {
-				$this->Session->setFlash('', 
+				$this->Session->setFlash('',
 					'status_email',
 					array(
 					'title' => 'Successfully sent!',
@@ -205,7 +205,7 @@ class UsersController extends AppController {
 				);
 				$this->redirect('/call');
 			} else {
-				$this->Session->setFlash('', 
+				$this->Session->setFlash('',
 					'status_email',
 					array(
 					'title' => 'Email not sent!',
@@ -285,7 +285,7 @@ class UsersController extends AppController {
  */
 	public function view_my_own_profile() {
 		if($this->Auth->user('id') > 0){
-			
+
 			// we want the paginator to use default settings for page limit and maxLimit
 			$this->Paginator->settings = $this->paginate;
 
@@ -297,11 +297,11 @@ class UsersController extends AppController {
     		$users_orders = $this->Paginator->paginate('Order');
 
 			$this->set('users_orders', $users_orders);
-			
+
 		}
 		else{
 			$this->redirect('/users/login');
-			
+
 		}
 
 	}
@@ -389,7 +389,8 @@ class UsersController extends AppController {
 				$userData = $this->User->findXORCreateToken($email);
 
 				//send email with token
-				$this->User->sendToken($userData);
+				$admin = true;
+				$this->User->sendToken($userData, $admin);
 				$this->Session->setFlash('The reset link has been sent to your email. Please check your email and click the link.');
 				$this->redirect(array('action' => 'login'));
 			} else {
@@ -439,5 +440,48 @@ class UsersController extends AppController {
 			}
 		}
 		$this->render('reset_password');
+	}
+
+/**
+ * admin_reset_password method
+ *
+ * @return void
+ */
+	public function admin_reset_password() {
+		if(isset($_GET['token'])){
+			$userData = $this->User->findByToken($_GET['token']);
+			$validToken = $userData;
+			$this->set('token', $_GET['token']);
+		} else {
+			$validToken = false;
+		}
+
+		if (!$validToken) {
+			$this->Session->setFlash('Invalid link. Please Login.');
+			$this->redirect(array('action' => 'login'));
+		}
+
+		if ($this->request->is('get')) {
+			if ($validToken) {
+				$this->request->data = $userData;
+			}
+		} else if ($this->request->is('post') || $this->request->is('put')) {
+			try {
+				$result = $this->User->resetPassword($this->request->data);
+				$errorMessage = "Not successful";
+			} catch(CakeException $error) {
+				$result = false;
+				$errorMessage = $error->getMessage();
+				$this->log($errorMessage);
+			}
+
+			if ($result) {
+				$this->Session->setFlash('Password successfully changed');
+				$this->redirect(array('action' => 'login'));
+			} else {
+				$this->Session->setFlash($errorMessage);
+			}
+		}
+		$this->render('admin_reset_password');
 	}
 }

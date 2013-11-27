@@ -31,15 +31,17 @@
 
 
 	Router::connect('/', array('controller' => 'pages', 'action' => 'display', 'index'));
-	
+
 	Router::connect('/call', array('controller' => 'pages', 'action' => 'display', 'call'));
-	
+
 	Router::connect('/about', array('controller' => 'pages', 'action' => 'display', 'about'));
-	
+
 	Router::connect('/faq', array('controller' => 'pages', 'action' => 'display', 'faq'));
-	
+
 	Router::connect('/enquiry_email/add', array('controller' => 'users', 'action' => 'send_enquiry_email'));
-	
+
+	Router::connect('/admin', array('controller' => 'products', 'action' => 'index', 'admin' => true, 'prefix' => 'admin'));
+
 	Router::connect('/admin/home', array('controller' => 'pages', 'action' => 'display', 'admin_home', 'admin' => true, 'prefix' => 'admin'));
 
 	// customized routes for faq and about
@@ -49,9 +51,9 @@
  */
 	Router::connect('/pages/*', array('controller' => 'pages', 'action' => 'display'));
 
-	Router::connect('/admin/products/:product_id/variants/add', 
+	Router::connect('/admin/products/:product_id/variants/add',
 		array(
-			'controller' => 'product_variants', 
+			'controller' => 'product_variants',
 			'action'     => 'add_by_product',
 			'admin'      => true,
 			'prefix'     => 'admin'
@@ -62,9 +64,9 @@
 		)
 	);
 
-	Router::connect('/admin/products/:product_id/variants', 
+	Router::connect('/admin/products/:product_id/variants',
 		array(
-			'controller' => 'product_variants', 
+			'controller' => 'product_variants',
 			'action'     => 'index_by_product', "[method]" => "GET",
 			'admin'      => true,
 			'prefix'     => 'admin'
@@ -75,9 +77,9 @@
 		)
 	);
 
-	Router::connect('/admin/products/:product_id/variants/:id', 
+	Router::connect('/admin/products/:product_id/variants/:id',
 		array(
-			'controller' => 'product_variants', 
+			'controller' => 'product_variants',
 			'action'     => 'edit_by_product',
 			'admin'      => true,
 			'prefix'     => 'admin'
@@ -89,9 +91,9 @@
 		)
 	);
 
-	Router::connect('/admin/products/:product_id/variants/:id/delete', 
+	Router::connect('/admin/products/:product_id/variants/:id/delete',
 	array(
-		'controller' => 'product_variants', 
+		'controller' => 'product_variants',
 		'action'     => 'delete_by_product',
 		'admin'      => true,
 		'prefix'     => 'admin'
@@ -105,7 +107,7 @@
 
 	Router::connect('/admin/products/:product_id/variants/:product_variant_id/images/add',
 		array(
-			'controller' => 'product_images', 
+			'controller' => 'product_images',
 			'action'     => 'add_by_product',
 			'admin'      => true,
 			'prefix'     => 'admin'
@@ -117,9 +119,9 @@
 		)
 	);
 
-	Router::connect('/admin/products/:product_id/variants/:product_variant_id/images', 
+	Router::connect('/admin/products/:product_id/variants/:product_variant_id/images',
 		array(
-			'controller' => 'product_images', 
+			'controller' => 'product_images',
 			'action'     => 'view_by_product',
 			'admin'      => true,
 			'prefix'     => 'admin'
@@ -131,9 +133,9 @@
 		)
 	);
 
-	Router::connect('/admin/products/:product_id/variants/:product_variant_id/images/:id', 
+	Router::connect('/admin/products/:product_id/variants/:product_variant_id/images/:id',
 		array(
-			'controller' => 'product_images', 
+			'controller' => 'product_images',
 			'action'     => 'edit_by_product',
 			'admin'      => true,
 			'prefix'     => 'admin'
@@ -146,9 +148,9 @@
 		)
 	);
 
-	Router::connect('/admin/products/:product_id/variants/:product_variant_id/images/:id/delete', 
+	Router::connect('/admin/products/:product_id/variants/:product_variant_id/images/:id/delete',
 	array(
-		'controller' => 'product_images', 
+		'controller' => 'product_images',
 		'action'     => 'delete_by_product',
 		'admin'      => true,
 		'prefix'     => 'admin'
@@ -163,7 +165,7 @@
 
 	Router::connect('/admin/products/:product_id/variants/:product_variant_id/images/swap/:left/:right',
 		array(
-			'controller' => 'product_images', 
+			'controller' => 'product_images',
 			'action'     => 'swap_order',
 			'admin'      => true,
 			'prefix'     => 'admin'
@@ -179,7 +181,7 @@
 
 	Router::connect('/admin/products/:product_id/variants/:left/:right',
 		array(
-			'controller' => 'product_variants', 
+			'controller' => 'product_variants',
 			'action'     => 'swap_order',
 			'admin'      => true,
 			'prefix'     => 'admin'
@@ -256,7 +258,7 @@
 
 
 
-	
+
 
 /**
  * Load all plugin routes. See the CakePlugin documentation on

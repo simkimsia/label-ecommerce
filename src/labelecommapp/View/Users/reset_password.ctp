@@ -3,7 +3,7 @@ echo $this->Form->create('User', array(
 	'url' => Router::url(array(
 		'action' => 'reset_password',
 		'controller' => 'users',
-		'?' => array('token' => $token) 
+		'?' => array('token' => $token)
 	))
 ));
 echo $this->Form->inputs(array(

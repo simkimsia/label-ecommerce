@@ -10,10 +10,12 @@ class PasswordEmail {
 	private $to;
 
 	private $email;
+	private $admin = false;
 
-	public function __construct($to) {
+	public function __construct($to, $admin=false) {
 		$this->from	= array('full_name' => 'ChildLabel', 'email' => $this->sender);
 		$this->to	= $to;
+		$this->admin = $admin;
 
 		$this->_prepareAddressFields();
 	}
@@ -50,7 +52,12 @@ class PasswordEmail {
 	public function sendToken($token) {
 		$email = $this->email;
 		$email->subject('[Password Reset] Do NOT reply to this email');
-		$baseURL = Router::url('/users/reset_password?token=' . $token, true);
+		if ($this->admin) {
+			$prefix = '/admin';
+		} else {
+			$prefix = '';
+		}
+		$baseURL = Router::url($prefix . '/users/reset_password?token=' . $token, true);
 
 		if (EMAIL_ON) {
 			$result = $email->send("Please click this link to reset your password. $baseURL");
