@@ -68,7 +68,7 @@ class CartsController extends AppController {
 		// need to collect images and store them if necessary
 		$theCart = $this->Session->read('Cart');
 		$this->log($theCart);
-		if($theCart['Cart']['item_count'] == 0){
+		if(!isset($theCart['Cart']['item_count']) || $theCart['Cart']['item_count'] == 0){
 			$this->redirect('/carts/cart_unfilled');
 		}
 		// instantiate the ProductImage model here.
