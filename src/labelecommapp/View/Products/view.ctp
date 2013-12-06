@@ -112,7 +112,6 @@
                                     <?php echo $this->Form->input('CartsItem.second_line', array(
                                     'label' => false,
                                     'div' => false,
-                                    'required'
                                    ));?>
                                 </div>
                             </td>
