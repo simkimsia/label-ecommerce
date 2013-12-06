@@ -33,6 +33,7 @@ src/labelecommapp/webroot/cache_js/*.js
 
 ## Config files
 src/labelecommapp/Config/database.php
+src/labelecommapp/Config/database.production.php
 src/labelecommapp/Config/core.php
 src/labelecommapp/Config/email.php
 

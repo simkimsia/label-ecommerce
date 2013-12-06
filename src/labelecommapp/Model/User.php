@@ -13,29 +13,6 @@ App::uses('RegistrationEmail', 'Lib/Email');
  */
 class User extends AppModel {
 
-	 public $validate = array(
-			'full_name' => array(
-				'rule' => 'notEmpty',
-				'required' => true
-
-			),
-			'short_name' => array(
-				'rule' => 'notEmpty',
-				'required' => true
-			),
-			'email' => array(
-				'rule' => 'notEmpty',
-				'required' => true
-
-			),
-			'password' => array(
-				'rule' => 'notEmpty',
-				'required' => true
-			)
-
-	);
-
-
 /**
  * Display field
  *
@@ -130,8 +107,8 @@ class User extends AppModel {
  * @link http://book.cakephp.org/2.0/en/models/callback-methods.html#aftersave
  */
 	 public function afterSave($created) {
-		// Send 'Welcome' message email to new user. 
-		if ($created) { 
+		// Send 'Welcome' message email to new user.
+		if ($created) {
 			$recipient = array(
 			 'full_name' => $this->data['User']['full_name'],
 			 'email' => $this->data['User']['email']
@@ -142,7 +119,7 @@ class User extends AppModel {
 			$email->sendWelcomeNewUserEmail($welcomeMessage);
 
 		}
-		
+
 
 		if ($created && $this->data['User']['email_to_user']) {
 		 $newPassword = $this->data['User']['original_password'];
@@ -197,7 +174,7 @@ class User extends AppModel {
  *
  * check $data and see if we can allow user to gain access based on a whitelist
  * array $data Any data array where we expect email, password
- * 
+ *
  */
 	public function allowEntry($data, $allowedGroups = array()) {
 		if (empty($deniedGroups)) {
@@ -217,7 +194,7 @@ class User extends AppModel {
 
 // password related functions
 
-/** 
+/**
  * this is for registration
  */
 	public function createAndSave($data) {
@@ -228,8 +205,8 @@ class User extends AppModel {
 		return $this->save($data);
 	}
 
-/** 
- * 
+/**
+ *
  * this is needed for User to change her own password
  */
 	public function changePassword($data) {
@@ -343,7 +320,7 @@ class User extends AppModel {
 			$token = $this->createToken($email);
 			$this->id = $userData['User']['id'];
 			$this->saveField('token', $token, array(
-				'callbacks' => false, 
+				'callbacks' => false,
 				'validate' => false
 			));
 			$userData['User']['token'] = $token;
@@ -357,14 +334,15 @@ class User extends AppModel {
  * Sends the user a token to reset password
  *
  * @param Array $userData Array containing full_name, email and token
- * @return void 
+ * @param boolean $admin
+ * @return void
  */
-	public function sendToken($userData){
+	public function sendToken($userData, $admin=false){
 		$recipient = array(
 			'full_name' => $userData['full_name'],
 			'email' => $userData['email'],
 		);
-		$email = new PasswordEmail($recipient);
+		$email = new PasswordEmail($recipient, $admin);
 		$email->sendToken($userData['token']);
 	}
 
