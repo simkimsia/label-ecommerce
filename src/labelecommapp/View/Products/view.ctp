@@ -1,7 +1,7 @@
         <div class="contentArea">
           
           <div class="topContent">
-                <div class="chooseadesign"></div>
+                <div class="chooseadesign"><?php echo $this->Html->image('../img/chooseadesign.png', array('style'=> 'width:400px;height:85px;') ); ?></div>
           </div>
           <div class="mainContent">
             

@@ -142,7 +142,7 @@ ul.internalLinks li { font-size: 12px!important; display: block; margin-left: 10
 
 #childContainer .childHolder .contentArea .mainContent .theContents .searchBox { display:block; background:url(../img/searchBig.png) no-repeat; width:900px; height:183px; }
 #childContainer .addtocart { position:absolute; background:url(../img/addtocart.png) no-repeat; width:230px; height:47px; margin-left:100px; margin-top:-11px; }
-#childContainer .chooseadesign { position:absolute; background:url(../img/toplabel.png) no-repeat; width:193px; height:32px; display:block; margin-left:600px; }
+#childContainer .chooseadesign { position:absolute; background:url(../img/foobar.png) no-repeat; width:480px; height:85px; display:block; margin-left:400px; }
 #childContainer .clicktocustomize { position:absolute; margin-left:750px; margin-top:-93px; background:url(../img/clicktocustomize.png) no-repeat; width:274px; height:200px; display:block; } 
 #childContainer .imagesontop { background:url(../img/callus.png) no-repeat; width:950px; display: block; height:811px; z-index:88; margin-left:-32px; margin-top:-39px; }
 #childContainer .callmesotongRight { background:url(../img/callmeFooter.png) no-repeat; width:399px; height:141px; position:absolute; margin-top:-104px; margin-left:645px; z-index:100; }
