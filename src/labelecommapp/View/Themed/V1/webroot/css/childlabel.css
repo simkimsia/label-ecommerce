@@ -155,7 +155,7 @@ ul.internalLinks li { font-size: 12px!important; display: block; margin-left: 10
 #dropDownMenu { display:block; position:absolute; width:660px; height:auto; min-height:200px; opacity:0.9; filter:alpha(opacity=90); background:#ffffff; box-shadow: 5px 5px 5px #888888; top:60px; margin-left:5px; z-index:1000; }
 #dropDownMenu .arrowHolder { margin-left:15px; }
 
-#footerNav { background:#ffffff; height:160px; width: 1000px; margin-left:32px; margin-top:10px; -moz-box-shadow: 0 0 5px 5px #888;
+#footerNav { background:#ffffff; height:160px; width: 1000px; margin-left:32px; margin-top:30px; -moz-box-shadow: 0 0 5px 5px #888;
 -webkit-box-shadow: 0 0 5px 5px#888; box-shadow: 0 0 5px 5px #888; }
 #footerNav .col1 { float: left; margin-left:30px; padding:10px; font-size:14px; }
 .leffooter { float: left; margin-left:32px; margin-top:10px; margin-bottom:10px; font-size:10px;  }
