@@ -7,7 +7,7 @@
 #
 # Host: 127.0.0.1 (MySQL 5.5.34-0ubuntu0.12.10.1)
 # Database: lea_childlabel
-# Generation Time: 2013-12-31 09:51:05 +0000
+# Generation Time: 2013-12-31 09:49:04 +0000
 # ************************************************************
 
 
@@ -405,9 +405,7 @@ LOCK TABLES `carts` WRITE;
 
 INSERT INTO `carts` (`id`, `user_id`, `name`, `total`, `active`, `item_count`, `created`, `modified`)
 VALUES
-	('5262720f-bea0-4d73-8d52-0756d87f8d82','3','My cart',NULL,1,2,'2013-10-19 19:50:39','2013-10-19 19:50:39'),
-	('529597d9-3950-4608-921f-6867c0fe9496','1','My cart',0,1,0,'2013-11-27 00:57:29','2013-11-27 00:57:29'),
-	('52959bbd-dc2c-4119-be76-6a76c0fe9496','4','My cart',30,1,2,'2013-11-27 01:14:05','2013-11-27 01:14:05');
+	('5262720f-bea0-4d73-8d52-0756d87f8d82','3','My cart',NULL,1,2,'2013-10-19 19:50:39','2013-10-19 19:50:39');
 
 /*!40000 ALTER TABLE `carts` ENABLE KEYS */;
 UNLOCK TABLES;
@@ -454,9 +452,7 @@ VALUES
 	('526271d5-6a88-421b-8900-074cd87f8d82','526271d5-cd5c-4122-9ba2-074cd87f8d82','Rectangle (Sticker)','5','ProductVariant','first line: Dinosaur\nsecond line: Label\nfont: AmericanTypewriter\nimage: Dinos rectangles',1,'Rectangle Sticker Labels',15,0,NULL,'2013-10-19 19:49:41','2013-10-19 19:49:41',2147483647),
 	('526271d5-ed8c-4613-b714-074cd87f8d82','526271d5-cd5c-4122-9ba2-074cd87f8d82','Rectangle (Sticker)','5','ProductVariant','first line: Rachel\nsecond line: Summers\nfont: AmericanTypewriter\nimage: Under the Sea rectangles',1,'Rectangle Sticker Labels',15,0,NULL,'2013-10-19 19:49:41','2013-10-19 19:49:41',2147483647),
 	('5262720f-4d40-46cf-924b-0756d87f8d82','5262720f-bea0-4d73-8d52-0756d87f8d82','Rectangle (Sticker)','5','ProductVariant','first line: Rachel\nsecond line: Summers\nfont: AmericanTypewriter\nimage: Under the Sea rectangles',1,'Rectangle Sticker Labels',15,0,NULL,'2013-10-19 19:50:39','2013-10-19 19:50:39',2147483647),
-	('5262720f-ce40-426e-bd42-0756d87f8d82','5262720f-bea0-4d73-8d52-0756d87f8d82','Rectangle (Sticker)','5','ProductVariant','first line: Dinosaur\nsecond line: La\nfont: AmericanTypewriter\nimage: Dinos rectangles',1,'Rectangle Sticker Labels',15,0,NULL,'2013-10-19 19:50:39','2013-10-19 19:50:39',2147483647),
-	('52959c31-550c-4dfa-b62e-6af1c0fe9496','52959bbd-dc2c-4119-be76-6a76c0fe9496','Rectangle (Sticker)','5','ProductVariant','first line: Daphne\nsecond line: Ling\nfont: Chowderhead\nimage: Girl Patterns Rectangles',1,'Rectangle Sticker Labels',15,0,NULL,'2013-11-27 01:16:01','2013-11-27 01:16:01',2147483647),
-	('5295d2de-284c-4056-902f-1ba0c0fe9496','52959bbd-dc2c-4119-be76-6a76c0fe9496','Rectangle (Sticker)','5','ProductVariant','first line: Seet\nsecond line: Siew Ling\nfont: Bebas\nimage: Under the Sea rectangles',1,'Rectangle Sticker Labels',15,0,NULL,'2013-11-27 05:09:18','2013-11-27 05:09:18',2147483647);
+	('5262720f-ce40-426e-bd42-0756d87f8d82','5262720f-bea0-4d73-8d52-0756d87f8d82','Rectangle (Sticker)','5','ProductVariant','first line: Dinosaur\nsecond line: La\nfont: AmericanTypewriter\nimage: Dinos rectangles',1,'Rectangle Sticker Labels',15,0,NULL,'2013-10-19 19:50:39','2013-10-19 19:50:39',2147483647);
 
 /*!40000 ALTER TABLE `carts_items` ENABLE KEYS */;
 UNLOCK TABLES;
@@ -856,7 +852,7 @@ LOCK TABLES `products` WRITE;
 INSERT INTO `products` (`id`, `name`, `description`, `currency`, `price`, `created`, `product_variant_count`)
 VALUES
 	(1,'Rectangle Sticker Labels','With our classic vinyl rectangle sticker labels, you\'ll be able to label in style. Personalize all your kid\'s belongings and never lose another item again. \r\n\r\nDetails:\r\n51.5mm x 24mm\r\nPack contains 48 labels','SGD',15.00,'0000-00-00 00:00:00',1),
-	(2,'Circle Sticker Labels','These supercute round vinyl labels are perfect for everything, ranging from bottles and bowls to sippy cups and snack boxes. \r\n\r\nDetails: \r\n37.5 mm \r\nPack contains 42 labels ','SGD',15.00,'0000-00-00 00:00:00',1),
+	(2,'Circle Sticker Labels','These supercute round vinyl labels are perfect for everything, ranging from bottles and bowls to sippy cups and snack boxes. Like all our sticker labels, they\'re waterproof, sterilizer-safe, microwavable and dishwasher-friendly. \r\n\r\nDetails: \r\n37.5 mm \r\nPack contains 42 labels ','SGD',15.00,'0000-00-00 00:00:00',1),
 	(3,'Chinese Name Sticker Labels','Love Chinese? We do too! Identify belongings and teach your kids to write their Chinese names with these Chinese Name Sticker Labels. \r\n\r\nDetails: \r\n51.5mm x 24mm \r\nPack contains 48 labels ','SGD',15.00,'0000-00-00 00:00:00',2),
 	(4,'Birthday Sticker Labels','Birthday Labels are a great way to say Happy Birthday! Instead of scribbling your name on wrappers with a marker, just stick on a personalized Birthday Label and you\'re good to go.  \r\n\r\nDetails: \r\n63mm x 29mm \r\nPack contains 27 labels ','SGD',15.00,'0000-00-00 00:00:00',1),
 	(5,'Book Sticker Labels','Book labels are great for storybooks, textbooks, workbooks, notebooks, jotter books, coloring books and even sticker books. \r\n\r\nDetails: \r\n63mm x 29mm \r\nPack contains 27 labels  ','SGD',15.00,'0000-00-00 00:00:00',1),
@@ -983,10 +979,10 @@ LOCK TABLES `users` WRITE;
 
 INSERT INTO `users` (`id`, `full_name`, `email`, `password`, `short_name`, `token`, `group_id`, `created`, `modified`)
 VALUES
-	(1,'ks','kimcity@gmail.com','f3939594bdb9ccc6e40e5064412483142dd61e3e',NULL,NULL,0,'2013-06-22 18:51:26','2013-11-27 00:57:16'),
-	(2,'KimSia','kimsia@oppoin.com','7d525298cd55cf6543004de41714cdc7f2c2bcfc','KimSia',NULL,1,'2013-06-28 13:51:12','2013-12-25 23:40:05'),
+	(1,'ks','kimcity@gmail.com',NULL,NULL,NULL,0,'2013-06-22 18:51:26','2013-06-22 18:51:26'),
+	(2,'KimSia','kimsia@oppoin.com','9c1a57615fd9c4fd9361b8264c0c4ad06aaf9ad9','KimSia','',1,'2013-06-28 13:51:12','2013-06-28 13:51:12'),
 	(3,'Sim Aik Chun','aikchun616@gmail.com','4f346956b16be16322f6c642072f615f68ba255d','AikChun1',NULL,1,'2013-06-28 13:51:57','2013-09-22 20:47:21'),
-	(4,'Daphne Ling','daphne@motherinc.org','09eb988f83c9e817044a271539ea936f7381bfe7','Daphne',NULL,3,'2013-07-02 09:30:20','2013-12-05 22:05:34'),
+	(4,'Daphne Ling','daphne@motherinc.org','275108ab67a27356dab9dcff38275c044766397f','Daphne','NULL',3,'2013-07-02 09:30:20','2013-07-02 09:30:20'),
 	(12,'aikchun','sac_89_1@hotmail.com','275108ab67a27356dab9dcff38275c044766397f','Simac',NULL,2,'2013-09-27 03:24:47','2013-09-27 03:24:47');
 
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
