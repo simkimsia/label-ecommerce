@@ -141,7 +141,7 @@ $cakeDescription = __d('cake_dev', 'ChildLabel: admin panel');
 			background: #fde073;
 			text-align: center;
 			line-height: 2.5;
-			overflow: hidden; 
+			overflow: hidden;
 			-webkit-box-shadow: 0 0 5px black;
 			-moz-box-shadow:    0 0 5px black;
 			box-shadow:         0 0 5px black;
@@ -156,7 +156,7 @@ $cakeDescription = __d('cake_dev', 'ChildLabel: admin panel');
 			background: #fde073;
 			text-align: center;
 			line-height: 2.5;
-			overflow: hidden; 
+			overflow: hidden;
 			-webkit-box-shadow: 0 0 5px black;
 			-moz-box-shadow:    0 0 5px black;
 			box-shadow:         0 0 5px black;
@@ -193,7 +193,7 @@ $cakeDescription = __d('cake_dev', 'ChildLabel: admin panel');
 <body>
 	<div id="container">
 		<div id="header">
-			<h1><?php echo $this->Html->link($cakeDescription, '/admin/products'); 
+			<h1><?php echo $this->Html->link($cakeDescription, '/admin/products');
 
 
 					if (!empty($authUser)){
@@ -207,11 +207,12 @@ $cakeDescription = __d('cake_dev', 'ChildLabel: admin panel');
 
 			?></h1>
 		</div>
-		<?php 
+		<?php
 			if (!empty($authUser)) :
-					$dashboardTabs = array('Home', 'Products', 'Users');
+					$dashboardTabs = array('Home', 'Shipping', 'Products', 'Users');
 					$dashboardLinks = array(
 							'Home' => '/admin/home',
+							'Shipping' => '/admin/shipping_options',
 							'Products' => '/admin/products',
 							'Users' => '/admin/users',
 							);
@@ -241,6 +242,9 @@ $cakeDescription = __d('cake_dev', 'ChildLabel: admin panel');
 						if (strtolower($currentController) === 'product_variants') {
 							$currentController = 'products';
 						}
+						if (strtolower($currentController) === 'shipping_options') {
+							$currentController = 'shipping';
+						}
 						if (strtolower($currentController) === 'product_images') {
 							$currentController = 'products';
 						}
@@ -252,7 +256,7 @@ $cakeDescription = __d('cake_dev', 'ChildLabel: admin panel');
 							}
 							echo "<li $class>";
 
-							echo $this->Html->link($tab, $dashboardLinks[$tab]); 
+							echo $this->Html->link($tab, $dashboardLinks[$tab]);
 							echo "</li>";
 						}
 					?>
@@ -266,7 +270,7 @@ $cakeDescription = __d('cake_dev', 'ChildLabel: admin panel');
 			<?php echo $this->fetch('content'); ?>
 		</div>
 		<div id="footer">
-			<?php 
+			<?php
 			/*
 			echo $this->Html->link(
 					$this->Html->image('cake.power.gif', array('alt' => $cakeDescription, 'border' => '0')),
