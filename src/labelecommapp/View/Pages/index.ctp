@@ -16,21 +16,21 @@
 
           <ul class="clearfix">
             <li class="clearfix">
-              <a href="#"><div class="learnmoreHolder">Learn More</div></a>
-              <div class="productHolder">Rocket Science</div>
-              <?php echo $this->Html->image('productimg1.png', array('width' => '260')); ?>
+              <a href="/products/view/3"><div class="learnmoreHolder">Learn More</div></a>
+              <div class="productHolder">Chinese Labels</div>
+              <?php echo $this->Html->image('Chi-labels.jpg', array('width' => '260')); ?>
             </li>
 
             <li class="clearfix">
-              <a href="#"><div class="learnmoreHolder">Learn More</div></a>
-              <div class="productHolder">Under the Sea</div>
-              <?php echo $this->Html->image('productimg2.png', array('width' => '260')); ?>
+              <a href="/products/view/8"><div class="learnmoreHolder">Learn More</div></a>
+              <div class="productHolder">Iron On Labels</div>
+              <?php echo $this->Html->image('Iron-ons.jpg', array('width' => '260')); ?>
             </li>
 
             <li class="noright clearfix">
-              <a href="#"><div class="learnmoreHolder">Learn More</div></a>
-              <div class="productHolder">VROOM!</div>
-              <?php echo $this->Html->image('productimg3.png', array('width' => '260')); ?>
+              <a href="/products/view/4"><div class="learnmoreHolder">Learn More</div></a>
+              <div class="productHolder">Birthday Labels</div>
+              <?php echo $this->Html->image('Birthday-labels.jpg', array('width' => '260')); ?>
             </li>
           </ul>
         </div>
