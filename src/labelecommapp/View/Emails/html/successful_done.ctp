@@ -14,13 +14,13 @@
 	<tr>
 		<td style="font-size: 12px;padding: 7px;border-right-width: 1px;border-right-style: solid;border-right-color: rgb(221,221,221);border-bottom-width: 1px;border-bottom-style: solid;border-bottom-color: rgb(221,221,221);color: rgb(102,102,102);width: 325px;">
 			<b>Order ID: </b><?php echo $cartData['Order']['id'];?><br>
+			<b>Invoice Number: </b><?php echo $cartData['Order']['invoice_number'];?><br>
 			<b>Date Added: </b><?php echo $cartData['Order']['created'];?><br>
 			<b>Payment Method: </b><?php echo $cartData['payment_options'];?><br>
 			<b>Shipping Method: </b><?php echo $cartData['ShippingOption']['name'];?>
 		</td>
 		<td style="font-size: 12px;padding: 7px;border-right-width: 1px;border-right-style: solid;border-right-color: rgb(221,221,221);border-bottom-width: 1px;border-bottom-style: solid;border-bottom-color: rgb(221,221,221);color: rgb(102,102,102);width: 325px;">
 			<span style="background-color: rgb(255,255,204);color: rgb(34,34,34);">Email:</span><?php echo $email;?><br>
-			
 		</td>
 	</tr>
 </table>
@@ -104,7 +104,7 @@
 	<?php endforeach;?>
 		<!-- End of Product Listing-->
 		<!-- footer -->
-		<tr>	
+		<tr>
 			<td colspan="4" style="font-size: 12px;text-align: right;padding: 7px;border-right-width: 1px;border-right-style: solid;border-right-color: rgb(221,221,221);border-bottom-width: 1px;border-bottom-style: solid;border-bottom-color: rgb(221,221,221);color: rgb(102,102,102);">
 			<!-- Sub total-->
 			<b>Sub-Total:</b>
@@ -117,11 +117,11 @@
 		</tr>
 		<tr>
 			<td colspan="4" style="font-size: 12px;text-align: right;padding: 7px;border-right-width: 1px;border-right-style: solid;border-right-color: rgb(221,221,221);border-bottom-width: 1px;border-bottom-style: solid;border-bottom-color: rgb(221,221,221);color: rgb(102,102,102);">
-				<?php 
+				<?php
 				if($cartData['ShippingOption']['id'] == 2):?>
 				<b>Registered articles are shipped via Singpost and comes with a registered article number for tracking. It takes 2-5 business days.:</b>
-				<?php 
-					
+				<?php
+
 				else:?>
 
 					<b>

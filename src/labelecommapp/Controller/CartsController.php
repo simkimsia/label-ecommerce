@@ -327,7 +327,9 @@ class CartsController extends AppController {
 					);
 		$cart_data['payment_options'] = 'Internet Bank Transfer';
 		$email = new CheckoutEmail($recipient);
-		$email->sendCheckoutEmail($cart_data);
+		if (isset($order_data['invoice_number'])) {
+			$email->sendCheckoutEmail($cart_data);
+		}
 		$this->CartManager->emptyCart();
 	}
 
