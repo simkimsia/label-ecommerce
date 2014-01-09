@@ -66,7 +66,9 @@ class CartsController extends AppController {
 		$this->layout = 'cart';
 		// need to collect images and store them if necessary
 		$theCart = $this->Session->read('Cart');
-		$this->log($theCart);
+		if (Configure::read('debug') > 0) {
+			$this->log($theCart);
+		}
 		if(!isset($theCart['Cart']['item_count']) || $theCart['Cart']['item_count'] == 0){
 			$this->redirect('/carts/cart_unfilled');
 		}
@@ -86,8 +88,10 @@ class CartsController extends AppController {
 				));
 
 				$image					= array_merge($defaultImage, $image);
-				$this->log('$image is:');
-				$this->log($image);
+				if (Configure::read('debug') > 0) {
+					$this->log('$image is:');
+					$this->log($image);
+				}
 				$url					= $this->getImageForStep($image['ProductImage']['thumb_url'], $step);
 
 				$theCart['CartsItem'][$index]['image']	= $url;
@@ -293,6 +297,10 @@ class CartsController extends AppController {
 				);
 				$cart_data['payment_options'] = 'Paypal Transactions';
 				$email = new CheckoutEmail($recipient);
+				if (Configure::read('debug') > 0) {
+					$this->log('before send email');
+					$this->log($cart_data);
+				}
 				$email->sendCheckoutEmail($cart_data);
 				// empty cart before showing success page.
 				$this->CartManager->emptyCart();
@@ -327,6 +335,10 @@ class CartsController extends AppController {
 					);
 		$cart_data['payment_options'] = 'Internet Bank Transfer';
 		$email = new CheckoutEmail($recipient);
+		if (Configure::read('debug') > 0) {
+			$this->log('before send email');
+			$this->log($cart_data);
+		}
 		if (isset($order_data['invoice_number'])) {
 			$email->sendCheckoutEmail($cart_data);
 		}

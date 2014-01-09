@@ -1,6 +1,23 @@
 <p>Dear <?php echo $fullName;?></p>
 
-<p>Thank you for your interest in Child Label products. Your order has been received and will be processed once payment has been confirmed. Below is a confirmation of your order and information on the product(s) you have ordered.</p>
+<p>Thank you for your interest in Child Label products. Your order has been received and will be processed once payment has been confirmed.
+<?php if ($cartData['Order']['processor'] == 'BANK_TRANSFER') :?>
+	Please make payment to the following:
+	<div>
+		Bank: <?php echo Configure::read('IB_BANK');?> <br><br>
+	</div>
+	<div>
+		Account No: <?php echo Configure::read('ACCOUNT_CODE');?> <br><br>
+	</div>
+	<div>
+		Account Type: <?php echo Configure::read('ACCOUNT_TYPE');?> <br><br>
+	</div>
+	<div>
+		Account Name: <?php echo Configure::read('ACCT_NAME');?> <br><br>
+	</div>
+<?php endif; ?>
+
+Below is a confirmation of your order and information on the product(s) you have ordered.</p>
 
 
 <table style="border-collapse: collapse;width: 679px;border-top-width: 1px;border-top-style: solid;border-top-color: rgb(221,221,221);border-left-width: 1px;border-left-style: solid;border-left-color: rgb(221,221,221);margin-bottom: 20px;font-family: Arial,Helvetica,sans-serif;font-size: 12px;">
