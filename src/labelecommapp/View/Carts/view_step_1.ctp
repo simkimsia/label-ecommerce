@@ -1,4 +1,4 @@
-<?php setlocale(LC_MONETARY, null); 
+<?php setlocale(LC_MONETARY, null);
 	$number_of_items = $carts['Cart']['item_count'];?>
 <div id="main_container">
 
@@ -39,25 +39,26 @@
 <div ><p style="text-align:center;"><span style="font-family:Helvetica;font-size:12px;font-weight:bold;font-style:normal;text-decoration:none;color:#666666;">Price</span></p></div>
 </div>
 
-<?php 
-	foreach($carts['CartsItem'] as $key => $cartItems){ 
+<?php
+	$count = 0;
+	foreach($carts['CartsItem'] as $cartItems){
 
 	?>
 <div class="item">
 <!-- photo here -->
-<div class="u5_container" style=<?php echo '"top:'.(176+$key*149).'px"';?>>
+<div class="u5_container" style=<?php echo '"top:'.(176+$count*149).'px"';?>>
 	<div class="u5_img u5_normal detectCanvas"></div>
 	<div class="u6" style="visibility:hidden;"  >
 		<div></div>
 	</div>
 </div>
-<div class="u7_container" style=<?php echo '"top:'.(177+$key*149).'px"';?>>
+<div class="u7_container" style=<?php echo '"top:'.(177+$count*149).'px"';?>>
 	<div class="u7_img u7_normal detectCanvas"></div>
 	<div class="u8" style="visibility:hidden;"  >
 		<div></div>
 	</div>
 </div>
-<div class="u9_container" style=<?php echo '"top:'.(182+$key*149).'px"';?>>
+<div class="u9_container" style=<?php echo '"top:'.(182+$count*149).'px"';?>>
 
 	<?php // let's prepare the image
 
@@ -77,46 +78,49 @@
 	</div>
 </div>
 <!-- end photo here -->
-<div  class="u15"  style="<?php echo 'top:'.(179+$key*149).'px';?>">
+<div  class="u15"  style="<?php echo 'top:'.(179+$count*149).'px';?>">
 <div ><p style="text-align:left;"><span style="font-family:Helvetica;font-size:18px;font-weight:bold;font-style:normal;text-decoration:none;color:#404040;"><?php echo $cartItems['short_name']?></span></p></div>
 </div>
-<div  class="u16 metadata"  style="<?php echo 'top:'.(209+$key*149).'px';?>">
+<div  class="u16 metadata"  style="<?php echo 'top:'.(209+$count*149).'px';?>">
 <span style="margin-left:20px;">First Line:</span><?php echo $cartItems['first_line'];?>
 </div>
-<div  class="u17 metadata"  style="<?php echo 'top:'.(233+$key*149).'px';?>">
+<div  class="u17 metadata"  style="<?php echo 'top:'.(233+$count*149).'px';?>">
 <span>Second Line:</span><?php echo $cartItems['second_line'];?>
 </div>
-<div  class="u18 metadata" style="<?php echo 'top:'.(257+$key*149).'px';?>" >
+<div  class="u18 metadata" style="<?php echo 'top:'.(257+$count*149).'px';?>" >
 <span style="margin-left:50px;">Font:</span><?php echo $cartItems['font']; ?>
 </div>
-<div class="u19"  style=<?php echo '"top:'.(182+$key*149).'px"';?> >
+<div class="u19"  style=<?php echo '"top:'.(182+$count*149).'px"';?> >
 <div ><p style="text-align:left;"><span style="font-family:Helvetica;font-size:15px;font-weight:bold;font-style:normal;text-decoration:none;color:#333333;"><?php echo money_format("$%i", $cartItems['price']);?></span></p></div>
 </div>
 
-<div id="u64" class="u64" style=<?php echo '"top:'.(160+$key*149).'px"';?>>
+<div id="u64" class="u64" style=<?php echo '"top:'.(160+$count*149).'px"';?>>
 <DIV id="u64_line" class="u64_line" ></DIV>
-</div><div id="u65" class="u65" style=<?php echo '"top:'.(160+$key*149).'px"';?>>
+</div><div id="u65" class="u65" style=<?php echo '"top:'.(160+$count*149).'px"';?>>
 <DIV id="u65_line" class="u65_line" ></DIV>
 </div>
-<INPUT  type="text" value=<?php echo '"'.$cartItems['quantity'].'"'?> class="u21" ref="<?php echo $cartItems['foreign_key']?>" style=<?php echo '"top:'.(178+$key*149).'px"';?> disabled >
+<INPUT  type="text" value=<?php echo '"'.$cartItems['quantity'].'"'?> class="u21" ref="<?php echo $cartItems['foreign_key']?>" style=<?php echo '"top:'.(178+$count*149).'px"';?> disabled >
 
-<!--<div  class="u22"  style=<?php echo '"top:'.(213+$key*149).'px"';?> >
+<!--<div  class="u22"  style=<?php echo '"top:'.(213+$count*149).'px"';?> >
 <div ><p style="text-align:center;"><a class ="update" href="#"><span style="font-family:Helvetica;font-size:13px;font-weight:normal;font-style:normal;text-decoration:underline;color:#00438A;">Update</span></a></p></div>
 </div>-->
-<div  class="u23"  style=<?php echo '"top:'.(233+$key*149).'px"';?> >
+<div  class="u23"  style=<?php echo '"top:'.(233+$count*149).'px"';?> >
 <div ><p style="text-align:center;"><a href="/carts/remove_item/<?php echo $cartItems['foreign_key']?>/<?php echo $cartItems['hashed']?>"><span style="font-family:Helvetica;font-size:13px;font-weight:normal;font-style:normal;text-decoration:underline;color:#00438A;">Remove</span></a></p></div>
 </div>
 
-<div class="u25"  style=<?php echo '"top:'.(182+$key*149).'px"';?> >
+<div class="u25"  style=<?php echo '"top:'.(182+$count*149).'px"';?> >
 <div ><p style="text-align:left;"><span style="font-family:Helvetica;font-size:15px;font-weight:bold;font-style:normal;text-decoration:none;color:#333333;"><?php $qty_price = $cartItems['quantity'] * $cartItems['price'];  echo money_format("$%i", $qty_price)?></span></p></div>
 </div>
-<div id="u56" class="u56" style=<?php echo '"top:'.(300+$key*149).'px"';?>>
+<div id="u56" class="u56" style=<?php echo '"top:'.(300+$count*149).'px"';?>>
 <DIV id="u56_line" class="u56_line" ></DIV>
-</div><div id="u57" class="u57" style=<?php echo '"top:'.(151+$key*149).'px"';?>>
+</div><div id="u57" class="u57" style=<?php echo '"top:'.(151+$count*149).'px"';?>>
 <DIV id="u57_line" class="u57_line" ></DIV>
 </div>
 </div>
-<?php  } ?>
+<?php
+		$count++;
+	} // end foreach $cartsItems
+?>
 <div id="u26" class="u26_container"  style=<?php echo '"top:'.(305+(($number_of_items-1)*149)).'px"';?> >
 <div id="u26_img" class="u26_normal detectCanvas"></div>
 <div id="u27" class="u27" style=<?php echo '"visibility:hidden;top:'.( 49 +(($number_of_items-1)*149)).'px"';?>   >
@@ -207,41 +211,41 @@
 <?php echo $this->Html->script('jquery.tools.min', array('block' => 'scriptBottom')); ?>
 <?php $this->append('scriptBottom'); ?>
 <script>
-    $(document).ready(function() {
-    	$('.update').click(function (e){
-    		e.preventDefault();
-    		var data = new Array();
-    		$('.u21').each(function (index){
+	$(document).ready(function() {
+		$('.update').click(function (e){
+			e.preventDefault();
+			var data = new Array();
+			$('.u21').each(function (index){
 				var variant_id = $(this).attr('ref');
 				var quantity   =$(this).val();
 				data.push( {foreign_key:variant_id, quantity:quantity});
-    		});
-    		updateCart(data);
-    	});
+			});
+			updateCart(data);
+		});
 
-    	function updateCart(data) {
-    		var l = window.location;
-    		var base_url = l.protocol + "//" + l.host;
-    		var url = base_url + "/carts/update" ;
-    		var result = false;
-    		var post_data = {data:data};
-    		var settings = {
-    			type : "post",
-    			url  : url,
-    			data : post_data,
-    			success: function (response) {
-    				console.log('Success');
-    				console.log(response);
-    				window.location.href = '/carts/view?step=1';
-    			},
-    			error: function (response) {
-    				console.log('error');
-    				console.log(response);
-    			},
-    			dataType: 'json'
-    		};
-    		$.ajax(settings);
-    	}
-    });
+		function updateCart(data) {
+			var l = window.location;
+			var base_url = l.protocol + "//" + l.host;
+			var url = base_url + "/carts/update" ;
+			var result = false;
+			var post_data = {data:data};
+			var settings = {
+				type : "post",
+				url  : url,
+				data : post_data,
+				success: function (response) {
+					console.log('Success');
+					console.log(response);
+					window.location.href = '/carts/view?step=1';
+				},
+				error: function (response) {
+					console.log('error');
+					console.log(response);
+				},
+				dataType: 'json'
+			};
+			$.ajax(settings);
+		}
+	});
 </script>
 <?php $this->end('scriptBottom'); ?>

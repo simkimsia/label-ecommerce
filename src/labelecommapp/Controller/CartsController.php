@@ -59,10 +59,9 @@ class CartsController extends AppController {
 		}
 
 
-		
 		$this->_checkLoginAtStep2($step);
 		$this->_checkLoginAtStep3And4($step);
-		
+
 		$this->set('step', $step);
 		$this->layout = 'cart';
 		// need to collect images and store them if necessary
@@ -76,7 +75,7 @@ class CartsController extends AppController {
 		$imageModel = ClassRegistry::init('ProductImage');
 		foreach($theCart['CartsItem'] as $index => $item) {
 			if(!isset($item['image'])){
-				
+
 				$variant_id = $item['foreign_key'];
 				$product_image = $item['label_type'] . '%';
 				$conditions = array('ProductImage.product_variant_id' => $variant_id,
@@ -94,7 +93,7 @@ class CartsController extends AppController {
 				$theCart['CartsItem'][$index]['image']	= $url;
 				$this->Session->write("Cart.CartsItem.$index.image", $url);
 			}
-			
+
 		}
 
 		if ($step == 2) {
@@ -110,7 +109,7 @@ class CartsController extends AppController {
 			} else {
 				$this->set('registerData', $possibleRegisterData);
 				$this->Session->write('CartStep2RegisterData', array());
-			}	
+			}
 		}
 
 		if ($step == 3) {
@@ -193,8 +192,8 @@ class CartsController extends AppController {
 			$billing_address_data = $this->request->data['BillingAddress'];
 		}
 		$billing_address_data['user_id'] = $this->Auth->user('id');
-		$billing_result                  = $address_model->findXORCreateBilling($billing_address_data); 
-		
+		$billing_result                  = $address_model->findXORCreateBilling($billing_address_data);
+
 		if($shipping_result && $billing_result) {
 			$this->Session->setFlash(__('Shipping address have been saved'));
 			$session_shipping         = Hash::extract($shipping_result, 'ShippingAddress');
@@ -243,7 +242,7 @@ class CartsController extends AppController {
 				Paypal::$cancelUrl = Router::url('/carts/view?step=4', true);
 				Paypal::pay($order_data);
 			}
-			
+
 
 		} else if ($payments_selected == 'bank_transfer') {
 			$order_model                          = ClassRegistry::init('Cart.Order');
@@ -263,7 +262,7 @@ class CartsController extends AppController {
 				$this->Session->write('Cart.Order', $order_data['Order']);
 				$this->redirect('/carts/successful_ib');
 			}
-			
+
 		}
 		$this->autoRender = false;
 	}
@@ -311,7 +310,7 @@ class CartsController extends AppController {
  */
 	public function successful_ib() {
 		App::uses('CheckoutEmail', 'Lib/Email');
-		// in the View tell the user to make payments 
+		// in the View tell the user to make payments
 		// give the ib details there
 		// bank name
 		// branch code
@@ -400,8 +399,8 @@ class CartsController extends AppController {
 			$quantity = $_POST['quantity'];
 		}
 
-		
-		
+
+
 	}
 
 	public function remove_item($product_variant_id, $hashed){
@@ -429,9 +428,9 @@ class CartsController extends AppController {
 				}
 			}
 		}
-		
-		
-		
+
+
+
 		echo json_encode(array('code'=>1200, 'message'=>'success'));
 	}
 
