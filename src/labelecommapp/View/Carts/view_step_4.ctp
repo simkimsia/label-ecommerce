@@ -41,7 +41,7 @@
 <div id="u11_rtf"><p style="text-align:left;"><span style="font-family:Helvetica;font-size:14px;font-weight:bold;font-style:normal;text-decoration:none;color:#404040;">Estimate shipping date</span><span style="font-family:Helvetica;font-size:14px;font-weight:normal;font-style:normal;text-decoration:none;color:#404040;">: <?php echo $shipping_options['period'];?></span></p></div>
 </div>
 <div id="u12" class="u12"  >
-<div id="u12_rtf"><p style="text-align:left;"><span style="font-family:Helvetica;font-size:14px;font-weight:bold;font-style:normal;text-decoration:none;color:#404040;">Estimate delivery date</span><span style="font-family:Helvetica;font-size:14px;font-weight:normal;font-style:normal;text-decoration:none;color:#404040;"> <?php date_default_timezone_set('Asia/Singapore'); 
+<div id="u12_rtf"><p style="text-align:left;"><span style="font-family:Helvetica;font-size:14px;font-weight:bold;font-style:normal;text-decoration:none;color:#404040;">Estimate delivery date</span><span style="font-family:Helvetica;font-size:14px;font-weight:normal;font-style:normal;text-decoration:none;color:#404040;"> <?php date_default_timezone_set('Asia/Singapore');
 echo date('d-m-Y', strtotime('+1 Week'));
 ?>
 </span></p></div>
@@ -144,20 +144,22 @@ echo date('d-m-Y', strtotime('+1 Week'));
 	<!-- footer ends -->
 <DIV id="u46" style="border-style:dotted; border-color:red; visibility:hidden; position:absolute; left:9px; top:608px; width:940px; height:306px;;" ></div>
 <!-- item display starts -->
-<?php foreach($carts['CartsItem'] as $key => $cartItems){?>
-<div id="u47" class="u47_container" style=<?php echo '"top:'.(330+$key*149).'px"';  ?>>
+<?php
+$count = 0;
+foreach($carts['CartsItem'] as $cartItems){ ?>
+<div id="u47" class="u47_container" style=<?php echo '"top:'.(330+$count*149).'px"';  ?>>
 <div id="u47_img" class="u47_normal detectCanvas"></div>
 <div id="u48" class="u48" style="visibility:hidden;"  >
 <div id="u48_rtf"></div>
 </div>
 </div>
-<div id="u49" class="u49_container"   style=<?php echo '"top:'.(331+$key*149).'px"';?>>
+<div id="u49" class="u49_container"   style=<?php echo '"top:'.(331+$count*149).'px"';?>>
 <div id="u49_img" class="u49_normal detectCanvas"></div>
 <div id="u50" class="u50" style="visibility:hidden;"  >
 <div id="u50_rtf"></div>
 </div>
 </div>
-<div id="u51" class="u51_container"   style=<?php echo '"top:'.(336+$key*149).'px;"';?>>
+<div id="u51" class="u51_container"   style=<?php echo '"top:'.(336+$count*149).'px;"';?>>
 
 	<?php // let's prepare the image
 
@@ -170,45 +172,47 @@ echo date('d-m-Y', strtotime('+1 Week'));
 	}
 	$style = '"' . $backgroundImage . '"';
 	?>
-	
+
 <div id="u51_img" class="u51_normal detectCanvas" style=<?php echo $style;?>></div>
 <div id="u52" class="u52" style="visibility:hidden;"  >
 <div id="u52_rtf"></div>
 </div>
 </div>
-<div id="u53" class="u53"  style=<?php echo '"top:'.(333+$key*149).'px"';?>>
+<div id="u53" class="u53"  style=<?php echo '"top:'.(333+$count*149).'px"';?>>
 <div id="u53_rtf"><p style="text-align:left;"><span style="font-family:Helvetica;font-size:18px;font-weight:bold;font-style:normal;text-decoration:none;color:#404040;"><?php echo $cartItems['short_name'];?></span></p></div>
 </div>
-<div id="u54" class="u54 metadata"  style="<?php echo 'top:'.(363+$key*149).'px';?>">
+<div id="u54" class="u54 metadata"  style="<?php echo 'top:'.(363+$count*149).'px';?>">
 <span style="margin-left:20px;">First Line:</span><?php echo $cartItems['first_line'];?>
 </div>
-<div id="u55" class="u55 metadata"  style="<?php echo 'top:'.(387+$key*149).'px';?>">
+<div id="u55" class="u55 metadata"  style="<?php echo 'top:'.(387+$count*149).'px';?>">
 <span >Second Line:</span><?php echo $cartItems['second_line'];?>
 </div>
-<div id="u56" class="u56 metadata"  style="<?php echo 'top:'.(411+$key*149).'px';?>">
+<div id="u56" class="u56 metadata"  style="<?php echo 'top:'.(411+$count*149).'px';?>">
 <span style="margin-left:50px;">Font:</span> <?php echo $cartItems['font'];?>
 </div>
-<div id="u57" class="u57"  style=<?php echo '"top:'.(336+$key*149).'px"';?>>
+<div id="u57" class="u57"  style=<?php echo '"top:'.(336+$count*149).'px"';?>>
 <div id="u57_rtf"><p style="text-align:left;"><span style="font-family:Helvetica;font-size:15px;font-weight:bold;font-style:normal;text-decoration:none;color:#333333;"><?php echo money_format("$%i",$cartItems['price']); ?></span></p></div>
 </div>
-<INPUT disabled id="u58" type=text value=<?php echo '"'.$cartItems['quantity'].'"'?> class="u58"     style=<?php echo '"top:'.(332+$key*149).'px"';?>>
+<INPUT disabled id="u58" type=text value=<?php echo '"'.$cartItems['quantity'].'"'?> class="u58"     style=<?php echo '"top:'.(332+$count*149).'px"';?>>
 
-<div id="u61" class="u61"  style=<?php echo '"top:'.(336+$key*149).'px"';?>>
+<div id="u61" class="u61"  style=<?php echo '"top:'.(336+$count*149).'px"';?>>
 <div id="u61_rtf"><p style="text-align:left;"><span style="font-family:Helvetica;font-size:15px;font-weight:bold;font-style:normal;text-decoration:none;color:#333333;"><?php $qty_price = $cartItems['quantity'] * $cartItems['price']; echo money_format("$%i", $qty_price);?></span></p></div>
-</div><div id="u62" class="u62" style=<?php echo '"top:'.(454+$key*149).'px"';?>>
+</div><div id="u62" class="u62" style=<?php echo '"top:'.(454+$count*149).'px"';?>>
 <DIV id="u62_line" class="u62_line" ></DIV>
-</div><div id="u63" class="u63" style=<?php echo '"top:'.(305+$key*149).'px"';?>>
+</div><div id="u63" class="u63" style=<?php echo '"top:'.(305+$count*149).'px"';?>>
 <DIV id="u63_line" class="u63_line" ></DIV>
-</div><div id="u64" class="u64" style=<?php echo '"top:'.(310+$key*149).'px"';?>>
+</div><div id="u64" class="u64" style=<?php echo '"top:'.(310+$count*149).'px"';?>>
 <DIV id="u64_line" class="u64_line" ></DIV>
-</div><div id="u65" class="u65" style=<?php echo '"top:'.(310+$key*149).'px"';?>>
+</div><div id="u65" class="u65" style=<?php echo '"top:'.(310+$count*149).'px"';?>>
 <DIV id="u65_line" class="u65_line" ></DIV>
 </div>
-<DIV id="u66"  style=<?php echo '"border-style:dotted; border-color:red; visibility:hidden; position:absolute; left:4px; top:'.(305+$key*149).'px; width:950px; height:159px;;"';?>  ></div>
-	<?php }?>
+<DIV id="u66"  style=<?php echo '"border-style:dotted; border-color:red; visibility:hidden; position:absolute; left:4px; top:'.(305+$count*149).'px; width:950px; height:159px;;"';?>  ></div>
+	<?php
+  $count ++;
+  } // end foreach $cartItems?>
 </div>
 
-<form action="/carts/pay" method="post" name="payment_form" id="payment_form"> 
+<form action="/carts/pay" method="post" name="payment_form" id="payment_form">
 <div id="radio_buttons" class="radio_buttons" style=";top:<?php echo $total_price_top_position + 60;?>px;">
  <input type="radio" name="data[payments]" id="paypal" value="paypal" style="margin-left:-13px" >
 
@@ -229,10 +233,10 @@ font-size:20px;margin-left:42px;">The safer, easier way to pay.</span></img> </b
     		console.log('click');
     		if (!submitted) {
     			$("#payment_form").submit();
-    			console.log('submitted!');	
+    			console.log('submitted!');
     			submitted = true;
     		}
-            
+
             $(".payment_submit").click(false);
         });
 	});
