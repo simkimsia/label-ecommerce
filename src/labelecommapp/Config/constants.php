@@ -8,7 +8,8 @@ define('CUSTOMER', 4);
 define('EMAIL_ON', true);
 
 
-Configure::write('IB_BANK', 'Big Key Bank');
-Configure::write('BRANCH_CODE', 'TAPAVE');
-Configure::write('ACCT_NAME', 'Childlabel');
+Configure::write('IB_BANK', 'DBS');
+Configure::write('ACCOUNT_CODE', '104-900514-3');
+Configure::write('ACCOUNT_TYPE', 'Current Account');
+Configure::write('ACCT_NAME', 'Child Label');
 ?>

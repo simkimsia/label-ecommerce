@@ -10,7 +10,10 @@
 			Bank: <?php echo Configure::read('IB_BANK');?> <br><br>
 		</div>
 		<div>
-			Branch: <?php echo Configure::read('BRANCH_CODE');?> <br><br>
+			Account No: <?php echo Configure::read('ACCOUNT_CODE');?> <br><br>
+		</div>
+		<div>
+			Account Type: <?php echo Configure::read('ACCOUNT_TYPE');?> <br><br>
 		</div>
 		<div>
 			Account Name: <?php echo Configure::read('ACCT_NAME');?> <br><br>
@@ -24,7 +27,7 @@
 			Congrats! Your order has been captured. <br/> Remember to make payment via Bank Transfer to DBS Account within 24 hours for your order to be processed.
 		</div>
 		<div>
-		<?php 
+		<?php
 			echo 'Invoice number: '.$invoice_number;
 		?>
 		<br>
