@@ -1,13 +1,13 @@
         <div class="bannerHolder theme-default">
           <div id="slider" class="nivoSlider">
               <a href="#">
-              <?php echo $this->Html->image('banner3.jpg', array('data-thumb' => 'banner1.jpg')); ?>
-                <!-- <img src="img/banner3.jpg" data-thumb="img/banner1.jpg" alt="" /> -->
+              <?php echo $this->Html->image('rotating image gallery 1.jpg', array('data-thumb' => 'banner1.jpg')); ?>
               </a>
-
               <a href="#">
-                  <?php echo $this->Html->image('banner2.jpg', array('data-thumb' => 'banner2.jpg')); ?>
-              <!-- <img src="img/banner2.jpg" data-thumb="img/banner2.jpg" alt="" /> -->
+                  <?php echo $this->Html->image('rotating image gallery 2.png', array('data-thumb' => 'banner2.jpg')); ?>
+              </a>
+              <a href="#">
+                  <?php echo $this->Html->image('rotating image gallery 3.png', array('data-thumb' => 'banner3.jpg')); ?>
               </a>
           </div>
         </div>
@@ -52,7 +52,7 @@
               <p class="top">This is also known as stealing. Everyone knows that people are less likely to steal a bottle with your kid’s name labeled clearly on it. They’d have to spend all that time trying to it off cleanly and people who steal just don’t have that kind of time. </p>
 
               <h3>Great as presents.</h3>
-              <p>Child Labels make awesome presents for little friends. If you’re planning a party, these individually customized 
+              <p>Child Labels make awesome presents for little friends. If you’re planning a party, these individually customized
                 names will make fantastic party packs.
               </p>
 
@@ -68,5 +68,5 @@
             </div>
           </div>
         </div>
-    
+
         <div style="clear:both;"></div>

@@ -1,10 +1,10 @@
         <div class="contentArea">
-          
+
           <div class="topContent">
                 <div class="chooseadesign"><?php echo $this->Html->image('../img/chooseadesign.png', array('style'=> 'width:400px;height:85px;') ); ?></div>
           </div>
           <div class="mainContent">
-            
+
             <div class="theContents clearfix">
                 <div class="productCircleHolder clearfix" style="width: 900px;margin-left:0px;margin-top:50px;">
                     <?php echo $this->element('scrollable', array('product' => $product)); ?>
@@ -24,14 +24,14 @@
                                 }
 
                                 ?><li><?php echo $this->Html->link($variant['name'],'/products/view/'.$product['Product']['id'].'#'.$variant['id'], array('class' => 'variant_links ' .$bold_class, 'ref' => '#variant_'.$variant['id'].'_images','id' => 'variant_'.$variant['id']))?></a></li>
-                    <?php 
-                            endforeach; 
+                    <?php
+                            endforeach;
                         endif;
                     ?>
 
                 </ul>
                 <div class="productdetails" style="margin-top:100px;"><!-- <span class="detail"><br/>Details:</span> --><span class="thewords"><br/><br/><br/>
-                    <?php 
+                    <?php
                         $desc_line = preg_split('/(?<=[.?!;:])\s+/', h($product['Product']['description']), -1, PREG_SPLIT_NO_EMPTY);
                         foreach ($desc_line as $line){
                              echo $line;
@@ -44,7 +44,7 @@
                    <img src="<?php echo $rep_img;?>" height="314" width="435" style="margin-left:90px;margin-top:30px;"></img>
 
                    <div class="selected_label_name"> You have not selected a label type. </div>
-                   
+
                 <div class="clearBoth"></div>
 
                 <div>
@@ -99,9 +99,9 @@
                                 </div>
                                 <div class="font_example" style="margin-left:10px;width: 262px;overflow:hidden;">Preview: <div id="name_example" style="display:inline;" ><div id="font_first_line" style="display:inline">Child</div> <div id="font_second_line" style="display:inline">Label</div></div></div>
                             </td>
-                            
+
                         </tr>
-                        
+
                         <tr>
                             <td>
                                 <div class="extra_details_labels">
@@ -124,7 +124,7 @@
                                 ))?>
 
                                 <div style= "border-radius:15px;width:262px;height:70px;padding:5px;  font-size:30px;background-color:#44c8f5;color:#FFFFFF;">
-                               
+
                                <?php
                                 echo $this->Form->submit(__('Add to Cart!'), array(
                                     'div' => false,
@@ -132,7 +132,7 @@
 
                                     ));
                                     ?>
-                                   
+
                                 </div>
                             </td>
                         </tr>
@@ -150,7 +150,7 @@
                    <!-- <div class="left">
                         <?php echo $this->Html->image('bigleft.png');?>
 
-                        
+
                     </div>
                     <div class="right">
                         <?php echo $this->Html->image('bigright.png');?>
@@ -159,19 +159,19 @@
                 <div class="clearBoth"></div>
                <!-- <a href="#"><div class="clicktocustomize"></div></a>
                 <div class="rocketScience"></div>-->
-                
+
             </div>
           </div>
           <div class="footerContent" ></div>
-          
+
           <!-- <div class="addtocart">
-           
+
           </div> -->
 
           <div style="height:40px;"></div>
-          
-    
-       
+
+
+
 <?php echo $this->Html->script('jquery.tools.min', array('block' => 'scriptBottom')); ?>
 <?php $this->append('scriptBottom'); ?>
 <script>
@@ -185,10 +185,10 @@
         <?php $gotMultipleVariants = (count($product['Product']['variants']) > 1);?>
         var multipleVariants = <?php if ($gotMultipleVariants) {echo "true";} else {echo "false"; } ?>;
         if (multipleVariants) {
-            $(".productCircleHolder").css("width", 700);
-            $(".productCircleHolder").css("margin-left", 200);
-            $(".scrollable").css("width", 600);
-            $(".rightArrow1").css("margin-left", 600);
+            $(".productCircleHolder").css("width", 720);
+            $(".productCircleHolder").css("margin-left", 180);
+            $(".scrollable").css("width", 630);
+            $(".rightArrow1").css("margin-left", 605);
         }
         if(window.location.hash) {
 
@@ -222,7 +222,7 @@
         });
         $('#name_example').css("font-family", $('#font_dropdown').val());
         $('#font_dropdown').change(function(){
-            
+
             // $('#font_dropdown option:selected').each(function(){
             //     str = $(this).val();
             // });
@@ -232,7 +232,7 @@
            var str = $(this).val();
             if(str == ''){
                 str = 'Child';
-                
+
             }
             $('#font_first_line').text(str);
         });
@@ -241,7 +241,7 @@
             var str = $(this).val();
             if(str == ''){
                 str = 'Label';
-               
+
             }
             $('#font_second_line').text(str);
         });
@@ -281,12 +281,12 @@
                 if (rightArrow1TemporarilyHide) {
                     $('.rightArrow1').show();
                     rightArrow1TemporarilyHide = false;
-                }    
+                }
                 // do same for left arrow
                 if (leftArrowTemporarilyHide) {
                     $('.leftArrow').show();
                     leftArrowTemporarilyHide = false;
-                }    
+                }
             }
 
         });
@@ -305,7 +305,7 @@
         //function to reset the all the border highlight
         function resetSelectedLabel(){
             $('.item_page').children().removeAttr('style');
-            $('.item_page').children().removeClass('faded');   
+            $('.item_page').children().removeClass('faded');
         }
 
         function makeOtherImagesFaded(exceptThis){
@@ -317,8 +317,8 @@
         }
 
         function basename(str) {
-            var base = new String(str).substring(str.lastIndexOf('/') + 1); 
-            if(base.lastIndexOf(".") != -1)       
+            var base = new String(str).substring(str.lastIndexOf('/') + 1);
+            if(base.lastIndexOf(".") != -1)
                base = base.substring(0, base.lastIndexOf("."));
            return base;
         }

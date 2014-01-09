@@ -5,7 +5,7 @@ body { padding: 0; margin: 0; background-image:url('../img/greybg.jpg'); backgro
 
 #childContainer .childHolder .topRightArea { float: right; margin-right: 20px; display: block; position: relative; z-index: 101; }
 #childContainer .childHolder .topRightArea .topBtn { display: block;}
-#childContainer .childHolder .topRightArea .topBtn .circleBtn { background: url(../img/menucircle.png) no-repeat; float: left; margin-right: 15px; display: inline-block; width: 86px; height: 73px; color: #fff; text-align: center; line-height: 15px; padding-top: 20px; } 
+#childContainer .childHolder .topRightArea .topBtn .circleBtn { background: url(../img/menucircle.png) no-repeat; float: left; margin-right: 15px; display: inline-block; width: 86px; height: 73px; color: #fff; text-align: center; line-height: 15px; padding-top: 20px; }
 #childContainer .childHolder .topRightArea .topBtn .circleBtn a:link { color: #fff; text-decoration: none; font-size: 14px; }
 #childContainer .childHolder .topRightArea .topBtn .circleBtn a:visited { color: #fff; text-decoration: none; font-size: 14px; }
 #childContainer .childHolder .topRightArea .topBtn .circleBtn a:hover { color: #000; text-decoration: none; }
@@ -56,7 +56,7 @@ ul.internalLinks li { font-size: 12px!important; display: block; margin-left: 10
     position:relative;
 }
 */
-#childContainer .childHolder .bannerHolder { background: url(../img/bannerholder.png) no-repeat; width: 970px; height: 422px; margin-left: 61px; margin-top: 75px; display: block; padding: 20px; }
+#childContainer .childHolder .bannerHolder { background: url(../img/Placeholder.png) no-repeat; width: 970px; height: 542px; margin-left: 61px; margin-top: 75px; display: block; padding-left: 23px; padding-top: 15px;}
 #slider { width: 915px; z-index:1;}
 
 #childContainer .childHolder .featuredProducts ul { list-style: none; display: block; margin-left: 20px; }
@@ -89,7 +89,7 @@ ul.internalLinks li { font-size: 12px!important; display: block; margin-left: 10
 #childContainer .childHolder .contentArea .mainContent .theContents h2 { margin:0; padding:0; color:#40c8f4; font-size:31px; font-family:"century gothic",verdana,arial,helvetica,sans-serif; }
 #childContainer .childHolder .contentArea .mainContent .theContents h3 { font-size:18px; }
 #childContainer .childHolder .contentArea .mainContent .theContents h2.price { margin:0; padding:0; color:#000000; font-size:35px; font-family:Arial, Helvetica, sans-serif; font-weight:normal; }
-#childContainer .childHolder .contentArea .mainContent .theContents div.desc { color:#000000; font-family:Arial, Helvetica, sans-serif; font-size:12px; font-weight:bold; } 
+#childContainer .childHolder .contentArea .mainContent .theContents div.desc { color:#000000; font-family:Arial, Helvetica, sans-serif; font-size:12px; font-weight:bold; }
 #childContainer .childHolder .contentArea .mainContent .theContents div.productdetails { font-family:"century gothic",verdana,arial,helvetica,sans-serif;; font-size:15px; margin-top:5px; width:345px; }
 #childContainer .childHolder .contentArea .mainContent .theContents div.productdetails span.detail { float:left; width:45px; font-weight:bold;}
 #childContainer .childHolder .contentArea .mainContent .theContents div.productdetails span.thewords { float:left; width:300px; }
@@ -109,17 +109,17 @@ ul.internalLinks li { font-size: 12px!important; display: block; margin-left: 10
 #childContainer .childHolder .contentArea .mainContent .theContents .productsDescription .left { float:left; }
 #childContainer .childHolder .contentArea .mainContent .theContents .productsDescription .right { float:left; margin-left:10px; }
 #childContainer .childHolder .contentArea .mainContent .theContents .productsDescription .right .keyyourname { margin-bottom: 20px; margin-top: 20px; }
-#childContainer .childHolder .contentArea .mainContent .theContents .productsDescription .right .additionalinfo {font-size:12px; width:300px; border:2px solid #44C8F5; padding:10px;}  
+#childContainer .childHolder .contentArea .mainContent .theContents .productsDescription .right .additionalinfo {font-size:12px; width:300px; border:2px solid #44C8F5; padding:10px;}
 #childContainer .childHolder .contentArea .mainContent .theContents .productsDescription .right .chooseColor { margin-left: 20px; }
 
-#childContainer .childHolder .contentArea .mainContent .theContents .rocketScience { display:block; margin-left:-42px; background:url(../img/rocketscience.png) no-repeat; width:435px; height:68px; } 
+#childContainer .childHolder .contentArea .mainContent .theContents .rocketScience { display:block; margin-left:-42px; background:url(../img/rocketscience.png) no-repeat; width:435px; height:68px; }
 
 #childContainer .childHolder .contentArea .mainContent .theContents .cartHolder { width:900px; display:block; }
 #childContainer .childHolder .contentArea .mainContent .theContents .cartHolder .cartInfo { float:left; width:630px; height:148px;  }
-#childContainer .childHolder .contentArea .mainContent .theContents .cartHolder .cartInfo .cartblocker { width:568px; float:left; height:148px; overflow:hidden; } 
+#childContainer .childHolder .contentArea .mainContent .theContents .cartHolder .cartInfo .cartblocker { width:568px; float:left; height:148px; overflow:hidden; }
 #childContainer .childHolder .contentArea .mainContent .theContents .cartHolder .cartInfo .cartblocker ul.cartProductList { list-style:none; margin:0; padding:0; width:1000px;}
 #childContainer .childHolder .contentArea .mainContent .theContents .cartHolder .cartInfo .cartblocker ul.cartProductList li { float:left; margin-right:10px; }
-#childContainer .childHolder .contentArea .mainContent .theContents .cartHolder .cartInfo .cartblocker ul.cartProductList li .qtydesc { display:block; width:100px; margin-left:20px; } 
+#childContainer .childHolder .contentArea .mainContent .theContents .cartHolder .cartInfo .cartblocker ul.cartProductList li .qtydesc { display:block; width:100px; margin-left:20px; }
 #childContainer .childHolder .contentArea .mainContent .theContents .cartHolder .cartInfo .leftArrow { float:left; background:url(../img/arrows.png) 0 30px; width:30px; height:30px; margin-top:60px; }
 #childContainer .childHolder .contentArea .mainContent .theContents .cartHolder .cartInfo .rightArrow { float:right; background:url(../img/arrows.png) 30px 30px; width:30px; height:30px; margin-top:60px; }
 
@@ -127,7 +127,7 @@ ul.internalLinks li { font-size: 12px!important; display: block; margin-left: 10
 #childContainer .childHolder .contentArea .mainContent .theContents .cartHolder .rightInfo { float:right; margin-top:10px; }
 #childContainer .childHolder .contentArea .mainContent .theContents .cartHolder .rightInfo span.amount { font-size:31px; font-family:Arial, Helvetica, sans-serif; font-weight:bold; }
 #childContainer .childHolder .contentArea .mainContent .theContents .cartHolder .rightInfo span.totalamount { font-size:18px; font-family:Arial, Helvetica, sans-serif; font-weight:bold; }
-#childContainer .childHolder .contentArea .mainContent .theContents .cartHolder .rightInfo span.minitext { float:right; width:80px; margin-left:4px; font-size:10px;} 
+#childContainer .childHolder .contentArea .mainContent .theContents .cartHolder .rightInfo span.minitext { float:right; width:80px; margin-left:4px; font-size:10px;}
 #childContainer .childHolder .contentArea .mainContent .theContents .cartHolder .rightInfo .plane { display:block; background:url(../img/shippingfees.png) no-repeat; width:250px; height:65px; }
 
 #childContainer .childHolder .contentArea .mainContent .theContents .cartHolder .rightInfo .plane .shippingfees { margin-left:93px; text-align:center; line-height:16px; font-size:12px; font-family:Arial, Helvetica, sans-serif; color:#fff; padding-top:22px; }
@@ -143,7 +143,7 @@ ul.internalLinks li { font-size: 12px!important; display: block; margin-left: 10
 #childContainer .childHolder .contentArea .mainContent .theContents .searchBox { display:block; background:url(../img/searchBig.png) no-repeat; width:900px; height:183px; }
 #childContainer .addtocart { position:absolute; background:url(../img/addtocart.png) no-repeat; width:230px; height:47px; margin-left:100px; margin-top:-11px; }
 #childContainer .chooseadesign { position:absolute; background:url(../img/foobar.png) no-repeat; width:480px; height:85px; display:block; margin-left:452px; }
-#childContainer .clicktocustomize { position:absolute; margin-left:750px; margin-top:-93px; background:url(../img/clicktocustomize.png) no-repeat; width:274px; height:200px; display:block; } 
+#childContainer .clicktocustomize { position:absolute; margin-left:750px; margin-top:-93px; background:url(../img/clicktocustomize.png) no-repeat; width:274px; height:200px; display:block; }
 #childContainer .imagesontop { background:url(../img/callus.png) no-repeat; width:950px; display: block; height:811px; z-index:88; margin-left:-32px; margin-top:-39px; }
 #childContainer .callmesotongRight { background:url(../img/callmeFooter.png) no-repeat; width:399px; height:141px; position:absolute; margin-top:-104px; margin-left:645px; z-index:100; }
 #childContainer .sotongRight { background:url(../img/faqBtm.png) no-repeat; width:333px; height:168px; position:absolute; margin-top:-128px; margin-left:745px; }
@@ -177,7 +177,7 @@ textarea { width: 375px; height: 150px; }
 
 form.labelsearch { margin-left:590px; width:200px; padding-top:117px; font-size:12px; }
 input.searchLabel { width:145px; padding:3px; font-size:12px; }
-input.addtocartinput { width:80px; margin-right:20px; margin-top:2px; text-align:center; padding:5px; float:right; } 
+input.addtocartinput { width:80px; margin-right:20px; margin-top:2px; text-align:center; padding:5px; float:right; }
 .clearBoth { clear:both; }
 .clearfix:after {
   content: ".";
@@ -187,11 +187,11 @@ input.addtocartinput { width:80px; margin-right:20px; margin-top:2px; text-align
   line-height: 0;
   height: 0;
 }
- 
+
 .clearfix {
   display: inline-block;
 }
- 
+
 html[xmlns] .clearfix {
   display: block;
 }
@@ -217,7 +217,7 @@ a:hover {
 a:active {
     color: #000000;
 }
- 
+
 * html .clearfix {
   height: 1%;
 }
@@ -236,7 +236,7 @@ table {
 	border-right:0;
 	clear: both;
 	color: #333;
-	
+
 	width: 100%;
 }
 th {
@@ -283,13 +283,13 @@ table td.actions a {
 .product_grid a{
 	display:block;
 	text-decoration: none;
-	width:100%;	
+	width:100%;
 	height:100%;
 
 }
 
 .product_grid tr td{
-	
+
 	border-bottom:0px solid;
 
 }
@@ -432,12 +432,12 @@ table.extra_details tr td {
 }
 
 /**
- * Selected label 
+ * Selected label
  */
 
  .selected_label_name {
  	position:absolute;
- 	top:905px;
+ 	top:920px;
 	width: 300px;
 	font-family: "century gothic",verdana,arial,helvetica,sans-serif;
 	font-size: 15px;
