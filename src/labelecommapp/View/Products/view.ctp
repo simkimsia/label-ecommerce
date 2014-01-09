@@ -33,8 +33,9 @@
                 <div class="productdetails" style="margin-top:100px;"><!-- <span class="detail"><br/>Details:</span> --><span class="thewords"><br/><br/><br/>
                     <?php
                         $desc_line = preg_split('/(?<=[.?!;:])\s+/', h($product['Product']['description']), -1, PREG_SPLIT_NO_EMPTY);
-                        foreach ($desc_line as $line){
-                             echo $line;
+                        $newlines = array("\r\n", "\n\r", "\r", "\n");
+                        foreach ($desc_line as $line) {
+                             echo nl2br($line);
                              echo '<br/><br/>';
                         }
                     ?>
@@ -43,7 +44,7 @@
                </div>
                    <img src="<?php echo $rep_img;?>" height="314" width="435" style="margin-left:90px;margin-top:30px;"></img>
 
-                   <div class="selected_label_name"> You have not selected a label type. </div>
+                   <div class="selected_label_name" style="margin-top:10px;"> You have not selected a design. </div>
 
                 <div class="clearBoth"></div>
 
