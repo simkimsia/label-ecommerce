@@ -69,7 +69,8 @@ ul.internalLinks li { font-size: 12px!important; display: block; margin-left: 10
 #childContainer .childHolder .featuredProducts li .productHolder { z-index: 1000; position: absolute; margin-top: 160px; background: url(../img/coursel_tag.png) no-repeat; width: 215px; height: 54px; margin-left: -11px; padding: 10px; font-size: 18px; color: #fff; }
 #childContainer .childHolder .featuredProducts li .learnmoreHolder { background: url(../img/learnmore.png) no-repeat; width: 120px; height: 35px; display: block; font-size: 0; position: absolute; margin-top: 222px; margin-left: 86px; }
 
-#childContainer .childHolder ul.productlabels { list-style:none; display:block; font-size:12px; width:300px; height: 180px;font-family:Arial, Helvetica, sans-serif; margin:10px 0 0 0; padding:0; }
+#childContainer .childHolder ul.productlabels { list-style:none; display:block; font-size:12px; width:300px; height: 180px;
+  /*font-family:Arial, Helvetica, sans-serif;*/ margin:10px 0 0 0; padding:0; }
 #childContainer .childHolder ul.productlabels a:link { text-decoration:none; color:#999; }
 #childContainer .childHolder ul.productlabels a:visited { text-decoration:none; }
 #childContainer .childHolder ul.productlabels a:hover { text-decoration:underline; }
@@ -90,11 +91,11 @@ ul.internalLinks li { font-size: 12px!important; display: block; margin-left: 10
 #childContainer .childHolder .contentArea .mainContent { background:url(../img/midContent.png) repeat-y; width:969px; display:block; margin-left:60px; }
 
 #childContainer .childHolder .contentArea .mainContent .theContents { margin-left:35px; width:900px; display:block; min-height:200px; font-size:13px; }
-#childContainer .childHolder .contentArea .mainContent .theContents h2 { margin:0; padding:0; color:#40c8f4; font-size:31px; font-family:"century gothic",verdana,arial,helvetica,sans-serif; }
+#childContainer .childHolder .contentArea .mainContent .theContents h2 { margin:0; padding:0; color:#40c8f4; font-size:31px; /*font-family:"century gothic",verdana,arial,helvetica,sans-serif;*/ }
 #childContainer .childHolder .contentArea .mainContent .theContents h3 { font-size:18px; }
-#childContainer .childHolder .contentArea .mainContent .theContents h2.price { margin:0; padding:0; color:#000000; font-size:35px; font-family:Arial, Helvetica, sans-serif; font-weight:normal; }
-#childContainer .childHolder .contentArea .mainContent .theContents div.desc { color:#000000; font-family:Arial, Helvetica, sans-serif; font-size:12px; font-weight:bold; }
-#childContainer .childHolder .contentArea .mainContent .theContents div.productdetails { font-family:"century gothic",verdana,arial,helvetica,sans-serif;; font-size:15px; margin-top:5px; width:345px; }
+#childContainer .childHolder .contentArea .mainContent .theContents h2.price { margin:0; padding:0; color:#000000; font-size:35px; /*font-family:Arial, Helvetica, sans-serif;*/ font-weight:normal; }
+#childContainer .childHolder .contentArea .mainContent .theContents div.desc { color:#000000; /*font-family:Arial, Helvetica, sans-serif;*/ font-size:12px; font-weight:bold; }
+#childContainer .childHolder .contentArea .mainContent .theContents div.productdetails { /*font-family:"century gothic",verdana,arial,helvetica,sans-serif;*/; font-size:15px; margin-top:5px; width:345px; }
 #childContainer .childHolder .contentArea .mainContent .theContents div.productdetails span.detail { float:left; width:45px; font-weight:bold;}
 #childContainer .childHolder .contentArea .mainContent .theContents div.productdetails span.thewords { float:left; width:300px; }
 
@@ -137,7 +138,7 @@ ul.internalLinks li { font-size: 12px!important; display: block; margin-left: 10
 #childContainer .childHolder .contentArea .mainContent .theContents .cartHolder .rightInfo .plane .shippingfees { margin-left:93px; text-align:center; line-height:16px; font-size:12px; font-family:Arial, Helvetica, sans-serif; color:#fff; padding-top:22px; }
 
 #childContainer .childHolder .contentArea .mainContent .theContents .areabox { box-shadow: 5px 5px 5px #888888; width:770px; height:400px; background:#FFF; position:absolute; opacity:0.8; filter:alpha(opacity=80); margin-left:50px; margin-top:190px; }
-#childContainer .childHolder .contentArea .mainContent .theContents .areabox .leftContent { float: left; width:300px; margin-left: 20px; margin-top:37px; line-height:20px; font-size:13px; font-family:"century gothic",verdana,arial,helvetica,sans-serif; }
+#childContainer .childHolder .contentArea .mainContent .theContents .areabox .leftContent { float: left; width:300px; margin-left: 20px; margin-top:37px; line-height:20px; font-size:13px; /*font-family:"century gothic",verdana,arial,helvetica,sans-serif;*/ }
 #childContainer .childHolder .contentArea .mainContent .theContents .areabox .rightContent { float: right; width:400px; margin-right: 20px; margin-top: 15px; }
 #childContainer .childHolder .contentArea .mainContent .theContents p.aboutLeft { font-size:14px; width:450px; text-align:justify; }
 #childContainer .childHolder .contentArea .mainContent .theContents p.aboutRight { float:right; margin-left:10px; text-align:justify; font-size:13px; width:450px; }
@@ -161,7 +162,7 @@ ul.internalLinks li { font-size: 12px!important; display: block; margin-left: 10
 
 #footerNav { background:#ffffff; height:160px; width: 1000px; margin-left:32px; margin-top:30px; -moz-box-shadow: 0 0 5px 5px #888;
 -webkit-box-shadow: 0 0 5px 5px#888; box-shadow: 0 0 5px 5px #888; }
-#footerNav .col1 { float: left; margin-left:30px; padding:10px; font-size:14px; }
+#footerNav .col1 { float: left; margin-left:30px; margin-right: 30px; padding:5px; font-size:14px; }
 .leffooter { float: left; margin-left:32px; margin-top:10px; margin-bottom:10px; font-size:10px;  }
 .cartNo { width:30px!important; display:inline!important; }
 .dustbinleft { margin-left:5px;}
@@ -439,6 +440,6 @@ table.extra_details tr td {
  .selected_label_name {
  	top:920px;
 	width: 300px;
-	font-family: "century gothic",verdana,arial,helvetica,sans-serif;
+	/*font-family: "century gothic",verdana,arial,helvetica,sans-serif;*/
 	font-size: 15px;
 }
