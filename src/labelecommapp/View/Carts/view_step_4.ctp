@@ -219,12 +219,16 @@ foreach($carts['CartsItem'] as $cartItems){ ?>
 
 <form action="/carts/pay" method="post" name="payment_form" id="payment_form">
 <div id="radio_buttons" class="radio_buttons" style=";top:<?php echo $total_price_top_position + 60;?>px;">
+<div style="margin-bottom:10px;">
  <input type="radio" name="data[payments]" id="paypal" value="paypal" style="margin-left:-13px" >
 
  <img src="https://www.paypal.com/en_US/i/logo/PayPal_mark_37x23.gif" class="paypal_image" align="left"><span class="payment_text" style ="
-font-size:20px;margin-left:42px;">The safer, easier way to pay.</span></img> </br>
+font-family:Helvetica;font-size:14px;font-weight:bold;font-style:normal;text-decoration:none;color:#404040;margin-left:42px;">The safer, easier way to pay.</span></img>
+</div>
 
- <input type="radio" name="data[payments]" id="bank_transfer" value="bank_transfer" ><span class="payment_text" style="font-size:20px;">Bank Transfer</span> </input/>
+<div>
+ <input type="radio" name="data[payments]" id="bank_transfer" value="bank_transfer" style="margin-left: 5px" ><span class="payment_text" style="font-family:Helvetica;font-size:14px;font-weight:bold;font-style:normal;text-decoration:none;color:#404040;margin-left:5px;">Bank Transfer</span> </input/>
+ </div>
 </div>
 </form>
 
