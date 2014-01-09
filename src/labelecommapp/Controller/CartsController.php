@@ -76,7 +76,7 @@ class CartsController extends AppController {
 		// and put in the url to the item image
 		$imageModel = ClassRegistry::init('ProductImage');
 		foreach($theCart['CartsItem'] as $index => $item) {
-			if(!isset($item['image'])){
+			if(!isset($item['image'])) {
 
 				$variant_id = $item['foreign_key'];
 				$product_image = $item['label_type'] . '%';
@@ -98,6 +98,25 @@ class CartsController extends AppController {
 				$this->Session->write("Cart.CartsItem.$index.image", $url);
 			}
 
+			if (!isset($item['first_line'])) {
+				preg_match("/first line: (.*)/", $item['metadata'], $matches);
+				$item['first_line'] = $matches[1];
+				$this->Session->write("Cart.CartsItem.$index.first_line", $item['first_line']);
+			}
+			if (!isset($item['second_line'])) {
+				preg_match("/second line: (.*)/", $item['metadata'], $matches);
+				$item['second_line'] = $matches[1];
+				$this->Session->write("Cart.CartsItem.$index.second_line", $item['second_line']);
+			}
+			if (!isset($item['font'])) {
+				preg_match("/font: (.*)/", $item['metadata'], $matches);
+				$item['font'] = $matches[1];
+				$this->Session->write("Cart.CartsItem.$index.font", $item['font']);
+			}
+			if (!isset($item['hashed'])) {
+				$item['hashed'] = Security::hash($item['metadata'], 'sha1', true);
+				$this->Session->write("Cart.CartsItem.$index.hashed", $item['hashed']);
+			}
 		}
 
 		if ($step == 2) {
@@ -284,7 +303,14 @@ class CartsController extends AppController {
 			$cart_data = $this->Session->read('Cart');
 			// Need to update the total price with the shipping fees
 
+			if (Configure::read('debug') > 0) {
+				$this->log('before paypal complete purchase');
+			}
 			$response = Paypal::completePurchase($cart_data);
+			if (Configure::read('debug') > 0) {
+				$this->log('after paypal complete purchase');
+				$this->log($response);
+			}
 			if($response->isSuccessful()) {
 				// update the Order payment_status to completed
 				$order_model = ClassRegistry::init('Cart.Order');
@@ -297,11 +323,17 @@ class CartsController extends AppController {
 				);
 				$cart_data['payment_options'] = 'Paypal Transactions';
 				$email = new CheckoutEmail($recipient);
+
 				if (Configure::read('debug') > 0) {
 					$this->log('before send email');
 					$this->log($cart_data);
 				}
-				$email->sendCheckoutEmail($cart_data);
+				if (isset($order_data['invoice_number'])) {
+					$email->sendCheckoutEmail($cart_data);
+					if (Configure::read('debug') > 0) {
+						$this->log('after send email');
+					}
+				}
 				// empty cart before showing success page.
 				$this->CartManager->emptyCart();
 				$this->redirect('/carts/successful');
@@ -412,9 +444,11 @@ class CartsController extends AppController {
 		if(isset($_POST['quantity'])){
 			$quantity = $_POST['quantity'];
 		}
+	}
 
-
-
+	public function empty_my_cart() {
+		$this->CartManager->emptyCart();
+		$this->redirect($this->referer());
 	}
 
 	public function remove_item($product_variant_id, $hashed){
@@ -442,8 +476,6 @@ class CartsController extends AppController {
 				}
 			}
 		}
-
-
 
 		echo json_encode(array('code'=>1200, 'message'=>'success'));
 	}

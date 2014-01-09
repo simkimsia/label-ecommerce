@@ -5,6 +5,7 @@ class CheckoutEmail {
 
 	private $emailConfig = 'gmail';
 	private $sender = 'do-not-reply@oppoin.com';
+	private $childlabel = 'sales@childlabel.com';
 
 	private $from;
 	private $to;
@@ -12,8 +13,9 @@ class CheckoutEmail {
 	private $email;
 
 	public function __construct($to) {
-		$this->from	= array('full_name' => 'ChildLabel', 'email' => $this->sender);
+		$this->from	= array('full_name' => 'ChildLabel', 'email' => $this->childlabel);
 		$this->to	= $to;
+		$this->cc = array('full_name' => 'ChildLabel', 'email' => $this->childlabel);
 
 		$this->_prepareAddressFields();
 	}

@@ -9,9 +9,9 @@
                 <div class="productCircleHolder clearfix" style="width: 900px;margin-left:0px;margin-top:50px;">
                     <?php echo $this->element('scrollable', array('product' => $product)); ?>
                 </div>
-                <div class="desc" style="font-size:24px;"><?php echo h($product['Product']['name']); ?></div>
+                <div class="desc" style="font-size:24px;color:#787878;"><?php echo h($product['Product']['name']); ?></div>
                 <ul class="productlabels">
-                <h2 class="price" style="font-size:69px;font-weight:bold;"><?php
+                <h2 class="price" style="font-size:40px;font-weight:bold;color:#787878;"><?php
                      $options = array('places' => 0);
                      echo $this->Number->currency($product['Product']['price'], '$', $options); ?></h2>
 
@@ -42,7 +42,13 @@
                    <br />
                </span>
                </div>
-                   <img src="<?php echo $rep_img;?>" height="314" width="435" style="margin-left:90px;margin-top:30px;"></img>
+                    <?php if (isset($rep_img)) :?>
+                   <img src="<?php echo $rep_img;?>" height="435" width="435" style="margin-left:90px;margin-top:30px;"></img>
+                    <?php else:
+                    $id = $product['Product']['id'];
+                    echo
+                        "Admin, you need to <a href=\"/admin/products/$id/rep_img\">upload</a> a Product Rep Image for this Product!";
+                    endif; ?>
 
                    <div class="selected_label_name" style="margin-top:10px;"> You have not selected a design. </div>
 
@@ -67,7 +73,16 @@
 
                         <tr>
                             <td>
-                                <div class="extra_details_labels">First Line</div>
+                                <?php
+                                $name = $product['Product']['name'];
+                                if (strpos($name, 'Split') === 0) {
+                                    $display = "Name";
+                                } else {
+                                    $display = "Line";
+                                }
+
+                                    ?>
+                                <div class="extra_details_labels">First <?php echo $display; ?></div>
                                 <br>
                                 <div class="first_line_field">
                                    <?php echo $this->Form->input('CartsItem.first_line', array(
@@ -106,7 +121,7 @@
                         <tr>
                             <td>
                                 <div class="extra_details_labels">
-                                    Second Line
+                                    Second <?php echo $display; ?>
                                 </div>
                                 <br>
                                 <div class="second_line_field">
@@ -233,16 +248,17 @@
            var str = $(this).val();
             if(str == ''){
                 str = 'Child';
-
+                $('#font_second_line').text("Label");
+            } else {
+                $('#font_second_line').text("");
             }
             $('#font_first_line').text(str);
         });
 
         $('#CartsItemSecondLine').on('input', function(){
             var str = $(this).val();
-            if(str == ''){
+            if(str == '' && $('#CartsItemFirstLine').val() == ''){
                 str = 'Label';
-
             }
             $('#font_second_line').text(str);
         });
@@ -262,7 +278,7 @@
                 highlightLabel($(this));
                 var cleanedSource = cleanFilename($(this).attr('src'));
                 $('#CartsItemLabelType').val(cleanedSource);
-                $('.selected_label_name').text('You have selected: ' + cleanedSource);
+                $('.selected_label_name').html('You have selected: <strong>' + cleanedSource + '</strong>');
                 if ($('.rightArrow1').is(':visible')) {
                     $('.rightArrow1').hide();
                     rightArrow1TemporarilyHide = true;
@@ -278,7 +294,7 @@
                 resetSelectedLabel();
                 // need to remove the filename chosen
                 $('#CartsItemLabelType').val("");
-                $('.selected_label_name').text("You have not selected a label type.");
+                $('.selected_label_name').text("You have not selected a design.");
                 if (rightArrow1TemporarilyHide) {
                     $('.rightArrow1').show();
                     rightArrow1TemporarilyHide = false;

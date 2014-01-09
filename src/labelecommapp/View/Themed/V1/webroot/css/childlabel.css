@@ -1,4 +1,8 @@
-body { padding: 0; margin: 0; background-image:url('../img/greybg.jpg'); background-repeat:repeat-y; font-family:"century gothic",verdana,arial,helvetica,sans-serif; }
+body { padding: 0; margin: 0; background-image:url('../img/greybg.jpg'); background-repeat:repeat-y;
+
+font-family:"Futura";
+src:url(../font/Futura.ttc);
+}
 #childContainer { width: 100%; }
 #childContainer .childHolder { width: 1034px; margin: 0 auto }
 #childContainer .childHolder .topMenuHolder { position: relative; background: url(../img/bg.png) no-repeat; width: 1034px; height:233px; z-index: 50; }
@@ -261,9 +265,6 @@ table tr td {
 	text-align: left;
 	vertical-align: top;
 	border-bottom:1px solid #ddd;
-}
-table tr:nth-child(even) {
-	background: #f9f9f9;
 }
 td.actions {
 	text-align: center;

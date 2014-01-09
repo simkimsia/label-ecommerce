@@ -5,6 +5,7 @@ class PasswordEmail {
 
 	private $emailConfig = 'gmail';
 	private $sender = 'do-not-reply@oppoin.com';
+	private $childlabel = 'sales@childlabel.com';
 
 	private $from;
 	private $to;
@@ -13,7 +14,7 @@ class PasswordEmail {
 	private $admin = false;
 
 	public function __construct($to, $admin=false) {
-		$this->from	= array('full_name' => 'ChildLabel', 'email' => $this->sender);
+		$this->from	= array('full_name' => 'ChildLabel', 'email' => $this->childlabel);
 		$this->to	= $to;
 		$this->admin = $admin;
 

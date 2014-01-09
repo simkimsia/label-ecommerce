@@ -68,10 +68,10 @@ class ProductImage extends AppModel {
  *
  *
  */
-    public function saveManyWithAttachment($data){ 
+    public function saveManyWithAttachment($data){
         foreach($data['ProductImage'] as $record) {
             if(empty($record['id'])) {
-                // this means we need to create new ProductImage record     
+                // this means we need to create new ProductImage record
                     $this->create();
                     $this->saveAndReorder($record);
             } else {
@@ -104,7 +104,7 @@ class ProductImage extends AppModel {
             $conditions['ProductImage.product_id'] = $getParams['product'];
         }
         $options['conditions'] = $conditions;
-        
+
         if (!empty($getParams['top'])) {
             $options['limit'] = $getParams['top'];
         }
@@ -128,12 +128,12 @@ class ProductImage extends AppModel {
     }
 
     public function swap($currentLeft, $currentRight){
-        // currentLeft is 4, currentRight is 5 
+        // currentLeft is 4, currentRight is 5
         $idOfCurrentLeft     = $currentLeft['ProductImage']['id']; // 4
         $leftOfCurrentLeft   = $currentLeft['ProductImage']['left']; // 3
         $rightOfCurrentLeft  = $currentLeft['ProductImage']['right']; // 5
         $orderOfCurrentLeft  = $currentLeft['ProductImage']['order']; // 1
-        
+
         $idOfCurrentRight    = $currentRight['ProductImage']['id']; // 5
         $leftOfCurrentRight  = $currentRight['ProductImage']['left']; // 4
         $rightOfCurrentRight = $currentRight['ProductImage']['right']; // 6
@@ -238,7 +238,7 @@ class ProductImage extends AppModel {
 
         foreach($results as $key => $array){
             $array['ProductImage']['order'] = $count;
-            $saveManyData[] = $array['ProductImage']; 
+            $saveManyData[] = $array['ProductImage'];
             $count          = $count + 1;
         }
         $this->saveMany($saveManyData);
@@ -255,8 +255,8 @@ class ProductImage extends AppModel {
             $data['left']   = $last['ProductImage']['id'];
             $data['id']     = $newId;
             $saveManyData   = array();
-            $saveManyData[] = array('id' => $data['id'], 'left' => $data['left'], 'order' => $data['order']); 
-            $saveManyData[] = array('id' => $last['ProductImage']['id'], 'right' => $last['ProductImage']['right']); 
+            $saveManyData[] = array('id' => $data['id'], 'left' => $data['left'], 'order' => $data['order']);
+            $saveManyData[] = array('id' => $last['ProductImage']['id'], 'right' => $last['ProductImage']['right']);
             $this->saveMany($saveManyData);
             $this->reorder($data['product_variant_id']);
         }
@@ -276,7 +276,7 @@ class ProductImage extends AppModel {
             ));
 
         return $result;
-    
+
     }
 
     public function deleteAndReorder($product_variant_id, $id){
@@ -299,12 +299,14 @@ class ProductImage extends AppModel {
                     $theRest[$key]['ProductImage']['left'] = $deleteLeftNeighbour;
                 }
             }
-
         }
-
+        $this->log('before delete');
+        $this->log($theRest);
         $result = $this->delete($id);
         if($result){
             $saveManyData = Hash::extract($theRest, '{n}.ProductImage');
+            $this->log('before save Many after delete');
+            $this->log($saveManyData);
             $this->saveMany($saveManyData);
             $this->reorder($product_variant_id);
         }

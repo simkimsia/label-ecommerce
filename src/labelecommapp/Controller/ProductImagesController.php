@@ -9,7 +9,7 @@ class ProductImagesController extends AppController {
 
 	public function beforeFilter() {
 		parent::beforeFilter();
-		$this->Auth->allow('index', 'view'); // allow for anonymous 
+		$this->Auth->allow('index', 'view'); // allow for anonymous
 	}
 
 /**
@@ -53,7 +53,7 @@ class ProductImagesController extends AppController {
 	public function admin_view_by_product($product_id = null, $product_variant_id = null) {
 		$this->set('product_id', $product_id);
 		$this->set('product_variant_id', $product_variant_id);
-		
+
 		$this->set('productImages', $this->ProductImage->find('all', array(
 			'conditions' => array(
 				'ProductImage.product_id'         => $product_id,
@@ -62,7 +62,7 @@ class ProductImagesController extends AppController {
 			'order' => array('ProductImage.order')
 			)
 		));
-		
+
 		$this->render('admin_view');
 	}
 /**
@@ -120,7 +120,7 @@ class ProductImagesController extends AppController {
 			$this->request->data = $this->ProductImage->find('first', $options);
 		}
 		$this->redirect('/admin/products/'.$product_id.'/variants/'.$product_variant_id.'/images');
-		
+
 	}
 
 /**
@@ -162,7 +162,7 @@ class ProductImagesController extends AppController {
 		if($currentRightElem == 0){
 			$this->Session->setFlash('Cannot swap. Already last item.');
 			$this->redirect('/admin/products/'.$product_id.'/variants/'.$product_variant_id.'/images');
-		}		
+		}
 		// find out the left, right and order of $currentLeftElem
 		$currentLeft = $this->ProductImage->getOrderStats($currentLeftElem);
 		// find out the left, right and order of $currentRightElem

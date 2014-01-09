@@ -94,3 +94,7 @@ tests/_log/*
 
 ## ignore vim temp files.
 *.swp
+
+##ignore paypal.php
+src/labelecommapp/Config/paypal.php
+src/labelecommapp/Config/paypal.php

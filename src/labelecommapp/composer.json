@@ -10,9 +10,9 @@
 		"simkimsia/utility_lib": "dev-master",
 		"simkimsia/permissions-extras": "dev-master",
 		"simkimsia/utility_behaviors": "dev-master",
-		"josegonzalez/upload": "dev-master",
+		"simkimsia/upload": "dev-patch-2",
 		"cakedc/search": "dev-master",
-		"omnipay/omnipay": "dev-master",
+		"omnipay/omnipay": "2.1",
 		"silex/silex": "1.0.*@dev",
 		"twig/twig": "~1.12",
 		"simkimsia/queryable": "dev-master"

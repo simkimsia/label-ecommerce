@@ -9,7 +9,7 @@ class ProductsController extends AppController {
 
 	public function beforeFilter() {
 		parent::beforeFilter();
-		$this->Auth->allow('index', 'view', 'summary'); // allow for anonymous 
+		$this->Auth->allow('index', 'view', 'summary'); // allow for anonymous
 	}
 
 /**
@@ -36,7 +36,9 @@ class ProductsController extends AppController {
 
 		$data = $this->Product->getViewVars($id);
 		$result = $this->Product->ProductRepresentativeImage->find('first', array('conditions' => array('ProductRepresentativeImage.product_id' => $id)));
-		$this->set('rep_img', $result['ProductRepresentativeImage']['view_url']);
+		if ($result) {
+			$this->set('rep_img', $result['ProductRepresentativeImage']['view_url']);
+		}
 		$this->set('product', $data);
 	}
 
@@ -73,7 +75,7 @@ class ProductsController extends AppController {
  */
 	public function admin_add() {
 		if ($this->request->is('post')) {
-	
+
 			// this is the point we will save the data to database
 			if ($this->Product->createWithDefaultVariant($this->request->data)) {
 				$this->Session->setFlash(__('The product has been saved'));
@@ -142,15 +144,15 @@ class ProductsController extends AppController {
  */
 	public function summary() {
 		$products = $this->Product->find('all');
-		
+
 		foreach($products as $key => $product){
 			$conditions = array('conditions' => array('ProductRepresentativeImage.product_id' => $product['Product']['id']));
 			$rep_img_array = $this->Product->ProductRepresentativeImage->find('first', $conditions);
 			$products[$key] = $products[$key] + $rep_img_array;
-		
-		}	
+
+		}
 		$this->set('products', $products);
-		
+
 
 	}
 

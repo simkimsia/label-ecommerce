@@ -13,7 +13,7 @@ class EnquiryEmail {
 
 	public function __construct($from) {
 		$this->from	= $from;
-		$this->to	= array('full_name' => 'Daphne Ling', 'email' => 'daphne@motherinc.org'); 
+		$this->to	= array('full_name' => 'ChildLabel', 'email' => 'sales@childlabel.com');
 
 		$this->_prepareAddressFields();
 		$this->_addSenderToCCList();
