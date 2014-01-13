@@ -8,7 +8,7 @@
   <meta name="keywords" content="" />
   <meta name="title" content="" />
   <meta name="description" content="" />
-  <title></title>
+  <title>Childlabel</title>
 
 <!-- Stylesheets Start //-->
 <link rel="shortcut icon" href="<?php echo $this->Html->assetUrl('img/cake.icon.png'); ?>"/>
@@ -35,8 +35,6 @@
 <div id="childContainer">
     <div class="childHolder">
 
-
-
         <ul id="menuBar">
           <li>
             <a href="/products/summary"><div class="shop">shop</div></a>
@@ -46,7 +44,7 @@
                 </div>
               <ul class="internalLinks">
                 <li>
-                    <strong>Child Label Packs (Stickers)</strong>
+                    <strong>STICKERS</strong>
                     <ul>
                       <li><a href="/products/view/2">Circle Labels</a></li>
                       <li><a href="/products/view/1">Rectangle Labels</a></li>
@@ -57,7 +55,7 @@
                       <li><a href="/products/view/7">Split English/Chinese Pack</a></li>
                     </ul>
                 </li>
-                <li><strong>Child Label Packs (Iron Ons)</strong>
+                <li><strong>IRON ONS</strong>
                   <ul>
                       <li><a href="/products/view/9">Circle Labels</a></li>
                       <li><a href="/products/view/8">Rectangle Labels</a></li>
@@ -66,7 +64,7 @@
                       <li><a href="/products/view/11">Split English/Chinese Pack</a></li>
                     </ul>
                 </li>
-                <li><strong>Value Packs</strong>
+                <li><strong>VALUE PACKS</strong>
                   <ul>
                       <li><a href="/products/view/12">Get Me Started Pack</a></li>
                       <li><a href="/products/view/14">Give Me Everything Pack</a></li>
@@ -118,7 +116,7 @@
 
         <div id="footerNav">
             <div class="col1">
-              <strong>Stickers</strong><br/>
+              <strong>STICKERS</strong><br/>
               <?php // foreach ($productsForSale as $product): ?>
                 <?php //echo $this->Html->link(__($product['Product']['name']), array('controller' => 'products', 'action' => 'view', $product['Product']['id'])); ?>
               <?php //endforeach; ?>
@@ -132,7 +130,7 @@
             </div>
 
             <div class="col1">
-              <strong>Iron Ons</strong><br/>
+              <strong>IRON ONS</strong><br/>
                 <a href="/products/view/9">Circle Labels</a></br>
                 <a href="/products/view/8">Rectangle Labels</a></br>
                 <a href="/products/view/10">Chinese Labels</a></br>
@@ -141,14 +139,14 @@
             </div>
 
             <div class="col1">
-              <strong>Value Packs</strong><br/>
+              <strong>VALUE PACKS</strong><br/>
                 <a href="/products/view/12">Get Me Started Pack</a></br>
                 <a href="/products/view/14">Give Me Everything Pack</a></br>
              
             </div>
 
             <div class="col1">
-              <strong>Navigation</strong><br/>
+              <strong>NAVIGATION</strong><br/>
                 <a href="/about">About</a><br/>
                 <a href="/faq">FAQs</a><br/>
                 <a href="/call">Contact</a><br/>
@@ -167,26 +165,26 @@
 </div>
 <?php echo $this->fetch('libScriptBottom'); ?>
 <script type="text/javascript">
-$(window).load(function() {
-    $('#slider').nivoSlider();
-});
+	$(window).load(function() {
+		$('#slider').nivoSlider();
+	});
 
-$(function() { 
-      $('#dropDownMenu').hide();
-      $("#menuBar > li")
-        .mouseenter(function() {
-          $(".menu_items", this).show();
-        })
-        .mouseleave(function() {
-          $(".menu_items", this).hide();
-        });
-    });
+	$(function() { 
+		  $('#dropDownMenu').hide();
+		  $("#menuBar > li")
+			.mouseenter(function() {
+			  $(".menu_items", this).show();
+			})
+			.mouseleave(function() {
+			  $(".menu_items", this).hide();
+			});
+		});
 
-// alertify the Session
-var sessionMsg = '<?php echo $session; ?>';
-if (sessionMsg != "") {
-  alertify.success(sessionMsg);
-}
+	// alertify the Session
+	var sessionMsg = '<?php echo $session; ?>';
+	if (sessionMsg != "") {
+	  alertify.success(sessionMsg);
+	}
 </script>
 <?php echo $this->fetch('scriptBottom'); ?>
 </body>
