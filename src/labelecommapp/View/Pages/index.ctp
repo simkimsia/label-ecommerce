@@ -49,7 +49,7 @@
             <div class="centercontent">
 
               <h3 class="notop">Stuff won’t be taken intentionally. </h3>
-              <p class="top">This is also known as stealing. Everyone knows that people are less likely to steal a bottle with your kid’s name labeled clearly on it. They’d have to spend all that time trying to it off cleanly and people who steal just don’t have that kind of time. </p>
+              <p class="top">This is also known as stealing. Everyone knows that people are less likely to steal a bottle with your kid’s name labeled clearly on it. They’d have to spend all that time trying to peel it off cleanly and people who steal just don’t have that kind of time. </p>
 
               <h3>Great as presents.</h3>
               <p>Child Labels make awesome presents for little friends. If you’re planning a party, these individually customized

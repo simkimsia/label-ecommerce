@@ -117,9 +117,6 @@
         <div id="footerNav">
             <div class="col1">
               <strong>STICKERS</strong><br/>
-              <?php // foreach ($productsForSale as $product): ?>
-                <?php //echo $this->Html->link(__($product['Product']['name']), array('controller' => 'products', 'action' => 'view', $product['Product']['id'])); ?>
-              <?php //endforeach; ?>
                 <a href="/products/view/2">Circle Labels</a></br>
                 <a href="/products/view/1">Rectangle Labels</a></br>
                 <a href="/products/view/3">Chinese Labels</a></br>
