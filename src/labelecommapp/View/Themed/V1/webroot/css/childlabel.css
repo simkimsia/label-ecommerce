@@ -1,7 +1,5 @@
 body { padding: 0; margin: 0; background-image:url('../img/greybg.jpg'); background-repeat:repeat-y;
 
-font-family:"Futura";
-src:url(../font/Futura.ttc);
 }
 #childContainer { width: 100%; }
 #childContainer .childHolder { width: 1034px; margin: 0 auto }
@@ -408,8 +406,12 @@ table.extra_details tr td {
   src:url(../font/Chowderhead.ttf);
   }
   @font-face {
-  font-family:"FuturaBook";
+  font-family:"Futura-Book";
   src:url(../font/FuturaBook.ttf);
+  }
+  @font-face {
+	  font-family:"Futura Bk BT";
+	  src:url(../font/FuturaBkBT.ttf);
   }
 
 /**
