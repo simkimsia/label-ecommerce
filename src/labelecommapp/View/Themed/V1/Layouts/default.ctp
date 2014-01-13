@@ -152,8 +152,8 @@
                 <a href="/about">About</a><br/>
                 <a href="/faq">FAQs</a><br/>
                 <a href="/call">Contact</a><br/>
-                <a href="#">Facebook</a><br/>
-                <a href="#">Twitter</a><br/>
+                <a href="https://www.facebook.com/childlabel">Facebook</a><br/>
+                <a href="https://www.twitter.com/childlabel">Twitter</a><br/>
             </div>
         </div>
 
