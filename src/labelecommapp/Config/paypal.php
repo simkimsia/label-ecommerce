@@ -9,7 +9,7 @@
 				'testmode' => true
 			);
 
-			public $live = array(
+			public $kimsia_live = array(
 				'username' => 'admin_api1.ombi60.com',
 				'password' => 'S3Y4KW9LENXQ64NK',
 				'signature' => 'AFcWxV21C7fd0v3bYYYRCpSSRl31ABlIrc8fS80kiIMGBlUzayC8SqR2',
