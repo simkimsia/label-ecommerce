@@ -15,6 +15,9 @@ class Paypal {
 		if (Configure::read('PAYPAL') == 'sandbox') {
 			$paypalconfig = $paypalconfig->sandbox;
 		}
+		if (Configure::read('PAYPAL') == 'kimsia_live') {
+			$paypalconfig = $paypalconfig->kimsia_live;
+		}
 		if (Configure::read('PAYPAL') == 'live') {
 			$paypalconfig = $paypalconfig->live;
 		}
@@ -56,6 +59,9 @@ class Paypal {
 		// print_r($paypalconfig->sandbox);
 		if (Configure::read('PAYPAL') == 'sandbox') {
 			$paypalconfig = $paypalconfig->sandbox;
+		}
+		if (Configure::read('PAYPAL') == 'kimsia_live') {
+			$paypalconfig = $paypalconfig->kimsia_live;
 		}
 		if (Configure::read('PAYPAL') == 'live') {
 			$paypalconfig = $paypalconfig->live;
