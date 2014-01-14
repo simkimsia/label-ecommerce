@@ -275,12 +275,14 @@ class CartsController extends AppController {
 			$shipping_address_text                = $address_model->prepareAddressAsText($cart_data['ShippingAddress']);
 			$billing_address_text                 = $address_model->prepareAddressAsText($cart_data['BillingAddress']);
 
-			$order_data  = $order_model->createOrder($cart_data, 'BANK_TRANSFER' );
+			$order_data  = $order_model->createOrder($cart_data, 'BANK_TRANSFER' ); // createOrder() saves cart_data
+
 			if ($order_data) {
 				$orderId = $order_data['Order']['id'];
 				$order_model->id = $orderId;
 				$order_model->set('billing_address', $billing_address_text);
 				$order_model->set('shipping_address', $shipping_address_text);
+				$order_model->set('status', 'pending');
 				$order_model->save(null, array('callbacks' => false, 'validates' => false));
 				$this->Session->write('Cart.Order', $order_data['Order']);
 				$this->redirect('/carts/successful_ib');
@@ -316,6 +318,7 @@ class CartsController extends AppController {
 				$order_model = ClassRegistry::init('Cart.Order');
 				$order_data = $this->Session->read('Cart.Order');
 				$order_model->updatePaymentStatus($order_data['id'], 'completed');
+				$order_model->updateStatus($order_data['id'], 'pending');
 
 				$recipient = array(
 					'full_name' => $this->Auth->user('full_name'),
