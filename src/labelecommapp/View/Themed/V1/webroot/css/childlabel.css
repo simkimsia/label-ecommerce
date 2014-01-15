@@ -1,6 +1,12 @@
-body { padding: 0; margin: 0; background-image:url('../img/greybg.jpg'); background-repeat:repeat-y;
-
+body {
+    padding: 0;
+    margin: 0;
+    background-image:url('../img/greybg.jpg');
+    background-repeat:repeat-y;
+    font-family:"Futura"; /* do not remove this */
+    src:url(../font/Futura.ttc); /* do not remove this */
 }
+
 #childContainer { width: 100%; }
 #childContainer .childHolder { width: 1034px; margin: 0 auto }
 #childContainer .childHolder .topMenuHolder { position: relative; background: url(../img/bg.png) no-repeat; width: 1034px; height:233px; z-index: 50; }
