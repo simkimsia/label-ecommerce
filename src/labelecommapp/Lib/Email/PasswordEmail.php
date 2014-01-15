@@ -4,7 +4,7 @@ App::uses('CakeEmail', 'Network/Email');
 class PasswordEmail {
 
 	private $emailConfig = 'gmail';
-	private $sender = 'do-not-reply@oppoin.com';
+	private $sender = 'sales@childlabel.com';
 	private $childlabel = 'sales@childlabel.com';
 
 	private $from;
