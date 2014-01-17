@@ -129,7 +129,7 @@ class UsersController extends AppController {
 			} else {
 				$errorMessage = '';
 				if ($duplicateEmail) {
-					$errorMessage .= 'Your email is already used.<br />';
+					$errorMessage .= 'Your email is already used.<br /> Use the forget password to reset.<br />';
 				}
 				if (!$passwordMatch) {
 					$errorMessage .= 'Your passwords do not match.';
