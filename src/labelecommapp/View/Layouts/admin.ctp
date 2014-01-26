@@ -28,7 +28,7 @@ $cakeDescription = __d('cake_dev', 'ChildLabel: admin panel');
 		<?php echo $title_for_layout; ?>
 	</title>
 	<?php
-		echo $this->Html->meta('icon');
+		//echo $this->Html->meta('icon');
 
 		echo $this->Html->css('cake.generic');
 
@@ -40,11 +40,11 @@ $cakeDescription = __d('cake_dev', 'ChildLabel: admin panel');
 		echo $this->Html->script('navbar/navbar_initialize.js', array("block" => "scriptBottom"));
 		echo $this->Html->css('navbar');
 
-		echo $this->fetch('meta');
 		echo $this->fetch('css');
 		echo $this->fetch('scriptTop');
 		echo $this->fetch('script');
 	?>
+	<link rel="shortcut icon" href="<?php echo $this->Html->assetUrl('img/favicon.ico?v=2'); ?>"/>
 	<style type="text/css">
 		@keyframes fade {
 			0% { opacity: 0; }
