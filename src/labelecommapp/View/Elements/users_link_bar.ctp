@@ -47,7 +47,7 @@
 				echo "<strong>" . $message . "</strong>";
 			} else {
 				echo $this->Html->link($message, array('action' => 'logout'));
-			}			
+			}
 
 		}
 

@@ -11,7 +11,10 @@
   <title>Childlabel</title>
 
 <!-- Stylesheets Start //-->
-<link rel="shortcut icon" href="<?php echo $this->Html-assetUrl>('img/cake.icon.png'); ?>"/>
+<<<<<<< HEAD
+=======
+<link rel="shortcut icon" href="<?php echo $this->Html->assetUrl('img/favicon.ico?v=2'); ?>"/>
+>>>>>>> a9955fc4692b302eeb6432aff29de222dc576ded
 <?php echo $this->Html->css('childlabel'); ?>
 <!-- Stylesheets Start End //-->
 <?php echo $this->Html->script('jquery-1.10.2'); ?>
@@ -139,7 +142,7 @@
               <strong>VALUE PACKS</strong><br/>
                 <a href="/products/view/12">Get Me Started Pack</a></br>
                 <a href="/products/view/14">Give Me Everything Pack</a></br>
-             
+
             </div>
 
             <div class="col1">
@@ -166,7 +169,7 @@
 		$('#slider').nivoSlider();
 	});
 
-	$(function() { 
+	$(function() {
 		  $('#dropDownMenu').hide();
 		  $("#menuBar > li")
 			.mouseenter(function() {

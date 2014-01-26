@@ -27,10 +27,14 @@ class CheckoutEmail {
 		$toEmail	= $this->to['email'];
 		$toFullName	= $this->to['full_name'];
 
+		$ccEmail	= $this->cc['email'];
+		$ccFullName	= $this->cc['full_name'];
+
 		$email = new CakeEmail($this->emailConfig);
 
 		$email->from(array($fromEmail => $fromFullName));
 		$email->to(array($toEmail => $toFullName));
+		$email->cc(array($ccEmail => $ccFullName));
 		$email->sender($this->sender);
 		$email->replyTo($fromEmail, $fromFullName);
 		$this->email = $email;

@@ -14,6 +14,7 @@
     <?php echo $this->Html->script('libs/alertify/0.3.10/alertify.min', array('block' => 'libScriptBottom')); ?>
     <?php echo $this->Html->css('alertify/0.3.10/themes/alertify.core'); ?>
     <?php echo $this->Html->css('alertify/0.3.10/themes/alertify.default'); ?>
+    <link rel="shortcut icon" href="<?php echo $this->Html->assetUrl('img/favicon.ico?v=2'); ?>"/>
 </head>
 <body vlink="#FFFFFF" link="#FFFFFF" alink="#FFFFFF">
     <?php $session = $this->Session->flash('flash', array('element' => 'flash_blank')); ?>

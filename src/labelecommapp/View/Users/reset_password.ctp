@@ -4,7 +4,8 @@ echo $this->Form->create('User', array(
 		'action' => 'reset_password',
 		'controller' => 'users',
 		'?' => array('token' => $token)
-	))
+	)),
+  'style' => 'margin-top: 100px;',
 ));
 echo $this->Form->inputs(array(
 	'legend' => __('Please choose a new password'),

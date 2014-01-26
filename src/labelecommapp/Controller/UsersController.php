@@ -25,7 +25,14 @@ class UsersController extends AppController {
 		parent::beforeFilter();
 		$this->Auth->allow('send_enquiry_email',
 			'admin_forget_password', 'admin_reset_password',
-			'reset_password', 'view_my_own_profile', 'register', 'change_my_own_password');
+			'forget_password',
+			'reset_password',
+			'edit_my_own_profile',
+			'view_my_own_profile',
+			'register',
+			'change_my_own_password',
+			'logout'
+			);
 	}
 
 /**
@@ -122,7 +129,7 @@ class UsersController extends AppController {
 			} else {
 				$errorMessage = '';
 				if ($duplicateEmail) {
-					$errorMessage .= 'Your email is already used.<br />';
+					$errorMessage .= 'Your email is already used.<br /> Use the forget password to reset.<br />';
 				}
 				if (!$passwordMatch) {
 					$errorMessage .= 'Your passwords do not match.';
@@ -354,6 +361,29 @@ class UsersController extends AppController {
 	}
 
 /**
+ * edit_my_own_profile method
+ *
+ * @throws NotFoundException
+ * @param string $id
+ * @return void
+ */
+	public function edit_my_own_profile() {
+		if ($this->request->is('post') || $this->request->is('put')) {
+			if ($this->User->save($this->request->data)) {
+				$this->Session->setFlash($message);
+				$this->redirect(array('action' => 'view_my_own_profile'));
+			} else {
+				$message = "Unable to edit profile";
+				$this->Session->setFlash($message);
+			}
+		} else {
+			$options = array('conditions' => array('User.' . $this->User->primaryKey => $this->Auth->user('id')));
+			$this->request->data = $this->User->find('first', $options);
+		}
+		$this->render('edit_my_own_profile');
+	}
+
+/**
  * change_my_own_password method for user
  *
  * @throws NotFoundException
@@ -380,6 +410,11 @@ class UsersController extends AppController {
  * @return void
  */
 	public function admin_forget_password() {
+		$this->_forget_password_action();
+	}
+
+	protected function _forget_password_action() {
+		$admin = $this->request->params['admin'];
 		if ($this->request->is('post')) {
 			$email = $this->request->data['User']['email'];
 			$emailExist = $this->User->checkEmailExists($email);
@@ -389,7 +424,6 @@ class UsersController extends AppController {
 				$userData = $this->User->findXORCreateToken($email);
 
 				//send email with token
-				$admin = true;
 				$this->User->sendToken($userData, $admin);
 				$this->Session->setFlash('The reset link has been sent to your email. Please check your email and click the link.');
 				$this->redirect(array('action' => 'login'));
@@ -398,6 +432,15 @@ class UsersController extends AppController {
 			}
 		}
 		$this->render('forget_password');
+	}
+
+/**
+ * forget_password method
+ *
+ * @return void
+ */
+	public function forget_password() {
+		$this->_forget_password_action();
 	}
 
 /**
