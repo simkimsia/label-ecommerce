@@ -11,7 +11,7 @@
   <title>Childlabel</title>
 
 <!-- Stylesheets Start //-->
-<link rel="shortcut icon" href="<?php echo $this->Html->assetUrl('img/cake.icon.png'); ?>"/>
+<link rel="shortcut icon" href="<?php echo $this->Html-assetUrl>('img/cake.icon.png'); ?>"/>
 <?php echo $this->Html->css('childlabel'); ?>
 <!-- Stylesheets Start End //-->
 <?php echo $this->Html->script('jquery-1.10.2'); ?>
