@@ -11,10 +11,7 @@
   <title>Childlabel</title>
 
 <!-- Stylesheets Start //-->
-<<<<<<< HEAD
-=======
 <link rel="shortcut icon" href="<?php echo $this->Html->assetUrl('img/favicon.ico?v=2'); ?>"/>
->>>>>>> a9955fc4692b302eeb6432aff29de222dc576ded
 <?php echo $this->Html->css('childlabel'); ?>
 <!-- Stylesheets Start End //-->
 <?php echo $this->Html->script('jquery-1.10.2'); ?>
