@@ -92,7 +92,8 @@ src/labelecommapp/composer.lock
 !tests/_log/empty
 tests/_log/*
 
-## ignore vim temp files.
+## ignore vim project  & temp files.
+.local.vimrc
 *.swp
 
 ##ignore paypal.php
