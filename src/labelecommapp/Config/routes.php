@@ -28,6 +28,7 @@
  */
 
 	Router::parseExtensions('json');
+	Router::parseExtensions('csv');
 
 
 	Router::connect('/', array('controller' => 'pages', 'action' => 'display', 'index'));

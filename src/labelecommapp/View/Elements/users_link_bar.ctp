@@ -40,6 +40,8 @@
 			} else {
 				echo $this->Html->link($message, array('action' => 'add'));
 			}
+			echo ' | ';
+			echo $this->Html->link('Export Customers', array('action' => 'export_customers', 'ext' => 'csv'));
 		}
 			$message = 'Logout';
 			echo ' | ';

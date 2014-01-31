@@ -9,17 +9,17 @@ class UsersController extends AppController {
 
 
 	public $paginate = array(
-        'User' => array (
-        	'limit' => 20,
-    		'maxLimit' => 100,
-    		'paramType' => 'named',
-        ),
-        'Order' => array (
-        	'limit' => 1,
-    		'maxLimit' => 100,
-    		'paramType' => 'named',
-        )
-    );
+		'User' => array (
+			'limit' => 20,
+			'maxLimit' => 100,
+			'paramType' => 'named',
+		),
+		'Order' => array (
+			'limit' => 1,
+			'maxLimit' => 100,
+			'paramType' => 'named',
+		)
+	);
 
 	public function beforeFilter() {
 		parent::beforeFilter();
@@ -33,6 +33,38 @@ class UsersController extends AppController {
 			'change_my_own_password',
 			'logout'
 			);
+	}
+
+/**
+ *
+ * export customers and their emails
+ *
+ * @return void
+ */
+	public function admin_export_customers() {
+		// Find fields needed without recursing through associated models
+		$data = $this->User->find(
+			'all',
+			array(
+				'conditions' => array(
+					'User.group_id' => CUSTOMER
+				),
+				'fields' => array('full_name','short_name','email'),
+				'order' => "User.id ASC",
+				'contain' => false
+		));
+		// Define column headers for CSV file, in same array format as the data itself
+		$headers = array(
+			'User'=>array(
+				'full_name' => 'Full Name',
+				'short_name' => 'Short Name',
+				'email' => 'Email',
+			)
+		);
+		// Add headers to start of data array
+		array_unshift($data,$headers);
+		// Make the data available to the view (and the resulting CSV file)
+		$this->set(compact('data'));
 	}
 
 /**
@@ -116,6 +148,7 @@ class UsersController extends AppController {
 				}
 			} else if ($registerUser) {
 				$this->User->create();
+				$this->request->data['User']['group_id'] = CUSTOMER;
 				if ($this->User->save($this->request->data)) {
 					$this->Session->setFlash(__('The user has been saved'));
 					$this->Session->delete('CartStep2RegisterData');
@@ -300,8 +333,8 @@ class UsersController extends AppController {
 			$conditions                                       = array('Order.user_id' => $this->Auth->user('id'));
 			$this->Paginator->settings['Order']['conditions'] = $conditions;
 
-    		// similar to findAll(), but fetches paged results
-    		$users_orders = $this->Paginator->paginate('Order');
+			// similar to findAll(), but fetches paged results
+			$users_orders = $this->Paginator->paginate('Order');
 
 			$this->set('users_orders', $users_orders);
 
