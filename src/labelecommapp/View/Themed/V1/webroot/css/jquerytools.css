@@ -8,7 +8,7 @@
   left: 100px;
   margin-left: -120px;
 }
- 
+
 /*
 root element for scrollable items. Must be absolutely positioned
 and it should have a extremely large width to accommodate scrollable
@@ -17,7 +17,7 @@ and not for this element.
 */
 .scrollable .items {
   /* this cannot be too large */
-  width:200em;
+  width:2000em;
   position:absolute;
   clear:both;
 }
