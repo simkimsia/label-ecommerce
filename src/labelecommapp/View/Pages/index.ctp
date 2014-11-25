@@ -1,13 +1,16 @@
         <div class="bannerHolder theme-default">
           <div id="slider" class="nivoSlider">
               <a href="#">
-              <?php echo $this->Html->image('rotating image gallery 1.jpg', array('data-thumb' => 'banner1.jpg')); ?>
+                  <?php echo $this->Html->image('rotate-1.jpg', array('data-thumb' => 'banner1.jpg')); ?>
               </a>
               <a href="#">
-                  <?php echo $this->Html->image('rotating image gallery 2.png', array('data-thumb' => 'banner2.jpg')); ?>
+                  <?php echo $this->Html->image('rotate-2.jpg', array('data-thumb' => 'banner2.jpg')); ?>
               </a>
               <a href="#">
-                  <?php echo $this->Html->image('rotating image gallery 3.png', array('data-thumb' => 'banner3.jpg')); ?>
+                  <?php echo $this->Html->image('rotate-3.jpg', array('data-thumb' => 'banner3.jpg')); ?>
+              </a>
+              <a href="#">
+                  <?php echo $this->Html->image('rotate-4.jpg', array('data-thumb' => 'banner4.jpg')); ?>
               </a>
           </div>
         </div>
