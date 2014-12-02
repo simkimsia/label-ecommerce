@@ -1,17 +1,24 @@
         <div class="bannerHolder theme-default">
           <div id="slider" class="nivoSlider">
+	  <?php 
+foreach($slideshow_pictures as $key => $image) {
+	echo '<a href="#">'. $this->Html->image($image['SlideshowPicture']['view_url']) . '</a>';
+}
+	?>
+<!--
               <a href="#">
-                  <?php echo $this->Html->image('rotate-1.jpg', array('data-thumb' => 'banner1.jpg')); ?>
+                  <?php echo $this->Html->image('slideshow_pictures/rotate-1.jpg', array('data-thumb' => 'banner1.jpg')); ?>
               </a>
               <a href="#">
-                  <?php echo $this->Html->image('rotate-2.jpg', array('data-thumb' => 'banner2.jpg')); ?>
+                  <?php echo $this->Html->image('slideshow_pictures/rotate-2.jpg', array('data-thumb' => 'banner2.jpg')); ?>
               </a>
               <a href="#">
-                  <?php echo $this->Html->image('rotate-3.jpg', array('data-thumb' => 'banner3.jpg')); ?>
+                  <?php echo $this->Html->image('slideshow_pictures/rotate-3.jpg', array('data-thumb' => 'banner3.jpg')); ?>
               </a>
               <a href="#">
-                  <?php echo $this->Html->image('rotate-4.jpg', array('data-thumb' => 'banner4.jpg')); ?>
+                  <?php echo $this->Html->image('slideshow_pictures/rotate-4.jpg', array('data-thumb' => 'banner4.jpg')); ?>
               </a>
+-->
           </div>
         </div>
 

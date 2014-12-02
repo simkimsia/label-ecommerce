@@ -74,6 +74,9 @@ class PagesController extends AppController {
 		if (!empty($path[$count - 1])) {
 			$title_for_layout = Inflector::humanize($path[$count - 1]);
 		}
+		$this->SlideshowPicture = ClassRegistry::init('SlideshowPicture');
+		$result = $this->SlideshowPicture->find('all', ['conditions' => ['SlideshowPicture.position >' => 0],'order' =>['SlideshowPicture.position ASC']]);
+		$this->set('slideshow_pictures', $result);
 		$this->set(compact('page', 'subpage', 'title_for_layout'));
 		$this->render(implode('/', $path));
 	}
