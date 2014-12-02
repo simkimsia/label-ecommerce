@@ -106,10 +106,14 @@ class ProductsController extends AppController {
 		if ($this->request->is('post') || $this->request->is('put')) {
 			if ($this->Product->save($this->request->data)) {
 				$this->Session->setFlash(__('The product has been saved'));
+				
+				$this->Product->updateProductVariantsPrice($this->request->data);
+				$this->Product->updateCartItemsPrices();
 				$this->redirect(array('action' => 'index'));
 			} else {
 				$this->Session->setFlash(__('The product could not be saved. Please, try again.'));
 			}
+
 		} else {
 			$options = array('conditions' => array('Product.' . $this->Product->primaryKey => $id));
 			$this->request->data = $this->Product->find('first', $options);

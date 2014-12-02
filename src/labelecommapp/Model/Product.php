@@ -123,4 +123,22 @@ class Product extends AppModel {
         return $variants;
     }
 
+/**
+* Update all product variants price when admin changes prices of the product. 
+*/
+    public function updateProductVariantsPrice($product) {
+	if(!$this->ProductVariant->updateAll(['ProductVariant.price' => $product['Product']['price']], ['ProductVariant.product_id' => $product['Product']['id']])) {
+		throw new Exception('Unable to update Product Variant prices.');
+	}
+    }
+
+/**
+* Update all prices of the cart items when admin change prices of the product.
+*/
+    public function updateCartItemsPrices() {
+	    $db = $this->getDataSource();
+	    $query = "UPDATE carts_items ci INNER JOIN product_variants pv ON pv.id = ci.foreign_key SET ci.price = pv.price";
+	    $db->rawQuery($query);
+    }
+
 }

@@ -66,7 +66,12 @@ class CartsController extends AppController {
 		$this->layout = 'cart';
 		// need to collect images and store them if necessary
 		$theCart = $this->Session->read('Cart');
+		App::uses('CartCalculator', 'Lib/CartCalculator');
+		$theCart = CartCalculator::updatePricesInCart($theCart);
+		$theCart = CartCalculator::addUpAllTheCartItems($theCart);
+
 		if (Configure::read('debug') > 0) {
+			$this->log('Session Cart');
 			$this->log($theCart);
 		}
 		if(!isset($theCart['Cart']['item_count']) || $theCart['Cart']['item_count'] == 0){
