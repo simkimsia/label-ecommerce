@@ -209,14 +209,13 @@ $cakeDescription = __d('cake_dev', 'ChildLabel: admin panel');
 		</div>
 		<?php
 			if (!empty($authUser)) :
-					$dashboardTabs = array('Home', 'Orders', 'Shipping', 'Products', 'Users', 'Slideshow Pictures');
+					$dashboardTabs = array('Home', 'Orders', 'Shipping', 'Products', 'Users');
 					$dashboardLinks = array(
 							'Home' => '/admin/home',
 							'Orders' => '/admin/cart/orders',
 							'Shipping' => '/admin/shipping_options',
 							'Products' => '/admin/products',
 							'Users' => '/admin/users',
-							'Slideshow Pictures' => '/admin/slideshow_pictures'
 							);
 
 					$groupID = $authUser['Group']['id'];

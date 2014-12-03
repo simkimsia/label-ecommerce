@@ -299,5 +299,12 @@ class ProductVariant extends AppModel {
         return $result;
     }
 
+    public function getLatestPriceOfProduct($id) {
+	    $this->id = $id;
+	    $productId = $this->read(['ProductVariant.product_id']);
+	    
+	    $product = $this->Product->findById($productId['ProductVariant']['product_id']);
+	    return $product['Product']['price'];
+    }
 
 }
