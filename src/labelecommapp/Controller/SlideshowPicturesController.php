@@ -7,11 +7,6 @@ App::uses('AppController', 'Controller');
  */
 class SlideshowPicturesController extends AppController {
 
-/***
-*
-*
-*
-*/
 	public function beforeFilter() {
 		parent::beforeFilter();
 	}
@@ -31,24 +26,8 @@ class SlideshowPicturesController extends AppController {
 
 		$all = $this->SlideshowPicture->find('all', $options);
 		$this->set('all', $all);
-		//$this->ShippingOption->recursive = 0;
-		//$this->set('shippingOptions', $this->paginate());
 	}
 
-/**
- * view method
- *
- * @throws NotFoundException
- * @param string $id
- * @return void
- */
-	public function admin_view($id = null) {
-		//if (!$this->ShippingOption->exists($id)) {
-		//	throw new NotFoundException(__('Invalid shipping option'));
-		//}
-		//$options = array('conditions' => array('ShippingOption.' . $this->ShippingOption->primaryKey => $id));
-		//$this->set('shippingOption', $this->ShippingOption->find('first', $options));
-	}
 
 /**
  * add method
@@ -62,15 +41,6 @@ class SlideshowPicturesController extends AppController {
 			}
 			$this->redirect('/admin/slideshow_pictures/');
 		}
-		//if ($this->request->is('post')) {
-		//	$this->ShippingOption->create();
-		//	if ($this->ShippingOption->save($this->request->data)) {
-		//		$this->Session->setFlash(__('The shipping option has been saved'));
-		//		$this->redirect(array('action' => 'index'));
-		//	} else {
-		//		$this->Session->setFlash(__('The shipping option could not be saved. Please, try again.'));
-		//	}
-		//}
 	}
 
 /**
@@ -94,56 +64,6 @@ class SlideshowPicturesController extends AppController {
 			}
 			$this->redirect('/admin/slideshow_pictures/');
 		}
-		//if (!$this->ShippingOption->exists($id)) {
-		//	throw new NotFoundException(__('Invalid shipping option'));
-		//}
-		//if ($this->request->is('post') || $this->request->is('put')) {
-		//	if ($this->ShippingOption->save($this->request->data)) {
-		//		$this->Session->setFlash(__('The shipping option has been saved'));
-		//		$this->redirect(array('action' => 'index'));
-		//	} else {
-		//		$this->Session->setFlash(__('The shipping option could not be saved. Please, try again.'));
-		//	}
-		//} else {
-		//	$options = array('conditions' => array('ShippingOption.' . $this->ShippingOption->primaryKey => $id));
-		//	$this->request->data = $this->ShippingOption->find('first', $options);
-		//}
-	}
-
-/**
- * delete method
- *
- * @throws NotFoundException
- * @param string $id
- * @return void
- */
-	public function admin_delete($id = null) {
-		//$this->ShippingOption->id = $id;
-		//if (!$this->ShippingOption->exists()) {
-		//	throw new NotFoundException(__('Invalid shipping option'));
-		//}
-		//$this->request->onlyAllow('post', 'delete');
-		//if ($this->ShippingOption->delete()) {
-		//	$this->Session->setFlash(__('Shipping option deleted'));
-		//	$this->redirect(array('action' => 'index'));
-		//}
-		//$this->Session->setFlash(__('Shipping option was not deleted'));
-		//$this->redirect(array('action' => 'index'));
-	}
-
-/**
- * re-order slideshow pictures
- */
-	public function admin_reorder() {
-		$pictures = $this->SlideshowPicture->find('all', ['order' => ['SlideshowPicture.position ASC']]);
-		$this->set('pictures', $pictures);
-		if($this->request->is('post') || $this->request->is('put')) {
-			if(!$this->SlideshowPicture->saveMany($this->request->data)) {
-				throw new Exception('unable to save data.');
-			}
-			$this->SlideshowPicture->reassignOrder();
-			$this->redirect('/admin/slideshow_pictures/reorder');
-		}
 	}
 
 	public function admin_visibility_toggle($id) {
@@ -154,7 +74,7 @@ class SlideshowPicturesController extends AppController {
 		$picture = $this->SlideshowPicture->findById($id);
 
 		if($picture['SlideshowPicture']['position'] > 0) {
-			$picture['SlideshowPicture']['position'] = 0;
+			$picture['SlideshowPicture']['position'] = null;
 		} else {
 			$picture['SlideshowPicture']['position'] = 9;
 		}
