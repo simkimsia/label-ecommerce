@@ -71,6 +71,7 @@ class AppController extends Controller {
 		$this->_prepareLogin();
 		$this->_setAuthUser();
 		$this->_extractCartData();
+		$this->_redirectToThankYou();
 	}
 	protected function _extractCartData() {
 		//Configure AuthComponent
@@ -97,9 +98,21 @@ class AppController extends Controller {
             // choose the right theme
 			$this->theme = false;
 			$this->layout = 'admin';
-        } else {
-        	// choose the right theme
-			$this->theme = 'V1';
-        }
+		} else {
+			// choose the right theme
+				$this->theme = 'V1';
+				$this->layout = 'nothing';
+		}
+	}
+
+	protected function _redirectToThankYou() {
+		if (!isset($this->request->params['admin'])) {
+			if($this->request->params['controller'] != 'pages' || $this->request->params['action'] != 'thankyou') {
+				//$this->theme = 'V1';
+				//$this->layout = 'nothing';
+				$this->redirect('/pages/thankyou');
+			}
+		} else {
+		}
 	}
 }

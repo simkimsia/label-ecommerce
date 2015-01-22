@@ -39,6 +39,8 @@
 
 	Router::connect('/faq', array('controller' => 'pages', 'action' => 'display', 'faq'));
 
+	Router::connect('/thankyou', array('controller' => 'pages', 'action' => 'display', 'thankyou'));
+
 	Router::connect('/enquiry_email/add', array('controller' => 'users', 'action' => 'send_enquiry_email'));
 
 	Router::connect('/admin', array('controller' => 'products', 'action' => 'index', 'admin' => true, 'prefix' => 'admin'));
@@ -50,7 +52,7 @@
 /**
  * ...and connect the rest of 'Pages' controller's urls.
  */
-	Router::connect('/pages/*', array('controller' => 'pages', 'action' => 'display'));
+	//Router::connect('/pages/*', array('controller' => 'pages', 'action' => 'thankyou'));
 
 	Router::connect('/admin/products/:product_id/variants/add',
 		array(
